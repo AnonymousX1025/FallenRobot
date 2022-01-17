@@ -342,7 +342,7 @@ def export_data(update, context):
     context.bot.sendDocument(
         current_chat_id,
         document=open("FallenRobot{}.backup".format(chat_id), "rb"),
-        caption="💾*Successfully Exported backup:*\nChat: `{}`\nChat ID: `{}`\nOn: `{}`\n\nNote: This `FallenRobot-Backup` was specially made for notes 📚.".format(
+        caption="📤*Successfully Exported backup:*\nChat: `{}`\nChat ID: `{}`\nOn: `{}`\n\nNote: This `FallenRobot-Backup` was specially made for notes 📚.".format(
             chat.title, chat_id, tgl
         ),
         timeout=360,
@@ -367,7 +367,7 @@ def get_chat(chat_id, chat_data):
         return {"status": False, "value": False}
 
 
-__mod_name__ = "BACKUP"
+__mod_name__ = "ʙᴀᴄᴋᴜᴘ📥"
 
 __help__ = """
 *Only for group owner:*
