@@ -13,12 +13,12 @@ PHOTO = "https://telegra.ph/file/862bf2d97058a6017215b.jpg"
 
 @register(pattern=("/alive"))
 async def awake(event):
-  TEXT = f"**ʜᴇʏ​ [{event.sender.first_name}](tg://user?id={event.sender.id}),\nɪ ᴀᴍ ꜰᴀʟʟᴇɴ ʀᴏʙᴏᴛ​.** ━━━━━━━━━━━━━━━━━━━━━━\n\n"
+  TEXT = f"**ʜᴇʏ​ [{event.sender.first_name}](tg://user?id={event.sender.id}),\nɪ ᴀᴍ ꜰᴀʟʟᴇɴ ʀᴏʙᴏᴛ​.**\n━━━━━━━━━━━━━━━━━━━\n\n"
   TEXT += "» **ɪ ᴀᴍ ᴀʟɪᴠᴇ ʙᴀʙʏ!** \n\n"
   TEXT += f"» **ᴍʏ ᴅᴇᴠᴇʟᴏᴘᴇʀ​ : [𝝙𝗡𝗢𝗡𝗬𝗠𝗢𝗨𝗦](https://t.me/anonymous_was_bot)** \n\n"
   TEXT += f"» **ʟɪʙʀᴀʀʏ ᴠᴇʀsɪᴏɴ :** `{telever}` \n\n"
   TEXT += f"» **ᴛᴇʟᴇᴛʜᴏɴ ᴠᴇʀsɪᴏɴ :** `{tlhver}` \n\n"
-  TEXT += f"» **ᴘʏʀᴏɢʀᴀᴍ ᴠᴇʀsɪᴏɴ :** `{pyrover}` ━━━━━━━━━━━━━━━━━━━━━━\n\n"
+  TEXT += f"» **ᴘʏʀᴏɢʀᴀᴍ ᴠᴇʀsɪᴏɴ :** `{pyrover}` \n━━━━━━━━━━━━━━━━━━━\n\n"
   TEXT += "**ᴛʜᴀɴᴋs ꜰᴏʀ ᴄʜᴇᴄᴋɪɴɢ ʙᴀʙʏ🖤**"
   BUTTON = [[Button.url("ʜᴇʟᴘ​", "https://t.me/anonymous_0_robot?start=help"), Button.url("sᴜᴘᴘᴏʀᴛ​", "https://t.me/DevilsHeavenMF")]]
   await tbot.send_file(event.chat_id, PHOTO, caption=TEXT,  buttons=BUTTON)
