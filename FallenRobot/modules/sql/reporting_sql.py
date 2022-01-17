@@ -1,7 +1,7 @@
 import threading
 from typing import Union
 
-from FallenMusic.modules.sql import BASE, SESSION
+from FallenRobot.modules.sql import BASE, SESSION
 from sqlalchemy import Boolean, Column, Integer, String
 
 
