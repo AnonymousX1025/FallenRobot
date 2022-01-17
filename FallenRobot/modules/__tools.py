@@ -1,6 +1,6 @@
 # © @AnonymousBoy1025
 
-__mod_name__ = "TOOLS"
+__mod_name__ = "ᴛᴏᴏʟs🧰"
 
 __help__ = """
 
