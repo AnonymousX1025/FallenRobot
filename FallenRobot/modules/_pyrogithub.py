@@ -5,7 +5,7 @@ from FallenRobot import pbot
 from FallenRobot.pyrogramee.errors import capture_err
 
 
-__mod_name__ = "GITHUB"
+__mod_name__ = "ɢɪᴛʜᴜʙ🧧"
 
 __help__ = """
 I will give information about github profile 
