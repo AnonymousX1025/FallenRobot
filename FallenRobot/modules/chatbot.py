@@ -125,7 +125,7 @@ def chatbot(update: Update, context: CallbackContext):
 
 def list_all_chats(update: Update, context: CallbackContext):
     chats = sql.get_all_kuki_chats()
-    text = "<b>Fallen AI Enabled Chats</b>\n"
+    text = "<b>Fallen Enabled Chats</b>\n"
     for chat in chats:
         try:
             x = context.bot.get_chat(int(*chat))
@@ -139,7 +139,8 @@ def list_all_chats(update: Update, context: CallbackContext):
 
 __help__ = """
 *Admins only Commands*:
-  ➢ `/chatbot`*:* Shows chatbot control panel
+  »  /chatbot *:* Shows chatbot control panel
+
 """
 
 __mod_name__ = "Cʜᴀᴛʙᴏᴛ🤖"
