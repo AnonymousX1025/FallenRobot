@@ -565,10 +565,11 @@ Group admins/group owners do not need these commands.
  ❍ /adddemon*:* Adds a user to Demon
  ❍ /addtiger*:* Adds a user to Tiger
  ❍ /addwolf*:* Adds a user to Wolf
- ❍ `Add dev doesn't exist, devs should know how to add themselves`
+ ❍ `Add dev doesnt exist, devs should know how to add themselves`
 
 *Ping:*
  ❍ /ping*:* gets ping time of bot to telegram server
+ ❍ /pingall*:* gets all listed ping times
 
 *Broadcast: (Bot owner only)*
 *Note:* This supports basic markdown
