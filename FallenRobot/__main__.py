@@ -80,15 +80,15 @@ PM_START_TEXT = """
 buttons = [
     [
         InlineKeyboardButton(
-            text="🥺 ᴀᴅᴅ ᴍᴇ ᴇʟsᴇ ʏᴏᴜ ɢᴇʏ​ 🥺", url="t.me/MashaRoBot?startgroup=true"),
+            text="🥺 ᴀᴅᴅ ᴍᴇ ᴇʟsᴇ ʏᴏᴜ ɢᴇʏ​ 🥺", url="t.me/BotFather?startgroup=true"),
     ],
     [
-        InlineKeyboardButton(text="💞 ᴀʙᴏᴜᴛ ᴍᴇ 💞​", callback_data="fallen_"),
-        InlineKeyboardButton(text="🤦🏻‍♂️ ʜᴇʟᴘ​ 🤦🏻‍♂️", callback_data="help_back"),
+        InlineKeyboardButton(text="💞 ᴅᴇᴠᴇʟᴏᴘᴇʀ​ 💞​", url="https://t.me/anonymous_was_bot"),
+        InlineKeyboardButton(text="🎧 ᴍᴜsɪᴄ ʙᴏᴛ​​ 🎧", url="https://t.me/fallen_music_bot"),
     ],
     [
         InlineKeyboardButton(
-            text="🤔 sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ 🤔", callback_data="source_"),
+            text="🤔 sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ 🤔", url="https://t.me/anonymous_was_bot"),
         InlineKeyboardButton(
             text="😘 sᴜᴘᴘᴏʀᴛ 😘", url="https://t.me/DevilsHeavenMF"
         ),
