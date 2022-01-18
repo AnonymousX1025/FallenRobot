@@ -118,4 +118,4 @@ I will give information about a country
  ❍ /country <country name>*:* Gathering info about given country
 """
 
-__mod_name__ = "ᴄᴏᴜɴᴛʀʏ🇮🇳"
+__mod_name__ = "Cᴏᴜɴᴛʀʏ🇮🇳"
