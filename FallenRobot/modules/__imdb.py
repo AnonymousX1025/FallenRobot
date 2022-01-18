@@ -113,4 +113,4 @@ __help__ = """
  ❍ /imdb <Movie name>*:* Get full info about a movie from [imdb.com](https://m.imdb.com)
 """
 
-__mod_name__ = "ɪᴍᴅʙ🤷‍♂️"
+__mod_name__ = "Iᴍᴅʙ🤷‍♂️"
