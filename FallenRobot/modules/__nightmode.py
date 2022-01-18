@@ -55,7 +55,7 @@ openhehe = ChatBannedRights(
     change_info=True,
 )
 
-@register(pattern="^/addnt")
+@register(pattern="^/night")
 async def close_ws(event):
     if event.is_group:
      if not (await is_register_admin(event.input_chat, event.message.sender_id)):
@@ -71,7 +71,7 @@ async def close_ws(event):
     add_nightmode(str(event.chat_id))
     await event.reply(f"Added Chat {event.chat.title} With Id {event.chat_id} To Database. **This Group Will Be Closed On 12Am(IST) And Will Opened On 06Am(IST)**")
 
-@register(pattern="^/rmnt")
+@register(pattern="^/rmnight")
 async def disable_ws(event):
     if event.is_group:
      if not (await is_register_admin(event.input_chat, event.message.sender_id)):
