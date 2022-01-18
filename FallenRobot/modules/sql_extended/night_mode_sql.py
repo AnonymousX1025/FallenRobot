@@ -1,4 +1,4 @@
-from sqlalchemy import Boolean, Column, Integer, String, UnicodeText
+from sqlalchemy import Boolean, Column, String, UnicodeText
 from FallenRobot.modules.sql import BASE, SESSION
 
 
