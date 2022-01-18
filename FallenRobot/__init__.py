@@ -3,6 +3,7 @@ import os
 import sys
 import time
 import spamwatch
+import asyncio
 
 import telegram.ext as tg
 from pyrogram import Client, errors
@@ -185,6 +186,7 @@ else:
         LOGGER.warning("Can't connect to SpamWatch!")
 
 
+defaults = tg.Defaults(run_async=True)
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
 telethn = TelegramClient("fallen", API_ID, API_HASH)
 pbot = Client("fallenrobot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
