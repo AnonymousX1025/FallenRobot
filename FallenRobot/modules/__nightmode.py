@@ -95,7 +95,7 @@ async def job_close():
     for warner in ws_chats:
         try:
             await tbot.send_message(
-              int(warner.chat_id), "12:00 Am, Group Is Closing Till 6 Am. Night Mode Started ! \n**Powered By [Fallen Robot](t.me/anonymous_was_bot)**"
+              int(warner.chat_id), "12:00 Am, Group Is Closing Till 6 Am. Night Mode Started ! \n**Powered By Fallen Robot**"
             )
             await tbot(
             functions.messages.EditChatDefaultBannedRightsRequest(
@@ -117,7 +117,7 @@ async def job_open():
     for warner in ws_chats:
         try:
             await tbot.send_message(
-              int(warner.chat_id), "06:00 Am, Group Is Opening.\n**Powered By [Fallen Robot](t.me/anonymous_was_bot)**"
+              int(warner.chat_id), "06:00 Am, Group Is Opening.\n**Powered By Fallen Robot**"
             )
             await tbot(
             functions.messages.EditChatDefaultBannedRightsRequest(
@@ -131,3 +131,14 @@ async def job_open():
 scheduler = AsyncIOScheduler(timezone="Asia/Kolkata")
 scheduler.add_job(job_open, trigger="cron", hour=6, minute=10)
 scheduler.start()
+
+__help__ = """
+*Admins Only*
+
+ ❍ /addnt*:* Adds Group to NightMode Chats
+ ❍ /rmnt*:* Removes Group From NightMode Chats
+
+*Note:* Night Mode chats get Automatically closed at 12 am(IST) and Automatically openned at 6 am(IST) to Prevent Night Spams.
+"""
+
+__mod_name__ = "Nɪɢʜᴛᴍᴏᴅᴇ😴​"
