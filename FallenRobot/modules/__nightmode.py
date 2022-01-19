@@ -135,10 +135,10 @@ scheduler.start()
 __help__ = """
 *Admins Only*
 
- ❍ /addnt*:* Adds Group to NightMode Chats
- ❍ /rmnt*:* Removes Group From NightMode Chats
+ ❍ /nightmode*:* Adds Group to NightMode Chats
+ ❍ /rmnight*:* Removes Group From NightMode Chats
 
 *Note:* Night Mode chats get Automatically closed at 12 am(IST) and Automatically openned at 6 am(IST) to Prevent Night Spams.
 """
 
-__mod_name__ = "Nɪɢʜᴛᴍᴏᴅᴇ😴​"
+__mod_name__ = "Nɪɢʜᴛ😴​"
