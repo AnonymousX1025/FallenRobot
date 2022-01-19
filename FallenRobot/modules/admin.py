@@ -639,10 +639,6 @@ __help__ = """
  ❍ /title <title here>*:* sets a custom title for an admin that the bot promoted
  ❍ /admincache*:* force refresh the admins list
  ❍ /antispam <on/off/yes/no>*:* Will toggle our antispam tech or return your current settings.
- ❍ /addnt*:* Adds Group to NightMode Chats
- ❍ /rmnt*:* Removes Group From NightMode Chats
-
-*Note:* Night Mode chats get Automatically closed at 12 am(IST) and Automatically openned at 6 am(IST) to Prevent Night Spams.
 
 ⚠️ `Read from top`
 """
