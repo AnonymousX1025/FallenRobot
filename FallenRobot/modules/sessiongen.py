@@ -1,5 +1,5 @@
 from asyncio.exceptions import TimeoutError
-from Data import Data
+from .helpers_extra import sdata
 from pyrogram import Client, filters
 from telethon import TelegramClient
 from telethon.sessions import StringSession
