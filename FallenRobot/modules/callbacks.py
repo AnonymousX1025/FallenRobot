@@ -1,7 +1,7 @@
 from FallenRobot.helper_extra.sdata import Data
 from pyrogram import Client
 from pyrogram.types import CallbackQuery, InlineKeyboardMarkup, InlineKeyboardButton
-from modules.sessiongen import generate_session, ERROR_MESSAGE
+from FallenRobot.modules.sessiongen import generate_session, ERROR_MESSAGE
 
 
 # Callbacks
