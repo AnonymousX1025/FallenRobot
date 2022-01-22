@@ -63,7 +63,7 @@ async def logo_gen(event):
     else:
         pics = []
         async for i in ubot2.iter_messages(
-            "@anonlogopoint", filter=InputMessagesFilterPhotos
+            "@KenLogoPack", filter=InputMessagesFilterPhotos
         ):
             pics.append(i)
         id_ = random.choice(pics)
@@ -73,7 +73,7 @@ async def logo_gen(event):
     if not bg_:
         pics = []
         async for i in ubot2.iter_messages(
-            "@anonlogopoint", filter=InputMessagesFilterPhotos
+            "@KenLogoPack", filter=InputMessagesFilterPhotos
         ):
             pics.append(i)
         id_ = random.choice(pics)
@@ -212,9 +212,9 @@ __mod_name__ = "Lᴏɢᴏ​😇"
 
 __help__ = """
 
-✗ /logo (Text) - Create a logo with random view.`
+❍ /logo (Text) - Create a logo with random view.`
 
-✗ /wlogo (Text) - Create a logo with wide view only.`
+❍ /wlogo (Text) - Create a logo with wide view only.`
 
-*✗ Pᴏᴡᴇʀᴇᴅ 💕 Bʏ: [𝝙𝗡𝗢𝗡𝗬𝗠𝗢𝗨𝗦](t.me/DevilsHeavenMF)!*
+* 💕 Pᴏᴡᴇʀᴇᴅ Bʏ : @DevilsHeavenMF 💕*
 """
