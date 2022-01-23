@@ -44,7 +44,7 @@
          "required": true,
          "value": "1356469075"
       },
-      "SESSION_STRING": {
+      "STRING_SESSION": {
         "description": "Fill this with telethon string session.",
         "required": true,
         "value": ""
