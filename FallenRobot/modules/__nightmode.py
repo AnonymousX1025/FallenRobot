@@ -141,4 +141,4 @@ __help__ = """
 *Note:* Night Mode chats get Automatically closed at 12 am(IST) and Automatically openned at 6 am(IST) to Prevent Night Spams.
 """
 
-__mod_name__ = "Nɪɢʜᴛ😴​"
+__mod_name__ = "Nɪɢʜᴛ​"
