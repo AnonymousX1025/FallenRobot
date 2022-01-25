@@ -97,4 +97,4 @@ I can find weather of all cities
  ❍ /wttr moon*:* Get the current status of moon
 """
 
-__mod_name__ = "Wᴇᴀᴛʜᴇʀ🌨"
+__mod_name__ = "Wᴇᴀᴛʜᴇʀ"
