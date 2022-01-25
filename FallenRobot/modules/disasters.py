@@ -539,7 +539,7 @@ def devlist(update: Update, context: CallbackContext):
         "<code>Gathering intel..</code>", parse_mode=ParseMode.HTML
     )
     true_dev = list(set(DEV_USERS) - {OWNER_ID})
-    reply = "<b>Devils Heaven Members ⚡️:</b>\n"
+    reply = "<b>Hero Association Members ⚡️:</b>\n"
     for each_user in true_dev:
         user_id = int(each_user)
         try:
@@ -560,7 +560,7 @@ Group admins/group owners do not need these commands.
  ❍ /demons*:* Lists all Demon disasters
  ❍ /tigers*:* Lists all Tigers disasters
  ❍ /wolves*:* Lists all Wolf disasters
- ❍ /devils*:* Lists all Devils Heaven members
+ ❍ /heroes*:* Lists all Hero Association members
  ❍ /adddragon*:* Adds a user to Dragon
  ❍ /adddemon*:* Adds a user to Demon
  ❍ /addtiger*:* Adds a user to Tiger
@@ -628,7 +628,7 @@ Group admins/group owners do not need these commands.
  ❍ /gbanlist*:* Outputs a list of gbanned users
 
 *Global Blue Text*
- ❍ /gignoreblue*:* <word>*:* Globally ignorea bluetext cleaning of saved word across FallenRobot.
+ ❍ /gignoreblue*:* <word>*:* Globally ignore bluetext cleaning of saved word across Anonymous Robot.
  ❍ /ungignoreblue*:* <word>*:* Remove said command from global cleaning list
 
 *Masha Core*
@@ -661,7 +661,7 @@ WHITELISTLIST_HANDLER = CommandHandler(["whitelistlist", "wolves"], whitelistlis
 TIGERLIST_HANDLER = CommandHandler(["tigers"], tigerlist)
 SUPPORTLIST_HANDLER = CommandHandler(["supportlist", "demons"], supportlist)
 SUDOLIST_HANDLER = CommandHandler(["sudolist", "dragons"], sudolist)
-DEVLIST_HANDLER = CommandHandler(["devlist", "devils"], devlist)
+DEVLIST_HANDLER = CommandHandler(["devlist", "heroes"], devlist)
 
 dispatcher.add_handler(SUDO_HANDLER)
 dispatcher.add_handler(SUPPORT_HANDLER)
@@ -678,7 +678,7 @@ dispatcher.add_handler(SUPPORTLIST_HANDLER)
 dispatcher.add_handler(SUDOLIST_HANDLER)
 dispatcher.add_handler(DEVLIST_HANDLER)
 
-__mod_name__ = "Fu*kers"
+__mod_name__ = "DEVS"
 __handlers__ = [
     SUDO_HANDLER,
     SUPPORT_HANDLER,
