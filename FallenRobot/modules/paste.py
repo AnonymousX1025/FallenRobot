@@ -44,6 +44,6 @@ __help__ = """
 *Paste:*
  ❍ /paste*:* Saves replied content to `nekobin.com` and replies with a url
 """
-__mod_name__ = "Pᴀsᴛᴇ​📑"
+__mod_name__ = "Pᴀsᴛᴇ​"
 __command_list__ = ["paste"]
 __handlers__ = [PASTE_HANDLER]
