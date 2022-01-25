@@ -208,7 +208,7 @@ async def logo_(event):
             os.remove(font_)
 
 
-__mod_name__ = "Lᴏɢᴏ​😇"
+__mod_name__ = "Lᴏɢᴏ​"
 
 __help__ = """
 
