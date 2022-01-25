@@ -3,8 +3,10 @@ from pyrogram.types import Message
 
 from FallenRobot import pbot as app
 from FallenRobot.utils.errors import capture_err
-
-__mod_name__ = "Wᴇʙsʜᴏᴛ🌐​​"
+__help__ = """
+» /webss *:* Sends the screenshot of the given url.
+"""
+__mod_name__ = "Wᴇʙsʜᴏᴛ​​"
 
 
 @app.on_message(filters.command("webss"))
