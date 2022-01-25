@@ -43,7 +43,7 @@ async def purge_messages(event):
     except:
         pass
     time_ = time.perf_counter() - start
-    text = f"Purged Successfully in {time_:0.2f} Second(s)"
+    text = f"Purged Successfully in {time_:0.2f} Second(s)\nFast AF 😎"
     await event.respond(text, parse_mode="markdown")
 
 
@@ -81,6 +81,6 @@ DEL_HANDLER = delete_messages, events.NewMessage(pattern="^[!/]del$")
 telethn.add_event_handler(*PURGE_HANDLER)
 telethn.add_event_handler(*DEL_HANDLER)
 
-__mod_name__ = "Pᴜʀɢᴇ❌"
+__mod_name__ = "Pᴜʀɢᴇ"
 __command_list__ = ["del", "purge"]
 __handlers__ = [PURGE_HANDLER, DEL_HANDLER]
