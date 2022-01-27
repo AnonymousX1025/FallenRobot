@@ -83,12 +83,12 @@ buttons = [
             text="🥺 ᴀᴅᴅ ᴍᴇ ᴇʟsᴇ ʏᴏᴜ ɢᴇʏ​ 🥺", url="t.me/anonymous_0_robot?startgroup=true"),
     ],
     [
-        InlineKeyboardButton(text="💞 ᴅᴇᴠᴇʟᴏᴘᴇʀ​ 💞​", url="https://t.me/anonymous_was_bot"),
-        InlineKeyboardButton(text="🎧 ᴍᴜsɪᴄ ʙᴏᴛ​​ 🎧", url="https://t.me/fallen_music_bot"),
+        InlineKeyboardButton(text="💞 ᴀʙᴏᴜᴛ ᴍᴇ​​ 💞​", callback_data="fallen_"),
+        InlineKeyboardButton(text="🔥 ʜᴇʟᴘ & ᴄᴍᴅs​​​ 🔥", callback_data="help_back"),
     ],
     [
         InlineKeyboardButton(
-            text="🤔 sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ 🤔", url="https://t.me/anonymous_was_bot"),
+            text="🤔 sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ 🤔", callback_data="source_"),
         InlineKeyboardButton(
             text="😘 sᴜᴘᴘᴏʀᴛ 😘", url="https://t.me/DevilsHeavenMF"
         ),
@@ -374,8 +374,8 @@ def Source_about_callback(update: Update, context: CallbackContext):
     query = update.callback_query
     if query.data == "source_":
         query.message.edit_text(
-            text="""Hey...😘 I'm *Fallen Robot*
-                 \nHere is my [Source Code](https://t.me/DevilsHeavenMF) .""",
+            text="""Hey...😘\nI'm *Fallen Robot*
+                 \nHere is my [Source Code](https://t.me/DevilsHeavenMF).""",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=False,
             reply_markup=InlineKeyboardMarkup(
