@@ -1,6 +1,7 @@
 from pyrogram import filters
 from pyrogram.types import Message
 from requests import get
+from pyrogram import client
 import os
 import requests
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
