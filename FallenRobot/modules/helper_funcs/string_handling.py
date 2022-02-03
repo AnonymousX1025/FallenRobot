@@ -11,7 +11,7 @@ from telegram.utils.helpers import escape_markdown
 
 # NOTE: the url \ escape may cause double escape
 # match * (bold) (don't escape if in url)
-# match _ (italics) (don't escape if in url)
+# match _ (italics) (don't escape if in url]
 # match ` (code)
 # match []() (markdown link)
 # else, escape *, _, `, and [
