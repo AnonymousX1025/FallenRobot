@@ -1,1 +1,1 @@
-"""Helpers, also known as Utilities."""
+"""Helpers, also known as Utilities"""
