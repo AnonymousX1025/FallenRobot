@@ -44,10 +44,10 @@ def mediainfo(media):
 
 @register(pattern="^/logo ?(.*)")
 async def logo_gen(event):
-    xx = await event.reply("`ᴄʀᴇᴀᴛɪɴɢ ᴛʜᴇ ʀᴇǫᴜᴇsᴛᴇᴅ ʟᴏɢᴏ ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ ʙᴀʙʏ...​`")
+    xx = await event.reply("Preparing your logo...")
     name = event.pattern_match.group(1)
     if not name:
-        await xx.edit("`ɢɪᴠᴇ sᴏᴍᴇ ᴛᴇxᴛ ᴛᴏ ᴄʀᴇᴀᴛᴇ ʟᴏɢᴏ ʙᴀʙʏ​!🤦🏻‍♂️`\nExample: /logo Fallen")
+        await xx.edit("Provide some text to draw!\nExample: /logo <your name>!")
         return
     bg_, font_ = "", ""
     if event.reply_to_msg_id:
@@ -63,7 +63,7 @@ async def logo_gen(event):
     else:
         pics = []
         async for i in ubot2.iter_messages(
-            "@anonlogopoint", filter=InputMessagesFilterPhotos
+            "@KenLogopack", filter=InputMessagesFilterPhotos
         ):
             pics.append(i)
         id_ = random.choice(pics)
@@ -73,7 +73,7 @@ async def logo_gen(event):
     if not bg_:
         pics = []
         async for i in ubot2.iter_messages(
-            "@anonlogopoint", filter=InputMessagesFilterPhotos
+            "@KenLogopack", filter=InputMessagesFilterPhotos
         ):
             pics.append(i)
         id_ = random.choice(pics)
@@ -108,12 +108,12 @@ async def logo_gen(event):
               stroke_width=strke, stroke_fill="black")
     flnme = f"logo.png"
     img.save(flnme, "png")
-    await xx.edit("`Uploading...`")
+    await xx.edit("Downloading")
     if os.path.exists(flnme):
         await tbot.send_file(
             event.chat_id,
             file=flnme,
-            caption="Logo by [𝝙𝗡𝗢𝗡𝗬𝗠𝗢𝗨𝗦](https://t.me/DevilsHeavenMF)",
+            caption="Logo by [Null](https://t.me/Shubhanshutya)",
             force_document=False,
         )
         os.remove(flnme)
@@ -127,10 +127,10 @@ async def logo_gen(event):
 
 @register(pattern="^/wlogo ?(.*)")
 async def logo_(event):
-    xx = await event.reply("`ᴄʀᴇᴀᴛɪɴɢ ᴛʜᴇ ʀᴇǫᴜᴇsᴛᴇᴅ ʟᴏɢᴏ ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ ʙᴀʙʏ...​`")
+    xx = await event.reply("Preparing your logo...")
     name = event.pattern_match.group(1)
     if not name:
-        await xx.edit("`ɢɪᴠᴇ sᴏᴍᴇ ᴛᴇxᴛ ᴛᴏ ᴄʀᴇᴀᴛᴇ ʟᴏɢᴏ ʙᴀʙʏ​!🤦🏻‍♂️`\nExample: /wlogo Fallen")
+        await xx.edit("`Provide some text to draw!\nExample: /wlogo <your name>!`")
         return
     bg_, font_ = "", ""
     if event.reply_to_msg_id:
@@ -146,7 +146,7 @@ async def logo_(event):
     else:
         pics = []
         async for i in ubot2.iter_messages(
-            "@anonlogopoint", filter=InputMessagesFilterPhotos
+            "@kenlogopack", filter=InputMessagesFilterPhotos
         ):
             pics.append(i)
         id_ = random.choice(pics)
@@ -156,7 +156,7 @@ async def logo_(event):
     if not bg_:
         pics = []
         async for i in ubot2.iter_messages(
-            "@anonlogopoint", filter=InputMessagesFilterPhotos
+            "@kenlogopack", filter=InputMessagesFilterPhotos
         ):
             pics.append(i)
         id_ = random.choice(pics)
@@ -191,12 +191,12 @@ async def logo_(event):
               stroke_width=strke, stroke_fill="black")
     flnme = f"logo.png"
     img.save(flnme, "png")
-    await xx.edit("`Uploading...`")
+    await xx.edit("`Uploading`")
     if os.path.exists(flnme):
         await tbot.send_file(
             event.chat_id,
             file=flnme,
-            caption="Logo by [𝝙𝗡𝗢𝗡𝗬𝗠𝗢𝗨𝗦](https://t.me/DevilsHeavenMF)",
+            caption="Logo by [Null](https://t.me/Shubhanshutya)",
             force_document=False,
         )
         os.remove(flnme)
@@ -208,13 +208,14 @@ async def logo_(event):
             os.remove(font_)
 
 
-__mod_name__ = "Lᴏɢᴏ​"
+__mod_name__ = "Logomaker"
 
-__help__ = """
+__help__ = """ This is help menu for logomaker
 
-❍ /logo (Text) - Create a logo with random view.`
+❂ /logo <text/name> - Create a logo with random view.
+❂ /wlogo <text/name> - Create a logo with wide view only.
 
-❍ /wlogo (Text) - Create a logo with wide view only.`
+ Image Editor :
 
-* 💕 Pᴏᴡᴇʀᴇᴅ Bʏ : @DevilsHeavenMF 💕*
+❂  /edit <reply photo> - to edit image.
 """
