@@ -3,7 +3,7 @@ import datetime
 
 from telethon.tl import functions, types
 from FallenRobot.events import register
-from FallenRobot import ubot, telethn
+from FallenRobot import ubot2, telethn
 
 
 async def is_register_admin(chat, user):
@@ -28,7 +28,7 @@ async def alive(event):
     fname = sender.first_name
     m = await event.reply("Generating CC Please Wait...")
     ok = event.pattern_match.group(1)
-    async with ubot.conversation("@ccgen_robot") as bot_conv:
+    async with ubot2.conversation("@ccgen_robot") as bot_conv:
         await bot_conv.send_message("/generate")
         await bot_conv.send_message("💳Credit Card Generator💳")
         await asyncio.sleep(2)
