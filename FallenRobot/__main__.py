@@ -83,14 +83,14 @@ buttons = [
             text="» ᴀᴅᴅ ᴍᴇ ᴇʟsᴇ ʏᴏᴜ ɢᴇʏ​ «", url="t.me/anonymous_0_robot?startgroup=true"),
     ],
     [
-        InlineKeyboardButton(text="💞 ᴀʙᴏᴜᴛ ᴍᴇ​​ 💞​", callback_data="fallen_"),
-        InlineKeyboardButton(text="🔥 ʜᴇʟᴘ & ᴄᴍᴅs​​​ 🔥", callback_data="help_back"),
+        InlineKeyboardButton(text="» ᴀʙᴏᴜᴛ ᴍᴇ​​ «", callback_data="fallen_"),
+        InlineKeyboardButton(text="» ʜᴇʟᴘ & ᴄᴍᴅs​​​ «", callback_data="help_back"),
     ],
     [
         InlineKeyboardButton(
-            text="🤔 sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ 🤔", callback_data="source_"),
+            text="» sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ «", callback_data="source_"),
         InlineKeyboardButton(
-            text="😘 sᴜᴘᴘᴏʀᴛ 😘", url="https://t.me/DevilsHeavenMF"
+            text="» sᴜᴘᴘᴏʀᴛ «", url="https://t.me/DevilsHeavenMF"
         ),
     ],
 ]
