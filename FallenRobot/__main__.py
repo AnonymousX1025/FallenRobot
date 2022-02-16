@@ -91,8 +91,13 @@ buttons = [
             text="» ᴀʙᴏᴜᴛ ᴍᴇ​​ «", callback_data="fallen_"),
         InlineKeyboardButton(
             text="» sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ «", callback_data="source_"),
+    ],
+    [
         InlineKeyboardButton(
             text="» sᴜᴘᴘᴏʀᴛ «", url="https://t.me/DevilsHeavenMF"
+        ),
+        InlineKeyboardButton(
+            text="» ᴅᴇᴠᴇʟᴏᴘᴇʀ «", url="https://t.me/anonymous_was_bot"
         ),
     ],
 ]
