@@ -1,9 +1,15 @@
-from FallenRobot import telethn
-from FallenRobot.events import register
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton,
+from FallenRobot import pbot as fallen
 
-@register(pattern="^/owner$")
-async def _(event):
-    j = "ʜᴇʏ\nɪ ᴀᴍ 𝗙𝝙𝗟𝗟𝝣𝗡 ✘ 𝗥𝗢𝗕𝗢𝗧\nᴍʏ ᴅᴇᴠᴇʟᴏᴘᴇʀ​ ɪs​‌ [𝝙𝗡𝗢𝗡𝗬𝗠𝗢𝗨𝗦](tg://user?id=1356469075)"
-    await event.reply(j)
-    
-__mod_name__ = "Ramdi"
+
+@fallen.on_message(filters.command("Owner"))
+async def start(client, message):
+    await message.reply(
+            "<text>",
+            reply_markup=InlineKeyboardMarkup([
+                [InlineKeyboardButton(" Anonymous", url="https://t.me/anonymous_was_bot")]
+                ]
+            )
+        )
+
+## invisible Module 😂
