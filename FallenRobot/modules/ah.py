@@ -3,7 +3,7 @@ from pyrogram import filters
 from FallenRobot import telethn as client
 
 
-@cilent.on_message(filters.command("owner"))
+@client.on_message(filters.command("owner"))
 async def start(client, message):
     await message.reply(
             "Here is your gf \nBsdk Girlfriend nahi \nGodFather 😂",
