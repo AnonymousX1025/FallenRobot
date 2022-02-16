@@ -1,6 +1,6 @@
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram import filters
-from FallenRobot import app as client
+from FallenRobot import pbot as client
 
 
 @client.on_message(filters.command("owner"))
