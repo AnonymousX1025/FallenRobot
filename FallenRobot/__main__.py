@@ -80,24 +80,24 @@ PM_START_TEXT = """
 buttons = [
     [
         InlineKeyboardButton(
-            text="» ᴀᴅᴅ ᴍᴇ ᴇʟsᴇ ʏᴏᴜ ɢᴇʏ​ «", url="t.me/anonymous_0_robot?startgroup=true"),
+            text="✗ ᴀᴅᴅ ᴍᴇ ᴇʟsᴇ ʏᴏᴜ ɢᴇʏ​ ✗", url="t.me/anonymous_0_robot?startgroup=true"),
     ],
     [
         InlineKeyboardButton(
-            text="» ʜᴇʟᴘ & ᴄᴍᴅs​​​ «", callback_data="help_back"),
+            text="✗ ʜᴇʟᴘ & ᴄᴍᴅs​​​ ✗", callback_data="help_back"),
     ],
     [
         InlineKeyboardButton(
-            text="» ᴀʙᴏᴜᴛ ᴍᴇ​​ «", callback_data="fallen_"),
+            text="✗ ᴀʙᴏᴜᴛ ᴍᴇ​​ ✗", callback_data="fallen_"),
         InlineKeyboardButton(
-            text="» sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ «", callback_data="source_"),
+            text="✗ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ ✗", callback_data="source_"),
     ],
     [
         InlineKeyboardButton(
-            text="» sᴜᴘᴘᴏʀᴛ «", url="https://t.me/DevilsHeavenMF"
+            text="✗ sᴜᴘᴘᴏʀᴛ ✗", url="https://t.me/DevilsHeavenMF"
         ),
         InlineKeyboardButton(
-            text="» ᴅᴇᴠᴇʟᴏᴘᴇʀ «", url="https://t.me/anonymous_was_bot"
+            text="✗ ᴅᴇᴠᴇʟᴏᴘᴇʀ ✗", url="https://t.me/anonymous_was_bot"
         ),
     ],
 ]
