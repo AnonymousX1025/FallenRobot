@@ -1,4 +1,4 @@
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton,
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from FallenRobot import pbot as fallen
 
 
