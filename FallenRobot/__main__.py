@@ -80,7 +80,7 @@ PM_START_TEXT = """
 buttons = [
     [
         InlineKeyboardButton(
-            text="🥺 ᴀᴅᴅ ᴍᴇ ᴇʟsᴇ ʏᴏᴜ ɢᴇʏ​ 🥺", url="t.me/anonymous_0_robot?startgroup=true"),
+            text="» ᴀᴅᴅ ᴍᴇ ᴇʟsᴇ ʏᴏᴜ ɢᴇʏ​ «", url="t.me/anonymous_0_robot?startgroup=true"),
     ],
     [
         InlineKeyboardButton(text="💞 ᴀʙᴏᴜᴛ ᴍᴇ​​ 💞​", callback_data="fallen_"),
