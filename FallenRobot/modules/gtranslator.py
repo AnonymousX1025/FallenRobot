@@ -1,94 +1,48 @@
-from emoji import UNICODE_EMOJI
-from google_trans_new import LANGUAGES, google_translator
+from gpytranslate import SyncTranslator
 from telegram import ParseMode, Update
-from telegram.ext import CallbackContext, run_async
+from telegram.ext import CallbackContext
 
 from FallenRobot import dispatcher
 from FallenRobot.modules.disable import DisableAbleCommandHandler
 
+trans = SyncTranslator()
 
-@run_async
-def totranslate(update: Update, context: CallbackContext):
+def translate(update: Update, context: CallbackContext) -> None:
+    bot = context.bot
     message = update.effective_message
-    problem_lang_code = []
-    for key in LANGUAGES:
-        if "-" in key:
-            problem_lang_code.append(key)
-
-    try:
-        if message.reply_to_message:
-            args = update.effective_message.text.split(None, 1)
-            if message.reply_to_message.text:
-                text = message.reply_to_message.text
-            elif message.reply_to_message.caption:
-                text = message.reply_to_message.caption
-
-            try:
-                source_lang = args[1].split(None, 1)[0]
-            except (IndexError, AttributeError):
-                source_lang = "en"
-
-        else:
-            args = update.effective_message.text.split(None, 2)
-            text = args[2]
-            source_lang = args[1]
-
-        if source_lang.count("-") == 2:
-            for lang in problem_lang_code:
-                if lang in source_lang:
-                    if source_lang.startswith(lang):
-                        dest_lang = source_lang.rsplit("-", 1)[1]
-                        source_lang = source_lang.rsplit("-", 1)[0]
-                    else:
-                        dest_lang = source_lang.split("-", 1)[1]
-                        source_lang = source_lang.split("-", 1)[0]
-        elif source_lang.count("-") == 1:
-            for lang in problem_lang_code:
-                if lang in source_lang:
-                    dest_lang = source_lang
-                    source_lang = None
-                    break
-            if dest_lang is None:
-                dest_lang = source_lang.split("-")[1]
-                source_lang = source_lang.split("-")[0]
-        else:
-            dest_lang = source_lang
-            source_lang = None
-
-        exclude_list = UNICODE_EMOJI.keys()
-        for emoji in exclude_list:
-            if emoji in text:
-                text = text.replace(emoji, "")
-
-        trl = google_translator()
-        if source_lang is None:
-            detection = trl.detect(text)
-            trans_str = trl.translate(text, lang_tgt=dest_lang)
-            return message.reply_text(
-                f"Translated from `{detection[0]}` to `{dest_lang}`:\n`{trans_str}`",
-                parse_mode=ParseMode.MARKDOWN,
-            )
-        else:
-            trans_str = trl.translate(text, lang_tgt=dest_lang, lang_src=source_lang)
-            message.reply_text(
-                f"Translated from `{source_lang}` to `{dest_lang}`:\n`{trans_str}`",
-                parse_mode=ParseMode.MARKDOWN,
-            )
-
-    except IndexError:
-        update.effective_message.reply_text(
-            "Reply to messages or write messages from other languages ​​for translating into the intended language\n\n"
-            "Example: `/tr en-ml` to translate from English to Malayalam\n"
-            "Or use: `/tr ml` for automatic detection and translating it into Malayalam.\n"
-            "See [List of Language Codes](t.me/OnePunchSupport/12823) for a list of language codes.",
-            parse_mode="markdown",
-            disable_web_page_preview=True,
-        )
-    except ValueError:
-        update.effective_message.reply_text("The intended language is not found!")
-    else:
+    reply_msg = message.reply_to_message
+    if not reply_msg:
+        message.reply_text("Reply to a message to translate it!")
         return
+    if reply_msg.caption:
+        to_translate = reply_msg.caption
+    elif reply_msg.text:
+        to_translate = reply_msg.text
+    try:
+        args = message.text.split()[1].lower()
+        if "//" in args:
+            source = args.split("//")[0]
+            dest = args.split("//")[1]
+        else:
+            source = trans.detect(to_translate)
+            dest = args
+    except IndexError:
+        source = trans.detect(to_translate)
+        dest = "en"
+    translation = trans(to_translate,
+                        sourcelang=source, targetlang=dest)
+    reply = f"<b>Translated from {source} to {dest}</b>:\n" \
+        f"<code>{translation.text}</code>"
 
+    bot.send_message(text=reply, chat_id=message.chat.id, parse_mode=ParseMode.HTML)
+
+
+def languages(update: Update, context: CallbackContext) -> None:
+    message = update.effective_message
+    bot = context.bot
+    bot.send_message(
+        text="Click [here](https://t.me/) to see the list of supported language codes!",
+        chat_id=message.chat.id, disable_web_page_preview=True, parse_mode=ParseMode.MARKDOWN)
 
 __help__ = """
  ❍ /tr or /tl (language code) as reply to a long message
@@ -106,9 +60,11 @@ vi,xh,yi,yo,zh,zh_CN,zh_TW,zu`
 """
 
 TRANSLATE_HANDLER = DisableAbleCommandHandler(["tr", "tl"], totranslate)
+TRANSLATE_LANG_HANDLER = DisableAbleCommandHandler(["lang", "languages"], languages)
 
 dispatcher.add_handler(TRANSLATE_HANDLER)
+dispatcher.add_handler(TRANSLATE_LANG_HANDLER)
 
 __mod_name__ = "G-ᴛʀᴀɴs"
-__command_list__ = ["tr", "tl"]
-__handlers__ = [TRANSLATE_HANDLER]
+__command_list__ = ["tr", "tl", "lang", "languages"]
+__handlers__ = [TRANSLATE_HANDLER, TRANSLATE_LANG_HANDLER]
