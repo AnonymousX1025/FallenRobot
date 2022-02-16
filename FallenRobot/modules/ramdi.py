@@ -1,12 +1,12 @@
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram import filters
-from FallenRobot import pbot as fallen
+from FallenRobot import telethn as client
 
 
-@fallen.on_message(filters.command("Owner"))
+@cilent.on_message(filters.command("owner"))
 async def start(client, message):
     await message.reply(
-            "<text>",
+            "Here is your gf \nBsdk Girlfriend nahi \nGodFather 😂",
             reply_markup=InlineKeyboardMarkup([
                 [InlineKeyboardButton(" Anonymous", url="https://t.me/anonymous_was_bot")]
                 ]
