@@ -1,6 +1,6 @@
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram import filters
-from FallenRobot import telethn as client
+from FallenRobot import app as client
 
 
 @client.on_message(filters.command("owner"))
