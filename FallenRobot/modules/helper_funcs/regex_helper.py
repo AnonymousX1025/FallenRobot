@@ -22,3 +22,4 @@ def infinite_loop_check(regex_string):
         if match_1:
             return True
     return False
+#
