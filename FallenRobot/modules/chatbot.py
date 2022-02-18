@@ -132,8 +132,8 @@ async def hmm(client, message):
         message.continue_propagation()
     if chat_id in en_chats:
         test = msg
-        test = test.replace("Aco", "Scenario")
-        test = test.replace("aco", "Scenario")
+        test = test.replace("Carla", "FallenRobot")
+        test = test.replace("carla", "FallenRobot")
         response = await lunaQuery(
             test, message.from_user.id if message.from_user else 0
         )
