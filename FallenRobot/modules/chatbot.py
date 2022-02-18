@@ -5,6 +5,7 @@ import html
 import requests
 import FallenRobot.modules.sql.chatbot_sql as sql
 
+from pyrogram import filters
 from FallenRobot import pbot as fallen
 from time import sleep
 from telegram import ParseMode
