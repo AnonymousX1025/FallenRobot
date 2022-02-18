@@ -6,6 +6,7 @@ import os
 import requests
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from FallenRobot import pbot as app
+from FallenRobot.sample_config import API_ID, API_HASH, BOT_TOKEN
 
 API_ID = int(os.environ.get("API_ID"))
 API_HASH = os.environ.get("API_HASH")
