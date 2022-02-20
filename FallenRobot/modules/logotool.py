@@ -78,7 +78,7 @@ async def logo(client, message):
     await m.delete()
 
 #hq logo creator
-@app.on_message(filters.command("logohq"))
+@app.on_message(filters.command("hqlogo"))
 async def on_off_antiarab(_, message: Message):
     try:
         await message._client.get_chat_member(int("-1001686672798"), message.from_user.id)
