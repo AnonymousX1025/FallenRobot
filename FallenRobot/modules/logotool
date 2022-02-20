@@ -1,6 +1,6 @@
 from pyrogram import filters
 from pyrogram.types import Message
-from FallenRobot import app
+from FallenRobot import pbot as app
 from requests import get
 import os
 import requests
