@@ -51,6 +51,7 @@ emoji-country-flag
 countryinfo
 html2text
 bs4
+opencv-python-headless
 bing_image_downloader
 search_engine_parser
 pytz
