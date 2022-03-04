@@ -1,6 +1,6 @@
 import threading
 
-from sqlalchemy import Column, String, UnicodeText, Boolean, Integer, distinct, func
+from sqlalchemy import Column, String, UnicodeText, Boolean, BigInteger, distinct, func
 
 from FallenRobot.modules.helper_funcs.msg_types import Types
 from FallenRobot.modules.sql import BASE, SESSION
@@ -24,10 +24,10 @@ class CustomFilters(BASE):
 
     # NEW FILTER
     # alter table cust_filters add column reply_text text;
-    # alter table cust_filters add column file_type integer default 1;
+    # alter table cust_filters add column file_type BigInteger default 1;
     # alter table cust_filters add column file_id text;
     reply_text = Column(UnicodeText)
-    file_type = Column(Integer, nullable=False, default=1)
+    file_type = Column(BigInteger, nullable=False, default=1)
     file_id = Column(UnicodeText, default=None)
 
     def __init__(
@@ -78,7 +78,7 @@ class NewCustomFilters(BASE):
     chat_id = Column(String(14), primary_key=True)
     keyword = Column(UnicodeText, primary_key=True, nullable=False)
     text = Column(UnicodeText)
-    file_type = Column(Integer, nullable=False, default=1)
+    file_type = Column(BigInteger, nullable=False, default=1)
     file_id = Column(UnicodeText, default=None)
 
     def __init__(self, chat_id, keyword, text, file_type, file_id):
@@ -101,7 +101,7 @@ class NewCustomFilters(BASE):
 
 class Buttons(BASE):
     __tablename__ = "cust_filter_urls"
-    id = Column(Integer, primary_key=True, autoincrement=True)
+    id = Column(BigInteger, primary_key=True, autoincrement=True)
     chat_id = Column(String(14), primary_key=True)
     keyword = Column(UnicodeText, primary_key=True)
     name = Column(UnicodeText, nullable=False)
