@@ -192,10 +192,9 @@ telethn = TelegramClient("fallen", API_ID, API_HASH)
 
 pbot = Client("fallenrobot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 dispatcher = updater.dispatcher
-x = pbot.get_me()
 
 
-BOT_ID = x.id
+BOT_ID = pbot.id
 DRAGONS = list(DRAGONS) + list(DEV_USERS)
 DEV_USERS = list(DEV_USERS)
 WOLVES = list(WOLVES)
