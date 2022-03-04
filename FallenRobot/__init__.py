@@ -19,7 +19,7 @@ logging.basicConfig(
 
 LOGGER = logging.getLogger(__name__)
 
-x = pbot.get_me()
+
 
 # if version < 3.6, stop bot.
 if sys.version_info[0] < 3 or sys.version_info[1] < 6:
@@ -192,6 +192,7 @@ telethn = TelegramClient("fallen", API_ID, API_HASH)
 
 pbot = Client("fallenrobot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 dispatcher = updater.dispatcher
+x = pbot.get_me()
 
 
 BOT_ID = x.id
