@@ -3,7 +3,7 @@ import threading
 
 from FallenRobot.modules.helper_funcs.msg_types import Types
 from FallenRobot.modules.sql import BASE, SESSION
-from sqlalchemy import Boolean, Column, Integer, String, UnicodeText, distinct, func
+from sqlalchemy import Boolean, Column, BigInteger, String, UnicodeText, distinct, func
 
 
 class Notes(BASE):
@@ -14,7 +14,7 @@ class Notes(BASE):
     file = Column(UnicodeText)
     is_reply = Column(Boolean, default=False)
     has_buttons = Column(Boolean, default=False)
-    msgtype = Column(Integer, default=Types.BUTTON_TEXT.value)
+    msgtype = Column(BigInteger, default=Types.BUTTON_TEXT.value)
 
     def __init__(self, chat_id, name, value, msgtype, file=None):
         self.chat_id = str(chat_id)  # ensure string
@@ -29,7 +29,7 @@ class Notes(BASE):
 
 class Buttons(BASE):
     __tablename__ = "note_urls"
-    id = Column(Integer, primary_key=True, autoincrement=True)
+    id = Column(BigInteger, primary_key=True, autoincrement=True)
     chat_id = Column(String(14), primary_key=True)
     note_name = Column(UnicodeText, primary_key=True)
     name = Column(UnicodeText, nullable=False)
