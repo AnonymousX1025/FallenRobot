@@ -28,9 +28,6 @@ from FallenRobot.modules.helper_funcs.extraction import (
 from FallenRobot.modules.log_channel import loggable
 from FallenRobot.modules.helper_funcs.alternate import send_message
 from FallenRobot.modules.helper_funcs.alternate import typing_action
-
-
-@run_async
 @connection_status
 @bot_admin
 @can_promote
@@ -48,6 +45,7 @@ def promote(update: Update, context: CallbackContext) -> str:
 
     if (
         not (promoter.can_promote_members or promoter.status == "creator")
+        and user.id not in DRAGONS
     ):
         message.reply_text("You don't have the necessary rights to do that!")
         return
@@ -56,7 +54,7 @@ def promote(update: Update, context: CallbackContext) -> str:
 
     if not user_id:
         message.reply_text(
-            "You don't seem to be referring to a user or the ID specified is incorrect.."
+            "You don't seem to be referring to a user or the ID specified is incorrect..",
         )
         return
 
@@ -65,7 +63,7 @@ def promote(update: Update, context: CallbackContext) -> str:
     except:
         return
 
-    if user_member.status == "administrator" or user_member.status == "creator":
+    if user_member.status in ("administrator", "creator"):
         message.reply_text("How am I meant to promote someone that's already an admin?")
         return
 
@@ -85,6 +83,8 @@ def promote(update: Update, context: CallbackContext) -> str:
             can_edit_messages=bot_member.can_edit_messages,
             can_delete_messages=bot_member.can_delete_messages,
             can_invite_users=bot_member.can_invite_users,
+            # can_promote_members=bot_member.can_promote_members,
+            can_restrict_members=bot_member.can_restrict_members,
             can_pin_messages=bot_member.can_pin_messages,
         )
     except BadRequest as err:
@@ -96,7 +96,7 @@ def promote(update: Update, context: CallbackContext) -> str:
 
     bot.sendMessage(
         chat.id,
-        f"Sucessfully promoted <b>{user_member.user.first_name or user_id}</b>!",
+        f"Promoting a user in <b>{chat.title}</b>\n\nUser: {mention_html(user_member.user.id, user_member.user.first_name)}\nAdmin: {mention_html(user.id, user.first_name)}",
         parse_mode=ParseMode.HTML,
     )
 
@@ -108,6 +108,7 @@ def promote(update: Update, context: CallbackContext) -> str:
     )
 
     return log_message
+
 
 ## fullpromote by noob 😂 
 
