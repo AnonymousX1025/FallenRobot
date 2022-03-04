@@ -842,32 +842,20 @@ def button(update: Update, context: CallbackContext) -> str:
         return ""
 
   
+def helps(chat):
+    return gs(chat, "admin_help")
 
-__help__ = """
- ❍ /admins*:* list of admins in the chat*Admins only:*
- ❍ /pin*:* silently pins the message replied to - add `'loud'` or `'notify'` to give notifs to users
- ❍ /unpin*:* unpins the currently pinned message
- ❍ /invitelink*:* gets invitelink
- ❍ /promote*:* promotes the user
- ❍ /demote*:* demotes the user
- ❍ /title <title here>*:* sets a custom title for an admin that the bot promoted
- ❍ /admincache*:* force refresh the admins list
- ❍ /antispam <on/off/yes/no>*:* Will toggle our antispam tech or return your current settings.
-
-⚠️ `Read from top`
-"""
-
-SET_DESC_HANDLER = CommandHandler("setdesc", set_desc, run_async=True)
-SET_STICKER_HANDLER = CommandHandler("setsticker", set_sticker, run_async=True)
-SETCHATPIC_HANDLER = CommandHandler("setgpic", setchatpic, run_async=True)
-RMCHATPIC_HANDLER = CommandHandler("delgpic", rmchatpic, run_async=True)
-SETCHAT_TITLE_HANDLER = CommandHandler("setgtitle", setchat_title, run_async=True)
+SET_DESC_HANDLER = CommandHandler("setdesc", set_desc, filters=Filters.chat_type.groups, run_async=True)
+SET_STICKER_HANDLER = CommandHandler("setsticker", set_sticker, filters=Filters.chat_type.groups, run_async=True)
+SETCHATPIC_HANDLER = CommandHandler("setgpic", setchatpic, filters=Filters.chat_type.groups, run_async=True)
+RMCHATPIC_HANDLER = CommandHandler("delgpic", rmchatpic, filters=Filters.chat_type.groups, run_async=True)
+SETCHAT_TITLE_HANDLER = CommandHandler("setgtitle", setchat_title, filters=Filters.chat_type.groups, run_async=True)
 
 ADMINLIST_HANDLER = DisableAbleCommandHandler("admins", adminlist, run_async=True)
 
-PIN_HANDLER = CommandHandler("pin", pin, run_async=True)
-UNPIN_HANDLER = CommandHandler("unpin", unpin, run_async=True)
-PINNED_HANDLER = CommandHandler("pinned", pinned, run_async=True)
+PIN_HANDLER = CommandHandler("pin", pin, filters=Filters.chat_type.groups, run_async=True)
+UNPIN_HANDLER = CommandHandler("unpin", unpin, filters=Filters.chat_type.groups, run_async=True)
+PINNED_HANDLER = CommandHandler("pinned", pinned, filters=Filters.chat_type.groups, run_async=True)
 
 INVITE_HANDLER = DisableAbleCommandHandler("invitelink", invite, run_async=True)
 
@@ -876,7 +864,7 @@ FULLPROMOTE_HANDLER = DisableAbleCommandHandler("fullpromote", fullpromote, run_
 DEMOTE_HANDLER = DisableAbleCommandHandler("demote", demote, run_async=True)
 
 SET_TITLE_HANDLER = CommandHandler("title", set_title, run_async=True)
-ADMIN_REFRESH_HANDLER = CommandHandler("admincache", refresh_admin, run_async=True)
+ADMIN_REFRESH_HANDLER = CommandHandler("admincache", refresh_admin, filters=Filters.chat_type.groups, run_async=True)
 
 dispatcher.add_handler(SET_DESC_HANDLER)
 dispatcher.add_handler(SET_STICKER_HANDLER)
@@ -894,7 +882,21 @@ dispatcher.add_handler(DEMOTE_HANDLER)
 dispatcher.add_handler(SET_TITLE_HANDLER)
 dispatcher.add_handler(ADMIN_REFRESH_HANDLER)
 
-__mod_name__ = "Admins"
+__mod_name__ = "Aᴅᴍɪɴs​"
+
+__help__ = """
+ ❍ /admins*:* list of admins in the chat*Admins only:*
+ ❍ /pin*:* silently pins the message replied to - add `'loud'` or `'notify'` to give notifs to users
+ ❍ /unpin*:* unpins the currently pinned message
+ ❍ /invitelink*:* gets invitelink
+ ❍ /promote*:* promotes the user
+ ❍ /demote*:* demotes the user
+ ❍ /title <title here>*:* sets a custom title for an admin that the bot promoted
+ ❍ /admincache*:* force refresh the admins list
+ ❍ /antispam <on/off/yes/no>*:* Will toggle our antispam tech or return your current settings.
+
+⚠️ `Read from top`
+"""
 __command_list__ = [
     "setdesc"
     "setsticker"
