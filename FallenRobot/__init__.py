@@ -19,8 +19,6 @@ logging.basicConfig(
 
 LOGGER = logging.getLogger(__name__)
 
-
-
 # if version < 3.6, stop bot.
 if sys.version_info[0] < 3 or sys.version_info[1] < 6:
     LOGGER.error(
@@ -194,7 +192,6 @@ pbot = Client("fallenrobot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 dispatcher = updater.dispatcher
 
 
-BOT_ID = 5178472586
 DRAGONS = list(DRAGONS) + list(DEV_USERS)
 DEV_USERS = list(DEV_USERS)
 WOLVES = list(WOLVES)
