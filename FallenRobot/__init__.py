@@ -194,7 +194,7 @@ pbot = Client("fallenrobot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 dispatcher = updater.dispatcher
 
 
-BOT_ID = pbot.id
+BOT_ID = 5178472586
 DRAGONS = list(DRAGONS) + list(DEV_USERS)
 DEV_USERS = list(DEV_USERS)
 WOLVES = list(WOLVES)
