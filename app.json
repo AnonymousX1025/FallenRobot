@@ -44,11 +44,6 @@
          "required": true,
          "value": "1356469075"
       },
-      "STRING_SESSION": {
-        "description": "Fill this with telethon string session.",
-        "required": true,
-        "value": ""
-      },
       "HEROKU_API_KEY": {
         "description": "Your Heroku API key, get it from 'https://dashboard.heroku.com/account'",
         "value": ""
