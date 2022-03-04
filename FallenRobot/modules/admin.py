@@ -2,7 +2,7 @@ import html
 
 from telegram import ParseMode, Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.error import BadRequest
-from telegram.ext import CallbackContext, CommandHandler, Filters, chat_type, run_async
+from telegram.ext import CallbackContext, CommandHandler, Filters, run_async
 from telegram.utils.helpers import mention_html
 
 from FallenRobot import DRAGONS, dispatcher
@@ -969,17 +969,17 @@ __help__ = """
 *✗ Pᴏᴡᴇʀᴇᴅ 💕 Bʏ:*
 """
 
-SET_DESC_HANDLER = CommandHandler("setdesc", set_desc, filters=Filters.chat_type.groups, run_async=True)
-SET_STICKER_HANDLER = CommandHandler("setsticker", set_sticker, filters=Filters.chat_type.groups, run_async=True)
-SETCHATPIC_HANDLER = CommandHandler("setgpic", setchatpic, filters=Filters.chat_type.groups, run_async=True)
-RMCHATPIC_HANDLER = CommandHandler("delgpic", rmchatpic, filters=Filters.chat_type.groups, run_async=True)
-SETCHAT_TITLE_HANDLER = CommandHandler("setgtitle", setchat_title, filters=Filters.chat_type.groups, run_async=True)
+SET_DESC_HANDLER = CommandHandler("setdesc", set_desc, run_async=True)
+SET_STICKER_HANDLER = CommandHandler("setsticker", set_sticker, run_async=True)
+SETCHATPIC_HANDLER = CommandHandler("setgpic", setchatpic, run_async=True)
+RMCHATPIC_HANDLER = CommandHandler("delgpic", rmchatpic, run_async=True)
+SETCHAT_TITLE_HANDLER = CommandHandler("setgtitle", setchat_title, run_async=True)
 
 ADMINLIST_HANDLER = DisableAbleCommandHandler("admins", adminlist, run_async=True)
 
-PIN_HANDLER = CommandHandler("pin", pin, filters=Filters.chat_type.groups, run_async=True)
-UNPIN_HANDLER = CommandHandler("unpin", unpin, filters=Filters.chat_type.groups, run_async=True)
-PINNED_HANDLER = CommandHandler("pinned", pinned, filters=Filters.chat_type.groups, run_async=True)
+PIN_HANDLER = CommandHandler("pin", pin, run_async=True)
+UNPIN_HANDLER = CommandHandler("unpin", unpin, run_async=True)
+PINNED_HANDLER = CommandHandler("pinned", pinned, run_async=True)
 
 INVITE_HANDLER = DisableAbleCommandHandler("invitelink", invite, run_async=True)
 
