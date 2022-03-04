@@ -2,12 +2,12 @@ import threading
 from typing import Union
 
 from FallenRobot.modules.sql import BASE, SESSION
-from sqlalchemy import Boolean, Column, Integer, String
+from sqlalchemy import Boolean, Column, BigInteger, String
 
 
 class ReportingUserSettings(BASE):
     __tablename__ = "user_report_settings"
-    user_id = Column(Integer, primary_key=True)
+    user_id = Column(BigInteger, primary_key=True)
     should_report = Column(Boolean, default=True)
 
     def __init__(self, user_id):
