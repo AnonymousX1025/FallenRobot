@@ -842,26 +842,26 @@ def button(update: Update, context: CallbackContext) -> str:
         return ""
 
   
-SET_DESC_HANDLER = CommandHandler("setdesc", set_desc, filters=Filters.chat_type.group, run_async=True )
-SET_STICKER_HANDLER = CommandHandler("setsticker", set_sticker, filters=Filters.chat_type.group, run_async=True )
-SETCHATPIC_HANDLER = CommandHandler("setgpic", setchatpic, filters=Filters.chat_type.group, run_async=True )
-RMCHATPIC_HANDLER = CommandHandler("delgpic", rmchatpic, filters=Filters.chat_type.group, run_async=True )
-SETCHAT_TITLE_HANDLER = CommandHandler("setgtitle", setchat_title, filters=Filters.chat_type.group, run_async=True )
+SET_DESC_HANDLER = CommandHandler("setdesc", set_desc, filters=Filters.group)
+SET_STICKER_HANDLER = CommandHandler("setsticker", set_sticker, filters=Filters.group )
+SETCHATPIC_HANDLER = CommandHandler("setgpic", setchatpic, filters=Filters.group )
+RMCHATPIC_HANDLER = CommandHandler("delgpic", rmchatpic, filters=Filters.group )
+SETCHAT_TITLE_HANDLER = CommandHandler("setgtitle", setchat_title, filters=Filters.group )
 
-ADMINLIST_HANDLER = DisableAbleCommandHandler("admins", adminlist, run_async=True )
+ADMINLIST_HANDLER = DisableAbleCommandHandler("admins", adminlist )
 
-PIN_HANDLER = CommandHandler("pin", pin, filters=Filters.chat_type.group, run_async=True )
-UNPIN_HANDLER = CommandHandler("unpin", unpin, filters=Filters.chat_type.group, run_async=True )
-PINNED_HANDLER = CommandHandler("pinned", pinned, filters=Filters.chat_type.group, run_async=True )
+PIN_HANDLER = CommandHandler("pin", pin, filters=Filters.group )
+UNPIN_HANDLER = CommandHandler("unpin", unpin, filters=Filters.group )
+PINNED_HANDLER = CommandHandler("pinned", pinned, filters=Filters.group )
 
-INVITE_HANDLER = DisableAbleCommandHandler("invitelink", invite, run_async=True )
+INVITE_HANDLER = DisableAbleCommandHandler("invitelink", invite)
 
-PROMOTE_HANDLER = DisableAbleCommandHandler("promote", promote, run_async=True )
-FULLPROMOTE_HANDLER = DisableAbleCommandHandler("fullpromote", fullpromote, run_async=True )
-DEMOTE_HANDLER = DisableAbleCommandHandler("demote", demote, run_async=True)
+PROMOTE_HANDLER = DisableAbleCommandHandler("promote", promote )
+FULLPROMOTE_HANDLER = DisableAbleCommandHandler("fullpromote", fullpromote)
+DEMOTE_HANDLER = DisableAbleCommandHandler("demote", demote )
 
-SET_TITLE_HANDLER = CommandHandler("title", set_title, run_async=True )
-ADMIN_REFRESH_HANDLER = CommandHandler("admincache", refresh_admin, filters=Filters.chat_type.group, run_async=True )
+SET_TITLE_HANDLER = CommandHandler("title", set_title )
+ADMIN_REFRESH_HANDLER = CommandHandler("admincache", refresh_admin, filters=Filters.group)
 
 dispatcher.add_handler(SET_DESC_HANDLER)
 dispatcher.add_handler(SET_STICKER_HANDLER)
