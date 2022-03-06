@@ -288,3 +288,4 @@ __mod_name__ = "Lᴏɢᴏ​"
 
 __help__ = """
 ❍ /logo (Text) - Create a logo of your given text with random view.`
+"""
