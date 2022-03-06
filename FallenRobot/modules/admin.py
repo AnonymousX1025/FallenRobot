@@ -375,7 +375,6 @@ def demote(update: Update, context: CallbackContext) -> str:
             can_restrict_members=False,
             can_pin_messages=False,
             can_promote_members=False,
-            can_manage_voice_chats=False,
         )
 
         bot.sendMessage(
@@ -807,7 +806,6 @@ def button(update: Update, context: CallbackContext) -> str:
             can_promote_members=bot_member.can_promote_members,
             can_restrict_members=bot_member.can_restrict_members,
             can_pin_messages=bot_member.can_pin_messages,
-            can_manage_voice_chats=bot_member.can_manage_voice_chats,
         )                
         demoted = bot.promoteChatMember(
                       chat.id,
@@ -820,7 +818,6 @@ def button(update: Update, context: CallbackContext) -> str:
                       can_restrict_members=False,
                       can_pin_messages=False,
                       can_promote_members=False,
-                      can_manage_voice_chats=False,
 )
         if demoted:
         	update.effective_message.edit_text(
