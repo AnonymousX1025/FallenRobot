@@ -11,7 +11,7 @@ from io import BytesIO
 from requests import get
 from telethon.tl.types import InputMessagesFilterPhotos
 
-from FallenRobot import OWNER_ID, BOT_USERNAME, SUPPORT_CHAT
+from FallenRobot import OWNER_ID
 from FallenRobot.events import register
 from FallenRobot import telethn
 from PIL import Image, ImageDraw, ImageFont
