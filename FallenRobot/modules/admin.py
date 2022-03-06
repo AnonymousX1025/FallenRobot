@@ -823,15 +823,28 @@ def button(update: Update, context: CallbackContext) -> str:
                       can_pin_messages=False,
                       can_promote_members=False,
                       can_manage_voice_chats=False,
-        )
+)
         if demoted:
         	update.effective_message.edit_text(
         	    f"Admin {mention_html(user.id, user.first_name)} Demoted {mention_html(member.user.id, member.user.first_name)}!",
         	    parse_mode=ParseMode.HTML,
         	)
+        	query.answer("Demoted!")
+        	return (
+                    f"<b>{html.escape(chat.title)}:</b>\n" 
+                    f"#DEMOTE\n" 
+                    f"<b>Admin:</b> {mention_html(user.id, user.first_name)}\n"
+                    f"<b>User:</b> {mention_html(member.user.id, member.user.first_name)}"
+                )
+    else:
+        update.effective_message.edit_text(
+            "This user is not promoted or has left the group!"
+        )
+        return ""
 
-query.answer("Demoted!")
-
+  
+def helps(chat):
+    return gs(chat, "admin_help")
 
 
   
