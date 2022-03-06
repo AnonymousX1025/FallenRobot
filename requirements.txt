@@ -31,6 +31,7 @@ wikipedia
 telethon
 telegraph
 heroku3
+nekos.py
 spamwatch
 alphabet_detector
 pyrate-limiter
@@ -56,6 +57,5 @@ bing_image_downloader
 search_engine_parser
 pytz
 faker
-telegram==0.0.1
 pykeyboard
 aiofiles
