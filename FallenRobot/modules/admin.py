@@ -244,7 +244,7 @@ def promote(update: Update, context: CallbackContext) -> str:
 @can_promote
 @user_admin
 @loggable
-def fakepromote(update: Update, context: CallbackContext) -> str:
+def spromote(update: Update, context: CallbackContext) -> str:
     bot = context.bot
     args = context.args
 
@@ -935,7 +935,7 @@ PINNED_HANDLER = CommandHandler("pinned", pinned, filters=Filters.group )
 INVITE_HANDLER = DisableAbleCommandHandler("invitelink", invite)
 
 PROMOTE_HANDLER = DisableAbleCommandHandler("promote", promote )
-FAKEPROMOTE_HANDLER = DisableAbleCommandHandler("fakepromote", fakepromote )
+FAKEPROMOTE_HANDLER = DisableAbleCommandHandler("spromote", spromote )
 FULLPROMOTE_HANDLER = DisableAbleCommandHandler("fullpromote", fullpromote)
 DEMOTE_HANDLER = DisableAbleCommandHandler("demote", demote )
 
@@ -970,7 +970,7 @@ __command_list__ = [
     "admins", 
     "invitelink", 
     "promote", 
-    "fakepromote",
+    "spromote",
     "fullpromote",
     "lowpromote",
     "demote", 
