@@ -282,3 +282,9 @@ async def lego(event):
             os.remove(fname)
  except Exception as e:
     await event.reply(f'Error, Report @DevilsHeavenMF')
+
+
+__mod_name__ = "Lᴏɢᴏ​"
+
+__help__ = """
+❍ /logo (Text) - Create a logo of your given text with random view.`
