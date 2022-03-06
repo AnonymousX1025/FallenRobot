@@ -56,6 +56,5 @@ opencv-python-headless
 bing_image_downloader
 search_engine_parser
 pytz
-faker
 pykeyboard
 aiofiles
