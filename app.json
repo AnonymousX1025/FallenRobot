@@ -63,7 +63,7 @@
       },
       "MONGO_DB_URI": {
          "description": "Required for database connections.",
-         "required": false,
+         "required": true,
          "value": ""
       },
       "EVENT_LOGS": {
