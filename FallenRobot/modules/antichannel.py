@@ -1,5 +1,5 @@
 import os
-from database import db
+from FallenRobot.database import db
 from pyrogram import Client, filters
 from config import Config
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
