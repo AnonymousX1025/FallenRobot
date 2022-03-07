@@ -58,3 +58,4 @@ search_engine_parser
 pytz
 pykeyboard
 aiofiles
+motor
