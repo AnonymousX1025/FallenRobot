@@ -1,6 +1,6 @@
 from typing import Dict, Union
 
-from FallenRobot import db
+from FallenRobot import MONGO_DB_URI as db
 
 karmadb = db.karma
 karmaonoffdb = db.karmaonoff
