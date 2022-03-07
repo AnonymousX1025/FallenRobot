@@ -1,7 +1,7 @@
 import os
 from FallenRobot.database import db
 from pyrogram import Client, filters
-from config import Config
+from FallenRobot.config import Config
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 import logging
 from logging.handlers import RotatingFileHandler
@@ -85,7 +85,7 @@ async def main_handler(bot, message):
     await message.delete()
 
 
-@Aryza.on_message(filters.command(["start"]) & filters.private)
+@Aryza.on_message(filters.command(["aaastart"]) & filters.private)
 async def start_handler(bot, message):
     await message.reply_text(
         text="""Hallo! First For Using me add me to the chat, and I will Automatic block the Users channels that write to the chat,
