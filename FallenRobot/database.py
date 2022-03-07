@@ -1,5 +1,5 @@
 import motor.motor_asyncio
-from config import Config
+from FallenRobot.config import Config
 
 
 class Database:
