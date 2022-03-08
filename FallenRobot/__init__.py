@@ -5,6 +5,7 @@ import time
 import spamwatch
 
 import telegram.ext as tg
+from aiohttp import ClientSession
 from pyrogram import Client, errors
 from telethon import TelegramClient
 
@@ -192,6 +193,7 @@ telethn = TelegramClient("fallen", API_ID, API_HASH)
 
 pbot = Client("fallenrobot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 dispatcher = updater.dispatcher
+aiohttpsession = ClientSession()
 
 
 DRAGONS = list(DRAGONS) + list(DEV_USERS)
