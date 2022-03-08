@@ -2,9 +2,9 @@ from telegram.ext.filters import Filters
 from FallenRobot.modules.helper_funcs.decorators import fallencmd, fallenmsg
 from telegram import Update, message
 from telegram.ext import CallbackContext
-from ..modules.helper_funcs.anonymous import user_admin, AdminPerms
+from FallenRobot.modules.helper_funcs.anonymous import user_admin, AdminPerms
 import html
-from ..modules.sql.antichannel_sql import antichannel_status, disable_antichannel, enable_antichannel
+from FallenRobot.modules.sql.antichannel_sql import antichannel_status, disable_antichannel, enable_antichannel
 
 
 @fallencmd(command="antichannel", group=100)
