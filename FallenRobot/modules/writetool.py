@@ -200,4 +200,4 @@ __f__ = """
 
 Logo Maker is Powered by @SingleDevelopers & @MrItzme
  """
-__mod_name__ = Lavda
+__mod_name__ = "Lavda"
