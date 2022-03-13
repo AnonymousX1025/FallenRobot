@@ -1,5 +1,6 @@
 import os
 import re
+import random
 from platform import python_version as kontol
 from telethon import events, Button
 from telegram import __version__ as telever
