@@ -25,6 +25,8 @@ async def awake(event):
   TEXT += f"» **ʟɪʙʀᴀʀʏ ᴠᴇʀsɪᴏɴ :** `{telever}` \n\n"
   TEXT += f"» **ᴛᴇʟᴇᴛʜᴏɴ ᴠᴇʀsɪᴏɴ :** `{tlhver}` \n\n"
   TEXT += f"» **ᴘʏʀᴏɢʀᴀᴍ ᴠᴇʀsɪᴏɴ :** `{pyrover}` \n━━━━━━━━━━━━━━━━━\n\n"
-  BUTTON = [[Button.url("ʜᴇʟᴘ​", "https://t.me/anonymous_0_robot?start=help"), Button.url("sᴜᴘᴘᴏʀᴛ​", "https://t.me/DevilsHeavenMF")]]
+  BUTTON = [[Button.url("ʜᴇʟᴘ​", "https://t.me/FallenXRobot?start=help"), Button.url("sᴜᴘᴘᴏʀᴛ​", "https://t.me/DevilsHeavenMF")]]
   ran = random.choice(PHOTO)
   await tbot.send_file(event.chat_id, ran, caption=TEXT,  buttons=BUTTON)
+
+## Alive mod
