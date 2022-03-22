@@ -20,3 +20,10 @@ async def handwriting(_, message):
 
 
 mod_name = "Hᴀɴᴅᴡʀɪᴛᴇ"
+
+__help__ = """
+
+ Writes the given text on white page with a pen 🖊
+
+❍ /write <text> *:* Writes the given text.
+ """
