@@ -7,7 +7,7 @@ from pyrogram import filters
 from FallenRobot import pbot as client
 
 
-ANON = "https://telegra.ph/file/ceb116e569f2255fedb6d.jpg"
+ANON = "https://telegra.ph/file/7bd111132fce009e4605e.jpg"
 
 @client.on_message(filters.command(["repo", "source"]))
 async def repo(client, message):
