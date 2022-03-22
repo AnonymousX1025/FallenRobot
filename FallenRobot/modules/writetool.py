@@ -19,7 +19,7 @@ async def handwriting(_, message):
     await message.reply_photo(hand, caption="ᴡʀɪᴛᴛᴇɴ ᴡɪᴛʜ 🖊 ʙʏ [ғᴀʟʟᴇɴ](t.me/FallenXRobot)")
 
 
-mod_name = "Hᴀɴᴅᴡʀɪᴛᴇ"
+__mod_name__ = "Hᴀɴᴅᴡʀɪᴛᴇ"
 
 __help__ = """
 
