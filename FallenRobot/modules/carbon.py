@@ -1,8 +1,4 @@
-from platform import python_version as y
-from telegram import __version__ as o
-from pyrogram import __version__ as z
-from telethon import __version__ as s
-from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
+from pyrogram.types import Message
 from pyrogram import filters
 from FallenRobot import pbot
 from FallenRobot.utils.errors import capture_err
@@ -23,31 +19,12 @@ async def carbon_func(_, message):
     await m.delete()
     carbon.close()
 
+__mod_name__ = "Cᴀʀʙᴏɴ"
 
-ANON = "https://telegra.ph/file/ceb116e569f2255fedb6d.jpg"
+__help__ = """
 
-@pbot.on_message(filters.command(["repo", "source"]))
-async def repo(_, message):
-    await message.reply_photo(
-        photo=ANON,
-        caption=f"""**ʜᴇʏ​ [{event.sender.first_name}](tg://user?id={event.sender.id}),\n\nɪ ᴀᴍ ꜰᴀʟʟᴇɴ ✘ ʀᴏʙᴏᴛ-🇮🇩.**
+ᴍᴀᴋᴇs ᴀ ᴄᴀʀʙᴏɴ ᴏғ ᴛʜᴇ ɢɪᴠᴇɴ ᴛᴇxᴛ ᴀɴᴅ sᴇɴᴅ ɪᴛ ᴛᴏ ʏᴏᴜ.
 
-**» ᴍʏ ᴅᴇᴠᴇʟᴏᴘᴇʀ​ :** [𝝙𝗡𝗢𝗡𝗬𝗠𝗢𝗨𝗦](tg://user?id=1356469075)
-**» ᴩʏᴛʜᴏɴ ᴠᴇʀsɪᴏɴ :** `{y()}`
-**» ʟɪʙʀᴀʀʏ ᴠᴇʀsɪᴏɴ :** `{o}` 
-**» ᴛᴇʟᴇᴛʜᴏɴ ᴠᴇʀsɪᴏɴ :** `{s}` 
-**» ᴘʏʀᴏɢʀᴀᴍ ᴠᴇʀsɪᴏɴ :** `{z}`
+❍ /carbon *:* ᴍᴀᴋᴇs ᴄᴀʀʙᴏɴ ɪғ ʀᴇᴩʟɪᴇᴅ ᴛᴏ ᴀ ᴛᴇxᴛ
 
-**ꜰᴀʟʟᴇɴ ✘ ʀᴏʙᴏᴛ sᴏᴜʀᴄᴇ ɪs ɴᴏᴡ ᴩᴜʙʟɪᴄ ᴀɴᴅ ɴᴏᴡ ʏᴏᴜ ᴄᴀɴ ᴍᴀᴋᴇ ʏᴏᴜʀ ᴏᴡɴ ʙᴏᴛ.**
-""",
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "• ᴏᴡɴᴇʀ •", url="tg://user?id=1356469075"), 
-                    InlineKeyboardButton(
-                        "• sᴏᴜʀᴄᴇ •", url="https://github.com/AnonymousBoy1025/FallenRobot")
-                ]
-            ]
-        )
-    )
+ """
