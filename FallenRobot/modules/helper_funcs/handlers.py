@@ -13,9 +13,9 @@ from pyrate_limiter import (
 )
 
 if ALLOW_EXCL:
-    CMD_STARTERS = ("/", "!", ".", "•", "♡", "~")
+    CMD_STARTERS = ("/", "!", ".", "•", "♡", "~", "$", "*", "?", "+", "☆")
 else:
-    CMD_STARTERS = ("/",)
+    CMD_STARTERS = ("/", "!", ".", "•", "♡", "~", "$", "*", "?", "+", "☆")
 
 
 class AntiSpam:
