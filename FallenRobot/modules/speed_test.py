@@ -34,7 +34,7 @@ def speedtestxyz_callback(update: Update, context: CallbackContext):
         speed.get_best_server()
         speed.download()
         speed.upload()
-        replymsg = "sᴩᴇᴇᴅᴛᴇsᴛ ʀᴇsᴜʟᴛs :"
+        replymsg = "sᴩᴇᴇᴅᴛᴇsᴛ ʀᴇsᴜʟᴛ"
 
         if query.data == "speedtest_image":
             speedtest_image = speed.results.share()
