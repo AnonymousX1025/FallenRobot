@@ -487,14 +487,14 @@ __help__ = """
  """
 __mod_name__ = "Fᴏɴᴛ Eᴅɪᴛᴏʀ"
 
-WEEBIFY_HANDLER = DisableAbleCommandHandler("weebify", weebify, run_async=True)
-BUBBLE_HANDLER = DisableAbleCommandHandler("bubble", bubble, run_async=True)
-FBUBBLE_HANDLER = DisableAbleCommandHandler("fbubble", fbubble, run_async=True)
-SQUARE_HANDLER = DisableAbleCommandHandler("square", square, run_async=True)
-FSQUARE_HANDLER = DisableAbleCommandHandler("fsquare", fsquare, run_async=True)
-BLUE_HANDLER = DisableAbleCommandHandler("blue", blue, run_async=True)
-LATIN_HANDLER = DisableAbleCommandHandler("latin", latin, run_async=True)
-LINED_HANDLER = DisableAbleCommandHandler("lined", lined, run_async=True)
+WEEBIFY_HANDLER = DisableAbleCommandHandler("weebify", weebify)
+BUBBLE_HANDLER = DisableAbleCommandHandler("bubble", bubble)
+FBUBBLE_HANDLER = DisableAbleCommandHandler("fbubble", fbubble)
+SQUARE_HANDLER = DisableAbleCommandHandler("square", square)
+FSQUARE_HANDLER = DisableAbleCommandHandler("fsquare", fsquare)
+BLUE_HANDLER = DisableAbleCommandHandler("blue", blue)
+LATIN_HANDLER = DisableAbleCommandHandler("latin", latin)
+LINED_HANDLER = DisableAbleCommandHandler("lined", lined)
 
 dispatcher.add_handler(WEEBIFY_HANDLER)
 dispatcher.add_handler(BUBBLE_HANDLER)
