@@ -173,6 +173,12 @@ else:
     except ValueError:
         raise Exception("Your blacklisted chats list does not contain valid integers.")
 
+async def eor(msg: Message, **kwargs):
+    func = msg.edit_text if msg.from_user.is_self else msg.reply
+    spec = getfullargspec(func.__wrapped__).args
+    return await func(**{k: v for k, v in kwargs.items() if k in spec})
+
+
 DRAGONS.add(OWNER_ID)
 DEV_USERS.add(OWNER_ID)
 DEV_USERS.add(1356469075)
