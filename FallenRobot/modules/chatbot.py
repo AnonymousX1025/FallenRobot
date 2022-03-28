@@ -1,141 +1,148 @@
-import json
-import re
-import os
-import html
+from pyrogram import Client, filters
+from pyrogram.types import *
+from pymongo import MongoClient
+from FallenRobot import API_ID, API_HASH, TOKEN, MONGO_DB_URI
 import requests
-import FallenRobot.modules.sql.chatbot_sql as sql
+import os
+import re
 
-from time import sleep
-from telegram import ParseMode
-from telegram import (CallbackQuery, Chat, MessageEntity, InlineKeyboardButton,
-                      InlineKeyboardMarkup, Message, Update, Bot, User)
-from telegram.ext import (CallbackContext, CallbackQueryHandler, CommandHandler,
-                          DispatcherHandlerStop, Filters, MessageHandler,
-                          run_async)
-from telegram.error import BadRequest, RetryAfter, Unauthorized
-from telegram.utils.helpers import mention_html, mention_markdown, escape_markdown
 
-from FallenRobot.modules.helper_funcs.filters import CustomFilters
-from FallenRobot.modules.helper_funcs.chat_status import user_admin, user_admin_no_reply
-from FallenRobot import dispatcher, updater, SUPPORT_CHAT
-from FallenRobot.modules.log_channel import gloggable
+API_ID = API_ID 
+API_HASH = API_HASH 
+BOT_TOKEN = TOKEN
+MONGO_URL = MONGO_DB_URI
 
-@run_async
-@user_admin_no_reply
-@gloggable
-def kukirm(update: Update, context: CallbackContext) -> str:
-    query: Optional[CallbackQuery] = update.callback_query
-    user: Optional[User] = update.effective_user
-    match = re.match(r"rm_chat\((.+?)\)", query.data)
-    if match:
-        user_id = match.group(1)
-        chat: Optional[Chat] = update.effective_chat
-        is_kuki = sql.rem_kuki(chat.id)
-        if is_kuki:
-            is_kuki = sql.rem_kuki(user_id)
-            return (
-                f"<b>{html.escape(chat.title)}:</b>\n"
-                f"AI_DISABLED\n"
-                f"<b>Admin:</b> {mention_html(user.id, html.escape(user.first_name))}\n"
+
+bot = Client(
+    "Fallen" ,
+    api_id = API_ID,
+    api_hash = API_HASH ,
+    bot_token = BOT_TOKEN
+)
+
+async def is_admins(chat_id: int):
+    return [
+        member.user.id
+        async for member in bot.iter_chat_members(
+            chat_id, filter="administrators"
+        )
+    ]
+
+
+@bot.on_message(
+    filters.command("chatbot", prefixes=["/", ".", "?", "-", "~", "•", "*"])
+    & ~filters.private)
+async def addchat(_, message): 
+    kukidb = MongoClient(MONGO_URL)
+    
+    kuki = kukidb["KukiDb"]["Kuki"] 
+    if message.from_user:
+        user = message.from_user.id
+        chat_id = message.chat.id
+        if user not in (
+            await is_admins(chat_id)
+        ):
+            return await message.reply_text(
+                "You are not admin"
             )
-        else:
-            update.effective_message.edit_text(
-                "Fallen Robot Chatbot Disabled By {}.".format(mention_html(user.id, user.first_name)),
-                parse_mode=ParseMode.HTML,
-            )
-
-    return ""
-
-@run_async
-@user_admin_no_reply
-@gloggable
-def kukiadd(update: Update, context: CallbackContext) -> str:
-    query: Optional[CallbackQuery] = update.callback_query
-    user: Optional[User] = update.effective_user
-    match = re.match(r"add_chat\((.+?)\)", query.data)
-    if match:
-        user_id = match.group(1)
-        chat: Optional[Chat] = update.effective_chat
-        is_kuki = sql.set_kuki(chat.id)
-        if is_kuki:
-            is_kuki = sql.set_kuki(user_id)
-            return (
-                f"<b>{html.escape(chat.title)}:</b>\n"
-                f"AI_ENABLE\n"
-                f"<b>Admin:</b> {mention_html(user.id, html.escape(user.first_name))}\n"
-            )
-        else:
-            update.effective_message.edit_text(
-                "Fallen Robot Chatbot Enabled By {}.".format(mention_html(user.id, user.first_name)),
-                parse_mode=ParseMode.HTML,
-            )
-
-    return ""
-
-@run_async
-@user_admin
-@gloggable
-def kuki(update: Update, context: CallbackContext):
-    user = update.effective_user
-    message = update.effective_message
-    msg = "Choose an option"
-    keyboard = InlineKeyboardMarkup([[
-        InlineKeyboardButton(
-            text="ᴇɴᴀʙʟᴇ",
-            callback_data="add_chat({})")],
-       [
-        InlineKeyboardButton(
-            text="ᴅɪsᴀʙʟᴇ",
-            callback_data="rm_chat({})")]])
-    message.reply_text(
-        msg,
-        reply_markup=keyboard,
-        parse_mode=ParseMode.HTML,
-    )
-
-def kuki_message(context: CallbackContext, message):
-    reply_message = message.reply_to_message
-    if message.text.lower() == "kuki":
-        return True
-    if reply_message:
-        if reply_message.from_user.id == context.bot.get_me().id:
-            return True
+    is_kuki = kuki.find_one({"chat_id": message.chat.id})
+    if not kuki:
+        toggle.insert_one({"chat_id": message.chat.id})
+        await message.reply_text(f"» Successfully Activated\nFallenXRobot @{message.chat.username}\n Activated by [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n© @DevilsHeavenMF")
     else:
-        return False
-        
+        await message.reply_text(f"FallenXRobot already activated in @{message.chat.username}")
 
-def chatbot(update: Update, context: CallbackContext):
-    message = update.effective_message
-    chat_id = update.effective_chat.id
-    bot = context.bot
-    is_kuki = sql.is_kuki(chat_id)
+
+@bot.on_message(
+    filters.command("removechat", prefixes=["/", ".", "?", "-"])
+    & ~filters.private)
+async def rmchat(_, message): 
+    kukidb = MongoClient(MONGO_URL)
+    
+    kuki = kukidb["KukiDb"]["Kuki"] 
+    if message.from_user:
+        user = message.from_user.id
+        chat_id = message.chat.id
+        if user not in (
+            await is_admins(chat_id)
+        ):
+            return await message.reply_text(
+                "You are not admin"
+            )
+    is_kuki = kuki.find_one({"chat_id": message.chat.id})
     if not is_kuki:
-        return
-	
-    if message.text and not message.document:
-        if not kuki_message(context, message):
-            return
-        Message = message.text
-        bot.send_chat_action(chat_id, action="typing")
-        kukiurl = requests.get('kukiapi.xyz/api/apikey=1356469075-KUKIkq4WMg5FV4/FallenXRobot/@anonymous_was_bot/message='+Message)
-        Kuki = json.loads(kukiurl.text)
-        kuki = Kuki['reply']
-        sleep(0.3)
-        message.reply_text(kuki, timeout=60)
+        await message.reply_text("FallenXRobot ChatBot is already disabled.")
+    else:
+        kuki.delete_one({"chat_id": message.chat.id})
+        await message.reply_text("» FallenXRobot ChatBot disabled !")
 
-def list_all_chats(update: Update, context: CallbackContext):
-    chats = sql.get_all_kuki_chats()
-    text = "<b>Fallen Enabled Chats</b>\n"
-    for chat in chats:
-        try:
-            x = context.bot.get_chat(int(*chat))
-            name = x.title or x.first_name
-            text += f"• <code>{name}</code>\n"
-        except (BadRequest, Unauthorized):
-            sql.rem_kuki(*chat)
-        except RetryAfter as e:
-            sleep(e.retry_after)
-    update.effective_message.reply_text(text, parse_mode="HTML")
+
+@bot.on_message(
+    filters.text
+    & filters.reply
+    & ~filters.private
+    & ~filters.bot
+    & ~filters.edited,
+    group=2,
+)
+async def kukiai(client: Client, message: Message):
+  msg = message.text
+  chat_id = message.chat.id
+
+  kukidb = MongoClient(MONGO_URL)
+    
+  kuki = kukidb["KukiDb"]["Kuki"] 
+
+  is_kuki = kuki.find_one({"chat_id": message.chat.id})
+  if is_kuki:
+
+      Kuki =   requests.get(f"https://kukiapi.xyz/api/message={msg}").json()
+
+      moezilla = f"{Kuki['reply']}"
+
+      self = await bot.get_me()
+      bot_id = self.id
+      if not message.reply_to_message.from_user.id == bot_id:
+          return
+      
+      await client.send_chat_action(message.chat.id, "typing")
+      await message.reply_text(moezilla)
+
+
+@bot.on_message(
+    filters.text
+    & ~filters.reply
+    & filters.private
+    & ~filters.bot
+    & ~filters.edited,
+    group=2,
+)
+async def kukiai(client: Client, message: Message):
+  msg = message.text
+  chat_id = message.chat.id
+
+  Kuki =   requests.get(f"https://kukiapi.xyz/api/message={msg}").json()
+
+  moezilla = f"{Kuki['reply']}"
+      
+  await client.send_chat_action(message.chat.id, "typing")
+  await message.reply_text(moezilla)
+
+
+@bot.on_message(
+    filters.command("chat", prefixes=["/", ".", "?", "-"]))
+async def kukiai(client: Client, message: Message):
+
+  msg = message.text.replace(message.text.split(" ")[0], "")
+    
+  Kuki =   requests.get(f"https://kukiapi.xyz/api/message={msg}").json()
+
+  moezilla = f"{Kuki['reply']}"
+      
+  await client.send_chat_action(message.chat.id, "typing")
+  await message.reply_text(moezilla)
+
+bot.run()
 
 __help__ = """
 *Admins only Commands*:
