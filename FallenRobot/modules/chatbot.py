@@ -78,7 +78,7 @@ def kukiadd(update: Update, context: CallbackContext) -> str:
 def kuki(update: Update, context: CallbackContext):
     user = update.effective_user
     message = update.effective_message
-    msg = "Choose an option"
+    msg = "Choose an option My Boss"
     keyboard = InlineKeyboardMarkup([[
         InlineKeyboardButton(
             text="ᴇɴᴀʙʟᴇ",
