@@ -122,7 +122,9 @@ def chatbot(update: Update, context: CallbackContext):
         results = json.loads(request.text) 
         boyresult = f"{results['reply']}"
         sleep(0.3)
+        msg = hello
         message.reply_text(boytext, timeout=60)
+        message.reply_text(msg)
 
 def list_all_chats(update: Update, context: CallbackContext):
     chats = sql.get_all_kuki_chats()
