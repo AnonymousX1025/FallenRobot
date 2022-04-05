@@ -122,7 +122,7 @@ def chatbot(update: Update, context: CallbackContext):
         results = json.loads(request.text) 
         boyresult = f"{results['reply']}"
         sleep(0.5)
-        message.reply_text(boytext)
+        message.reply_text(boyresult)
         message.reply_text("Hello")
 
 def list_all_chats(update: Update, context: CallbackContext):
