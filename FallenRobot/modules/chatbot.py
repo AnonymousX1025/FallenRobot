@@ -115,13 +115,14 @@ def chatbot(update: Update, context: CallbackContext):
     if message.text and not message.document:
         if not kuki_message(context, message):
             return
-        Message = message.text
+        sweetie = message.text
         bot.send_chat_action(chat_id, action="typing")
-        kukiurl = requests.get('kukiapi.xyz/api/apikey=1356469075-KUKIkq4WMg5FV4/FallenXRobot/@anonymous_was_bot/message='+Message)
-        Kuki = json.loads(kukiurl.text)
-        kuki = Kuki['reply']
+        url = f"https://kukiapi.xyz/api/apikey=1356469075-KUKIkq4WMg5FV4/LegendBoyAssistance/LegendBoy/message={sweetie}" 
+        request = requests.get(url) 
+        results = json.loads(request.text) 
+        boyresult = f"{results['reply']}"
         sleep(0.3)
-        message.reply_text(kuki, timeout=60)
+        message.reply_text(boytext, timeout=60)
 
 def list_all_chats(update: Update, context: CallbackContext):
     chats = sql.get_all_kuki_chats()
