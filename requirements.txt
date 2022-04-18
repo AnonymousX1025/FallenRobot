@@ -59,3 +59,5 @@ pytz
 pykeyboard
 aiofiles
 motor
+python-telegram-bot==13.11
+telegram
