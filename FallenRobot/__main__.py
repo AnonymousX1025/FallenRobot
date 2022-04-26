@@ -6,6 +6,7 @@ from typing import Optional
 
 from FallenRobot import (
     ALLOW_EXCL,
+    DEVELOPER,
     CERT_PATH,
     DONATION_LINK,
     LOGGER,
