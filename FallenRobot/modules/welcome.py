@@ -11,7 +11,7 @@ from FallenRobot import (
     DEV_USERS,
     LOGGER,
     OWNER_ID,
-    DEVELOPER,
+    OWNER_USERNAME,
     DRAGONS,
     DEMONS,
     TIGERS,
@@ -819,7 +819,7 @@ def reset_goodbye(update: Update, context: CallbackContext) -> str:
 
 x = "anonymous_was_bot"
 
-if DEVELOPER != x:
+if OWNER_USERNAME != x:
     print("Sorry you have changed developer please change it back to anonymous_was_bot else I won't work")
     sys.exit(1)
 else:
