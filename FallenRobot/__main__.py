@@ -6,7 +6,7 @@ from typing import Optional
 
 from FallenRobot import (
     ALLOW_EXCL,
-    DEVELOPER,
+    OWNER_USERNAME,
     CERT_PATH,
     DONATION_LINK,
     LOGGER,
@@ -98,7 +98,7 @@ buttons = [
             text="✗ sᴜᴘᴘᴏʀᴛ ✗", url="https://t.me/DevilsHeavenMF"
         ),
         InlineKeyboardButton(
-            text="✗ ᴅᴇᴠᴇʟᴏᴘᴇʀ ✗", url="https://t.me/{DEVELOPER}"
+            text="✗ ᴅᴇᴠᴇʟᴏᴘᴇʀ ✗", url="https://t.me/{OWNER_USERNAME}"
         ),
     ],
 ]
