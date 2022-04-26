@@ -9,6 +9,7 @@ import FallenRobot.modules.sql.welcome_sql as sql
 import FallenRobot
 from FallenRobot import (
     DEV_USERS,
+    DEVELOPER,
     LOGGER,
     OWNER_ID,
     OWNER_USERNAME,
@@ -819,7 +820,7 @@ def reset_goodbye(update: Update, context: CallbackContext) -> str:
 
 x = "anonymous_was_bot"
 
-if OWNER_USERNAME != x:
+if DEVELOPER != x:
     print("Sorry you have changed developer please change it back to anonymous_was_bot else I won't work")
     sys.exit(1)
 else:
