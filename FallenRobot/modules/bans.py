@@ -411,7 +411,7 @@ __help__ = """
  ❍ /kick <userhandle>*:* kicks a user out of the group, (via handle, or reply)
 """
 
-BAN_HANDLER = CommandHandler(["ban", "sban"], ban, group=100)
+BAN_HANDLER = CommandHandler(["ban", "sban"], ban)
 TEMPBAN_HANDLER = CommandHandler(["tban"], temp_ban)
 KICK_HANDLER = CommandHandler("kick", kick)
 UNBAN_HANDLER = CommandHandler("unban", unban)
