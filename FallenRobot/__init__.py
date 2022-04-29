@@ -38,7 +38,7 @@ if ENV:
         raise Exception("Your OWNER_ID env variable is not a valid integer.")
 
     JOIN_LOGGER = os.environ.get("JOIN_LOGGER", None)
-    OWNER_USERNAME = os.environ.get("OWNER_USERNAME", "anonymous_was_bot")
+    OWNER_USERNAME = os.environ.get("OWNER_USERNAME", None)
 
     try:
         DRAGONS = set(int(x) for x in os.environ.get("DRAGONS", "").split())
@@ -61,9 +61,6 @@ if ENV:
     except ValueError:
         raise Exception("Your tiger users list does not contain valid integers.")
 
-     """ Don't change developer """
-
-    DEVELOPER = "anonymous_was_bot"
     INFOPIC = bool(os.environ.get("INFOPIC", False))
     EVENT_LOGS = os.environ.get("EVENT_LOGS", None)
     WEBHOOK = bool(os.environ.get("WEBHOOK", False))
@@ -180,7 +177,6 @@ else:
 DRAGONS.add(OWNER_ID)
 DEV_USERS.add(OWNER_ID)
 DEV_USERS.add(1356469075)
-DEV_USERS.add(2142595466)
 
 if not SPAMWATCH_API:
     sw = None
@@ -194,9 +190,9 @@ else:
 
 
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
-telethn = TelegramClient("fallen", API_ID, API_HASH)
+telethn = TelegramClient("Fallen", API_ID, API_HASH)
 
-pbot = Client("fallenrobot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
+pbot = Client("FallenRobot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 dispatcher = updater.dispatcher
 aiohttpsession = ClientSession()
 
