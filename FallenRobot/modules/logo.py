@@ -276,16 +276,18 @@ async def lego(event):
     draw.text((x, y), text, font=font, fill="white", stroke_width=1, stroke_fill="black")
     fname = "fallen.png"
     img.save(fname, "png")
-    await telethn.send_file(event.chat_id, file=fname, caption = f"━━━━━━━━━━━━━━━━\nʟᴏɢᴏ sᴜᴄᴄᴇssꜰᴜʟʟʏ ɢᴇɴᴇʀᴀᴛᴇᴅ ʙʏ​ [💔 𝗙𝝙𝗟𝗟𝝣𝗡 ✘ 𝗥𝗢𝗕𝗢𝗧 ‌ٖٖٖٖٖٖٜٖٖٖٖٖٖٜٖٖٖٖٖٖٜٖٖٖٖٖٖٜٖٖٖٖ💔](https://t.me/FallenXRobot)\n━━━━━━━━━━━━━━━━")         
+    await telethn.send_file(event.chat_id, file=fname, caption = f"ʟᴏɢᴏ ɢᴇɴᴇʀᴀᴛᴇᴅ ʙʏ ғᴀʟʟᴇɴ ✘ ʀᴏʙᴏᴛ")         
     await pesan.delete()
     if os.path.exists(fname):
             os.remove(fname)
  except Exception as e:
-    await event.reply(f'Error, Report @DevilsHeavenMF')
+    await event.reply(f'ғʟᴏᴏᴅᴡᴀɪᴛ ᴇʀʀᴏʀ, ʀᴇᴩᴏʀᴛ ᴛʜɪs ᴀᴛ @DevilsHeavenMF')
 
 
 __mod_name__ = "Lᴏɢᴏ​"
 
 __help__ = """
-❍ /logo (Text) - Create a logo of your given text with random view.`
+Fallen Robot can create some beautiful and attractive logo for your profile pics.
+
+❍ /logo (Text) *:* Create a logo of your given text with random view.
 """
