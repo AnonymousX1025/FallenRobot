@@ -21,12 +21,12 @@ def ReplyCheck(message: Message):
 
 infotext = (
     "**[{full_name}](tg://user?id={user_id})**\n"
-    " * UserID: `{user_id}`\n"
-    " * First Name: `{first_name}`\n"
-    " * Last Name: `{last_name}`\n"
-    " * Username: `{username}`\n"
-    " * Last Online: `{last_online}`\n"
-    " * Bio: {bio}"
+    " * ᴜsᴇʀ ɪᴅ: `{user_id}`\n"
+    " * ғɪʀsᴛ ɴᴀᴍᴇ: `{first_name}`\n"
+    " * ʟᴀsᴛ ɴᴀᴍᴇ: `{last_name}`\n"
+    " * ᴜsᴇʀɴᴀᴍᴇ: `{username}`\n"
+    " * ʟᴀsᴛ sᴇᴇɴ: `{last_online}`\n"
+    " * ʙɪᴏ: {bio}"
 )
 
 
@@ -82,7 +82,7 @@ async def whois(client, message):
             last_name=user.last_name if user.last_name else "",
             username=user.username if user.username else "",
             last_online=LastOnline(user),
-            bio=desc if desc else "`No bio set up.`",
+            bio=desc if desc else "`ᴇᴍᴩᴛʏ.`",
         ),
         disable_web_page_preview=True,
     )
