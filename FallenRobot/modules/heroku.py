@@ -112,7 +112,7 @@ async def dyno_usage(dyno):
     """
     Get your account Dyno Usage
     """
-    die = await dyno.reply("**Processing...**")
+    die = await dyno.reply("**ᴩʀᴏᴄᴇssɪɴɢ...**")
     useragent = (
         "Mozilla/5.0 (Linux; Android 10; SM-G975F) "
         "AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -157,14 +157,14 @@ async def dyno_usage(dyno):
     await asyncio.sleep(1.5)
 
     return await die.edit(
-        "**Dyno Usage**:\n\n"
-        f" -> `Dyno usage for`  **{HEROKU_APP_NAME}**:\n"
-        f"     •  `{AppHours}`**h**  `{AppMinutes}`**m**  "
-        f"**|**  [`{AppPercentage}`**%**]"
+        "**ᴅʏɴᴏ ᴜsᴀɢᴇ**:\n\n"
+        f" -> ᴅʏɴᴏ ᴜsᴀɢᴇ ғᴏʀ  **{HEROKU_APP_NAME}**:\n"
+        f"     •  {AppHours}**ʜ**  {AppMinutes}**ᴍ**  "
+        f"**|**  [{AppPercentage}**%**]"
         "\n\n"
-        " -> `Dyno hours quota remaining this month`:\n"
-        f"     •  `{hours}`**h**  `{minutes}`**m**  "
-        f"**|**  [`{percentage}`**%**]"
+        " -> ʀᴇᴍᴀɪɴɪɴɢ ғʀᴇᴇ ᴅʏɴᴏs ᴏғ ᴛʜɪs ᴍᴏɴᴛʜ:\n"
+        f"     •  {hours}**ʜ**  {minutes}**ᴍ**  "
+        f"**|**  [{percentage}**%**]"
     )
 
 
