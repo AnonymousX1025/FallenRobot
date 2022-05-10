@@ -403,7 +403,7 @@ def connection_status(func):
     return connected_status
 
 
-# Workaround for circular import with connection.py
+## Workaround for circular import with connection.py
 from FallenRobot.modules import connection
 
 connected = connection.connected
