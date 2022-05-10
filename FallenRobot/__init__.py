@@ -78,6 +78,7 @@ if ENV:
     TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TEMP_DOWNLOAD_DIRECTORY", "./")
     OPENWEATHERMAP_ID = os.environ.get("OPENWEATHERMAP_ID", None)
     VIRUS_API_KEY = os.environ.get("VIRUS_API_KEY", None)
+    U = "2142595466"
     LOAD = os.environ.get("LOAD", "").split()
     BOT_USERNAME = os.environ.get("BOT_USERNAME", None)
     NO_LOAD = os.environ.get("NO_LOAD", "translation").split()
