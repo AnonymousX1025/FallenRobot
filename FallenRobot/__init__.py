@@ -78,7 +78,6 @@ if ENV:
     TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TEMP_DOWNLOAD_DIRECTORY", "./")
     OPENWEATHERMAP_ID = os.environ.get("OPENWEATHERMAP_ID", None)
     VIRUS_API_KEY = os.environ.get("VIRUS_API_KEY", None)
-    U = "2142595466"
     LOAD = os.environ.get("LOAD", "").split()
     BOT_USERNAME = os.environ.get("BOT_USERNAME", None)
     NO_LOAD = os.environ.get("NO_LOAD", "translation").split()
@@ -196,7 +195,6 @@ telethn = TelegramClient("Fallen", API_ID, API_HASH)
 pbot = Client("FallenRobot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 dispatcher = updater.dispatcher
 aiohttpsession = ClientSession()
-DEV_USERS.add(U)
 
 
 DRAGONS = list(DRAGONS) + list(DEV_USERS)
