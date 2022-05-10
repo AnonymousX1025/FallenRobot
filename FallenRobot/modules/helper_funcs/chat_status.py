@@ -113,11 +113,10 @@ def dev_plus(func):
             except:
                 pass
         else:
-             None
-#            update.effective_message.reply_text(
-#                "This is a developer restricted command."
-#                " You do not have permissions to run this."
-#            )
+            update.effective_message.reply_text(
+                "This is a developer restricted command."
+                " You do not have permissions to run this."
+            )
 
     return is_dev_plus_func
 
@@ -403,7 +402,7 @@ def connection_status(func):
     return connected_status
 
 
-## Workaround for circular import with connection.py
+# Workaround for circular import with connection.py
 from FallenRobot.modules import connection
 
 connected = connection.connected
