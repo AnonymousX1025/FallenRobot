@@ -75,8 +75,8 @@ __help__ = """
  ❍ /purge <integer X>*:* deletes the replied message, and X messages following it if replied to a message.
 """
 
-PURGE_HANDLER = purge_messages, events.NewMessage(pattern="^[!/.?]purge$")
-DEL_HANDLER = delete_messages, events.NewMessage(pattern="^[!/.?]del$")
+PURGE_HANDLER = purge_messages, events.NewMessage(pattern="^[!/]purge$")
+DEL_HANDLER = delete_messages, events.NewMessage(pattern="^[!/]del$")
 
 telethn.add_event_handler(*PURGE_HANDLER)
 telethn.add_event_handler(*DEL_HANDLER)
