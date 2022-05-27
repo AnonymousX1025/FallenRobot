@@ -12,9 +12,9 @@ def totranslate(update: Update, context: CallbackContext) -> None:
     if not reply_msg:
         message.reply_text(
             "Reply to messages or write messages from other languages ​​for translating into the intended language\n\n"
-            "Example: `/tr en-ja` to translate from English to Japanese\n"
-            "Or use: `/tr ja` for automatic detection and translating it into japanese.\n"
-            "See [List of Language Codes](t.me/fateunionupdates/32) for a list of language codes.",
+            "Example: `/tr en-hi` to translate from English to Hindi\n"
+            "Or use: `/tr en` for automatic detection and translating it into english.\n"
+            "Click here to see [List of available Language Codes](https://t.me/DevilsHeavenMF/148391).",
             parse_mode="markdown",
             disable_web_page_preview=True)
         return
@@ -35,7 +35,7 @@ def totranslate(update: Update, context: CallbackContext) -> None:
         dest = "en"
     translation = trans(to_translate,
                               sourcelang=source, targetlang=dest)
-    reply = f"<b>Translated from {source} to {dest}</b>:\n" \
+    reply = f"<b>ᴛʀᴀɴsʟᴀᴛᴇᴅ ғʀᴏᴍ {source} ᴛᴏ {dest}</b> :\n" \
         f"<code>{translation.text}</code>"
  
     message.reply_text(reply, parse_mode=ParseMode.HTML)
