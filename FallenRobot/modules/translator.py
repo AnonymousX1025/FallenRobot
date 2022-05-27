@@ -1,6 +1,6 @@
 from emoji import UNICODE_EMOJI
 from telegram import  Update, ParseMode 
-from telegram.ext import run_async ,CallbackContext
+from telegram.ext import CallbackContext
 from gpytranslate import SyncTranslator
 from FallenRobot import dispatcher
 from FallenRobot.modules.disable import DisableAbleCommandHandler
@@ -57,7 +57,7 @@ vi,xh,yi,yo,zh,zh_CN,zh_TW,zu`
 """
 __mod_name__ = "Tʀᴀɴsʟᴀᴛᴏʀ"
  
-TRANSLATE_HANDLER = DisableAbleCommandHandler(["tr", "tl"], totranslate, run_async=True)
+TRANSLATE_HANDLER = DisableAbleCommandHandler(["tr", "tl"], totranslate)
  
 dispatcher.add_handler(TRANSLATE_HANDLER)
  
