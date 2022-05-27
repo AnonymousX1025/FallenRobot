@@ -60,3 +60,4 @@ pykeyboard
 aiofiles
 motor
 telegram
+gpytranslate
