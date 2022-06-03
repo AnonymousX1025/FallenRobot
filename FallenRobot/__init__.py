@@ -5,6 +5,7 @@ import time
 
 import telegram.ext as tg
 from aiohttp import ClientSession
+from motor.motor_asyncio import AsyncIOMotorClient as MongoClient
 from pyrogram import Client, errors
 from telethon import TelegramClient
 
@@ -180,6 +181,8 @@ telethn = TelegramClient("Fallen", API_ID, API_HASH)
 pbot = Client("FallenRobot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 dispatcher = updater.dispatcher
 aiohttpsession = ClientSession()
+mongo_client = MongoClient(MONGO_URL)
+db = mongo_client.fallen
 
 
 DRAGONS = list(DRAGONS) + list(DEV_USERS)
