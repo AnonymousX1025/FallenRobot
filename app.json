@@ -167,8 +167,8 @@
          "description": "Set this to True if you want to delete command messages from users who don't have the perms to run that command.",
          "value": "True"
       },
-      "AI_API_KEY": {
-      "description": "Make your bot talk using Intellivoid's chatbot API, get your key from https://coffeehouse.intellivoid.net/",
+      "START_IMG": {
+      "description": "Telegraph link of the image which will be shown at start command.",
          "required": false,
          "value": ""
    },      
