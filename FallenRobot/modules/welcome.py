@@ -15,7 +15,6 @@ from FallenRobot import (
     DEMONS,
     TIGERS,
     WOLVES,
-    sw,
     dispatcher,
     JOIN_LOGGER
 )
@@ -169,11 +168,6 @@ def new_member(update: Update, context: CallbackContext):
         should_mute = True
         welcome_bool = True
         media_wel = False
-
-        if sw is not None:
-            sw_ban = sw.get_ban(new_mem.id)
-            if sw_ban:
-                return
 
         if should_welc:
 
@@ -528,12 +522,6 @@ def left_member(update: Update, context: CallbackContext):
 
         left_mem = update.effective_message.left_chat_member
         if left_mem:
-
-            # Thingy for spamwatched users
-            if sw is not None:
-                sw_ban = sw.get_ban(left_mem.id)
-                if sw_ban:
-                    return
 
             # Dont say goodbyes to gbanned users
             if is_user_gbanned(left_mem.id):
