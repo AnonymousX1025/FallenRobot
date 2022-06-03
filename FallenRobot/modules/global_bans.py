@@ -26,7 +26,6 @@ from FallenRobot import (
     DEMONS,
     TIGERS,
     WOLVES,
-    sw,
     dispatcher,
 )
 from FallenRobot.modules.helper_funcs.chat_status import (
