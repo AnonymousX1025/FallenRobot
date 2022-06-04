@@ -150,7 +150,6 @@ async def command_karma(_, message):
         await message.reply_text(f"**Total Points**: __{karma}__")
 
 
-@user_admin
 @pgram.on_message(filters.command("karmas") & ~filters.private)
 async def captcha_state(_, message):
     usage = "**Usage:**\n/karmas [on|off]"
