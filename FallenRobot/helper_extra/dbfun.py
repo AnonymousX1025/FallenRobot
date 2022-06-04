@@ -7,6 +7,7 @@ client = MongoClient(MONGO_DB_URI)
 db = client["FallenRobot"]
 
 coupledb = db.couple
+karmadb = db.karma
 
 
 
