@@ -3,6 +3,7 @@ from pyrogram.types import Message
 
 from FallenRobot import pbot as app
 from FallenRobot.utils.errors import capture_err
+
 __help__ = """
 » /webss *:* Sends the screenshot of the given url.
 """
@@ -14,9 +15,7 @@ __mod_name__ = "Wᴇʙsʜᴏᴛ​​"
 async def take_ss(_, message: Message):
     try:
         if len(message.command) != 2:
-            return await message.reply_text(
-                "Give A Url To Fetch Screenshot."
-            )
+            return await message.reply_text("Give A Url To Fetch Screenshot.")
         url = message.text.split(None, 1)[1]
         m = await message.reply_text("**Taking Screenshot**")
         await m.edit("**Uploading**")

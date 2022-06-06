@@ -21,7 +21,7 @@ from FallenRobot import (
     TIGERS,
     WOLVES,
     INFOPIC,
-    dispatcher
+    dispatcher,
 )
 from FallenRobot.__main__ import STATS, TOKEN, USER_INFO
 import FallenRobot.modules.sql.userinfo_sql as sql

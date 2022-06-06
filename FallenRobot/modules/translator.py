@@ -1,11 +1,13 @@
 from emoji import UNICODE_EMOJI
-from telegram import  Update, ParseMode 
+from telegram import Update, ParseMode
 from telegram.ext import CallbackContext
 from gpytranslate import SyncTranslator
 from FallenRobot import dispatcher
 from FallenRobot.modules.disable import DisableAbleCommandHandler
+
 trans = SyncTranslator()
- 
+
+
 def totranslate(update: Update, context: CallbackContext) -> None:
     message = update.effective_message
     reply_msg = message.reply_to_message
@@ -16,7 +18,8 @@ def totranslate(update: Update, context: CallbackContext) -> None:
             "Or use: `/tr en` for automatic detection and translating it into english.\n"
             "Click here to see [List of available Language Codes](https://t.me/DevilsHeavenMF/148391).",
             parse_mode="markdown",
-            disable_web_page_preview=True)
+            disable_web_page_preview=True,
+        )
         return
     if reply_msg.caption:
         to_translate = reply_msg.caption
@@ -33,14 +36,15 @@ def totranslate(update: Update, context: CallbackContext) -> None:
     except IndexError:
         source = trans.detect(to_translate)
         dest = "en"
-    translation = trans(to_translate,
-                              sourcelang=source, targetlang=dest)
-    reply = f"<b>ᴛʀᴀɴsʟᴀᴛᴇᴅ ғʀᴏᴍ {source} ᴛᴏ {dest}</b> :\n" \
+    translation = trans(to_translate, sourcelang=source, targetlang=dest)
+    reply = (
+        f"<b>ᴛʀᴀɴsʟᴀᴛᴇᴅ ғʀᴏᴍ {source} ᴛᴏ {dest}</b> :\n"
         f"<code>{translation.text}</code>"
- 
+    )
+
     message.reply_text(reply, parse_mode=ParseMode.HTML)
- 
- 
+
+
 __help__ = """
  ❍ /tr or /tl (language code) as reply to a long message
 *Example:* 
@@ -56,10 +60,10 @@ sm,sn,so,sq,sr,st,su,sv,sw,ta,te,tg,th,tl,tr,uk,ur,uz,
 vi,xh,yi,yo,zh,zh_CN,zh_TW,zu`
 """
 __mod_name__ = "Tʀᴀɴsʟᴀᴛᴏʀ"
- 
+
 TRANSLATE_HANDLER = DisableAbleCommandHandler(["tr", "tl"], totranslate)
- 
+
 dispatcher.add_handler(TRANSLATE_HANDLER)
- 
+
 __command_list__ = ["tr", "tl"]
 __handlers__ = [TRANSLATE_HANDLER]

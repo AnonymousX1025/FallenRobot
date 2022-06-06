@@ -16,7 +16,7 @@ from FallenRobot import (
     TIGERS,
     WOLVES,
     dispatcher,
-    JOIN_LOGGER
+    JOIN_LOGGER,
 )
 from FallenRobot.modules.helper_funcs.chat_status import (
     is_user_ban_protected,
@@ -261,7 +261,9 @@ def new_member(update: Update, context: CallbackContext):
                 creator = None
                 if not FallenRobot.ALLOW_CHATS:
                     with suppress(BadRequest):
-                         update.effective_message.reply_text(f"Groups are disabled for {bot.first_name}, I'm outta here.")
+                        update.effective_message.reply_text(
+                            f"Groups are disabled for {bot.first_name}, I'm outta here."
+                        )
                     bot.leave_chat(update.effective_chat.id)
                     return
                 for x in bot.bot.get_chat_administrators(update.effective_chat.id):

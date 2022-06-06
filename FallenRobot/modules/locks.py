@@ -367,7 +367,7 @@ def del_lockables(update, context):
         if lockable == "rtl":
             if sql.is_locked(chat.id, lockable) and can_delete(chat, context.bot.id):
                 if message.caption:
-                    check = ad.detect_alphabet(u"{}".format(message.caption))
+                    check = ad.detect_alphabet("{}".format(message.caption))
                     if "ARABIC" in check:
                         try:
                             message.delete()
@@ -378,7 +378,7 @@ def del_lockables(update, context):
                                 LOGGER.exception("ERROR in lockables")
                         break
                 if message.text:
-                    check = ad.detect_alphabet(u"{}".format(message.text))
+                    check = ad.detect_alphabet("{}".format(message.text))
                     if "ARABIC" in check:
                         try:
                             message.delete()

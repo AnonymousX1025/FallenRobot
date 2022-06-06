@@ -69,6 +69,7 @@ async def delete_messages(event):
     del_message = [message, event.message]
     await event.client.delete_messages(chat, del_message)
 
+
 __help__ = """
  ❍ /del*:* deletes the message you replied to
  ❍ /purge*:* deletes all messages between this and the replied to message.

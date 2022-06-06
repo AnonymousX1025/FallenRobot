@@ -20,7 +20,7 @@ from telegram.utils.helpers import escape_markdown
 @connection_status
 def get_rules(update: Update, context: CallbackContext):
     args = context.args
-    here = args and args[0] == 'here'
+    here = args and args[0] == "here"
     chat_id = update.effective_chat.id
     # connection_status sets update.effective_chat
     real_chat = update.effective_message.chat
@@ -52,7 +52,10 @@ def send_rules(update, chat_id, from_pm=False, dest_chat=None):
 
     if from_pm and rules:
         bot.send_message(
-            dest_chat, text, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True,
+            dest_chat,
+            text,
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
         )
     elif from_pm:
         bot.send_message(
@@ -67,7 +70,8 @@ def send_rules(update, chat_id, from_pm=False, dest_chat=None):
                 [
                     [
                         InlineKeyboardButton(
-                            text="• ʀᴜʟᴇs •", url=f"t.me/{bot.username}?start={chat_id}",
+                            text="• ʀᴜʟᴇs •",
+                            url=f"t.me/{bot.username}?start={chat_id}",
                         ),
                     ],
                 ],
@@ -80,7 +84,8 @@ def send_rules(update, chat_id, from_pm=False, dest_chat=None):
                 [
                     [
                         InlineKeyboardButton(
-                            text="• ʀᴜʟᴇs •", url=f"t.me/{bot.username}?start={chat_id}",
+                            text="• ʀᴜʟᴇs •",
+                            url=f"t.me/{bot.username}?start={chat_id}",
                         ),
                     ],
                 ],
@@ -111,7 +116,9 @@ def set_rules(update: Update, context: CallbackContext):
     if txt:
         offset = len(txt) - len(raw_text)  # set correct offset relative to command
         markdown_rules = markdown_parser(
-            txt, entities=entities, offset=offset,
+            txt,
+            entities=entities,
+            offset=offset,
         )
 
         sql.set_rules(chat_id, markdown_rules)

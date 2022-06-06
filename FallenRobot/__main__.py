@@ -82,22 +82,18 @@ PM_START_TEXT = """
 buttons = [
     [
         InlineKeyboardButton(
-            text="✗ ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ​ ✗", url="https://t.me/FallenXRobot?startgroup=true"),
-    ],
-    [
-        InlineKeyboardButton(
-            text="🧐 ʜᴇʟᴘ & ᴄᴍᴅs​​​ 🧐", callback_data="help_back"),
-    ],
-    [
-        InlineKeyboardButton(
-            text="💞 ᴀʙᴏᴜᴛ ᴍᴇ​​ 💞", callback_data="fallen_"),
-        InlineKeyboardButton(
-            text="🙄 sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ 🙄", callback_data="source_"),
-    ],
-    [
-        InlineKeyboardButton(
-            text="💔 sᴜᴘᴘᴏʀᴛ 💔", url=f"https://t.me/{SUPPORT_CHAT}"
+            text="✗ ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ​ ✗", url="https://t.me/FallenXRobot?startgroup=true"
         ),
+    ],
+    [
+        InlineKeyboardButton(text="🧐 ʜᴇʟᴘ & ᴄᴍᴅs​​​ 🧐", callback_data="help_back"),
+    ],
+    [
+        InlineKeyboardButton(text="💞 ᴀʙᴏᴜᴛ ᴍᴇ​​ 💞", callback_data="fallen_"),
+        InlineKeyboardButton(text="🙄 sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ 🙄", callback_data="source_"),
+    ],
+    [
+        InlineKeyboardButton(text="💔 sᴜᴘᴘᴏʀᴛ 💔", url=f"https://t.me/{SUPPORT_CHAT}"),
         InlineKeyboardButton(
             text="🍑 ᴅᴇᴠᴇʟᴏᴘᴇʀ 🍑", url=f"https://t.me/{OWNER_USERNAME}"
         ),
@@ -219,7 +215,8 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_photo(
-            START_IMG, caption="ɪ ᴀᴍ ᴀʟɪᴠᴇ ʙᴀʙʏ !\n<b>ɪ ᴅɪᴅɴ'ᴛ sʟᴇᴘᴛ sɪɴᴄᴇ​:</b> <code>{}</code>".format(
+            START_IMG,
+            caption="ɪ ᴀᴍ ᴀʟɪᴠᴇ ʙᴀʙʏ !\n<b>ɪ ᴅɪᴅɴ'ᴛ sʟᴇᴘᴛ sɪɴᴄᴇ​:</b> <code>{}</code>".format(
                 uptime
             ),
             parse_mode=ParseMode.HTML,
@@ -358,20 +355,16 @@ def Fallen_about_callback(update: Update, context: CallbackContext):
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
-                [
-                 [
-                    InlineKeyboardButton(text="◁", callback_data="fallen_back")
-                 ]
-                ]
+                [[InlineKeyboardButton(text="◁", callback_data="fallen_back")]]
             ),
         )
     elif query.data == "fallen_back":
         query.message.edit_text(
-                PM_START_TEXT,
-                reply_markup=InlineKeyboardMarkup(buttons),
-                parse_mode=ParseMode.MARKDOWN,
-                timeout=60,
-                disable_web_page_preview=False,
+            PM_START_TEXT,
+            reply_markup=InlineKeyboardMarkup(buttons),
+            parse_mode=ParseMode.MARKDOWN,
+            timeout=60,
+            disable_web_page_preview=False,
         )
 
 
@@ -384,21 +377,18 @@ def Source_about_callback(update: Update, context: CallbackContext):
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
-                [
-                 [
-                    InlineKeyboardButton(text="◁", callback_data="source_back")
-                 ]
-                ]
+                [[InlineKeyboardButton(text="◁", callback_data="source_back")]]
             ),
         )
     elif query.data == "source_back":
         query.message.edit_text(
-                PM_START_TEXT,
-                reply_markup=InlineKeyboardMarkup(buttons),
-                parse_mode=ParseMode.MARKDOWN,
-                timeout=60,
-                disable_web_page_preview=False,
+            PM_START_TEXT,
+            reply_markup=InlineKeyboardMarkup(buttons),
+            parse_mode=ParseMode.MARKDOWN,
+            timeout=60,
+            disable_web_page_preview=False,
         )
+
 
 @run_async
 def get_help(update: Update, context: CallbackContext):
@@ -432,7 +422,9 @@ def get_help(update: Update, context: CallbackContext):
                     [
                         InlineKeyboardButton(
                             text="ᴏᴩᴇɴ ɪɴ ᴩʀɪᴠᴀᴛᴇ",
-                            url="https://t.me/{}?start=help".format(context.bot.username),
+                            url="https://t.me/{}?start=help".format(
+                                context.bot.username
+                            ),
                         )
                     ],
                     [
@@ -440,7 +432,7 @@ def get_help(update: Update, context: CallbackContext):
                             text="ᴏᴩᴇɴ ʜᴇʀᴇ",
                             callback_data="help_back",
                         )
-                    ]
+                    ],
                 ]
             ),
         )
@@ -681,7 +673,11 @@ def main():
 
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
-            dispatcher.bot.send_photo(f"@{SUPPORT_CHAT}", "https://telegra.ph/file/36be820a8775f0bfc773e.jpg", caption="ғᴀʟʟᴇɴ ✘ ʀᴏʙᴏᴛ ɪs ᴀʟɪᴠᴇ !\n\nᴍᴀᴅᴇ ᴡɪᴛʜ 🖤 ʙʏ ᴀɴᴏɴʏᴍᴏᴜs 🥀")
+            dispatcher.bot.send_photo(
+                f"@{SUPPORT_CHAT}",
+                "https://telegra.ph/file/36be820a8775f0bfc773e.jpg",
+                caption="ғᴀʟʟᴇɴ ✘ ʀᴏʙᴏᴛ ɪs ᴀʟɪᴠᴇ !\n\nᴍᴀᴅᴇ ᴡɪᴛʜ 🖤 ʙʏ ᴀɴᴏɴʏᴍᴏᴜs 🥀",
+            )
         except Unauthorized:
             LOGGER.warning(
                 "Bot isnt able to send message to support_chat, go and check!"
@@ -698,8 +694,12 @@ def main():
     settings_handler = CommandHandler("settings", get_settings)
     settings_callback_handler = CallbackQueryHandler(settings_button, pattern=r"stngs_")
 
-    about_callback_handler = CallbackQueryHandler(Fallen_about_callback, pattern=r"fallen_")
-    source_callback_handler = CallbackQueryHandler(Source_about_callback, pattern=r"source_")
+    about_callback_handler = CallbackQueryHandler(
+        Fallen_about_callback, pattern=r"fallen_"
+    )
+    source_callback_handler = CallbackQueryHandler(
+        Source_about_callback, pattern=r"source_"
+    )
 
     donate_handler = CommandHandler("donate", donate)
     migrate_handler = MessageHandler(Filters.status_update.migrate, migrate_chats)

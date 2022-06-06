@@ -10,7 +10,7 @@ DEFAULT_WELCOME = "Hey {first}, how are you?"
 DEFAULT_GOODBYE = "Nice knowing ya!"
 
 DEFAULT_WELCOME_MESSAGES = [
-    "{first} is here!", 
+    "{first} is here!",
     "Ready player {first}",
     "Genos, {first} is here.",
     "A wild {first} appeared.",
@@ -65,9 +65,9 @@ DEFAULT_WELCOME_MESSAGES = [
     "I'm looking for Garo, oh wait nvm it's {first}.",
     "Welcome {first}, leaving is not an option!",
     "Run Forest! ..I mean...{first}.",
-    "{first} do 100 push-ups, 100 sit-ups, 100 squats, and 10km running EVERY SINGLE DAY!!!", 
-    "Huh?\nDid someone with a disaster level just join?\nOh wait, it's just {first}.", 
-    "Hey, {first}, ever heard the King Engine?", 
+    "{first} do 100 push-ups, 100 sit-ups, 100 squats, and 10km running EVERY SINGLE DAY!!!",
+    "Huh?\nDid someone with a disaster level just join?\nOh wait, it's just {first}.",
+    "Hey, {first}, ever heard the King Engine?",
     "Hey, {first}, empty your pockets.",
     "Hey, {first}!, are you strong?",
     "Call the Avengers! - {first} just joined the chat.",
@@ -110,7 +110,7 @@ DEFAULT_WELCOME_MESSAGES = [
     "Ladies and gentlemen, I give you ...  {first}.",
     "Behold my new evil scheme, the {first}-Inator.",
     "Ah, {first} the Platypus, you're just in time... to be trapped.",
-    "{first} just arrived. Diable Jamble!", 
+    "{first} just arrived. Diable Jamble!",
     "{first} just arrived. Aschente!",
     "{first} say Aschente to swear by the pledges.",
     "{first} just joined. El Psy congroo!",
@@ -124,26 +124,26 @@ DEFAULT_WELCOME_MESSAGES = [
     "Unit-01's reactivated..",
     "Prepare for trouble...And make it double",
     "Hey {first}, are You Challenging Me?",
-    "Oh? You're Approaching Me?", 
-    "Ho… mukatta kuruno ka?", 
-    "I can't beat the shit out of you without getting closer",  
-    "Ho ho! Then come as close as you'd like.", 
+    "Oh? You're Approaching Me?",
+    "Ho… mukatta kuruno ka?",
+    "I can't beat the shit out of you without getting closer",
+    "Ho ho! Then come as close as you'd like.",
     "Hoho! Dewa juubun chikazukanai youi",
     "Guess who survived his time in Hell, {first}.",
     "How many loaves of bread have you eaten in your lifetime?",
     "What did you say? Depending on your answer, I may have to kick your ass!",
     "Oh? You're approaching me? Instead of running away, you come right to me? Even though your grandfather, Joseph, told you the secret of The World, like an exam student scrambling to finish the problems on an exam until the last moments before the chime?",
-    "Rerorerorerorerorero.", 
+    "Rerorerorerorerorero.",
     "{first} just warped into the group!",
     "I..it's..it's just {first}.",
     "Sugoi, Dekai. {first} Joined!",
-    "{first}, do you know gods of death love apples?", 
+    "{first}, do you know gods of death love apples?",
     "I'll take a potato chip.... and eat it",
     "Oshiete oshiete yo sono shikumi wo!",
-    "Kaizoku ou ni...nvm wrong anime.", 
-    "{first} just joined! Gear.....second!", 
+    "Kaizoku ou ni...nvm wrong anime.",
+    "{first} just joined! Gear.....second!",
     "Omae wa mou....shindeiru",
-    "Hey {first}, the leaf village lotus blooms twice!", 
+    "Hey {first}, the leaf village lotus blooms twice!",
     "{first} Joined! Omote renge!",
     "{first}! I, Madara! declare you the strongest",
     "{first}, this time I'll lend you my power. ",  # Kyuubi to naruto
@@ -151,11 +151,11 @@ DEFAULT_WELCOME_MESSAGES = [
     "In the jungle, you must wait...until the dice read five or eight.",  # Jumanji stuff
     "Dr.{first} Famed archeologist and international explorer,\nWelcome to Jumanji!\nJumanji's Fate is up to you now.",
     "{first}, this will not be an easy mission - monkeys slow the expedition.",  # End of Jumanji stuff
-    "Remember, remember, the Fifth of November, the Gunpowder Treason and Plot. I know of no reason why the Gunpowder Treason should ever be forgot.", #V for Vendetta
-    "The only verdict is vengeance; a vendetta, held as a votive not in vain, for the value and veracity of such shall one day vindicate the vigilant and the virtuous.", #V for Vendetta
-    "Behind {first} there is more than just flesh. Beneath this user there is an idea... and ideas are bulletproof.", #V for Vendetta
-    "Love your rage, not your cage.", #V for Vendetta
-    "Get your stinking paws off me, you damned dirty ape!", #Planet of the apes
+    "Remember, remember, the Fifth of November, the Gunpowder Treason and Plot. I know of no reason why the Gunpowder Treason should ever be forgot.",  # V for Vendetta
+    "The only verdict is vengeance; a vendetta, held as a votive not in vain, for the value and veracity of such shall one day vindicate the vigilant and the virtuous.",  # V for Vendetta
+    "Behind {first} there is more than just flesh. Beneath this user there is an idea... and ideas are bulletproof.",  # V for Vendetta
+    "Love your rage, not your cage.",  # V for Vendetta
+    "Get your stinking paws off me, you damned dirty ape!",  # Planet of the apes
     "Elementary, my dear {first}.",
     "I'm back - {first}.",
     "Bond. {first} Bond.",
