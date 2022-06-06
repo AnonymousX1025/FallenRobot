@@ -79,9 +79,7 @@ async def variable(var):
                 return await s.edit(">`/set var <ConfigVars-name> <value>`")
         await asyncio.sleep(1.5)
         if variable in heroku_var:
-            await s.edit(
-                f"**{variable}**  `successfully changed to`  ->  **{value}**"
-            )
+            await s.edit(f"**{variable}**  `successfully changed to`  ->  **{value}**")
         else:
             await s.edit(
                 f"**{variable}**  `successfully added with value`  ->  **{value}**"
@@ -127,9 +125,7 @@ async def dyno_usage(dyno):
     path = "/accounts/" + user_id + "/actions/get-quota"
     r = requests.get(heroku_api + path, headers=headers)
     if r.status_code != 200:
-        return await die.edit(
-            "`Error: something bad happened`\n\n" f">.`{r.reason}`\n"
-        )
+        return await die.edit("`Error: something bad happened`\n\n" f">.`{r.reason}`\n")
     result = r.json()
     quota = result["account_quota"]
     quota_used = result["quota_used"]

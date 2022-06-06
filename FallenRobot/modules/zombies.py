@@ -38,6 +38,7 @@ OFFICERS = [OWNER_ID] + DEV_USERS + DRAGONS + DEMONS
 
 # Check if user has admin rights
 
+
 async def is_administrator(user_id: int, message):
     admin = False
     async for user in telethn.iter_participants(
@@ -95,6 +96,8 @@ async def rm_deletedacc(show):
             f"\n`{del_a}` **Admin zombies not deleted.**"
         )
     await memek.edit(del_status)
+
+
 __help__ = """
 *Remove Deleted Accounts*
  ❍ /zombies *:* Starts searching for deleted accounts in the group.

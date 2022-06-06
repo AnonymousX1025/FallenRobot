@@ -192,9 +192,7 @@ PAT_STICKERS = (
     "CAACAgQAAxkBAALRXF9Xs6XmIeDbnoL1wiDky0TdX-CvAAKKAQAC1TMzC9A3CtiT2rqVGwQ",
 )
 
-PING_STRING = (
-    "ɪ ᴀᴍ ᴀʟɪᴠᴇ ʙᴀʙʏ! 🖤",
-)
+PING_STRING = ("ɪ ᴀᴍ ᴀʟɪᴠᴇ ʙᴀʙʏ! 🖤",)
 
 ITEMS = (
     "cast iron skillet",

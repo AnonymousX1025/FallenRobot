@@ -3,16 +3,15 @@ import requests
 import time
 
 
-
 async def is_nsfw(event):
     lmao = event
     if not (
-            lmao.gif
-            or lmao.video
-            or lmao.video_note
-            or lmao.photo
-            or lmao.sticker
-            or lmao.media
+        lmao.gif
+        or lmao.video
+        or lmao.video_note
+        or lmao.photo
+        or lmao.sticker
+        or lmao.media
     ):
         return False
     if lmao.video or lmao.video_note or lmao.sticker or lmao.gif:
@@ -27,12 +26,12 @@ async def is_nsfw(event):
             return False
     img = starkstark
     f = {"file": (img, open(img, "rb"))}
-    
-    r = requests.post("https://starkapi.herokuapp.com/nsfw/", files = f).json()
+
+    r = requests.post("https://starkapi.herokuapp.com/nsfw/", files=f).json()
     if r.get("success") is False:
-      is_nsfw = False
+        is_nsfw = False
     elif r.get("is_nsfw") is True:
-      is_nsfw = True
+        is_nsfw = True
     elif r.get("is_nsfw") is False:
-      is_nsfw = False
+        is_nsfw = False
     return is_nsfw

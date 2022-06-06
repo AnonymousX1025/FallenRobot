@@ -9,6 +9,7 @@ from FallenRobot import pbot as client
 
 ANON = "https://telegra.ph/file/7bd111132fce009e4605e.jpg"
 
+
 @client.on_message(filters.command(["repo", "source"]))
 async def repo(client, message):
     await message.reply_photo(
@@ -26,13 +27,15 @@ async def repo(client, message):
         reply_markup=InlineKeyboardMarkup(
             [
                 [
+                    InlineKeyboardButton("• ᴏᴡɴᴇʀ •", url="tg://user?id=1356469075"),
                     InlineKeyboardButton(
-                        "• ᴏᴡɴᴇʀ •", url="tg://user?id=1356469075"), 
-                    InlineKeyboardButton(
-                        "• sᴏᴜʀᴄᴇ •", url="https://github.com/AnonymousBoy1025/FallenRobot")
+                        "• sᴏᴜʀᴄᴇ •",
+                        url="https://github.com/AnonymousBoy1025/FallenRobot",
+                    ),
                 ]
             ]
-        )
+        ),
     )
+
 
 __mod_name__ = "Rᴇᴩᴏ"

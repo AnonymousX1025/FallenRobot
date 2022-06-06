@@ -17,65 +17,65 @@ async def msg(event):
     lol = input_str
     country = CountryInfo(lol)
     try:
-	    a = country.info()
+        a = country.info()
     except:
-	    await event.reply("Country Not Available Currently")
+        await event.reply("Country Not Available Currently")
     name = a.get("name")
-    bb= a.get("altSpellings")
-    hu = ''
+    bb = a.get("altSpellings")
+    hu = ""
     for p in bb:
-    	hu += p+",  "
-	
+        hu += p + ",  "
+
     area = a.get("area")
     borders = ""
     hell = a.get("borders")
     for fk in hell:
-	    borders += fk+",  "
-	
-    call = "" 
+        borders += fk + ",  "
+
+    call = ""
     WhAt = a.get("callingCodes")
     for what in WhAt:
-	    call+= what+"  "
-	
+        call += what + "  "
+
     capital = a.get("capital")
     currencies = ""
     fker = a.get("currencies")
     for FKer in fker:
-	    currencies += FKer+",  "
+        currencies += FKer + ",  "
 
     HmM = a.get("demonym")
     geo = a.get("geoJSON")
     pablo = geo.get("features")
     Pablo = pablo[0]
     PAblo = Pablo.get("geometry")
-    EsCoBaR= PAblo.get("type")
+    EsCoBaR = PAblo.get("type")
     iso = ""
     iSo = a.get("ISO")
     for hitler in iSo:
-      po = iSo.get(hitler)
-      iso += po+",  "
+        po = iSo.get(hitler)
+        iso += po + ",  "
     fla = iSo.get("alpha2")
     nox = fla.upper()
     okie = flag.flag(nox)
 
     languages = a.get("languages")
-    lMAO=""
+    lMAO = ""
     for lmao in languages:
-	    lMAO += lmao+",  "
+        lMAO += lmao + ",  "
 
     nonive = a.get("nativeName")
     waste = a.get("population")
     reg = a.get("region")
     sub = a.get("subregion")
     tik = a.get("timezones")
-    tom =""
+    tom = ""
     for jerry in tik:
-	    tom+=jerry+",   "
+        tom += jerry + ",   "
 
     GOT = a.get("tld")
     lanester = ""
     for targaryen in GOT:
-	    lanester+=targaryen+",   "
+        lanester += targaryen + ",   "
 
     wiki = a.get("wiki")
 
@@ -103,14 +103,13 @@ wikipedia:- {wiki}</b>
 
 Gathered By [FALLEN](t.me/anonymous_was_bot)</b>
 """
-    
-    
+
     await borg.send_message(
         event.chat_id,
         caption,
         parse_mode="HTML",
     )
-    
+
 
 __help__ = """
 I will give information about a country
