@@ -1,7 +1,7 @@
 from pymongo import MongoClient
 from FallenRobot import MONGO_DB_URI
 from telethon import events
-from YoneRobot import telethn
+from FallenRobot import telethn
 
 
 client = MongoClient()
