@@ -175,4 +175,3 @@ def fallenrobot(**args):
     if pattern:
         if not ignore_unsafe:
             args["pattern"] = args["pattern"].replace("^.", unsafe_pattern, 1)
-
