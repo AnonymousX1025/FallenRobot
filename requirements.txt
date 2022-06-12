@@ -36,7 +36,6 @@ ujson
 pretty_errors
 TgCrypto
 Pyrogram==1.4.16
-youtube-dl
 youtube_search
 asyncio
 dateparser
