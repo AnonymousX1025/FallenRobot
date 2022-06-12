@@ -14,7 +14,7 @@ def time_to_seconds(time):
     return sum(int(x) * 60**i for i, x in enumerate(reversed(stringt.split(":"))))
 
 
-@pbot.on_message(filters.command(["song", "music", " vsong", "video"]))
+@pbot.on_message(filters.command(["song", "music"]))
 def song(client, message):
 
     message.delete()
