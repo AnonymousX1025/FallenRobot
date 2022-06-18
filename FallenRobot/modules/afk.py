@@ -388,7 +388,7 @@ __help__ = """
 When marked as AFK, any mentions will be replied to with a message to say you're not available!
 """
 
-AFK_HANDLER = DisableAbleCommandHandler("afk", afk)
+AFK_HANDLER = DisableAbleCommandHandler("afk")
 dispatcher.add_handler(AFK_HANDLER, AFK_GROUP)
 
 __mod_name__ = "Aғᴋ"
