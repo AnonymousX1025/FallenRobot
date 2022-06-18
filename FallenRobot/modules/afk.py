@@ -5,11 +5,6 @@ from pyrogram import filters
 from pyrogram.types import Message
 
 from FallenRobot import pbot
-from FallenRobot import dispatcher
-from FallenRobot.modules.disable import (
-    DisableAbleCommandHandler,
-    DisableAbleMessageHandler,
-)
 from FallenRobot.helper_extra.dbfun import add_afk, is_afk, remove_afk
 from FallenRobot.__main__ import get_readable_time
 
@@ -388,11 +383,5 @@ __help__ = """
 When marked as AFK, any mentions will be replied to with a message to say you're not available!
 """
 
-AFK_HANDLER = DisableAbleCommandHandler("afk")
-dispatcher.add_handler(AFK_HANDLER, AFK_GROUP)
-
 __mod_name__ = "Aғᴋ"
 __command_list__ = ["afk"]
-__handlers__ = [
-    (AFK_HANDLER, AFK_GROUP),
-]
