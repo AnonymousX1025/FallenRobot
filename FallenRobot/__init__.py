@@ -5,7 +5,7 @@ import time
 
 import telegram.ext as tg
 from aiohttp import ClientSession
-from PYTHON_ARQ import arq
+from PYTHON_ARQ import ARQ
 from pyrogram import Client, errors
 from telethon import TelegramClient
 
