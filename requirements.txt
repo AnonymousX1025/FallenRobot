@@ -55,6 +55,7 @@ pytz
 pykeyboard
 aiofiles
 motor
+python-arq
 telegram
 gpytranslate
 yt_dlp
