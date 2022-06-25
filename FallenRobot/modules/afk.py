@@ -5,7 +5,12 @@ from pyrogram import filters
 from pyrogram.types import Message
 
 from FallenRobot import pbot as app
-from FallenRobot.helper_extra.afk_mongo import is_afk, add_afk, remove_afk, get_afk_users
+from FallenRobot.helper_extra.afk_mongo import (
+    is_afk,
+    add_afk,
+    remove_afk,
+    get_afk_users,
+)
 
 
 def get_readable_time(seconds: int) -> str:
@@ -36,6 +41,8 @@ afkchecker = 31
 
 
 """ Going AFK(Away From Keyboard) """
+
+
 @app.on_message(filters.command(["afk"]))
 async def going_afk(_, message: Message):
     if message.sender_chat:
@@ -103,10 +110,7 @@ async def going_afk(_, message: Message):
             "data": None,
             "reason": _reason,
         }
-    elif (
-        len(message.command) == 1
-        and message.reply_to_message.animation
-    ):
+    elif len(message.command) == 1 and message.reply_to_message.animation:
         _data = message.reply_to_message.animation.file_id
         details = {
             "type": "animation",
@@ -114,10 +118,7 @@ async def going_afk(_, message: Message):
             "data": _data,
             "reason": None,
         }
-    elif (
-        len(message.command) > 1
-        and message.reply_to_message.animation
-    ):
+    elif len(message.command) > 1 and message.reply_to_message.animation:
         _data = message.reply_to_message.animation.file_id
         _reason = (message.text.split(None, 1)[1].strip())[:100]
         details = {
@@ -127,9 +128,7 @@ async def going_afk(_, message: Message):
             "reason": _reason,
         }
     elif len(message.command) == 1 and message.reply_to_message.photo:
-        await app.download_media(
-            message.reply_to_message, file_name=f"{user_id}.jpg"
-        )
+        await app.download_media(message.reply_to_message, file_name=f"{user_id}.jpg")
         details = {
             "type": "photo",
             "time": time.time(),
@@ -137,9 +136,7 @@ async def going_afk(_, message: Message):
             "reason": None,
         }
     elif len(message.command) > 1 and message.reply_to_message.photo:
-        await app.download_media(
-            message.reply_to_message, file_name=f"{user_id}.jpg"
-        )
+        await app.download_media(message.reply_to_message, file_name=f"{user_id}.jpg")
         _reason = message.text.split(None, 1)[1].strip()
         details = {
             "type": "photo",
@@ -147,9 +144,7 @@ async def going_afk(_, message: Message):
             "data": None,
             "reason": _reason,
         }
-    elif (
-        len(message.command) == 1 and message.reply_to_message.sticker
-    ):
+    elif len(message.command) == 1 and message.reply_to_message.sticker:
         if message.reply_to_message.sticker.is_animated:
             details = {
                 "type": "text",
@@ -167,9 +162,7 @@ async def going_afk(_, message: Message):
                 "data": None,
                 "reason": None,
             }
-    elif (
-        len(message.command) > 1 and message.reply_to_message.sticker
-    ):
+    elif len(message.command) > 1 and message.reply_to_message.sticker:
         _reason = (message.text.split(None, 1)[1].strip())[:100]
         if message.reply_to_message.sticker.is_animated:
             details = {
@@ -197,14 +190,10 @@ async def going_afk(_, message: Message):
         }
 
     await add_afk(user_id, details)
-    await message.reply_text(
-        f"{message.from_user.first_name} is now afk!"
-    )
+    await message.reply_text(f"{message.from_user.first_name} is now afk!")
 
-@app.on_message(
-        filters.incoming,
-        group=afkchecker
-)
+
+@app.on_message(filters.incoming, group=afkchecker)
 async def chat_watcher_func(_, message):
     if message.sender_chat:
         return
@@ -264,9 +253,7 @@ async def chat_watcher_func(_, message):
     # Replied to a User which is AFK
     if message.reply_to_message:
         try:
-            replied_first_name = (
-                message.reply_to_message.from_user.first_name
-            )
+            replied_first_name = message.reply_to_message.from_user.first_name
             replied_user_id = message.reply_to_message.from_user.id
             verifier, reasondb = await is_afk(replied_user_id)
             if verifier:
@@ -275,11 +262,11 @@ async def chat_watcher_func(_, message):
                     timeafk = reasondb["time"]
                     data = reasondb["data"]
                     reasonafk = reasondb["reason"]
-                    seenago = get_readable_time(
-                        (int(time.time() - timeafk))
-                    )
+                    seenago = get_readable_time((int(time.time() - timeafk)))
                     if afktype == "text":
-                        msg += f"**{replied_first_name[:25]}** is AFK since {seenago}\n\n"
+                        msg += (
+                            f"**{replied_first_name[:25]}** is AFK since {seenago}\n\n"
+                        )
                     if afktype == "text_reason":
                         msg += f"**{replied_first_name[:25]}** is AFK since {seenago}\n\nReason: `{reasonafk}`\n\n"
                     if afktype == "animation":
@@ -332,11 +319,11 @@ async def chat_watcher_func(_, message):
                         timeafk = reasondb["time"]
                         data = reasondb["data"]
                         reasonafk = reasondb["reason"]
-                        seenago = get_readable_time(
-                            (int(time.time() - timeafk))
-                        )
+                        seenago = get_readable_time((int(time.time() - timeafk)))
                         if afktype == "text":
-                            msg += f"**{user.first_name[:25]}** is AFK since {seenago}\n\n"
+                            msg += (
+                                f"**{user.first_name[:25]}** is AFK since {seenago}\n\n"
+                            )
                         if afktype == "text_reason":
                             msg += f"**{user.first_name[:25]}** is AFK since {seenago}\n\nReason: `{reasonafk}`\n\n"
                         if afktype == "animation":
@@ -362,9 +349,7 @@ async def chat_watcher_func(_, message):
                                     caption=f"**{user.first_name[:25]}** is AFK since {seenago}\n\nReason: `{reasonafk}`\n\n",
                                 )
                     except:
-                        msg += (
-                            f"**{user.first_name[:25]}** is AFK\n\n"
-                        )
+                        msg += f"**{user.first_name[:25]}** is AFK\n\n"
             elif (entity[j].type) == "text_mention":
                 try:
                     user_id = entity[j].user.id
@@ -382,9 +367,7 @@ async def chat_watcher_func(_, message):
                         timeafk = reasondb["time"]
                         data = reasondb["data"]
                         reasonafk = reasondb["reason"]
-                        seenago = get_readable_time(
-                            (int(time.time() - timeafk))
-                        )
+                        seenago = get_readable_time((int(time.time() - timeafk)))
                         if afktype == "text":
                             msg += f"**{first_name[:25]}** is AFK since {seenago}\n\n"
                         if afktype == "text_reason":
@@ -416,9 +399,7 @@ async def chat_watcher_func(_, message):
             j += 1
     if msg != "":
         try:
-            return await message.reply_text(
-                msg, disable_web_page_preview=True
-            )
+            return await message.reply_text(msg, disable_web_page_preview=True)
         except:
             return
 
@@ -431,4 +412,3 @@ When marked as AFK, any mentions will be replied to with a message to say you're
 
 __mod_name__ = "Aғᴋ"
 __command_list__ = ["afk"]
-
