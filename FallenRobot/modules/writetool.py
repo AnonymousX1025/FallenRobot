@@ -19,9 +19,10 @@ async def handwriting(_, message):
     await message.reply_photo(
         hand, caption="ᴡʀɪᴛᴛᴇɴ ᴡɪᴛʜ 🖊 ʙʏ [ғᴀʟʟᴇɴ](t.me/FallenXRobot)"
     )
+    await m.delete()
 
 
-__mod_name__ = "Hᴀɴᴅᴡʀɪᴛᴇ"
+__mod_name__ = "WʀɪᴛᴇTᴏᴏʟ"
 
 __help__ = """
 
