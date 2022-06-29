@@ -998,45 +998,23 @@ __help__ = """
 » /setsticker*:* Set group sticker
 """
 
-SET_DESC_HANDLER = CommandHandler(
-    "setdesc", set_desc
-)
-SET_STICKER_HANDLER = CommandHandler(
-    "setsticker", set_sticker
-)
-SETCHATPIC_HANDLER = CommandHandler(
-    "setgpic", setchatpic
-)
-RMCHATPIC_HANDLER = CommandHandler(
-    "delgpic", rmchatpic
-)
-SETCHAT_TITLE_HANDLER = CommandHandler(
-    "setgtitle", setchat_title
-)
+SET_DESC_HANDLER = CommandHandler("setdesc", set_desc)
+SET_STICKER_HANDLER = CommandHandler("setsticker", set_sticker)
+SETCHATPIC_HANDLER = CommandHandler("setgpic", setchatpic)
+RMCHATPIC_HANDLER = CommandHandler("delgpic", rmchatpic)
+SETCHAT_TITLE_HANDLER = CommandHandler("setgtitle", setchat_title)
 
-ADMINLIST_HANDLER = DisableAbleCommandHandler(
-    ["admins", "staff"], adminlist
-)
+ADMINLIST_HANDLER = DisableAbleCommandHandler(["admins", "staff"], adminlist)
 
-PIN_HANDLER = CommandHandler(
-    "pin", pin
-)
-UNPIN_HANDLER = CommandHandler(
-    "unpin", unpin
-)
-PINNED_HANDLER = CommandHandler(
-    "pinned", pinned
-)
+PIN_HANDLER = CommandHandler("pin", pin)
+UNPIN_HANDLER = CommandHandler("unpin", unpin)
+PINNED_HANDLER = CommandHandler("pinned", pinned)
 
 INVITE_HANDLER = DisableAbleCommandHandler("invitelink", invite)
 
 PROMOTE_HANDLER = DisableAbleCommandHandler("promote", promote)
-FULLPROMOTE_HANDLER = DisableAbleCommandHandler(
-    "fullpromote", fullpromote
-)
-LOW_PROMOTE_HANDLER = DisableAbleCommandHandler(
-    "lowpromote", lowpromote
-)
+FULLPROMOTE_HANDLER = DisableAbleCommandHandler("fullpromote", fullpromote)
+LOW_PROMOTE_HANDLER = DisableAbleCommandHandler("lowpromote", lowpromote)
 DEMOTE_HANDLER = DisableAbleCommandHandler("demote", demote)
 
 SET_TITLE_HANDLER = CommandHandler("title", set_title)
