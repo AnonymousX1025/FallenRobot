@@ -982,19 +982,19 @@ __help__ = """
 """
 
 SET_DESC_HANDLER = CommandHandler(
-    "setdesc", set_desc, filters=Filters.chat_type.groups, run_async=True
+    "setdesc", set_desc, run_async=True
 )
 SET_STICKER_HANDLER = CommandHandler(
-    "setsticker", set_sticker, filters=Filters.chat_type.groups, run_async=True
+    "setsticker", set_sticker, run_async=True
 )
 SETCHATPIC_HANDLER = CommandHandler(
-    "setgpic", setchatpic, filters=Filters.chat_type.groups, run_async=True
+    "setgpic", setchatpic, run_async=True
 )
 RMCHATPIC_HANDLER = CommandHandler(
-    "delgpic", rmchatpic, filters=Filters.chat_type.groups, run_async=True
+    "delgpic", rmchatpic, run_async=True
 )
 SETCHAT_TITLE_HANDLER = CommandHandler(
-    "setgtitle", setchat_title, filters=Filters.chat_type.groups, run_async=True
+    "setgtitle", setchat_title, run_async=True
 )
 
 ADMINLIST_HANDLER = DisableAbleCommandHandler(
@@ -1002,13 +1002,13 @@ ADMINLIST_HANDLER = DisableAbleCommandHandler(
 )
 
 PIN_HANDLER = CommandHandler(
-    "pin", pin, filters=Filters.chat_type.groups, run_async=True
+    "pin", pin, run_async=True
 )
 UNPIN_HANDLER = CommandHandler(
-    "unpin", unpin, filters=Filters.chat_type.groups, run_async=True
+    "unpin", unpin, run_async=True
 )
 PINNED_HANDLER = CommandHandler(
-    "pinned", pinned, filters=Filters.chat_type.groups, run_async=True
+    "pinned", pinned, run_async=True
 )
 
 INVITE_HANDLER = DisableAbleCommandHandler("invitelink", invite, run_async=True)
@@ -1026,7 +1026,6 @@ SET_TITLE_HANDLER = CommandHandler("title", set_title, run_async=True)
 ADMIN_REFRESH_HANDLER = CommandHandler(
     ["admincache", "reload", "refresh"],
     refresh_admin,
-    filters=Filters.chat_type.groups,
     run_async=True,
 )
 
