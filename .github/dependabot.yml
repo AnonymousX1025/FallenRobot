@@ -16,5 +16,3 @@ updates:
     # Ignoring all ptb updates
     - dependency-name: "aiohttp"
     # Ignoring all aiohttp updates
-    - dependency-name: "pyrogram"
-    # Ignoring all pyrogram updates
