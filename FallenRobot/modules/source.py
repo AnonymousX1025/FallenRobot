@@ -27,7 +27,9 @@ async def repo(client, message):
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("• ᴏᴡɴᴇʀ •", url=f"https://t.me/{OWNER_USERNAME}"),
+                    InlineKeyboardButton(
+                        "• ᴏᴡɴᴇʀ •", url=f"https://t.me/{OWNER_USERNAME}"
+                    ),
                     InlineKeyboardButton(
                         "• sᴏᴜʀᴄᴇ •",
                         url="https://github.com/AnonymousR1025/FallenRobot",
