@@ -4,7 +4,7 @@ from pyrogram import __version__ as z
 from telethon import __version__ as s
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram import filters
-from FallenRobot import pbot as client
+from FallenRobot import pbot as client, dispatcher, OWNER_USERNAME
 
 
 ANON = "https://telegra.ph/file/7bd111132fce009e4605e.jpg"
@@ -14,7 +14,7 @@ ANON = "https://telegra.ph/file/7bd111132fce009e4605e.jpg"
 async def repo(client, message):
     await message.reply_photo(
         photo=ANON,
-        caption=f"""**ʜᴇʏ​ {message.from_user.mention()},\n\nɪ ᴀᴍ [ꜰᴀʟʟᴇɴ ✘ ʀᴏʙᴏᴛ-🇮🇩](t.me/FallenXRobot)**
+        caption=f"""**ʜᴇʏ​ {message.from_user.mention()},\n\nɪ ᴀᴍ [{dispatcher.bot.first_name}](t.me/{dispatcher.bot.username})**
 
 **» ᴍʏ ᴅᴇᴠᴇʟᴏᴘᴇʀ​ :** [𝝙𝗡𝗢𝗡𝗬𝗠𝗢𝗨𝗦](tg://user?id=1356469075)
 **» ᴩʏᴛʜᴏɴ ᴠᴇʀsɪᴏɴ :** `{y()}`
@@ -27,10 +27,10 @@ async def repo(client, message):
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("• ᴏᴡɴᴇʀ •", url="tg://user?id=1356469075"),
+                    InlineKeyboardButton("• ᴏᴡɴᴇʀ •", url=f"https://t.me/{OWNER_USERNAME}"),
                     InlineKeyboardButton(
                         "• sᴏᴜʀᴄᴇ •",
-                        url="https://github.com/AnonymousBoy1025/FallenRobot",
+                        url="https://github.com/AnonymousR1025/FallenRobot",
                     ),
                 ]
             ]
