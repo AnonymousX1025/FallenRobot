@@ -29,7 +29,7 @@ today = str(dt()[0])
 tomorrow = str(dt_tom())
 
 
-@pbot.on_message(filters.command(["couple", "couples"]) & ~filters.edited)
+@pbot.on_message(filters.command(["couple", "couples"]))
 async def couple(_, message):
     if message.chat.type == "private":
         return await message.reply_text("This command only works in groups.")
