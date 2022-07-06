@@ -10,8 +10,6 @@ updates:
     - "dependencies"
   open-pull-requests-limit: 20
   ignore:
-    - dependency-name: "sqlalchemy"
-    # Ignoring all sql updates
     - dependency-name: "python-telegram-bot"
     # Ignoring all ptb updates
     - dependency-name: "aiohttp"
