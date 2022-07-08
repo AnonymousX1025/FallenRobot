@@ -46,7 +46,7 @@ async def total_users(_, message: Message):
         f"Total AFK Users on Bot:- **{users}**"
     )
 
-@app.on_message(filters.command(["afk"]) & ~filters.edited)
+@app.on_message(filters.command(["afk"]))
 async def active_afk(_, message: Message):
     if message.sender_chat:
         return
@@ -223,7 +223,7 @@ async def active_afk(_, message: Message):
 chat_watcher_group = 1
 
 @app.on_message(
-    ~filters.edited & ~filters.me & ~filters.bot & ~filters.via_bot,
+    ~filters.me & ~filters.bot & ~filters.via_bot,
     group=chat_watcher_group,
 )
 async def chat_watcher_func(_, message):
