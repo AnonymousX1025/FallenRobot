@@ -1,4 +1,4 @@
-from FallenRobot.modules.sql_extended.night_mode_sql import (
+from FallenRobot.modules.sql.night_mode_sql import (
     add_nightmode,
     rmnightmode,
     get_all_chat_id,
@@ -64,7 +64,7 @@ openhehe = ChatBannedRights(
 )
 
 
-@register(pattern="^/night")
+@register(pattern="^/nightmode")
 async def close_ws(event):
     if event.is_group:
         if not (await is_register_admin(event.input_chat, event.message.sender_id)):
@@ -123,7 +123,7 @@ async def job_close():
 
 # Run everyday at 12am
 scheduler = AsyncIOScheduler(timezone="Asia/Kolkata")
-scheduler.add_job(job_close, trigger="cron", hour=23, minute=55)
+scheduler.add_job(job_close, trigger="cron", hour=23, minute=59)
 scheduler.start()
 
 
@@ -148,7 +148,7 @@ async def job_open():
 
 # Run everyday at 06
 scheduler = AsyncIOScheduler(timezone="Asia/Kolkata")
-scheduler.add_job(job_open, trigger="cron", hour=6, minute=10)
+scheduler.add_job(job_open, trigger="cron", hour=6, minute=1)
 scheduler.start()
 
 __help__ = """
