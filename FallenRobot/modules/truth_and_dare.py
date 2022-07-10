@@ -1,6 +1,7 @@
 import html
 import random
-import FallenRobot.modules.truth_and_dare_string as truth_and_dare_string
+import requests
+import rapidjson as json
 from FallenRobot import dispatcher
 from telegram import ParseMode, Update, Bot
 from FallenRobot.modules.disable import DisableAbleCommandHandler
@@ -9,12 +10,16 @@ from telegram.ext import CallbackContext, run_async
 
 def truth(update: Update, context: CallbackContext):
     args = context.args
-    update.effective_message.reply_text(random.choice(truth_and_dare_string.TRUTH))
+    truth = requests.get("https://elianaapi.herokuapp.com/games/truth").json()
+    truth = truth.get("truth")
+    update.effective_message.reply_text(truth)
 
 
 def dare(update: Update, context: CallbackContext):
     args = context.args
-    update.effective_message.reply_text(random.choice(truth_and_dare_string.DARE))
+    dare = requests.get("https://elianaapi.herokuapp.com/games/dares").json()
+    dare = dare.get("dare")
+    update.effective_message.reply_text(dare)
 
 
 TRUTH_HANDLER = DisableAbleCommandHandler("truth", truth)
