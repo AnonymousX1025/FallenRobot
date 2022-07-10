@@ -1,7 +1,8 @@
+import io
+import re
 import html
 import random
 import requests
-import rapidjson as json
 from FallenRobot import dispatcher
 from telegram import ParseMode, Update, Bot
 from FallenRobot.modules.disable import DisableAbleCommandHandler
