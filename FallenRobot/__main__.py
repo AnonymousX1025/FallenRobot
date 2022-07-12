@@ -47,6 +47,10 @@ from telegram.ext import (
     MessageHandler,
 )
 from telegram.ext.dispatcher import DispatcherHandlerStop, run_async
+from telegram import __version__ as telever
+from telethon import __version__ as tlhver
+from pyrogram import __version__ as pyrover
+from platform import python_version as y
 from telegram.utils.helpers import escape_markdown
 
 
@@ -732,14 +736,25 @@ def main():
 
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
-            dispatcher.bot.send_photo(
+            dispatcher.bot.sendAnimation(
                 f"@{SUPPORT_CHAT}",
-                "https://telegra.ph/file/36be820a8775f0bfc773e.jpg",
-                caption="ғᴀʟʟᴇɴ ✘ ʀᴏʙᴏᴛ ɪs ᴀʟɪᴠᴇ !\n\nᴍᴀᴅᴇ ᴡɪᴛʜ 🖤 ʙʏ ᴀɴᴏɴʏᴍᴏᴜs 🥀",
+                animation="https://telegra.ph/file/b360c49a906b06e459ec0.mp4",
+                caption=f"""
+{dispatcher.bot.first_name} ɪs ᴀʟɪᴠᴇ ʙᴀʙʏ...
+
+━━━━━━━━━━━━━
+๏ **ᴘʏᴛʜᴏɴ :** `{y()}`
+๏ **ʟɪʙʀᴀʀʏ :** `{telever}`
+๏ **ᴛᴇʟᴇᴛʜᴏɴ :** `{tlhver}`
+๏ **ᴩʏʀᴏɢʀᴀᴍ :** `{pyrover}`
+━━━━━━━━━━━━━
+
+ᴍᴀᴅᴇ ᴡɪᴛʜ ʙʏ [𝝙𝗡𝗢𝗡𝗬𝗠𝗢𝗨𝗦](https://t.me/{OWNER_USERNAME})""",
+                parse_mode=ParseMode.MARKDOWN
             )
         except Unauthorized:
             LOGGER.warning(
-                "Bot isnt able to send message to support_chat, go and check!"
+                f"Bot isn't able to send message to @{SUPPORT_CHAT}, go and check!"
             )
         except BadRequest as e:
             LOGGER.warning(e.message)
