@@ -740,17 +740,17 @@ def main():
                 f"@{SUPPORT_CHAT}",
                 animation="https://telegra.ph/file/b360c49a906b06e459ec0.mp4",
                 caption=f"""
-{dispatcher.bot.first_name} ɪs ᴀʟɪᴠᴇ ʙᴀʙʏ...
+ㅤㅤ🥀 {dispatcher.bot.first_name} ɪs ᴀʟɪᴠᴇ ʙᴀʙʏ...
 
 ━━━━━━━━━━━━━
-๏ **ᴘʏᴛʜᴏɴ :** `{y()}`
-๏ **ʟɪʙʀᴀʀʏ :** `{telever}`
-๏ **ᴛᴇʟᴇᴛʜᴏɴ :** `{tlhver}`
-๏ **ᴩʏʀᴏɢʀᴀᴍ :** `{pyrover}`
+ㅤ๏ **ᴘʏᴛʜᴏɴ :** `{y()}`
+ㅤ๏ **ʟɪʙʀᴀʀʏ :** `{telever}`
+ㅤ๏ **ᴛᴇʟᴇᴛʜᴏɴ :** `{tlhver}`
+ㅤ๏ **ᴩʏʀᴏɢʀᴀᴍ :** `{pyrover}`
 ━━━━━━━━━━━━━
 
-ᴍᴀᴅᴇ ᴡɪᴛʜ ʙʏ [𝝙𝗡𝗢𝗡𝗬𝗠𝗢𝗨𝗦](https://t.me/{OWNER_USERNAME})""",
-                parse_mode=ParseMode.MARKDOWN
+ᴍᴀᴅᴇ ᴡɪᴛʜ 🖤 ʙʏ [𝝙𝗡𝗢𝗡𝗬𝗠𝗢𝗨𝗦](https://t.me/{OWNER_USERNAME})""",
+                parse_mode=ParseMode.MARKDOWN,
             )
         except Unauthorized:
             LOGGER.warning(
