@@ -29,7 +29,6 @@ wikipedia
 telethon
 telegraph
 heroku3
-nekos.py
 alphabet_detector
 pyrate-limiter
 cachetools
