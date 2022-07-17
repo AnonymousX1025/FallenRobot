@@ -13,12 +13,7 @@ async def handwrite(_, message: Message):
         m = await fallen.send_message(
             message.chat.id, "**ᴩʟᴇᴀsᴇ ᴡᴀɪᴛ...**\n\nʟᴇᴍᴍᴇ ᴡʀɪᴛᴇ ɪᴛ ᴏɴ ᴍʏ ᴄᴏᴩʏ..."
         )
-        API = "https://apis.xditya.me/write"
-        body = {"text": f"{text}"}
-        req = requests.post(
-            API, headers={"Content-Type": "application/json"}, json=body
-        )
-        photo = req.history[1].url
+        photo = "https://apis.xditya.me/write?text=" + text
         caption = f"""
 sᴜᴄᴄᴇssғᴜʟʟʏ ᴡʀɪᴛᴛᴇɴ ᴛᴇxᴛ 💘
 
@@ -39,12 +34,7 @@ sᴜᴄᴄᴇssғᴜʟʟʏ ᴡʀɪᴛᴛᴇɴ ᴛᴇxᴛ 💘
         m = await fallen.send_message(
             message.chat.id, "**ᴩʟᴇᴀsᴇ ᴡᴀɪᴛ...**\n\nʟᴇᴍᴍᴇ ᴡʀɪᴛᴇ ɪᴛ ᴏɴ ᴍʏ ᴄᴏᴩʏ..."
         )
-        API = "https://api.safone.tech/write"
-        body = {"text": f"{lol}"}
-        req = requests.post(
-            API, headers={"Content-Type": "application/json"}, json=body
-        )
-        photo = req.history[1].url
+        photo = "https://apis.xditya.me/write?text=" + lol
         caption = f"""
 sᴜᴄᴄᴇssғᴜʟʟʏ ᴡʀɪᴛᴛᴇɴ ᴛᴇxᴛ 💘
 
