@@ -63,7 +63,6 @@ def song(client, message):
             audio_file,
             caption=rep,
             thumb=thumb_name,
-            parse_mode="md",
             title=title,
             duration=dur,
         )
