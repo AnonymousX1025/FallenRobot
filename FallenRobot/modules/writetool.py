@@ -13,7 +13,7 @@ async def handwrite(_, message: Message):
         m = await fallen.send_message(
             message.chat.id, "**ᴩʟᴇᴀsᴇ ᴡᴀɪᴛ...**\n\nʟᴇᴍᴍᴇ ᴡʀɪᴛᴇ ɪᴛ ᴏɴ ᴍʏ ᴄᴏᴩʏ..."
         )
-        API = "https://api.safone.tech/write"
+        API = "https://apis.xditya.me/write"
         body = {"text": f"{text}"}
         req = requests.post(
             API, headers={"Content-Type": "application/json"}, json=body
