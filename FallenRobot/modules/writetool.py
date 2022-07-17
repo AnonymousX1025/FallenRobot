@@ -13,7 +13,7 @@ async def handwrite(_, message: Message):
         m = await fallen.send_message(
             message.chat.id, "**ᴩʟᴇᴀsᴇ ᴡᴀɪᴛ...**\n\nʟᴇᴍᴍᴇ ᴡʀɪᴛᴇ ɪᴛ ᴏɴ ᴍʏ ᴄᴏᴩʏ..."
         )
-        API = "https://single-developers.up.railway.app/write"
+        API = "https://api.safone.tech/write"
         body = {"text": f"{text}"}
         req = requests.post(
             API, headers={"Content-Type": "application/json"}, json=body
@@ -39,7 +39,7 @@ sᴜᴄᴄᴇssғᴜʟʟʏ ᴡʀɪᴛᴛᴇɴ ᴛᴇxᴛ 💘
         m = await fallen.send_message(
             message.chat.id, "**ᴩʟᴇᴀsᴇ ᴡᴀɪᴛ...**\n\nʟᴇᴍᴍᴇ ᴡʀɪᴛᴇ ɪᴛ ᴏɴ ᴍʏ ᴄᴏᴩʏ..."
         )
-        API = "https://single-developers.up.railway.app/write"
+        API = "https://api.safone.tech/write"
         body = {"text": f"{lol}"}
         req = requests.post(
             API, headers={"Content-Type": "application/json"}, json=body
