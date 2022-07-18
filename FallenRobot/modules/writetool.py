@@ -32,19 +32,22 @@ sᴜᴄᴄᴇssғᴜʟʟʏ ᴡʀɪᴛᴛᴇɴ ᴛᴇxᴛ 💘
             ),
         )
         await m.delete()
+    else:
         lol = message.reply_to_message.text
+        name = (
+            lol.split(None, 1)[1]
+            if len(message.command) < 3
+            else lol.split(None, 1)[1].replace(" ", "%20") )
         m = await fallen.send_message(
             message.chat.id, "**ᴩʟᴇᴀsᴇ ᴡᴀɪᴛ...**\n\nʟᴇᴍᴍᴇ ᴡʀɪᴛᴇ ɪᴛ ᴏɴ ᴍʏ ᴄᴏᴩʏ..."
         )
-        photo = "https://apis.xditya.me/write?text=" + lol
+        photo = "https://apis.xditya.me/write?text=" + name
         caption = f"""
 sᴜᴄᴄᴇssғᴜʟʟʏ ᴡʀɪᴛᴛᴇɴ ᴛᴇxᴛ 💘
 
 ✨ **ᴡʀɪᴛᴛᴇɴ ʙʏ :** [{dispatcher.bot.first_name}](https://t.me/{dispatcher.bot.username})
 🥀 **ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ :** {message.from_user.mention}
 """
-
-        await m.delete()
         await fallen.send_photo(
             message.chat.id,
             photo=photo,
@@ -53,6 +56,7 @@ sᴜᴄᴄᴇssғᴜʟʟʏ ᴡʀɪᴛᴛᴇɴ ᴛᴇxᴛ 💘
                 [[InlineKeyboardButton("• ᴛᴇʟᴇɢʀᴀᴩʜ •", url=f"{photo}")]]
             ),
         )
+        await m.delete()
 
 
 __mod_name__ = "WʀɪᴛᴇTᴏᴏʟ"
