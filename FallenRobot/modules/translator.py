@@ -1,4 +1,3 @@
-from emoji import UNICODE_EMOJI
 from telegram import Update, ParseMode
 from telegram.ext import CallbackContext
 from gpytranslate import SyncTranslator
