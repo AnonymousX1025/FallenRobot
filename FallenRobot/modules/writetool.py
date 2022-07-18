@@ -9,27 +9,29 @@ from FallenRobot import pbot as fallen, dispatcher, SUPPORT_CHAT
 @fallen.on_message(filters.command("write"))
 async def handwrite(_, message: Message):
     if not message.reply_to_message:
-        text = message.text.split(None, 1)[1]
+        name = (
+            message.text.split(None, 1)[1]
+            if len(message.command) < 3
+            else message.text.split(None, 1)[1].replace(" ", "%20") )
         m = await fallen.send_message(
             message.chat.id, "**ᴩʟᴇᴀsᴇ ᴡᴀɪᴛ...**\n\nʟᴇᴍᴍᴇ ᴡʀɪᴛᴇ ɪᴛ ᴏɴ ᴍʏ ᴄᴏᴩʏ..."
         )
-        photo = "https://apis.xditya.me/write?text=" + text
+        photo = "https://apis.xditya.me/write?text=" + name
         caption = f"""
 sᴜᴄᴄᴇssғᴜʟʟʏ ᴡʀɪᴛᴛᴇɴ ᴛᴇxᴛ 💘
 
 ✨ **ᴡʀɪᴛᴛᴇɴ ʙʏ :** [{dispatcher.bot.first_name}](https://t.me/{dispatcher.bot.username})
 🥀 **ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ :** {message.from_user.mention}
 """
-
-        await m.delete()
         await fallen.send_photo(
             message.chat.id,
             photo=photo,
             caption=caption,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton("• ᴛᴇʟᴇɢʀᴀᴩʜ •", url=f"{photo}")]]
+                [[InlineKeyboardButton("• ʟɪɴᴋ •", url=f"{photo}")]]
             ),
         )
+        await m.delete()
         lol = message.reply_to_message.text
         m = await fallen.send_message(
             message.chat.id, "**ᴩʟᴇᴀsᴇ ᴡᴀɪᴛ...**\n\nʟᴇᴍᴍᴇ ᴡʀɪᴛᴇ ɪᴛ ᴏɴ ᴍʏ ᴄᴏᴩʏ..."
