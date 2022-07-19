@@ -57,8 +57,7 @@ def kukirm(update: Update, context: CallbackContext) -> str:
         else:
             update.effective_message.edit_text(
                 "{} ᴄʜᴀᴛʙᴏᴛ ᴅɪsᴀʙʟᴇᴅ ʙʏ {}.".format(
-                    dispatcher.bot.first_name,
-                    mention_html(user.id, user.first_name)
+                    dispatcher.bot.first_name, mention_html(user.id, user.first_name)
                 ),
                 parse_mode=ParseMode.HTML,
             )
@@ -87,8 +86,7 @@ def kukiadd(update: Update, context: CallbackContext) -> str:
         else:
             update.effective_message.edit_text(
                 "{} ᴄʜᴀᴛʙᴏᴛ ᴇɴᴀʙʟᴇᴅ ʙʏ {}.".format(
-                    dispatcher.bot.first_name,
-                    mention_html(user.id, user.first_name)
+                    dispatcher.bot.first_name, mention_html(user.id, user.first_name)
                 ),
                 parse_mode=ParseMode.HTML,
             )
