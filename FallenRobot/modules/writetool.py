@@ -34,10 +34,7 @@ sᴜᴄᴄᴇssғᴜʟʟʏ ᴡʀɪᴛᴛᴇɴ ᴛᴇxᴛ 💘
         await m.delete()
     else:
         lol = message.reply_to_message.text
-        name = (
-            lol.split(None, 1)[1]
-            if len(message.command) < 3
-            else lol.split(None, 1)[1].replace(" ", "%20") )
+        name = (lol.split(None, 0)[0].replace(" ", "%20") )
         m = await fallen.send_message(
             message.chat.id, "**ᴩʟᴇᴀsᴇ ᴡᴀɪᴛ...**\n\nʟᴇᴍᴍᴇ ᴡʀɪᴛᴇ ɪᴛ ᴏɴ ᴍʏ ᴄᴏᴩʏ..."
         )
