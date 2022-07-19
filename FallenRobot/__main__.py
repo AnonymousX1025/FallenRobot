@@ -81,10 +81,9 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-*ʜᴇʏ* {}, [🥀]({})
+*ʜᴇʏ* {}, 🥀
 
 *๏ ᴛʜɪs ɪs* {} !
-
 ➻ ᴛʜᴇ ᴍᴏsᴛ ᴩᴏᴡᴇʀғᴜʟ ᴛᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴩ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ ᴀɴᴅ ɪ ʜᴀᴠᴇ sᴏᴍᴇ ᴀᴇsᴏᴍᴇ ᴀɴᴅ ᴜsᴇғᴜʟ ғᴇᴀᴛᴜʀᴇs.
 
 ──────────────────
@@ -228,9 +227,10 @@ def start(update: Update, context: CallbackContext):
 
         else:
             first_name = update.effective_user.first_name
-            update.effective_message.reply_text(
-                PM_START_TEXT.format(
-                    escape_markdown(first_name), START_IMG, dispatcher.bot.first_name
+            update.effective_message.reply_photo(
+                photo=START_IMG,
+                caption=PM_START_TEXT.format(
+                    escape_markdown(first_name), dispatcher.bot.first_name
                 ),
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
@@ -449,7 +449,7 @@ def Fallen_about_callback(update: Update, context: CallbackContext):
         first_name = update.effective_user.first_name
         query.message.edit_text(
             PM_START_TEXT.format(
-                escape_markdown(first_name), START_IMG, dispatcher.bot.first_name
+                escape_markdown(first_name), dispatcher.bot.first_name
             ),
             reply_markup=InlineKeyboardMarkup(buttons),
             parse_mode=ParseMode.MARKDOWN,
@@ -474,7 +474,7 @@ def Source_about_callback(update: Update, context: CallbackContext):
         first_name = update.effective_user.first_name
         query.message.edit_text(
             PM_START_TEXT.format(
-                escape_markdown(first_name), START_IMG, dispatcher.bot.first_name
+                escape_markdown(first_name), dispatcher.bot.first_name
             ),
             reply_markup=InlineKeyboardMarkup(buttons),
             parse_mode=ParseMode.MARKDOWN,
