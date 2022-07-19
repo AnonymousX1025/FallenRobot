@@ -81,7 +81,7 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-*ʜᴇʏ* {}, [🥀]{()}
+*ʜᴇʏ* {}, [🥀]({})
 
 *๏ ᴛʜɪs ɪs* {} !
 
