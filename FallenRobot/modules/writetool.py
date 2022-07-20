@@ -28,11 +28,10 @@ sᴜᴄᴄᴇssғᴜʟʟʏ ᴡʀɪᴛᴛᴇɴ ᴛᴇxᴛ 💘
             message.chat.id,
             photo=photo,
             caption=caption,
-            reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton("• ʟɪɴᴋ •", url=f"{photo}")]]
-            ),
+            ), 
         )
         await m.delete()
+        
     else:
         lol = message.reply_to_message.text
         name = lol.split(None, 0)[0].replace(" ", "%20")
@@ -50,11 +49,10 @@ sᴜᴄᴄᴇssғᴜʟʟʏ ᴡʀɪᴛᴛᴇɴ ᴛᴇxᴛ 💘
             message.chat.id,
             photo=photo,
             caption=caption,
-            reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton("• ᴛᴇʟᴇɢʀᴀᴩʜ •", url=f"{photo}")]]
             ),
         )
         await m.delete()
+        
 
 
 __mod_name__ = "WʀɪᴛᴇTᴏᴏʟ"
