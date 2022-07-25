@@ -438,7 +438,8 @@ def Fallen_about_callback(update: Update, context: CallbackContext):
                             text="ᴅᴇᴠᴇʟᴏᴩᴇʀ", url=f"tg://user?id={OWNER_ID}"
                         ),
                         InlineKeyboardButton(
-                            text="ɢɪᴛʜᴜʙ", callback_data="https://github.com/AnonymousR1025"
+                            text="ɢɪᴛʜᴜʙ",
+                            callback_data="https://github.com/AnonymousR1025",
                         ),
                     ],
                     [
