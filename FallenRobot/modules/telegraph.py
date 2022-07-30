@@ -1,20 +1,21 @@
-from FallenRobot.events import register
-from FallenRobot import telethn as tbot
-
-TMP_DOWNLOAD_DIRECTORY = "./"
-from telethon import events
 import os
 from PIL import Image
 from datetime import datetime
+
+from telethon import events
+from FallenRobot.events import register
+from FallenRobot import telethn as tbot
 from telegraph import Telegraph, upload_file, exceptions
 
+
 Anonymous = "Fallen"
+TMP_DOWNLOAD_DIRECTORY = "./"
 telegraph = Telegraph()
 r = telegraph.create_account(short_name=Anonymous)
 auth_url = r["auth_url"]
 
 
-@register(pattern="^/t(m|t) ?(.*)")
+@register(pattern="^/tg(m|t) ?(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -46,7 +47,7 @@ async def _(event):
                 os.remove(downloaded_file_name)
                 await h.edit(
                     "Uploaded to https://telegra.ph{})".format(media_urls[0]),
-                    link_preview=True,
+                    link_preview=none,
                 )
         elif input_str == "t":
             user_object = await tbot.get_entity(r_message.sender_id)
@@ -75,7 +76,7 @@ async def _(event):
                 "Pasted to https://telegra.ph/{} in {} seconds.".format(
                     response["path"], ms
                 ),
-                link_preview=True,
+                link_preview=none,
             )
     else:
         await event.reply("Reply to a message to get a permanent telegra.ph link.")
@@ -88,8 +89,8 @@ def resize_image(image):
 
 __help__ = """
 I can upload files to Telegraph
- ❍ /tm :Get Telegraph Link Of Replied Media
- ❍ /tt :Get Telegraph Link of Replied Text
+ ❍ /tgm :Get Telegraph Link Of Replied Media
+ ❍ /tgt :Get Telegraph Link of Replied Text
 """
 
 __mod_name__ = "T-Gʀᴀᴘʜ"
