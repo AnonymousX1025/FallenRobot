@@ -47,7 +47,7 @@ async def _(event):
                 os.remove(downloaded_file_name)
                 await h.edit(
                     "Uploaded to https://telegra.ph{})".format(media_urls[0]),
-                    link_preview=none,
+                    link_preview=True,
                 )
         elif input_str == "t":
             user_object = await tbot.get_entity(r_message.sender_id)
@@ -76,7 +76,7 @@ async def _(event):
                 "Pasted to https://telegra.ph/{} in {} seconds.".format(
                     response["path"], ms
                 ),
-                link_preview=none,
+                link_preview=True,
             )
     else:
         await event.reply("Reply to a message to get a permanent telegra.ph link.")
