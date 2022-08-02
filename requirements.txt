@@ -1,5 +1,4 @@
 future
-emoji
 lxml
 wget
 beautifulsoup4
@@ -21,6 +20,7 @@ aiohttp>=2.2.5
 Pillow
 CurrencyConverter
 jikanpy
+emoji==1.7.0
 speedtest-cli
 regex
 bleach
