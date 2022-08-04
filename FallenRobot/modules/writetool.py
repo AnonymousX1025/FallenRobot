@@ -13,12 +13,8 @@ async def handwrite(_, message: Message):
         m = await fallen.send_message(
             message.chat.id, "`Please wait...,\n\nWriting your text...`"
         )
-        API = "https://api.sdbots.tk/write"
-        body = {"text": f"{text}"}
-        req = requests.post(
-            API, headers={"Content-Type": "application/json"}, json=body
-        )
-        photo = req.history[1].url
+        API = f"https://api.sdbots.tk/write?text={text}"
+        req = requests.get(API).url
         caption = f"""
 Successfully Written Text 💘
 
@@ -26,26 +22,22 @@ Successfully Written Text 💘
 🥀 **Requested by :** {message.from_user.mention}
 ❄ **Link :** `{photo}`
 """
-        await m.delete()
         await fallen.send_photo(
             message.chat.id,
-            photo=photo,
+            photo=req,
             caption=caption,
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton("• ᴛᴇʟᴇɢʀᴀᴩʜ •", url=f"{photo}")]]
             ),
         )
+        await m.delete()
     else:
         lol = message.reply_to_message.text
         m = await fallen.send_message(
             message.chat.id, "`Please wait...,\n\nWriting your text...`"
         )
-        API = "https://api.sdbots.tk/write"
-        body = {"text": f"{lol}"}
-        req = requests.post(
-            API, headers={"Content-Type": "application/json"}, json=body
-        )
-        photo = req.history[1].url
+        API = f"https://api.sdbots.tk/write?text={lol}"
+        req = requests.get(API).url
         caption = f"""
 Successfully Written Text 💘
 
@@ -53,7 +45,6 @@ Successfully Written Text 💘
 🥀 **Requested by :** {message.from_user.mention}
 ❄ **Link :** `{photo}`
 """
-        await m.delete()
         await fallen.send_photo(
             message.chat.id,
             photo=photo,
@@ -62,6 +53,7 @@ Successfully Written Text 💘
                 [[InlineKeyboardButton("• ᴛᴇʟᴇɢʀᴀᴩʜ •", url=f"{photo}")]]
             ),
         )
+        await m.delete()
 
 
 __mod_name__ = "WʀɪᴛᴇTᴏᴏʟ"
