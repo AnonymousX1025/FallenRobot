@@ -22,6 +22,7 @@ Successfully Written Text 💘
 🥀 **Requested by :** {message.from_user.mention}
 ❄ **Link :** `{req}`
 """
+        await m.delete()
         await fallen.send_photo(
             message.chat.id,
             photo=req,
@@ -30,7 +31,6 @@ Successfully Written Text 💘
                 [[InlineKeyboardButton("• ᴛᴇʟᴇɢʀᴀᴩʜ •", url=f"{req}")]]
             ),
         )
-        await m.delete()
     else:
         lol = message.reply_to_message.text
         m = await fallen.send_message(
@@ -45,6 +45,7 @@ Successfully Written Text 💘
 🥀 **Requested by :** {message.from_user.mention}
 ❄ **Link :** `{req}`
 """
+        await m.delete()
         await fallen.send_photo(
             message.chat.id,
             photo=req,
@@ -53,7 +54,6 @@ Successfully Written Text 💘
                 [[InlineKeyboardButton("• ᴛᴇʟᴇɢʀᴀᴩʜ •", url=f"{req}")]]
             ),
         )
-        await m.delete()
 
 
 __mod_name__ = "WʀɪᴛᴇTᴏᴏʟ"
