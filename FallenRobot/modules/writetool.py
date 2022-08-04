@@ -20,14 +20,14 @@ Successfully Written Text 💘
 
 ✨ **Written By :** [{BOT_NAME}](https://t.me/{BOT_USERNAME})
 🥀 **Requested by :** {message.from_user.mention}
-❄ **Link :** `{photo}`
+❄ **Link :** `{req}`
 """
         await fallen.send_photo(
             message.chat.id,
             photo=req,
             caption=caption,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton("• ᴛᴇʟᴇɢʀᴀᴩʜ •", url=f"{photo}")]]
+                [[InlineKeyboardButton("• ᴛᴇʟᴇɢʀᴀᴩʜ •", url=f"{req}")]]
             ),
         )
         await m.delete()
@@ -43,14 +43,14 @@ Successfully Written Text 💘
 
 ✨ **Written By :** [{BOT_NAME}](https://t.me/{BOT_USERNAME})
 🥀 **Requested by :** {message.from_user.mention}
-❄ **Link :** `{photo}`
+❄ **Link :** `{req}`
 """
         await fallen.send_photo(
             message.chat.id,
-            photo=photo,
+            photo=req,
             caption=caption,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton("• ᴛᴇʟᴇɢʀᴀᴩʜ •", url=f"{photo}")]]
+                [[InlineKeyboardButton("• ᴛᴇʟᴇɢʀᴀᴩʜ •", url=f"{req}")]]
             ),
         )
         await m.delete()
