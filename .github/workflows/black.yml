@@ -20,8 +20,8 @@ jobs:
           commit-message: Automated code formatting
           title: Code Formatting 
           body: Automated code formatting.
-          labels: Formatted by Black
-          branch: Autofixes
+          labels: Formatted code for Fallen
+          branch: AutoFixes
           committer: AnonymousR1025 <102808014+AnonymousR1025@users.noreply.github.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           signoff: true
