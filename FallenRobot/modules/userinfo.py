@@ -293,11 +293,6 @@ def info(update: Update, context: CallbackContext):
         text += "\n\nᴛʜᴇ ᴅɪsᴀsᴛᴇʀ ʟᴇᴠᴇʟ ᴏғ ᴛʜɪs ᴜsᴇʀ ɪs <b>ᴡᴏʟғ</b>.\n"
         disaster_level_present = True
 
-    if disaster_level_present:
-        text += ' \n[<a href="https://t.me/DevilsHeavenMF/96962">ᴄʟɪᴄᴋ ʜᴇʀᴇ ᴛᴏ ᴋɴᴏᴡ ᴡʜᴀᴛ ɪs ᴅɪsᴀsᴛᴇʀ ʟᴇᴠᴇʟs.</a>]'.format(
-            bot.username
-        )
-
     try:
         user_member = chat.get_member(user.id)
         if user_member.status == "administrator":
