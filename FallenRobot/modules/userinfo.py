@@ -7,7 +7,7 @@ from telethon.tl.functions.channels import GetFullChannelRequest
 from telethon.tl.types import ChannelParticipantsAdmins
 from telethon import events
 
-from telegram import MAX_MESSAGE_LENGTH, ParseMode, Update
+from telegram import MAX_MESSAGE_LENGTH, ParseMode, Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import CallbackContext, CommandHandler
 from telegram.ext.dispatcher import run_async
 from telegram.error import BadRequest
@@ -322,13 +322,28 @@ def info(update: Update, context: CallbackContext):
     if INFOPIC:
         try:
             profile = context.bot.get_user_profile_photos(user.id).photos[0][-1]
-            context.bot.sendChatAction(chat.id, "upload_photo")
-            context.bot.send_photo(
-                chat.id,
-                photo=profile,
+            _file = bot.get_file(profile["file_id"])
+            _file.download(f"{user.id}.png")
+
+            message.reply_document(
+                document=open(f"{user.id}.png", "rb"),
                 caption=(text),
+                reply_markup=InlineKeyboardMarkup(
+                    [
+                        [
+                            InlineKeyboardButton(
+                                "ʜᴇᴀʟᴛʜ", url="https://t.me/FallenXBots/7"
+                            ),
+                            InlineKeyboardButton(
+                                "ᴅɪꜱᴀꜱᴛᴇʀ", url="https://t.me/FallenXBots/8"
+                            ),
+                        ],
+                    ]
+                ),
                 parse_mode=ParseMode.HTML,
             )
+
+            os.remove(f"{user.id}.png")
         # Incase user don't have profile pic, send normal text
         except IndexError:
             message.reply_text(
