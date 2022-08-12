@@ -14,7 +14,7 @@ async def imdb(client, message):
         if len(message.command) < 3
         else message.text.split(None, 1)[1].replace(" ", "%20")
     )
-    url = requests.get(f"https://api.safone.tech/tmdb?query={text}").json()["results"][
+    url = requests.get(f"https://api.safone.tech/imdb?query={text}").json()["results"][
         0
     ]
     poster = url["poster"]
@@ -50,3 +50,11 @@ Status = {status}
             ],
         ),
     )
+
+
+
+__help__ = """
+ ❍ /imdb <Movie name>*:* Get full info about a movie from [imdb.com](https://m.imdb.com)
+"""
+
+__mod_name__ = "Iᴍᴅʙ"
