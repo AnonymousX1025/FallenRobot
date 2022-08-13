@@ -4,9 +4,10 @@ from traceback import format_exc
 from pyrogram import filters
 from pyrogram.types import Message
 
-from FallenRobot import arq
 from FallenRobot.utils.errors import capture_err
-from FallenRobot import pbot as app
+from FallenRobot import arq, pbot as pgram
+
+Q_CMD = filters.command(["quote", "q"])
 
 
 async def quotify(messages: list):
@@ -24,7 +25,7 @@ def getArg(message: Message) -> str:
     return arg
 
 
-def isArgInt(message: Message) -> bool:
+def isArgInt(message: Message) -> list:
     count = getArg(message)
     try:
         count = int(count)
@@ -33,34 +34,32 @@ def isArgInt(message: Message) -> bool:
         return [False, 0]
 
 
-@app.on_message(filters.command("q"))
+@pgram.on_message(Q_CMD & ~filters.forwarded & ~filters.bot)
+@pgram.on_edited_message(Q_CMD)
 @capture_err
-async def quotly_func(client, message: Message):
+async def quote(client, message: Message):
     if not message.reply_to_message:
-        return await message.reply_text("Rᴇᴘʟʏ ᴛᴏ ᴀ ᴍᴇssᴀɢᴇ ᴛᴏ ǫᴜᴏᴛᴇ ɪᴛ.")
+        return await message.reply_text("Reply to a message to quote it.")
     if not message.reply_to_message.text:
-        return await message.reply_text("Rᴇᴘʟɪᴇᴅ ᴍᴇssᴀɢᴇ ʜᴀs ɴᴏ ᴛᴇxᴛ, ᴄᴀɴ'ᴛ ǫᴜᴏᴛᴇ ɪᴛ .")
+        return await message.reply_text(
+            "Replied message has no text, can't quote it.")
     m = await message.reply_text("Quoting Messages Please wait....")
     if len(message.command) < 2:
         messages = [message.reply_to_message]
-
     elif len(message.command) == 2:
         arg = isArgInt(message)
         if arg[0]:
             if arg[1] < 2 or arg[1] > 10:
-                return await m.edit("Aʀɢᴜᴍᴇɴᴛ ᴍᴜsᴛ ʙᴇ ʙᴇᴛᴡᴇᴇɴ 2-10.")
+                return await m.edit("Argument must be between 2-10.")
             count = arg[1]
-            messages = await client.get_messages(
-                message.chat.id,
-                [
-                    i
-                    for i in range(
-                        message.reply_to_message.message_id,
-                        message.reply_to_message.message_id + count,
-                    )
-                ],
-                replies=0,
-            )
+            messages = [
+                i for i in await client.get_messages(
+                    message.chat.id,
+                    range(message.reply_to_message.message_id,
+                          message.reply_to_message.message_id + (count + 5)),
+                    replies=0) if not i.empty and not i.media
+            ]
+            messages = messages[:count]
         else:
             if getArg(message) != "r":
                 return await m.edit(
@@ -73,9 +72,11 @@ async def quotly_func(client, message: Message):
             )
             messages = [reply_message]
     else:
-        await m.edit("Iɴᴄᴏʀʀᴇᴄᴛ ᴀʀɢᴜᴍᴇɴᴛ, ᴄʜᴇᴄᴋ ǫᴜᴏᴛʟʏ ᴍᴏᴅᴜʟᴇ ɪɴ ʜᴇʟᴘ sᴇᴄᴛɪᴏɴ.")
-        return
+        return await m.edit(
+            "Incorrect argument, check quotly module in help section.")
     try:
+        if not message:
+            return await m.edit("Something went wrong.")
         sticker = await quotify(messages)
         if not sticker[0]:
             await message.reply_text(sticker[1])
@@ -85,10 +86,12 @@ async def quotly_func(client, message: Message):
         await m.delete()
         sticker.close()
     except Exception as e:
-        await m.edit(
-            "Sᴏᴍᴇᴛʜɪɴɢ ᴡʀᴏɴɢ ʜᴀᴘᴘᴇɴᴇᴅ ᴡʜɪʟᴇ ǫᴜᴏᴛɪɴɢ ᴍᴇssᴀɢᴇs,"
-            + " Tʜɪs ᴇʀʀᴏʀ ᴜsᴜᴀʟʟʏ ʜᴀᴘᴘᴇɴs ᴡʜᴇɴ ᴛʜᴇʀᴇ's ᴀ "
-            + " ᴍᴇssᴀɢᴇ ᴄᴏɴᴛᴀɪɴɪɴɢ sᴏᴍᴇᴛʜɪɴɢ ᴏᴛʜᴇʀ ᴛʜᴀɴ ᴛᴇxᴛ."
-        )
+        await m.edit("Something went wrong while quoting messages," +
+                     " This error usually happens when there's a " +
+                     " message containing something other than text," +
+                     " or one of the messages in-between are deleted.")
         e = format_exc()
         print(e)
+
+
+__mod_name__ = "Quotly"
