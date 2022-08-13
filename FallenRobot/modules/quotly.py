@@ -41,8 +41,7 @@ async def quote(client, message: Message):
     if not message.reply_to_message:
         return await message.reply_text("Reply to a message to quote it.")
     if not message.reply_to_message.text:
-        return await message.reply_text(
-            "Replied message has no text, can't quote it.")
+        return await message.reply_text("Replied message has no text, can't quote it.")
     m = await message.reply_text("Quoting Messages Please wait....")
     if len(message.command) < 2:
         messages = [message.reply_to_message]
@@ -53,11 +52,16 @@ async def quote(client, message: Message):
                 return await m.edit("Argument must be between 2-10.")
             count = arg[1]
             messages = [
-                i for i in await client.get_messages(
+                i
+                for i in await client.get_messages(
                     message.chat.id,
-                    range(message.reply_to_message.message_id,
-                          message.reply_to_message.message_id + (count + 5)),
-                    replies=0) if not i.empty and not i.media
+                    range(
+                        message.reply_to_message.message_id,
+                        message.reply_to_message.message_id + (count + 5),
+                    ),
+                    replies=0,
+                )
+                if not i.empty and not i.media
             ]
             messages = messages[:count]
         else:
@@ -72,8 +76,7 @@ async def quote(client, message: Message):
             )
             messages = [reply_message]
     else:
-        return await m.edit(
-            "Incorrect argument, check quotly module in help section.")
+        return await m.edit("Incorrect argument, check quotly module in help section.")
     try:
         if not message:
             return await m.edit("Something went wrong.")
@@ -86,10 +89,12 @@ async def quote(client, message: Message):
         await m.delete()
         sticker.close()
     except Exception as e:
-        await m.edit("Something went wrong while quoting messages," +
-                     " This error usually happens when there's a " +
-                     " message containing something other than text," +
-                     " or one of the messages in-between are deleted.")
+        await m.edit(
+            "Something went wrong while quoting messages,"
+            + " This error usually happens when there's a "
+            + " message containing something other than text,"
+            + " or one of the messages in-between are deleted."
+        )
         e = format_exc()
         print(e)
 
