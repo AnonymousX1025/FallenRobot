@@ -1,524 +1,180 @@
-from FallenRobot import dispatcher
-from FallenRobot.modules.disable import DisableAbleCommandHandler
-from FallenRobot.modules.helper_funcs.alternate import typing_action
-from telegram import ParseMode
-from telegram.ext import run_async
-
-normiefont = [
-    "a",
-    "b",
-    "c",
-    "d",
-    "e",
-    "f",
-    "g",
-    "h",
-    "i",
-    "j",
-    "k",
-    "l",
-    "m",
-    "n",
-    "o",
-    "p",
-    "q",
-    "r",
-    "s",
-    "t",
-    "u",
-    "v",
-    "w",
-    "x",
-    "y",
-    "z",
-]
-weebyfont = [
-    "卂",
-    "乃",
-    "匚",
-    "刀",
-    "乇",
-    "下",
-    "厶",
-    "卄",
-    "工",
-    "丁",
-    "长",
-    "乚",
-    "从",
-    "𠘨",
-    "口",
-    "尸",
-    "㔿",
-    "尺",
-    "丂",
-    "丅",
-    "凵",
-    "リ",
-    "山",
-    "乂",
-    "丫",
-    "乙",
-]
-bubblefont = [
-    "ⓐ",
-    "ⓑ",
-    "ⓒ",
-    "ⓓ",
-    "ⓔ",
-    "ⓕ",
-    "ⓖ",
-    "ⓗ",
-    "ⓘ",
-    "ⓙ",
-    "ⓚ",
-    "ⓛ",
-    "ⓜ",
-    "ⓝ",
-    "ⓞ",
-    "ⓟ",
-    "ⓠ",
-    "ⓡ",
-    "ⓢ",
-    "ⓣ",
-    "ⓤ",
-    "ⓥ",
-    "ⓦ",
-    "ⓧ",
-    "ⓨ",
-    "ⓩ",
-]
-fbubblefont = [
-    "🅐",
-    "🅑",
-    "🅒",
-    "🅓",
-    "🅔",
-    "🅕",
-    "🅖",
-    "🅗",
-    "🅘",
-    "🅙",
-    "🅚",
-    "🅛",
-    "🅜",
-    "🅝",
-    "🅞",
-    "🅟",
-    "🅠",
-    "🅡",
-    "🅢",
-    "🅣",
-    "🅤",
-    "🅥",
-    "🅦",
-    "🅧",
-    "🅨",
-    "🅩",
-]
-squarefont = [
-    "🄰",
-    "🄱",
-    "🄲",
-    "🄳",
-    "🄴",
-    "🄵",
-    "🄶",
-    "🄷",
-    "🄸",
-    "🄹",
-    "🄺",
-    "🄻",
-    "🄼",
-    "🄽",
-    "🄾",
-    "🄿",
-    "🅀",
-    "🅁",
-    "🅂",
-    "🅃",
-    "🅄",
-    "🅅",
-    "🅆",
-    "🅇",
-    "🅈",
-    "🅉",
-]
-fsquarefont = [
-    "🅰",
-    "🅱",
-    "🅲",
-    "🅳",
-    "🅴",
-    "🅵",
-    "🅶",
-    "🅷",
-    "🅸",
-    "🅹",
-    "🅺",
-    "🅻",
-    "🅼",
-    "🅽",
-    "🅾",
-    "🅿",
-    "🆀",
-    "🆁",
-    "🆂",
-    "🆃",
-    "🆄",
-    "🆅",
-    "🆆",
-    "🆇",
-    "🆈",
-    "🆉",
-]
-bluefont = [
-    "🇦 ",
-    "🇧 ",
-    "🇨 ",
-    "🇩 ",
-    "🇪 ",
-    "🇫 ",
-    "🇬 ",
-    "🇭 ",
-    "🇮 ",
-    "🇯 ",
-    "🇰 ",
-    "🇱 ",
-    "🇲 ",
-    "🇳 ",
-    "🇴 ",
-    "🇵 ",
-    "🇶 ",
-    "🇷 ",
-    "🇸 ",
-    "🇹 ",
-    "🇺 ",
-    "🇻 ",
-    "🇼 ",
-    "🇽 ",
-    "🇾 ",
-    "🇿 ",
-]
-latinfont = [
-    "𝒶",
-    "𝒷",
-    "𝒸",
-    "𝒹",
-    "ℯ",
-    "𝒻",
-    "ℊ",
-    "𝒽",
-    "𝒾",
-    "𝒿",
-    "𝓀",
-    "𝓁",
-    "𝓂",
-    "𝓃",
-    "ℴ",
-    "𝓅",
-    "𝓆",
-    "𝓇",
-    "𝓈",
-    "𝓉",
-    "𝓊",
-    "𝓋",
-    "𝓌",
-    "𝓍",
-    "𝓎",
-    "𝓏",
-]
-linedfont = [
-    "𝕒",
-    "𝕓",
-    "𝕔",
-    "𝕕",
-    "𝕖",
-    "𝕗",
-    "𝕘",
-    "𝕙",
-    "𝕚",
-    "𝕛",
-    "𝕜",
-    "𝕝",
-    "𝕞",
-    "𝕟",
-    "𝕠",
-    "𝕡",
-    "𝕢",
-    "𝕣",
-    "𝕤",
-    "𝕥",
-    "𝕦",
-    "𝕧",
-    "𝕨",
-    "𝕩",
-    "𝕪",
-    "𝕫",
-]
+import os
+from FallenRobot.utils.fonts import Fonts
+from pyrogram import Client, filters
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 
-@typing_action
-def weebify(update, context):
-    args = context.args
-    message = update.effective_message
-    string = ""
 
-    if message.reply_to_message:
-        string = message.reply_to_message.text.lower().replace(" ", "  ")
-
-    if args:
-        string = "  ".join(args).lower()
-
-    if not string:
-        message.reply_text("Usage is `/weebify <text>`", parse_mode=ParseMode.MARKDOWN)
-        return
-
-    for normiecharacter in string:
-        if normiecharacter in normiefont:
-            weebycharacter = weebyfont[normiefont.index(normiecharacter)]
-            string = string.replace(normiecharacter, weebycharacter)
-
-    if message.reply_to_message:
-        message.reply_to_message.reply_text(string)
+@Client.on_message(filters.command(["font", "fonts"]))
+async def style_buttons(c, m, cb=False):
+    buttons = [[
+        InlineKeyboardButton('𝚃𝚢𝚙𝚎𝚠𝚛𝚒𝚝𝚎𝚛', callback_data='style+typewriter'),
+        InlineKeyboardButton('𝕆𝕦𝕥𝕝𝕚𝕟𝕖', callback_data='style+outline'),
+        InlineKeyboardButton('𝐒𝐞𝐫𝐢𝐟', callback_data='style+serif'),
+        ],[
+        InlineKeyboardButton('𝑺𝒆𝒓𝒊𝒇', callback_data='style+bold_cool'),
+        InlineKeyboardButton('𝑆𝑒𝑟𝑖𝑓', callback_data='style+cool'),
+        InlineKeyboardButton('Sᴍᴀʟʟ Cᴀᴘs', callback_data='style+small_cap'),
+        ],[
+        InlineKeyboardButton('𝓈𝒸𝓇𝒾𝓅𝓉', callback_data='style+script'),
+        InlineKeyboardButton('𝓼𝓬𝓻𝓲𝓹𝓽', callback_data='style+script_bolt'),
+        InlineKeyboardButton('ᵗⁱⁿʸ', callback_data='style+tiny'),
+        ],[
+        InlineKeyboardButton('ᑕOᗰIᑕ', callback_data='style+comic'),
+        InlineKeyboardButton('𝗦𝗮𝗻𝘀', callback_data='style+sans'),
+        InlineKeyboardButton('𝙎𝙖𝙣𝙨', callback_data='style+slant_sans'),
+        ],[
+        InlineKeyboardButton('𝘚𝘢𝘯𝘴', callback_data='style+slant'),
+        InlineKeyboardButton('𝖲𝖺𝗇𝗌', callback_data='style+sim'),
+         InlineKeyboardButton('Ⓒ︎Ⓘ︎Ⓡ︎Ⓒ︎Ⓛ︎Ⓔ︎Ⓢ︎', callback_data='style+circles'),
+        ],[
+        InlineKeyboardButton('🅒︎🅘︎🅡︎🅒︎🅛︎🅔︎🅢︎', callback_data='style+circle_dark'),
+        InlineKeyboardButton('𝔊𝔬𝔱𝔥𝔦𝔠', callback_data='style+gothic'),
+        InlineKeyboardButton('𝕲𝖔𝖙𝖍𝖎𝖈', callback_data='style+gothic_bolt'),
+        ],[
+        InlineKeyboardButton('C͜͡l͜͡o͜͡u͜͡d͜͡s͜͡', callback_data='style+cloud'),
+        InlineKeyboardButton('H̆̈ă̈p̆̈p̆̈y̆̈', callback_data='style+happy'),
+        InlineKeyboardButton('S̑̈ȃ̈d̑̈', callback_data='style+sad'),
+        ],[
+        InlineKeyboardButton('ɴᴇxᴛ ➻', callback_data="nxt")
+    ]]
+    if not cb:
+        await m.reply_text(m.text, reply_markup=InlineKeyboardMarkup(buttons), quote=True)
     else:
-        message.reply_text(string)
+        await m.answer()
+        await m.message.edit_reply_markup(InlineKeyboardMarkup(buttons))
 
 
-@typing_action
-def bubble(update, context):
-    args = context.args
-    message = update.effective_message
-    string = ""
-
-    if message.reply_to_message:
-        string = message.reply_to_message.text.lower().replace(" ", "  ")
-
-    if args:
-        string = "  ".join(args).lower()
-
-    if not string:
-        message.reply_text("Usage is `/bubble <text>`", parse_mode=ParseMode.MARKDOWN)
-        return
-
-    for normiecharacter in string:
-        if normiecharacter in normiefont:
-            bubblecharacter = bubblefont[normiefont.index(normiecharacter)]
-            string = string.replace(normiecharacter, bubblecharacter)
-
-    if message.reply_to_message:
-        message.reply_to_message.reply_text(string)
+@Client.on_callback_query(filters.regex('^nxt'))
+async def nxt(c, m):
+    if m.data == "nxt":
+        buttons = [[
+            InlineKeyboardButton('🇸 🇵 🇪 🇨 🇮 🇦 🇱 ', callback_data='style+special'),
+            InlineKeyboardButton('🅂🅀🅄🄰🅁🄴🅂', callback_data='style+squares'),
+            InlineKeyboardButton('🆂︎🆀︎🆄︎🅰︎🆁︎🅴︎🆂︎', callback_data='style+squares_bold'),
+            ],[
+            InlineKeyboardButton('ꪖꪀᦔꪖꪶꪊᥴ𝓲ꪖ', callback_data='style+andalucia'),
+            InlineKeyboardButton('爪卂几ᘜ卂', callback_data='style+manga'),
+            InlineKeyboardButton('S̾t̾i̾n̾k̾y̾', callback_data='style+stinky'),
+            ],[
+            InlineKeyboardButton('B̥ͦu̥ͦb̥ͦb̥ͦl̥ͦe̥ͦs̥ͦ', callback_data='style+bubbles'),
+            InlineKeyboardButton('U͟n͟d͟e͟r͟l͟i͟n͟e͟', callback_data='style+underline'),
+            InlineKeyboardButton('꒒ꍏꀷꌩꌃꀎꁅ', callback_data='style+ladybug'),
+            ],[
+            InlineKeyboardButton('R҉a҉y҉s҉', callback_data='style+rays'),
+            InlineKeyboardButton('B҈i҈r҈d҈s҈', callback_data='style+birds'),
+            InlineKeyboardButton('S̸l̸a̸s̸h̸', callback_data='style+slash'),
+            ],[
+            InlineKeyboardButton('s⃠t⃠o⃠p⃠', callback_data='style+stop'),
+            InlineKeyboardButton('S̺͆k̺͆y̺͆l̺͆i̺͆n̺͆e̺͆', callback_data='style+skyline'),
+            InlineKeyboardButton('A͎r͎r͎o͎w͎s͎', callback_data='style+arrows'),
+            ],[
+            InlineKeyboardButton('ዪሀክቿነ', callback_data='style+qvnes'),
+            InlineKeyboardButton('S̶t̶r̶i̶k̶e̶', callback_data='style+strike'),
+            InlineKeyboardButton('F༙r༙o༙z༙e༙n༙', callback_data='style+frozen')
+            ],[
+            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='nxt+0')
+        ]]
+        await m.answer()
+        await m.message.edit_reply_markup(InlineKeyboardMarkup(buttons))
     else:
-        message.reply_text(string)
+        await style_buttons(c, m, cb=True)
 
 
-@typing_action
-def fbubble(update, context):
-    args = context.args
-    message = update.effective_message
-    string = ""
+@Client.on_callback_query(filters.regex('^style'))
+async def style(c, m):
+    await m.answer()
+    cmd, style = m.data.split('+')
 
-    if message.reply_to_message:
-        string = message.reply_to_message.text.lower().replace(" ", "  ")
+    if style == 'typewriter':
+        cls = Fonts.typewriter
+    if style == 'outline':
+        cls = Fonts.outline
+    if style == 'serif':
+        cls = Fonts.serief
+    if style == 'bold_cool':
+        cls = Fonts.bold_cool
+    if style == 'cool':
+        cls = Fonts.cool
+    if style == 'small_cap':
+        cls = Fonts.smallcap
+    if style == 'script':
+        cls = Fonts.script
+    if style == 'script_bolt':
+        cls = Fonts.bold_script
+    if style == 'tiny':
+        cls = Fonts.tiny
+    if style == 'comic':
+        cls = Fonts.comic
+    if style == 'sans':
+        cls = Fonts.san
+    if style == 'slant_sans':
+        cls = Fonts.slant_san
+    if style == 'slant':
+        cls = Fonts.slant
+    if style == 'sim':
+        cls = Fonts.sim
+    if style == 'circles':
+        cls = Fonts.circles
+    if style == 'circle_dark':
+        cls = Fonts.dark_circle
+    if style == 'gothic':
+        cls = Fonts.gothic
+    if style == 'gothic_bolt':
+        cls = Fonts.bold_gothic
+    if style == 'cloud':
+        cls = Fonts.cloud
+    if style == 'happy':
+        cls = Fonts.happy
+    if style == 'sad':
+        cls = Fonts.sad
+    if style == 'special':
+        cls = Fonts.special
+    if style == 'squares':
+        cls = Fonts.square
+    if style == 'squares_bold':
+        cls = Fonts.dark_square
+    if style == 'andalucia':
+        cls = Fonts.andalucia
+    if style == 'manga':
+        cls = Fonts.manga
+    if style == 'stinky':
+        cls = Fonts.stinky
+    if style == 'bubbles':
+        cls = Fonts.bubbles
+    if style == 'underline':
+        cls = Fonts.underline
+    if style == 'ladybug':
+        cls = Fonts.ladybug
+    if style == 'rays':
+        cls = Fonts.rays
+    if style == 'birds':
+        cls = Fonts.birds
+    if style == 'slash':
+        cls = Fonts.slash
+    if style == 'stop':
+        cls = Fonts.stop
+    if style == 'skyline':
+        cls = Fonts.skyline
+    if style == 'arrows':
+        cls = Fonts.arrows
+    if style == 'qvnes':
+        cls = Fonts.rvnes
+    if style == 'strike':
+        cls = Fonts.strike
+    if style == 'frozen':
+        cls = Fonts.frozen
+    new_text = cls(m.message.reply_to_message.text)
+    try:
+        await m.message.edit_text(new_text, reply_markup=m.message.reply_markup)
+    except:
+        pass
 
-    if args:
-        string = "  ".join(args).lower()
-
-    if not string:
-        message.reply_text("Usage is `/fbubble <text>`", parse_mode=ParseMode.MARKDOWN)
-        return
-
-    for normiecharacter in string:
-        if normiecharacter in normiefont:
-            fbubblecharacter = fbubblefont[normiefont.index(normiecharacter)]
-            string = string.replace(normiecharacter, fbubblecharacter)
-
-    if message.reply_to_message:
-        message.reply_to_message.reply_text(string)
-    else:
-        message.reply_text(string)
-
-
-@typing_action
-def square(update, context):
-    args = context.args
-    message = update.effective_message
-    string = ""
-
-    if message.reply_to_message:
-        string = message.reply_to_message.text.lower().replace(" ", "  ")
-
-    if args:
-        string = "  ".join(args).lower()
-
-    if not string:
-        message.reply_text("Usage is `/square <text>`", parse_mode=ParseMode.MARKDOWN)
-        return
-
-    for normiecharacter in string:
-        if normiecharacter in normiefont:
-            squarecharacter = squarefont[normiefont.index(normiecharacter)]
-            string = string.replace(normiecharacter, squarecharacter)
-
-    if message.reply_to_message:
-        message.reply_to_message.reply_text(string)
-    else:
-        message.reply_text(string)
-
-
-@typing_action
-def fsquare(update, context):
-    args = context.args
-    message = update.effective_message
-    string = ""
-
-    if message.reply_to_message:
-        string = message.reply_to_message.text.lower().replace(" ", "  ")
-
-    if args:
-        string = "  ".join(args).lower()
-
-    if not string:
-        message.reply_text("Usage is `/fsquare <text>`", parse_mode=ParseMode.MARKDOWN)
-        return
-
-    for normiecharacter in string:
-        if normiecharacter in normiefont:
-            fsquarecharacter = fsquarefont[normiefont.index(normiecharacter)]
-            string = string.replace(normiecharacter, fsquarecharacter)
-
-    if message.reply_to_message:
-        message.reply_to_message.reply_text(string)
-    else:
-        message.reply_text(string)
-
-
-@typing_action
-def blue(update, context):
-    args = context.args
-    message = update.effective_message
-    string = ""
-
-    if message.reply_to_message:
-        string = message.reply_to_message.text.lower().replace(" ", "  ")
-
-    if args:
-        string = "  ".join(args).lower()
-
-    if not string:
-        message.reply_text("Usage is `/blue <text>`", parse_mode=ParseMode.MARKDOWN)
-        return
-
-    for normiecharacter in string:
-        if normiecharacter in normiefont:
-            bluecharacter = bluefont[normiefont.index(normiecharacter)]
-            string = string.replace(normiecharacter, bluecharacter)
-
-    if message.reply_to_message:
-        message.reply_to_message.reply_text(string)
-    else:
-        message.reply_text(string)
-
-
-@typing_action
-def latin(update, context):
-    args = context.args
-    message = update.effective_message
-    string = ""
-
-    if message.reply_to_message:
-        string = message.reply_to_message.text.lower().replace(" ", "  ")
-
-    if args:
-        string = "  ".join(args).lower()
-
-    if not string:
-        message.reply_text("Usage is `/latin <text>`", parse_mode=ParseMode.MARKDOWN)
-        return
-
-    for normiecharacter in string:
-        if normiecharacter in normiefont:
-            latincharacter = latinfont[normiefont.index(normiecharacter)]
-            string = string.replace(normiecharacter, latincharacter)
-
-    if message.reply_to_message:
-        message.reply_to_message.reply_text(string)
-    else:
-        message.reply_text(string)
-
-
-@typing_action
-def lined(update, context):
-    args = context.args
-    message = update.effective_message
-    string = ""
-
-    if message.reply_to_message:
-        string = message.reply_to_message.text.lower().replace(" ", "  ")
-
-    if args:
-        string = "  ".join(args).lower()
-
-    if not string:
-        message.reply_text("Usage is `/lined <text>`", parse_mode=ParseMode.MARKDOWN)
-        return
-
-    for normiecharacter in string:
-        if normiecharacter in normiefont:
-            linedcharacter = linedfont[normiefont.index(normiecharacter)]
-            string = string.replace(normiecharacter, linedcharacter)
-
-    if message.reply_to_message:
-        message.reply_to_message.reply_text(string)
-    else:
-        message.reply_text(string)
 
 
 __help__ = """
 
-*ᴄᴏɴᴠᴇʀᴛs sɪᴍᴩʟᴇ ᴛᴇxᴛ ᴛᴏ ʙᴇᴀᴜᴛɪғᴜʟ ᴛᴇxᴛ ʙʏ ᴄʜᴀɴɢɪɴɢ ɪᴛ's ғᴏɴᴛ*
-
- ❍ /weebify *:* Change the text into weeb text.
- ❍ /bubble *:* Change the text into bubble text.
- ❍ /fbubble *:* Change the text into fbubble text.
- ❍ /square *:* Change the text into square text.
- ❍ /blue *:* Change the text into blue text.
- ❍ /latin *:* Change the text into latin text.
- ❍ /lined *:* Change the text into lined text.
+ ❍ font <text> *:* ᴄᴏɴᴠᴇʀᴛs sɪᴍᴩʟᴇ ᴛᴇxᴛ ᴛᴏ ʙᴇᴀᴜᴛɪғᴜʟ ᴛᴇxᴛ ʙʏ ᴄʜᴀɴɢɪɴɢ ɪᴛ's ғᴏɴᴛ.
  """
+
 __mod_name__ = "Fᴏɴᴛ Eᴅɪᴛᴏʀ"
-
-WEEBIFY_HANDLER = DisableAbleCommandHandler("weebify", weebify)
-BUBBLE_HANDLER = DisableAbleCommandHandler("bubble", bubble)
-FBUBBLE_HANDLER = DisableAbleCommandHandler("fbubble", fbubble)
-SQUARE_HANDLER = DisableAbleCommandHandler("square", square)
-FSQUARE_HANDLER = DisableAbleCommandHandler("fsquare", fsquare)
-BLUE_HANDLER = DisableAbleCommandHandler("blue", blue)
-LATIN_HANDLER = DisableAbleCommandHandler("latin", latin)
-LINED_HANDLER = DisableAbleCommandHandler("lined", lined)
-
-dispatcher.add_handler(WEEBIFY_HANDLER)
-dispatcher.add_handler(BUBBLE_HANDLER)
-dispatcher.add_handler(FBUBBLE_HANDLER)
-dispatcher.add_handler(SQUARE_HANDLER)
-dispatcher.add_handler(FSQUARE_HANDLER)
-dispatcher.add_handler(BLUE_HANDLER)
-dispatcher.add_handler(LATIN_HANDLER)
-dispatcher.add_handler(LINED_HANDLER)
-
-__command_list__ = ["weebify"]
-__command_list__ = ["bubble"]
-__command_list__ = ["fbubble"]
-__command_list__ = ["square"]
-__command_list__ = ["fsquare"]
-__command_list__ = ["blue"]
-__command_list__ = ["latin"]
-__command_list__ = ["lined"]
-__handlers__ = [WEEBIFY_HANDLER]
-__handlers__ = [BUBBLE_HANDLER]
-__handlers__ = [FBUBBLE_HANDLER]
-__handlers__ = [SQUARE_HANDLER]
-__handlers__ = [FSQUARE_HANDLER]
-__handlers__ = [BLUE_HANDLER]
-__handlers__ = [LATIN_HANDLER]
-__handlers__ = [LINED_HANDLER]
