@@ -46,7 +46,7 @@ async def _(event):
                 ms_two = (end - start).seconds
                 os.remove(downloaded_file_name)
                 await h.edit(
-                    "Uploaded to https://telegra.ph{})".format(media_urls[0]),
+                    "Uploaded to https://te.legra.ph{})".format(media_urls[0]),
                     link_preview=True,
                 )
         elif input_str == "t":
@@ -91,6 +91,7 @@ __help__ = """
 I can upload files to Telegraph
  ❍ /tgm :Get Telegraph Link Of Replied Media
  ❍ /tgt :Get Telegraph Link of Replied Text
+ ❍ /tgt [custom name]: Get telegraph link of replied text with custom name.
 """
 
 __mod_name__ = "T-Gʀᴀᴘʜ"
