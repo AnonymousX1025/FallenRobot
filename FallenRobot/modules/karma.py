@@ -3,7 +3,7 @@ from pyrogram import filters
 from aiohttp import ClientSession
 from Python_ARQ import ARQ
 
-from FallenRobot import pbot as app
+from FallenRobot import pbot as app, OWNER_ID
 from FallenRobot.utils.errors import capture_err
 from FallenRobot.utils.permissions import adminsOnly
 from FallenRobot.helper_extra.dbfun import (
@@ -19,9 +19,9 @@ from FallenRobot.helper_extra.dbfun import (
 from FallenRobot import arq
 
 regex_upvote = (
-    r"^((?i)\+|\+\+|\+1|thx|thanx|thanks|thankyou|love|pro|🖤|❣️|💝|💖|💕|❤|💘|cool|good|👍)$"
+    r"^((?i)\+|\+\+|\+1|thx|thanx|thanks|🖤|❣️|💝|💖|💕|❤|💘|cool|good|👍|baby|bsdk|bhadve|betichod|thankyou|love|pro)$"
 )
-regex_downvote = r"^(\-|\-\-|\-1|👎|💔|noob|weak)$"
+regex_downvote = r"^(\-|\-\-|\-1|👎|💔|noob|weak|fuck off|nub|gey|mf)$"
 
 
 karma_positive_group = 3
@@ -46,41 +46,8 @@ async def upvote(_, message):
         return
     if not message.from_user:
         return
-    if message.reply_to_message.from_user.id == message.from_user.id:
-        return
-    chat_id = message.chat.id
-    user_id = message.reply_to_message.from_user.id
-    user_mention = message.reply_to_message.from_user.mention
-    current_karma = await get_karma(chat_id, await int_to_alpha(user_id))
-    if current_karma:
-        current_karma = current_karma["karma"]
-        karma = current_karma + 1
-    else:
-        karma = 1
-    new_karma = {"karma": karma}
-    await update_karma(chat_id, await int_to_alpha(user_id), new_karma)
-    await message.reply_text(
-        f"Incremented Karma of {user_mention} By 1 \nTotal Points: {karma}"
-    )
-
-
-@app.on_message(
-    filters.text
-    & filters.group
-    & filters.incoming
-    & filters.reply
-    & filters.regex(regex_upvote)
-    & ~filters.via_bot
-    & ~filters.bot,
-    group=karma_positive_group,
-)
-@capture_err
-async def upvote(_, message):
-    if not is_karma_on(message.chat.id):
-        return
-    if not message.reply_to_message.from_user:
-        return
-    if not message.from_user:
+    if message.reply_to_message.from_user.id == OWNER_ID:
+        await message.reply_text("ᴛʜᴀᴛ's ɢᴏᴏᴅ ʙᴜᴛ ʏᴏᴜ ᴋɴᴏᴡ ᴡʜᴀᴛ, ᴛʜᴀᴛ ᴩᴇʀsᴏɴ ɪs ᴍʏ ᴏᴡɴᴇʀ ᴀɴᴅ ᴇᴠᴇʀʏᴏɴᴇ ᴋɴᴏᴡs ᴛʜᴀᴛ ʜᴇ ɪs ᴀ ɢᴏᴏᴅ ᴍᴀɴ.")
         return
     if message.reply_to_message.from_user.id == message.from_user.id:
         return
@@ -96,7 +63,7 @@ async def upvote(_, message):
     new_karma = {"karma": karma}
     await update_karma(chat_id, await int_to_alpha(user_id), new_karma)
     await message.reply_text(
-        f"Incremented Karma of {user_mention} By 1 \nTotal Points: {karma}"
+        f"ɪɴᴄʀᴇᴍᴇɴᴛᴇᴅ ᴋᴀʀᴍᴀ ᴏғ {user_mention} ʙʏ 1.\n**ᴛᴏᴛᴀʟ ᴩᴏɪɴᴛs :** {karma}"
     )
 
 
@@ -118,9 +85,11 @@ async def downvote(_, message):
         return
     if not message.from_user:
         return
+    if message.reply_to_message.from_user.id == OWNER_ID:
+        await message.reply_text("ᴡᴛғ !, ʏᴏᴜ ᴅᴏɴ'ᴛ ᴀɢʀᴇᴇ ᴡɪᴛʜ ᴍʏ ᴏᴡɴᴇʀ. ʟᴏᴏᴋs ʟɪᴋᴇ ʏᴏᴜ'ʀᴇ ɴᴏᴛ ᴀɴ ɢᴏᴏᴅ ᴩᴇʀsᴏɴ.")
+        return
     if message.reply_to_message.from_user.id == message.from_user.id:
         return
-
     chat_id = message.chat.id
     user_id = message.reply_to_message.from_user.id
     user_mention = message.reply_to_message.from_user.mention
@@ -133,7 +102,7 @@ async def downvote(_, message):
     new_karma = {"karma": karma}
     await update_karma(chat_id, await int_to_alpha(user_id), new_karma)
     await message.reply_text(
-        f"Decremented Karma Of {user_mention} By 1 \nTotal Points: {karma}"
+        f"ᴅᴇᴄʀᴇᴍᴇɴᴛᴇᴅ ᴋᴀʀᴍᴀ ᴏғ {user_mention} ʙʏ 1.\n**ᴛᴏᴛᴀʟ ᴩᴏɪɴᴛs :** {karma}"
     )
 
 
@@ -179,7 +148,7 @@ async def karma(_, message):
         user_id = message.reply_to_message.from_user.id
         karma = await get_karma(chat_id, await int_to_alpha(user_id))
         karma = karma["karma"] if karma else 0
-        await message.reply_text(f"**Total Points**: __{karma}__")
+        await message.reply_text(f"**ᴛᴏᴛᴀʟ ᴩᴏɪɴᴛs :** {karma}")
 
 
 @app.on_message(filters.command("karma") & ~filters.private)
