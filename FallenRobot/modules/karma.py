@@ -18,9 +18,7 @@ from FallenRobot.helper_extra.dbfun import (
 )
 from FallenRobot import arq
 
-regex_upvote = (
-    r"^((?i)\+|\+\+|\+1|thx|thanx|thanks|🖤|❣️|💝|💖|💕|❤|💘|cool|good|👍|baby|bsdk|bhadve|betichod|thankyou|love|pro)$"
-)
+regex_upvote = r"^((?i)\+|\+\+|\+1|thx|thanx|thanks|🖤|❣️|💝|💖|💕|❤|💘|cool|good|👍|baby|bsdk|bhadve|betichod|thankyou|love|pro)$"
 regex_downvote = r"^(\-|\-\-|\-1|👎|💔|noob|weak|fuck off|nub|gey|mf)$"
 
 
@@ -47,7 +45,9 @@ async def upvote(_, message):
     if not message.from_user:
         return
     if message.reply_to_message.from_user.id == OWNER_ID:
-        await message.reply_text("ᴛʜᴀᴛ's ɢᴏᴏᴅ ʙᴜᴛ ʏᴏᴜ ᴋɴᴏᴡ ᴡʜᴀᴛ, ᴛʜᴀᴛ ᴩᴇʀsᴏɴ ɪs ᴍʏ ᴏᴡɴᴇʀ ᴀɴᴅ ᴇᴠᴇʀʏᴏɴᴇ ᴋɴᴏᴡs ᴛʜᴀᴛ ʜᴇ ɪs ᴀ ɢᴏᴏᴅ ᴍᴀɴ.")
+        await message.reply_text(
+            "ᴛʜᴀᴛ's ɢᴏᴏᴅ ʙᴜᴛ ʏᴏᴜ ᴋɴᴏᴡ ᴡʜᴀᴛ, ᴛʜᴀᴛ ᴩᴇʀsᴏɴ ɪs ᴍʏ ᴏᴡɴᴇʀ ᴀɴᴅ ᴇᴠᴇʀʏᴏɴᴇ ᴋɴᴏᴡs ᴛʜᴀᴛ ʜᴇ ɪs ᴀ ɢᴏᴏᴅ ᴍᴀɴ."
+        )
         return
     if message.reply_to_message.from_user.id == message.from_user.id:
         return
@@ -86,7 +86,9 @@ async def downvote(_, message):
     if not message.from_user:
         return
     if message.reply_to_message.from_user.id == OWNER_ID:
-        await message.reply_text("ᴡᴛғ !, ʏᴏᴜ ᴅᴏɴ'ᴛ ᴀɢʀᴇᴇ ᴡɪᴛʜ ᴍʏ ᴏᴡɴᴇʀ. ʟᴏᴏᴋs ʟɪᴋᴇ ʏᴏᴜ'ʀᴇ ɴᴏᴛ ᴀɴ ɢᴏᴏᴅ ᴩᴇʀsᴏɴ.")
+        await message.reply_text(
+            "ᴡᴛғ !, ʏᴏᴜ ᴅᴏɴ'ᴛ ᴀɢʀᴇᴇ ᴡɪᴛʜ ᴍʏ ᴏᴡɴᴇʀ. ʟᴏᴏᴋs ʟɪᴋᴇ ʏᴏᴜ'ʀᴇ ɴᴏᴛ ᴀɴ ɢᴏᴏᴅ ᴩᴇʀsᴏɴ."
+        )
         return
     if message.reply_to_message.from_user.id == message.from_user.id:
         return
