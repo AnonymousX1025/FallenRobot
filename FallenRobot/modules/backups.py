@@ -1,27 +1,28 @@
-import json, time, os
+import json
+import os
+import time
 from io import BytesIO
 
-from telegram import ParseMode, Message
+from telegram import Message, ParseMode
 from telegram.error import BadRequest
 from telegram.ext import CommandHandler, run_async
 
-import FallenRobot.modules.sql.notes_sql as sql
-from FallenRobot import dispatcher, LOGGER, OWNER_ID, JOIN_LOGGER, SUPPORT_CHAT
-from FallenRobot.__main__ import DATA_IMPORT
-from FallenRobot.modules.helper_funcs.chat_status import user_admin
-from FallenRobot.modules.helper_funcs.alternate import typing_action
-
-# from FallenRobot.modules.rules import get_rules
-import FallenRobot.modules.sql.rules_sql as rulessql
-
 # from FallenRobot.modules.sql import warns_sql as warnssql
 import FallenRobot.modules.sql.blacklist_sql as blacklistsql
-from FallenRobot.modules.sql import disable_sql as disabledsql
 
 # from FallenRobot.modules.sql import cust_filters_sql as filtersql
 # import FallenRobot.modules.sql.welcome_sql as welcsql
 import FallenRobot.modules.sql.locks_sql as locksql
+import FallenRobot.modules.sql.notes_sql as sql
+
+# from FallenRobot.modules.rules import get_rules
+import FallenRobot.modules.sql.rules_sql as rulessql
+from FallenRobot import EVENT_LOGS, LOGGER, OWNER_ID, SUPPORT_CHAT, dispatcher
+from FallenRobot.__main__ import DATA_IMPORT
 from FallenRobot.modules.connection import connected
+from FallenRobot.modules.helper_funcs.alternate import typing_action
+from FallenRobot.modules.helper_funcs.chat_status import user_admin
+from FallenRobot.modules.sql import disable_sql as disabledsql
 
 
 @run_async
@@ -331,7 +332,7 @@ def export_data(update, context):
     tgl = time.strftime("%H:%M:%S - %d/%m/%Y", time.localtime(time.time()))
     try:
         context.bot.sendMessage(
-            JOIN_LOGGER,
+            EVENT_LOGS,
             "*Successfully imported backup:*\nChat: `{}`\nChat ID: `{}`\nOn: `{}`".format(
                 chat.title, chat_id, tgl
             ),

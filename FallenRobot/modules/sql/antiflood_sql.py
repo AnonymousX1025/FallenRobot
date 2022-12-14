@@ -1,8 +1,8 @@
 import threading
 
-from sqlalchemy import String, Column, BigInteger, UnicodeText
+from sqlalchemy import BigInteger, Column, String, UnicodeText
 
-from FallenRobot.modules.sql import SESSION, BASE
+from FallenRobot.modules.sql import BASE, SESSION
 
 DEF_COUNT = 1
 DEF_LIMIT = 0

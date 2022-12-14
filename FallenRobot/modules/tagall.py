@@ -1,13 +1,11 @@
-import os
 import asyncio
-from telethon import Button
-from telethon import TelegramClient, events
-from telethon.tl.types import ChannelParticipantAdmin
-from telethon.tl.types import ChannelParticipantCreator
-from telethon.tl.functions.channels import GetParticipantRequest
-from telethon.errors import UserNotParticipantError
-from FallenRobot import telethn as client
 
+from telethon import events
+from telethon.errors import UserNotParticipantError
+from telethon.tl.functions.channels import GetParticipantRequest
+from telethon.tl.types import ChannelParticipantAdmin, ChannelParticipantCreator
+
+from FallenRobot import telethn as client
 
 spam_chats = []
 
@@ -99,7 +97,7 @@ async def cancel_spam(event):
         return await event.respond("__Stopped Mention.__")
 
 
-__mod_name__ = "Tᴀɢ Aʟʟ​"
+__mod_name__ = "Tᴀɢ Aʟʟ"
 __help__ = """
 ──「 Only for Admins 」──
 

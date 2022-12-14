@@ -1,8 +1,10 @@
 import os
+
 import cv2
 from PIL import Image
-from FallenRobot.events import register
+
 from FallenRobot import telethn as tbot
+from FallenRobot.events import register
 
 
 @register(pattern="^/tiny ?(.*)")
@@ -20,7 +22,7 @@ async def _(event):
         json = open("json.json", "r")
         jsn = json.read()
         jsn = jsn.replace("512", "2000")
-        open = ("json.json", "w").write(jsn)
+        ("json.json", "w").write(jsn)
         os.system("lottie_convert.py json.json blank_background.tgs")
         file = "blank_background.tgs"
         os.remove("json.json")

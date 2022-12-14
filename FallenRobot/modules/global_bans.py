@@ -15,15 +15,14 @@ from telegram.ext import (
 from telegram.utils.helpers import mention_html
 
 import FallenRobot.modules.sql.global_bans_sql as sql
-from FallenRobot.modules.sql.users_sql import get_user_com_chats
 from FallenRobot import (
+    DEMONS,
     DEV_USERS,
+    DRAGONS,
     EVENT_LOGS,
     OWNER_ID,
     STRICT_GBAN,
-    DRAGONS,
     SUPPORT_CHAT,
-    DEMONS,
     TIGERS,
     WOLVES,
     dispatcher,
@@ -38,6 +37,7 @@ from FallenRobot.modules.helper_funcs.extraction import (
     extract_user_and_text,
 )
 from FallenRobot.modules.helper_funcs.misc import send_to_list
+from FallenRobot.modules.sql.users_sql import get_user_com_chats
 
 GBAN_ENFORCE_GROUP = 6
 
@@ -191,7 +191,7 @@ def gban(update: Update, context: CallbackContext):
     if EVENT_LOGS:
         try:
             log = bot.send_message(EVENT_LOGS, log_message, parse_mode=ParseMode.HTML)
-        except BadRequest as excp:
+        except BadRequest:
             log = bot.send_message(
                 EVENT_LOGS,
                 log_message
@@ -321,7 +321,7 @@ def ungban(update: Update, context: CallbackContext):
     if EVENT_LOGS:
         try:
             log = bot.send_message(EVENT_LOGS, log_message, parse_mode=ParseMode.HTML)
-        except BadRequest as excp:
+        except BadRequest:
             log = bot.send_message(
                 EVENT_LOGS,
                 log_message

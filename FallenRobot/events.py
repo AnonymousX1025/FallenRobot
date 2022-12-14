@@ -1,14 +1,11 @@
 import inspect
-import logging
-import sys
 import re
-
 from pathlib import Path
-from telethon import events
 
 from pymongo import MongoClient
-from FallenRobot import MONGO_DB_URI
-from FallenRobot import telethn
+from telethon import events
+
+from FallenRobot import MONGO_DB_URI, telethn
 
 client = MongoClient()
 client = MongoClient(MONGO_DB_URI)
@@ -148,12 +145,12 @@ def bot(**args):
 
 def fallenrobot(**args):
     pattern = args.get("pattern", None)
-    disable_edited = args.get("disable_edited", False)
+    args.get("disable_edited", False)
     ignore_unsafe = args.get("ignore_unsafe", False)
     unsafe_pattern = r"^[^/!#@\$A-Za-z]"
-    group_only = args.get("group_only", False)
-    disable_errors = args.get("disable_errors", False)
-    insecure = args.get("insecure", False)
+    args.get("group_only", False)
+    args.get("disable_errors", False)
+    args.get("insecure", False)
     if pattern is not None and not pattern.startswith("(?i)"):
         args["pattern"] = "(?i)" + pattern
 

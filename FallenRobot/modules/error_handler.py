@@ -1,15 +1,15 @@
+import html
+import io
+import random
+import sys
 import traceback
 
-import requests
-import html
-import random
-import traceback
-import sys
 import pretty_errors
-import io
-from telegram import Update, InlineKeyboardMarkup, InlineKeyboardButton
+import requests
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
 from telegram.ext import CallbackContext, CommandHandler
-from FallenRobot import dispatcher, DEV_USERS, OWNER_ID
+
+from FallenRobot import DEV_USERS, OWNER_ID, dispatcher
 
 pretty_errors.mono()
 

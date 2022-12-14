@@ -1,33 +1,28 @@
 import html
 import os
 
-from telegram import ParseMode, Update, InlineKeyboardButton, InlineKeyboardMarkup
-from telegram.error import BadRequest, Unauthorized
-from telegram.ext import CallbackContext, CommandHandler, Filters, run_async
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
+from telegram.error import BadRequest
+from telegram.ext import CallbackContext, CommandHandler, run_async
 from telegram.utils.helpers import mention_html
 
 from FallenRobot import DRAGONS, dispatcher
 from FallenRobot.modules.disable import DisableAbleCommandHandler
+from FallenRobot.modules.helper_funcs.admin_rights import user_can_changeinfo
+from FallenRobot.modules.helper_funcs.alternate import send_message
 from FallenRobot.modules.helper_funcs.chat_status import (
+    ADMIN_CACHE,
     bot_admin,
     can_pin,
     can_promote,
     connection_status,
     user_admin,
-    ADMIN_CACHE,
-)
-
-from FallenRobot.modules.helper_funcs.admin_rights import (
-    user_can_changeinfo,
-    user_can_promote,
 )
 from FallenRobot.modules.helper_funcs.extraction import (
     extract_user,
     extract_user_and_text,
 )
-from FallenRobot import SUPPORT_CHAT
 from FallenRobot.modules.log_channel import loggable
-from FallenRobot.modules.helper_funcs.alternate import send_message
 
 
 @run_async
@@ -813,7 +808,7 @@ def adminlist(update, context):
         )
         return
 
-    chat = update.effective_chat
+    update.effective_chat
     chat_id = update.effective_chat.id
     chat_name = update.effective_message.chat.title  # -> unused variable
 

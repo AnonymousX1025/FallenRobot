@@ -1,8 +1,8 @@
 import threading
 
-from sqlalchemy import func, distinct, Column, String, UnicodeText, BigInteger
+from sqlalchemy import BigInteger, Column, String, UnicodeText, distinct, func
 
-from FallenRobot.modules.sql import SESSION, BASE
+from FallenRobot.modules.sql import BASE, SESSION
 
 
 class BlackListFilters(BASE):

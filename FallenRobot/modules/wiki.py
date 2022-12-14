@@ -1,9 +1,10 @@
 import wikipedia
-from FallenRobot import dispatcher
-from FallenRobot.modules.disable import DisableAbleCommandHandler
 from telegram import ParseMode, Update
 from telegram.ext import CallbackContext, run_async
 from wikipedia.exceptions import DisambiguationError, PageError
+
+from FallenRobot import dispatcher
+from FallenRobot.modules.disable import DisableAbleCommandHandler
 
 
 @run_async

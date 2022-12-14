@@ -1,12 +1,9 @@
 import asyncio
-from pyrogram import filters
-from aiohttp import ClientSession
-from Python_ARQ import ARQ
 
-from FallenRobot import pbot as app, OWNER_ID
-from FallenRobot.utils.errors import capture_err
-from FallenRobot.utils.permissions import adminsOnly
-from FallenRobot.helper_extra.dbfun import (
+from pyrogram import filters
+
+from FallenRobot import pbot, OWNER_ID
+from FallenRobot.utils.mongo import (
     alpha_to_int,
     get_karma,
     get_karmas,
@@ -16,17 +13,18 @@ from FallenRobot.helper_extra.dbfun import (
     karma_on,
     update_karma,
 )
-from FallenRobot import arq
+from FallenRobot.utils.admins import can_change_info
+from FallenRobot.utils.errors import capture_err
 
-regex_upvote = r"^((?i)\+|\+\+|\+1|thx|thanx|thanks|🖤|❣️|💝|💖|💕|❤|💘|cool|good|👍|baby|bsdk|bhadve|betichod|thankyou|love|pro)$"
-regex_downvote = r"^(\-|\-\-|\-1|👎|💔|noob|weak|fuck off|nub|gey|mf)$"
 
+regex_upvote = r"^((?i)\+|\+\+|\+1|\+69|thx|thanx|thanks|🖤|❣️|💝|💖|💕|❤|💘|cool|good|👍|baby|thankyou|love|pro)$"
+regex_downvote = r"^(\-|\-\-|\-1|👎|💔|noob|weak|fuck off|nub|gey|kid|shit|mf)$"
 
 karma_positive_group = 3
 karma_negative_group = 4
 
 
-@app.on_message(
+@pbot.on_message(
     filters.text
     & filters.group
     & filters.incoming
@@ -46,7 +44,7 @@ async def upvote(_, message):
         return
     if message.reply_to_message.from_user.id == OWNER_ID:
         await message.reply_text(
-            "ᴛʜᴀᴛ's ɢᴏᴏᴅ ʙᴜᴛ ʏᴏᴜ ᴋɴᴏᴡ ᴡʜᴀᴛ, ᴛʜᴀᴛ ᴩᴇʀsᴏɴ ɪs ᴍʏ ᴏᴡɴᴇʀ ᴀɴᴅ ᴇᴠᴇʀʏᴏɴᴇ ᴋɴᴏᴡs ᴛʜᴀᴛ ʜᴇ ɪs ᴀ ɢᴏᴏᴅ ᴍᴀɴ."
+            "ʜᴏᴡ sᴏ ᴘʀᴏ ?"
         )
         return
     if message.reply_to_message.from_user.id == message.from_user.id:
@@ -67,7 +65,7 @@ async def upvote(_, message):
     )
 
 
-@app.on_message(
+@pbot.on_message(
     filters.text
     & filters.group
     & filters.incoming
@@ -79,7 +77,7 @@ async def upvote(_, message):
 )
 @capture_err
 async def downvote(_, message):
-    if not is_karma_on(message.chat.id):
+    if not await is_karma_on(message.chat.id):
         return
     if not message.reply_to_message.from_user:
         return
@@ -87,38 +85,36 @@ async def downvote(_, message):
         return
     if message.reply_to_message.from_user.id == OWNER_ID:
         await message.reply_text(
-            "ᴡᴛғ !, ʏᴏᴜ ᴅᴏɴ'ᴛ ᴀɢʀᴇᴇ ᴡɪᴛʜ ᴍʏ ᴏᴡɴᴇʀ. ʟᴏᴏᴋs ʟɪᴋᴇ ʏᴏᴜ'ʀᴇ ɴᴏᴛ ᴀɴ ɢᴏᴏᴅ ᴩᴇʀsᴏɴ."
+            "ɪ ᴋɴᴏᴡ ʜɪᴍ, sᴏ ɪ'ᴍ ɴᴏᴛ ɢᴏɴɴᴀ ᴅᴏ ᴛʜᴀᴛ ʙᴀʙʏ."
         )
         return
     if message.reply_to_message.from_user.id == message.from_user.id:
         return
-    chat_id = message.chat.id
     user_id = message.reply_to_message.from_user.id
     user_mention = message.reply_to_message.from_user.mention
-    current_karma = await get_karma(chat_id, await int_to_alpha(user_id))
+    current_karma = await get_karma(message.chat.id, await int_to_alpha(user_id))
     if current_karma:
         current_karma = current_karma["karma"]
         karma = current_karma - 1
     else:
-        karma = 1
+        karma = 0
     new_karma = {"karma": karma}
-    await update_karma(chat_id, await int_to_alpha(user_id), new_karma)
+    await update_karma(message.chat.id, await int_to_alpha(user_id), new_karma)
     await message.reply_text(
         f"ᴅᴇᴄʀᴇᴍᴇɴᴛᴇᴅ ᴋᴀʀᴍᴀ ᴏғ {user_mention} ʙʏ 1.\n**ᴛᴏᴛᴀʟ ᴩᴏɪɴᴛs :** {karma}"
     )
 
 
-@app.on_message(filters.command("karmastat") & filters.group)
+@pbot.on_message(filters.command("karmastat") & filters.group)
 @capture_err
 async def karma(_, message):
-    chat_id = message.chat.id
     if not message.reply_to_message:
         m = await message.reply_text("Analyzing Karma...Will Take 10 Seconds")
-        karma = await get_karmas(chat_id)
+        karma = await get_karmas(message.chat.id)
         if not karma:
-            await m.edit("No karma in DB for this chat.")
+            await m.edit_text("No karma in DB for this chat.")
             return
-        msg = f"**Karma list of {message.chat.title}:- **\n"
+        msg = f"**Karma list of {message.chat.title} :**\n"
         limit = 0
         karma_dicc = {}
         for i in karma:
@@ -129,7 +125,7 @@ async def karma(_, message):
                 sorted(karma_dicc.items(), key=lambda item: item[1], reverse=True)
             )
         if not karma_dicc:
-            await m.edit("No karma in DB for this chat.")
+            await m.edit_text("No karma in DB for this chat.")
             return
         for user_idd, karma_count in karma_arranged.items():
             if limit > 9:
@@ -142,31 +138,29 @@ async def karma(_, message):
             first_name = user.first_name
             if not first_name:
                 continue
-            username = user.username
-            msg += f"**{karma_count}**  {(first_name[0:12] + '...') if len(first_name) > 12 else first_name}  `{('@' + username) if username else user_idd}`\n"
+            msg += f"`{karma_count}`  {(first_name[0:12] + '...') if len(first_name) > 12 else first_name}\n"
             limit += 1
-        await m.edit(msg)
+        await m.edit_text(msg)
     else:
         user_id = message.reply_to_message.from_user.id
-        karma = await get_karma(chat_id, await int_to_alpha(user_id))
+        karma = await get_karma(message.chat.id, await int_to_alpha(user_id))
         karma = karma["karma"] if karma else 0
         await message.reply_text(f"**ᴛᴏᴛᴀʟ ᴩᴏɪɴᴛs :** {karma}")
 
 
-@app.on_message(filters.command("karma") & ~filters.private)
-@adminsOnly("can_change_info")
+@pbot.on_message(filters.command("karma") & ~filters.private)
+@can_change_info
 async def captcha_state(_, message):
     usage = "**Usage:**\n/karma [ON|OFF]"
     if len(message.command) != 2:
         return await message.reply_text(usage)
-    chat_id = message.chat.id
     state = message.text.split(None, 1)[1].strip()
     state = state.lower()
     if state == "on":
-        await karma_on(chat_id)
+        await karma_on(message.chat.id)
         await message.reply_text("Enabled karma system.")
     elif state == "off":
-        karma_off(chat_id)
+        await karma_off(message.chat.id)
         await message.reply_text("Disabled karma system.")
     else:
         await message.reply_text(usage)

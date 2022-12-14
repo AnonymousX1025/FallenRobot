@@ -1,11 +1,11 @@
-from asyncio import gather
 from io import BytesIO
-from FallenRobot import aiohttpsession as aiosession
+
+from aiohttp import ClientSession
 
 
 async def make_carbon(code):
     url = "https://carbonara.vercel.app/api/cook"
-    async with aiosession.post(url, json={"code": code}) as resp:
+    async with ClientSession().post(url, json={"code": code}) as resp:
         image = BytesIO(await resp.read())
     image.name = "carbon.png"
     return image

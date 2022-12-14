@@ -1,16 +1,17 @@
 import threading
 
-from FallenRobot import dispatcher
-from FallenRobot.modules.sql import BASE, SESSION
 from sqlalchemy import (
+    BigInteger,
     Column,
     ForeignKey,
-    BigInteger,
     String,
     UnicodeText,
     UniqueConstraint,
     func,
 )
+
+from FallenRobot import dispatcher
+from FallenRobot.modules.sql import BASE, SESSION
 
 
 class Users(BASE):

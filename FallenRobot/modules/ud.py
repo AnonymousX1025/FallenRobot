@@ -1,8 +1,9 @@
 import requests
-from FallenRobot import dispatcher
-from FallenRobot.modules.disable import DisableAbleCommandHandler
 from telegram import ParseMode, Update
 from telegram.ext import CallbackContext, run_async
+
+from FallenRobot import dispatcher
+from FallenRobot.modules.disable import DisableAbleCommandHandler
 
 
 @run_async

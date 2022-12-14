@@ -1,6 +1,5 @@
 aiofiles
-aiohttp>=2.2.5
-alphabet_detector
+aiohttp
 apscheduler
 asyncio
 beautifulsoup4
@@ -12,7 +11,7 @@ countryinfo
 CurrencyConverter
 dateparser
 dnspython
-emoji==1.7.0
+emoji
 emoji-country-flag
 feedparser
 future
@@ -34,11 +33,10 @@ psycopg2-binary
 PyDictionary
 pytz
 pymongo
-python-arq
 pyrate-limiter
 pykeyboard
 pynewtonmath
-pyrogram==2.0.43
+pyrogram==2.0.70
 python-telegram-bot==12.8
 regex
 requests
@@ -46,10 +44,10 @@ secureme
 search_engine_parser
 speedtest-cli
 spongemock
-sqlalchemy==1.4.40
+sqlalchemy==1.4.45
 telegram
 telegraph
-telethon==1.24.0
+telethon==1.26.0
 TgCrypto
 ujson
 wget

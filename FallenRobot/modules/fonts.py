@@ -1,7 +1,8 @@
-import os
-from FallenRobot.utils.fonts import Fonts
-from pyrogram import Client, filters
+from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+
+from FallenRobot.utils.fonts import Fonts
+from FallenRobot import pbot as Client
 
 
 @Client.on_message(filters.command(["font", "fonts"]))

@@ -1,16 +1,15 @@
-import FallenRobot.modules.sql.blacklistusers_sql as sql
-from FallenRobot import ALLOW_EXCL
-from FallenRobot import DEV_USERS, DRAGONS, DEMONS, TIGERS, WOLVES
-
-from telegram import Update
-from telegram.ext import CommandHandler, MessageHandler, RegexHandler, Filters
 from pyrate_limiter import (
     BucketFullException,
     Duration,
-    RequestRate,
     Limiter,
     MemoryListBucket,
+    RequestRate,
 )
+from telegram import Update
+from telegram.ext import CommandHandler, Filters, MessageHandler, RegexHandler
+
+import FallenRobot.modules.sql.blacklistusers_sql as sql
+from FallenRobot import ALLOW_EXCL, DEMONS, DEV_USERS, DRAGONS, TIGERS, WOLVES
 
 if ALLOW_EXCL:
     CMD_STARTERS = ("/", "!")

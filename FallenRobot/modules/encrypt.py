@@ -1,7 +1,6 @@
-from FallenRobot import telethn as tbot
-import os
-from FallenRobot.events import register
 import secureme
+
+from FallenRobot.events import register
 
 
 @register(pattern="^/encrypt ?(.*)")

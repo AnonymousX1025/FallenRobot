@@ -1,7 +1,8 @@
 import threading
 
+from sqlalchemy import BigInteger, Column, String, UnicodeText, distinct, func
+
 from FallenRobot.modules.sql import BASE, SESSION
-from sqlalchemy import Column, BigInteger, String, UnicodeText, distinct, func
 
 
 class StickersFilters(BASE):

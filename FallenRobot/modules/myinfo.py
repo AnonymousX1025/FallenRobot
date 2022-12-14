@@ -1,19 +1,13 @@
-from telethon import events, Button, custom, version
-from telethon.tl.types import ChannelParticipantsAdmins
 import asyncio
-import os, re
-import requests
 import datetime
-import time
+import re
 from datetime import datetime
-import random
-from PIL import Image
-from io import BytesIO
+
+from telethon import custom, events
+
 from FallenRobot import telethn as bot
 from FallenRobot import telethn as tgbot
 from FallenRobot.events import register
-from FallenRobot import dispatcher
-
 
 edit_time = 5
 """ =======================FALLEN ROBOT====================== """
@@ -27,8 +21,8 @@ file5 = "https://telegra.ph/file/701028ce085ecfa961a36.jpg"
 
 @register(pattern="/myinfo")
 async def proboyx(event):
-    chat = await event.get_chat()
-    current_time = datetime.utcnow()
+    await event.get_chat()
+    datetime.utcnow()
     firstname = event.sender.first_name
     button = [[custom.Button.inline("information", data="informations")]]
     on = await bot.send_file(

@@ -1,8 +1,9 @@
 import threading
 from typing import Union
 
+from sqlalchemy import BigInteger, Boolean, Column, String
+
 from FallenRobot.modules.sql import BASE, SESSION
-from sqlalchemy import Boolean, Column, BigInteger, String
 
 
 class ReportingUserSettings(BASE):

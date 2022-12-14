@@ -1,43 +1,42 @@
 import html
-import re
 import os
+import re
+
 import requests
-
-from telethon.tl.functions.channels import GetFullChannelRequest
-from telethon.tl.types import ChannelParticipantsAdmins
-from telethon import events
-
 from telegram import (
     MAX_MESSAGE_LENGTH,
-    ParseMode,
-    Update,
     InlineKeyboardButton,
     InlineKeyboardMarkup,
+    ParseMode,
+    Update,
 )
+from telegram.error import BadRequest
 from telegram.ext import CallbackContext, CommandHandler
 from telegram.ext.dispatcher import run_async
-from telegram.error import BadRequest
 from telegram.utils.helpers import escape_markdown, mention_html
+from telethon import events
+from telethon.tl.functions.channels import GetFullChannelRequest
+from telethon.tl.types import ChannelParticipantsAdmins
 
+import FallenRobot.modules.sql.userinfo_sql as sql
 from FallenRobot import (
-    DEV_USERS,
-    OWNER_ID,
-    DRAGONS,
     DEMONS,
+    DEV_USERS,
+    DRAGONS,
+    INFOPIC,
+    OWNER_ID,
     TIGERS,
     WOLVES,
-    INFOPIC,
     dispatcher,
 )
+from FallenRobot import telethn as FallenTelethonClient
 from FallenRobot.__main__ import STATS, TOKEN, USER_INFO
-import FallenRobot.modules.sql.userinfo_sql as sql
 from FallenRobot.modules.disable import DisableAbleCommandHandler
-from FallenRobot.modules.sql.global_bans_sql import is_user_gbanned
-from FallenRobot.modules.sql.afk_sql import is_afk, check_afk_status
-from FallenRobot.modules.sql.users_sql import get_user_num_chats
 from FallenRobot.modules.helper_funcs.chat_status import sudo_plus
 from FallenRobot.modules.helper_funcs.extraction import extract_user
-from FallenRobot import telethn as FallenTelethonClient, TIGERS, DRAGONS, DEMONS
+from FallenRobot.modules.sql.afk_sql import check_afk_status, is_afk
+from FallenRobot.modules.sql.global_bans_sql import is_user_gbanned
+from FallenRobot.modules.sql.users_sql import get_user_num_chats
 
 
 def no_by_per(totalhp, percentage):
@@ -278,26 +277,18 @@ def info(update: Update, context: CallbackContext):
         userhp = hpmanager(user)
         text += f"\n\n<b>ʜᴇᴀʟᴛʜ:</b> <code>{userhp['earnedhp']}/{userhp['totalhp']}</code>\n[<i>{make_bar(int(userhp['percentage']))} </i>{userhp['percentage']}%]"
 
-    disaster_level_present = False
-
     if user.id == OWNER_ID:
         text += "\n\nᴛʜᴇ ᴅɪsᴀsᴛᴇʀ ʟᴇᴠᴇʟ ᴏғ ᴛʜɪs ᴜsᴇʀ ɪs <b>ɢᴏᴅ</b>.\n"
-        disaster_level_present = True
     elif user.id in DEV_USERS:
         text += "\n\nᴛʜɪs ᴜsᴇʀ ɪs ᴀ ᴍᴇᴍʙᴇʀ ᴏғ <b>ᴀɴᴏɴ ᴀssᴏᴄɪᴀᴛɪᴏɴ</b>.\n"
-        disaster_level_present = True
     elif user.id in DRAGONS:
         text += "\n\nᴛʜᴇ ᴅɪsᴀsᴛᴇʀ ʟᴇᴠᴇʟ ᴏғ ᴛʜɪs ᴜsᴇʀ ɪs <b>ᴅʀᴀɢᴏɴ</b>.\n"
-        disaster_level_present = True
     elif user.id in DEMONS:
         text += "\n\nᴛʜᴇ ᴅɪsᴀsᴛᴇʀ ʟᴇᴠᴇʟ ᴏғ ᴛʜɪs ᴜsᴇʀ ɪs <b>ᴅᴇᴍᴏɴ</b>.\n"
-        disaster_level_present = True
     elif user.id in TIGERS:
         text += "\n\nᴛʜᴇ ᴅɪsᴀsᴛᴇʀ ʟᴇᴠᴇʟ ᴏғ ᴛʜɪs ᴜsᴇʀ ɪs <b>ᴛɪɢᴇʀ</b>.\n"
-        disaster_level_present = True
     elif user.id in WOLVES:
         text += "\n\nᴛʜᴇ ᴅɪsᴀsᴛᴇʀ ʟᴇᴠᴇʟ ᴏғ ᴛʜɪs ᴜsᴇʀ ɪs <b>ᴡᴏʟғ</b>.\n"
-        disaster_level_present = True
 
     try:
         user_member = chat.get_member(user.id)
@@ -333,10 +324,10 @@ def info(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                "ʜᴇᴀʟᴛʜ", url="https://t.me/FallenXBots/7"
+                                "ʜᴇᴀʟᴛʜ", url="https://t.me/AnonAssociation/7"
                             ),
                             InlineKeyboardButton(
-                                "ᴅɪꜱᴀꜱᴛᴇʀ", url="https://t.me/FallenXBots/8"
+                                "ᴅɪꜱᴀꜱᴛᴇʀ", url="https://t.me/AnonAssociation/8"
                             ),
                         ],
                     ]

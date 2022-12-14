@@ -1,39 +1,37 @@
-import re
 import random
+import re
 from html import escape
 
 import telegram
-from telegram import ParseMode, InlineKeyboardMarkup, Message, InlineKeyboardButton
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Message, ParseMode
 from telegram.error import BadRequest
 from telegram.ext import (
-    CommandHandler,
-    MessageHandler,
-    DispatcherHandlerStop,
     CallbackQueryHandler,
-    run_async,
+    CommandHandler,
+    DispatcherHandlerStop,
     Filters,
+    MessageHandler,
+    run_async,
 )
-from telegram.utils.helpers import mention_html, escape_markdown
+from telegram.utils.helpers import escape_markdown, mention_html
 
-from FallenRobot import dispatcher, LOGGER, DRAGONS
+from FallenRobot import DRAGONS, LOGGER, dispatcher
+from FallenRobot.modules.connection import connected
 from FallenRobot.modules.disable import DisableAbleCommandHandler
-from FallenRobot.modules.helper_funcs.handlers import MessageHandlerChecker
+from FallenRobot.modules.helper_funcs.alternate import send_message, typing_action
 from FallenRobot.modules.helper_funcs.chat_status import user_admin
 from FallenRobot.modules.helper_funcs.extraction import extract_text
 from FallenRobot.modules.helper_funcs.filters import CustomFilters
+from FallenRobot.modules.helper_funcs.handlers import MessageHandlerChecker
 from FallenRobot.modules.helper_funcs.misc import build_keyboard_parser
 from FallenRobot.modules.helper_funcs.msg_types import get_filter_type
 from FallenRobot.modules.helper_funcs.string_handling import (
-    split_quotes,
     button_markdown_parser,
     escape_invalid_curly_brackets,
     markdown_to_html,
+    split_quotes,
 )
 from FallenRobot.modules.sql import cust_filters_sql as sql
-
-from FallenRobot.modules.connection import connected
-
-from FallenRobot.modules.helper_funcs.alternate import send_message, typing_action
 
 HANDLER_GROUP = 10
 
@@ -405,7 +403,6 @@ def reply_filter(update, context):
                                 LOGGER.exception(
                                     "Failed to send message: " + excp.message
                                 )
-                                pass
                 else:
                     try:
                         ENUM_FUNC_MAP[filt.file_type](
@@ -460,7 +457,6 @@ def reply_filter(update, context):
                                 )
                             except BadRequest as excp:
                                 LOGGER.exception("Error in filters: " + excp.message)
-                                pass
                         elif excp.message == "Reply message not found":
                             try:
                                 context.bot.send_message(
@@ -472,7 +468,6 @@ def reply_filter(update, context):
                                 )
                             except BadRequest as excp:
                                 LOGGER.exception("Error in filters: " + excp.message)
-                                pass
                         else:
                             try:
                                 send_message(
@@ -481,7 +476,6 @@ def reply_filter(update, context):
                                 )
                             except BadRequest as excp:
                                 LOGGER.exception("Error in filters: " + excp.message)
-                                pass
                             LOGGER.warning(
                                 "Message %s could not be parsed", str(filt.reply)
                             )
@@ -497,7 +491,6 @@ def reply_filter(update, context):
                         send_message(update.effective_message, filt.reply)
                     except BadRequest as excp:
                         LOGGER.exception("Error in filters: " + excp.message)
-                        pass
                 break
 
 

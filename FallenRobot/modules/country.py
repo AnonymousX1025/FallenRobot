@@ -1,13 +1,7 @@
 import flag
-import html, os
-
 from countryinfo import CountryInfo
-from telethon.tl.functions.photos import GetUserPhotosRequest
-from telethon.tl.functions.users import GetFullUserRequest
-from telethon.tl.types import MessageEntityMentionName
-from telethon.utils import get_input_location
 
-from FallenRobot import telethn as borg, dispatcher
+from FallenRobot import telethn, BOT_NAME
 from FallenRobot.events import register
 
 
@@ -103,10 +97,10 @@ async def msg(event):
 <b>Top Level Domain :</b> {lanester}
 <b>Wikipedia :</b> {wiki}
 
-<u>Information Gathered By {dispatcher.bot.first_name}</u>
+<u>Information Gathered By {BOT_NAME}</u>
 """
 
-    await borg.send_message(
+    await telethn.send_message(
         event.chat_id,
         caption,
         parse_mode="HTML",

@@ -6,11 +6,11 @@ from telegram.ext import CallbackContext, CommandHandler, Filters, run_async
 from telegram.utils.helpers import mention_html
 
 from FallenRobot import (
+    DEMONS,
     DEV_USERS,
+    DRAGONS,
     LOGGER,
     OWNER_ID,
-    DRAGONS,
-    DEMONS,
     TIGERS,
     WOLVES,
     dispatcher,
@@ -18,6 +18,7 @@ from FallenRobot import (
 from FallenRobot.modules.disable import DisableAbleCommandHandler
 from FallenRobot.modules.helper_funcs.chat_status import (
     bot_admin,
+    can_delete,
     can_restrict,
     connection_status,
     is_user_admin,
@@ -25,7 +26,6 @@ from FallenRobot.modules.helper_funcs.chat_status import (
     is_user_in_chat,
     user_admin,
     user_can_ban,
-    can_delete,
 )
 from FallenRobot.modules.helper_funcs.extraction import extract_user_and_text
 from FallenRobot.modules.helper_funcs.string_handling import extract_time

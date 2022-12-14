@@ -1,14 +1,19 @@
-import os
 import math
-import requests
+import os
 import urllib.request as urllib
-from PIL import Image
 from html import escape
-from bs4 import BeautifulSoup as bs
 
-from telegram import ParseMode, InlineKeyboardMarkup, InlineKeyboardButton
-from telegram import TelegramError, Update
-from telegram.ext import run_async, CallbackContext
+import requests
+from bs4 import BeautifulSoup as bs
+from PIL import Image
+from telegram import (
+    InlineKeyboardButton,
+    InlineKeyboardMarkup,
+    ParseMode,
+    TelegramError,
+    Update,
+)
+from telegram.ext import CallbackContext, run_async
 from telegram.utils.helpers import mention_html
 
 from FallenRobot import dispatcher

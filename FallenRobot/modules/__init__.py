@@ -20,7 +20,7 @@ def __list_all_modules():
                 any(mod == module_name for module_name in all_modules)
                 for mod in to_load
             ):
-                LOGGER.error("Invalid loadorder names. Quitting.")
+                LOGGER.error("Invalid loadorder names, Quitting...")
                 quit(1)
 
             all_modules = sorted(set(all_modules) - set(to_load))

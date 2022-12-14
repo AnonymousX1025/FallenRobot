@@ -1,6 +1,7 @@
-from FallenRobot.modules.helper_funcs.telethn import IMMUNE_USERS, telethn
-from FallenRobot import DRAGONS
 from telethon.tl.types import ChannelParticipantsAdmins
+
+from FallenRobot import DRAGONS
+from FallenRobot.modules.helper_funcs.telethn import IMMUNE_USERS, telethn
 
 
 async def user_is_ban_protected(user_id: int, message):

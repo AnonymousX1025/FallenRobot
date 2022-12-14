@@ -1,10 +1,10 @@
 import io
-from FallenRobot.events import register
-from FallenRobot import telethn as tbot
+
 from telethon import types
-from telethon import events
 from telethon.tl import functions
-from telethon.tl.types import *
+
+from FallenRobot import telethn as tbot
+from FallenRobot.events import register
 
 
 async def is_register_admin(chat, user):

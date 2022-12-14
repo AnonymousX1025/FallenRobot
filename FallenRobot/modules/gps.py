@@ -1,10 +1,10 @@
-import os
-from FallenRobot import telethn as tbot
 from geopy.geocoders import Nominatim
-from FallenRobot.events import register
-from FallenRobot import *
 from telethon import *
 from telethon.tl import *
+
+from FallenRobot import *
+from FallenRobot import telethn as tbot
+from FallenRobot.events import register
 
 GMAPS_LOC = "https://maps.googleapis.com/maps/api/geocode/json"
 

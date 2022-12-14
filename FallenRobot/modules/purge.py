@@ -1,4 +1,5 @@
 import time
+
 from telethon import events
 
 from FallenRobot import telethn
@@ -43,7 +44,7 @@ async def purge_messages(event):
     except:
         pass
     time_ = time.perf_counter() - start
-    text = f"Purged Successfully in {time_:0.2f} Second(s)\nFast AF 😎"
+    text = f"`Purged Successfully in {time_:0.2f} Seconds.`"
     await event.respond(text, parse_mode="markdown")
 
 
@@ -73,7 +74,6 @@ async def delete_messages(event):
 __help__ = """
  ❍ /del*:* deletes the message you replied to
  ❍ /purge*:* deletes all messages between this and the replied to message.
- ❍ /purge <integer X>*:* deletes the replied message, and X messages following it if replied to a message.
 """
 
 PURGE_HANDLER = purge_messages, events.NewMessage(pattern="^[!/]purge$")

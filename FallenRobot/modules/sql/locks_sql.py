@@ -1,9 +1,9 @@
 # New chat added -> setup permissions
 import threading
 
-from sqlalchemy import Column, String, Boolean
+from sqlalchemy import Boolean, Column, String
 
-from FallenRobot.modules.sql import SESSION, BASE
+from FallenRobot.modules.sql import BASE, SESSION
 
 
 class Permissions(BASE):

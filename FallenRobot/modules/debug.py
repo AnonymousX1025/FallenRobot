@@ -1,11 +1,11 @@
-import os
 import datetime
+import os
 
-from telethon import events
 from telegram import Update
 from telegram.ext import CallbackContext, CommandHandler, run_async
+from telethon import events
 
-from FallenRobot import telethn, dispatcher
+from FallenRobot import dispatcher, telethn
 from FallenRobot.modules.helper_funcs.chat_status import dev_plus
 
 DEBUG_MODE = False
@@ -61,11 +61,11 @@ def logs(update: Update, context: CallbackContext):
 
 
 LOG_HANDLER = CommandHandler("logs", logs)
-dispatcher.add_handler(LOG_HANDLER)
-
 DEBUG_HANDLER = CommandHandler("debug", debug)
+
+dispatcher.add_handler(LOG_HANDLER)
 dispatcher.add_handler(DEBUG_HANDLER)
 
-__mod_name__ = "DEBUG"
+__mod_name__ = "Debug"
 __command_list__ = ["debug"]
 __handlers__ = [DEBUG_HANDLER]

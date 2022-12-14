@@ -1,12 +1,11 @@
 import os
-import asyncio
-import requests
-import aiohttp
-import yt_dlp
 
+import requests
+import yt_dlp
 from pyrogram import filters
 from youtube_search import YoutubeSearch
-from FallenRobot import pbot, SUPPORT_CHAT
+
+from FallenRobot import SUPPORT_CHAT, pbot
 
 
 def time_to_seconds(time):
@@ -39,7 +38,7 @@ def song(client, message):
         open(thumb_name, "wb").write(thumb.content)
 
         duration = results[0]["duration"]
-        url_suffix = results[0]["url_suffix"]
+        results[0]["url_suffix"]
         views = results[0]["views"]
 
     except Exception as e:
@@ -69,7 +68,7 @@ def song(client, message):
         m.delete()
     except Exception as e:
         m.edit(
-            f"**» ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ ᴇʀʀᴏʀ, ʀᴇᴩᴏʀᴛ ᴛʜɪs ᴀᴛ​ » [sᴜᴩᴩᴏʀᴛ ᴄʜᴀᴛ](t.me/{SUPPORT_CHAT}) 💕**\n\**ᴇʀʀᴏʀ :** {e}"
+            f"**» ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ ᴇʀʀᴏʀ, ʀᴇᴩᴏʀᴛ ᴛʜɪs ᴀᴛ » [sᴜᴩᴩᴏʀᴛ ᴄʜᴀᴛ](t.me/{SUPPORT_CHAT}) 💕**\n\**ᴇʀʀᴏʀ :** {e}"
         )
         print(e)
 
@@ -81,3 +80,8 @@ def song(client, message):
 
 
 __mod_name__ = "Sᴏɴɢ"
+
+__help__ = """
+ ❍ /song <song name>*:* Uploads the song in it's best quality available
+ 💡Ex: `/song Faded Alan Walker`
+"""

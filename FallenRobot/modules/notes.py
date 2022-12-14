@@ -1,34 +1,36 @@
-import re, ast
+import ast
+import re
 from io import BytesIO
 from typing import Optional
 
+from telegram import (
+    MAX_MESSAGE_LENGTH,
+    InlineKeyboardButton,
+    InlineKeyboardMarkup,
+    Message,
+    ParseMode,
+    Update,
+)
+from telegram.error import BadRequest
+from telegram.ext import (
+    CallbackContext,
+    CallbackQueryHandler,
+    CommandHandler,
+    Filters,
+    MessageHandler,
+)
+from telegram.ext.dispatcher import run_async
+from telegram.utils.helpers import escape_markdown, mention_markdown
+
 import FallenRobot.modules.sql.notes_sql as sql
-from FallenRobot import LOGGER, JOIN_LOGGER, SUPPORT_CHAT, dispatcher, DRAGONS
+from FallenRobot import DRAGONS, EVENT_LOGS, LOGGER, SUPPORT_CHAT, dispatcher
 from FallenRobot.modules.disable import DisableAbleCommandHandler
-from FallenRobot.modules.helper_funcs.chat_status import user_admin, connection_status
+from FallenRobot.modules.helper_funcs.chat_status import connection_status, user_admin
 from FallenRobot.modules.helper_funcs.misc import build_keyboard, revert_buttons
 from FallenRobot.modules.helper_funcs.msg_types import get_note_type
 from FallenRobot.modules.helper_funcs.string_handling import (
     escape_invalid_curly_brackets,
 )
-from telegram import (
-    MAX_MESSAGE_LENGTH,
-    InlineKeyboardMarkup,
-    Message,
-    ParseMode,
-    Update,
-    InlineKeyboardButton,
-)
-from telegram.error import BadRequest
-from telegram.utils.helpers import escape_markdown, mention_markdown
-from telegram.ext import (
-    CallbackContext,
-    CommandHandler,
-    CallbackQueryHandler,
-    Filters,
-    MessageHandler,
-)
-from telegram.ext.dispatcher import run_async
 
 FILE_MATCHER = re.compile(r"^###file_id(!photo)?###:(.*?)(?:\s|$)")
 STICKER_MATCHER = re.compile(r"^###sticker(!photo)?###:")
@@ -68,7 +70,7 @@ def get(update, context, notename, show_none=True, no_format=False):
             reply_id = message.message_id
 
         if note.is_reply:
-            if JOIN_LOGGER:
+            if EVENT_LOGS:
                 try:
                     bot.forward_message(
                         chat_id=chat_id, from_chat_id=JOIN_LOGGER, message_id=note.value

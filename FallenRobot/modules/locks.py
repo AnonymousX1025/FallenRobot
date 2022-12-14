@@ -1,30 +1,38 @@
 import html
+import unicodedata as ud
 
-from telegram import Message, Chat, ParseMode, MessageEntity
-from telegram import TelegramError, ChatPermissions
+from telegram import (
+    Chat,
+    ChatPermissions,
+    Message,
+    MessageEntity,
+    ParseMode,
+    TelegramError,
+)
 from telegram.error import BadRequest
-from telegram.ext import CommandHandler, MessageHandler, Filters
+from telegram.ext import CommandHandler, Filters, MessageHandler
 from telegram.ext.dispatcher import run_async
 from telegram.utils.helpers import mention_html
 
-from alphabet_detector import AlphabetDetector
-
 import FallenRobot.modules.sql.locks_sql as sql
-from FallenRobot import dispatcher, DRAGONS, LOGGER
+from FallenRobot import DRAGONS, LOGGER, dispatcher
+from FallenRobot.modules.connection import connected
 from FallenRobot.modules.disable import DisableAbleCommandHandler
+from FallenRobot.modules.helper_funcs.alternate import send_message, typing_action
 from FallenRobot.modules.helper_funcs.chat_status import (
     can_delete,
-    is_user_admin,
-    user_not_admin,
     is_bot_admin,
+    is_user_admin,
     user_admin,
+    user_not_admin,
 )
 from FallenRobot.modules.log_channel import loggable
-from FallenRobot.modules.connection import connected
 from FallenRobot.modules.sql.approve_sql import is_approved
-from FallenRobot.modules.helper_funcs.alternate import send_message, typing_action
 
-ad = AlphabetDetector()
+
+def al_detect(unistr):
+    return set(ud.name(char).split(' ')[0]
+        for char in unistr if char.isalpha())
 
 LOCK_TYPES = {
     "audio": Filters.audio,
@@ -367,7 +375,7 @@ def del_lockables(update, context):
         if lockable == "rtl":
             if sql.is_locked(chat.id, lockable) and can_delete(chat, context.bot.id):
                 if message.caption:
-                    check = ad.detect_alphabet("{}".format(message.caption))
+                    check = al_detect("{}".format(message.caption))
                     if "ARABIC" in check:
                         try:
                             message.delete()
@@ -378,7 +386,7 @@ def del_lockables(update, context):
                                 LOGGER.exception("ERROR in lockables")
                         break
                 if message.text:
-                    check = ad.detect_alphabet("{}".format(message.text))
+                    check = al_detect("{}".format(message.text))
                     if "ARABIC" in check:
                         try:
                             message.delete()

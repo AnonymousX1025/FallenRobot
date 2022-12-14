@@ -1,4 +1,9 @@
-import random, html
+import html
+import random
+
+from telegram import MessageEntity, Update
+from telegram.error import BadRequest
+from telegram.ext import CallbackContext, Filters, MessageHandler, run_async
 
 from FallenRobot import dispatcher
 from FallenRobot.modules.disable import (
@@ -7,9 +12,6 @@ from FallenRobot.modules.disable import (
 )
 from FallenRobot.modules.sql import afk_sql as sql
 from FallenRobot.modules.users import get_user_id
-from telegram import MessageEntity, Update
-from telegram.error import BadRequest
-from telegram.ext import CallbackContext, Filters, MessageHandler, run_async
 
 AFK_GROUP = 7
 AFK_REPLY_GROUP = 8

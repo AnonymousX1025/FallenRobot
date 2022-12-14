@@ -1,16 +1,10 @@
-from PIL import Image, ImageFont, ImageDraw
-
+import os
 import textwrap
 
-import os
-
-from FallenRobot.events import register
-
-from FallenRobot import LOGGER, TEMP_DOWNLOAD_DIRECTORY
-
+from PIL import Image, ImageDraw, ImageFont
 
 from FallenRobot import telethn as bot
-
+from FallenRobot.events import register
 
 Credit = "AnonymousBoy1025"
 
@@ -66,8 +60,6 @@ async def drawText(image_path, text):
     img = Image.open(image_path)
 
     os.remove(image_path)
-
-    shadowcolor = "black"
 
     i_width, i_height = img.size
 
