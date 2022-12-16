@@ -38,7 +38,7 @@ python-arq
 pyrate-limiter
 pykeyboard
 pynewtonmath
-pyrogram==2.0.43
+pyrogram==2.0.70
 python-telegram-bot==12.8
 regex
 requests
