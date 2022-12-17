@@ -30,6 +30,7 @@ from FallenRobot.modules.helper_funcs.chat_status import user_admin, user_admin_
 from FallenRobot.modules.helper_funcs.filters import CustomFilters
 from FallenRobot.modules.log_channel import gloggable
 
+API_KEY = "2030709195-MERISSATR4DLs5vu8"
 
 @run_async
 @user_admin_no_reply
@@ -133,7 +134,7 @@ def chatbot(update: Update, context: CallbackContext):
         if not fallen_message(context, message):
             return
         bot.send_chat_action(chat_id, action="typing")
-        url = f"https://kora-api.vercel.app/chatbot/2d94e37d-937f-4d28-9196-bd5552cac68b/{BOT_NAME}/Anonymous/message={message.text}"
+        url = f"https://merissachatbot.tk/api/apikey={API_KEY}/{BOT_NAME}/Anonymous/message={message.text}"
         request = requests.get(url)
         results = json.loads(request.text)
         sleep(0.5)
