@@ -12,5 +12,3 @@ updates:
   ignore:
     - dependency-name: "python-telegram-bot"
     # Ignoring all ptb updates
-    - dependency-name: "emoji"
-    # Removed get_regexp method in update
