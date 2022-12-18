@@ -25,7 +25,7 @@ from telegram.ext import (
 from telegram.utils.helpers import mention_html
 
 import FallenRobot.modules.sql.chatbot_sql as sql
-from FallenRobot import dispatcher, BOT_ID, BOT_NAME
+from FallenRobot import dispatcher, BOT_ID, BOT_NAME, BOT_USERNAME
 from FallenRobot.modules.helper_funcs.chat_status import user_admin, user_admin_no_reply
 from FallenRobot.modules.helper_funcs.filters import CustomFilters
 from FallenRobot.modules.log_channel import gloggable
@@ -114,7 +114,9 @@ def fallen_message(context: CallbackContext, message):
     reply_message = message.reply_to_message
     if message.text.lower() == "fallen":
         return True
-    if reply_message:
+    elif BOT_USERNAME in message.text.upper():
+        return True
+    elif reply_message:
         if reply_message.from_user.id == BOT_ID:
             return True
     else:
