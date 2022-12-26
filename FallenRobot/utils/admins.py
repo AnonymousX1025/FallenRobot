@@ -1,9 +1,9 @@
 from typing import Callable
 
-from pyrogram.types import Message
 from pyrogram.enums import ChatMemberStatus
+from pyrogram.types import Message
 
-from FallenRobot import pbot, DRAGONS, DEV_USERS
+from FallenRobot import DEV_USERS, DRAGONS, pbot
 
 
 def can_change_info(func: Callable) -> Callable:
@@ -13,13 +13,19 @@ def can_change_info(func: Callable) -> Callable:
 
         check = await pbot.get_chat_member(message.chat.id, message.from_user.id)
         if check.status not in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
-            return await message.reply_text("» ʏᴏᴜ'ʀᴇ ɴᴏᴛ ᴀɴ ᴀᴅᴍɪɴ ʙᴀʙʏ, ᴘʟᴇᴀsᴇ sᴛᴀʏ ɪɴ ʏᴏᴜʀ ʟɪᴍɪᴛs.")
+            return await message.reply_text(
+                "» ʏᴏᴜ'ʀᴇ ɴᴏᴛ ᴀɴ ᴀᴅᴍɪɴ ʙᴀʙʏ, ᴘʟᴇᴀsᴇ sᴛᴀʏ ɪɴ ʏᴏᴜʀ ʟɪᴍɪᴛs."
+            )
 
-        admin = (await pbot.get_chat_member(message.chat.id, message.from_user.id)).privileges
+        admin = (
+            await pbot.get_chat_member(message.chat.id, message.from_user.id)
+        ).privileges
         if admin.can_change_info:
             return await func(_, message)
         else:
-            return await message.reply_text("`You don't have permissions to change group info.")
+            return await message.reply_text(
+                "`You don't have permissions to change group info."
+            )
 
     return non_admin
 
@@ -31,12 +37,18 @@ def can_restrict(func: Callable) -> Callable:
 
         check = await pbot.get_chat_member(message.chat.id, message.from_user.id)
         if check.status not in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
-            return await message.reply_text("» ʏᴏᴜ'ʀᴇ ɴᴏᴛ ᴀɴ ᴀᴅᴍɪɴ ʙᴀʙʏ, ᴘʟᴇᴀsᴇ sᴛᴀʏ ɪɴ ʏᴏᴜʀ ʟɪᴍɪᴛs.")
+            return await message.reply_text(
+                "» ʏᴏᴜ'ʀᴇ ɴᴏᴛ ᴀɴ ᴀᴅᴍɪɴ ʙᴀʙʏ, ᴘʟᴇᴀsᴇ sᴛᴀʏ ɪɴ ʏᴏᴜʀ ʟɪᴍɪᴛs."
+            )
 
-        admin = (await pbot.get_chat_member(message.chat.id, message.from_user.id)).privileges
+        admin = (
+            await pbot.get_chat_member(message.chat.id, message.from_user.id)
+        ).privileges
         if admin.can_restrict_members:
             return await func(_, message)
         else:
-            return await message.reply_text("`You don't have permissions to restrict users in this chat.")
+            return await message.reply_text(
+                "`You don't have permissions to restrict users in this chat."
+            )
 
     return non_admin

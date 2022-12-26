@@ -1,10 +1,10 @@
 from pyrogram import __version__ as pyrover
+from pyrogram import filters
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from telegram import __version__ as telever
 from telethon import __version__ as tlhver
 
-from pyrogram import filters
-from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
-from FallenRobot import pbot, BOT_NAME, BOT_USERNAME, OWNER_ID, SUPPORT_CHAT, START_IMG
+from FallenRobot import BOT_NAME, BOT_USERNAME, OWNER_ID, START_IMG, SUPPORT_CHAT, pbot
 
 
 @pbot.on_message(filters.command("alive"))

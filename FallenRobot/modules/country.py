@@ -1,7 +1,7 @@
 import flag
 from countryinfo import CountryInfo
 
-from FallenRobot import telethn, BOT_NAME
+from FallenRobot import BOT_NAME, telethn
 from FallenRobot.events import register
 
 

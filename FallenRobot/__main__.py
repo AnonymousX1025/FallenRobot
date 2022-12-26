@@ -3,7 +3,6 @@ import re
 import time
 from platform import python_version as y
 from sys import argv
-from typing import Optional
 
 from pyrogram import __version__ as pyrover
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
@@ -42,7 +41,6 @@ from FallenRobot import (
     telethn,
     updater,
 )
-
 from FallenRobot.modules import ALL_MODULES
 from FallenRobot.modules.helper_funcs.chat_status import is_user_admin
 from FallenRobot.modules.helper_funcs.misc import paginate_modules
@@ -767,7 +765,6 @@ def main():
     dispatcher.add_handler(migrate_handler)
 
     dispatcher.add_error_handler(error_callback)
-
 
     LOGGER.info("Using long polling.")
     updater.start_polling(timeout=15, read_latency=4, clean=True)

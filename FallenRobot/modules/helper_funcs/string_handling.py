@@ -5,7 +5,6 @@ from typing import Dict, List
 import bleach
 import markdown2
 from emoji import unicode_codes
-
 from telegram import MessageEntity
 from telegram.utils.helpers import escape_markdown
 
@@ -27,6 +26,7 @@ MATCH_MD = re.compile(
 LINK_REGEX = re.compile(r"(?<!\\)\[.+?\]\((.*?)\)")
 BTN_URL_REGEX = re.compile(r"(\[([^\[]+?)\]\(buttonurl:(?:/{0,2})(.+?)(:same)?\))")
 _EMOJI_REGEXP = None
+
 
 def _selective_escape(to_parse: str) -> str:
     """
@@ -51,8 +51,9 @@ def get_emoji_regexp():
     global _EMOJI_REGEXP
     if _EMOJI_REGEXP is None:
         emojis = sorted(unicode_codes.EMOJI_DATA, key=len, reverse=True)
-        pattern = u'(' + u'|'.join(re.escape(u) for u in emojis) + u')'
+        pattern = "(" + "|".join(re.escape(u) for u in emojis) + ")"
     return re.compile(pattern)
+
 
 def _calc_emoji_offset(to_calc) -> int:
     # Get all emoji in text.

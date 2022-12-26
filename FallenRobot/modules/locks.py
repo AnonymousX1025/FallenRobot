@@ -1,14 +1,7 @@
 import html
 import unicodedata as ud
 
-from telegram import (
-    Chat,
-    ChatPermissions,
-    Message,
-    MessageEntity,
-    ParseMode,
-    TelegramError,
-)
+from telegram import ChatPermissions, MessageEntity, ParseMode, TelegramError
 from telegram.error import BadRequest
 from telegram.ext import CommandHandler, Filters, MessageHandler
 from telegram.ext.dispatcher import run_async
@@ -31,8 +24,8 @@ from FallenRobot.modules.sql.approve_sql import is_approved
 
 
 def al_detect(unistr):
-    return set(ud.name(char).split(' ')[0]
-        for char in unistr if char.isalpha())
+    return set(ud.name(char).split(" ")[0] for char in unistr if char.isalpha())
+
 
 LOCK_TYPES = {
     "audio": Filters.audio,

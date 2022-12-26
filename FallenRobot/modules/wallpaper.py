@@ -1,6 +1,6 @@
 import random
-import requests
 
+import requests
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
@@ -26,7 +26,7 @@ async def wall(_, message: Message):
                 [
                     [InlineKeyboardButton("ʟɪɴᴋ", url=url[ran]["imageUrl"])],
                 ]
-            )
+            ),
         )
         await m.delete()
     except Exception as e:

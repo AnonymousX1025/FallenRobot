@@ -23,7 +23,9 @@ async def ban_zombies(_, message: Message):
                 del_zom += 1
                 await sleep(1)
         if del_zom > 0:
-            return await check.edit_text(f"`{del_zom}` found in this chat.\nClean them by /zombies clean")
+            return await check.edit_text(
+                f"`{del_zom}` found in this chat.\nClean them by /zombies clean"
+            )
         else:
             return await check.edit_text(no_z)
     cleaner = await message.reply_text("`Cleaning deleted accounts from this chat...`")
@@ -41,10 +43,11 @@ async def ban_zombies(_, message: Message):
             except:
                 continue
                 failed += 1
-        return await cleaner.edit_text(f"Cleaned `{banned}` zombies from this chat.\nFailed to remove `{failed}` admin zombies.")
+        return await cleaner.edit_text(
+            f"Cleaned `{banned}` zombies from this chat.\nFailed to remove `{failed}` admin zombies."
+        )
     else:
         return await check.edit_text(no_z)
-
 
 
 __help__ = """

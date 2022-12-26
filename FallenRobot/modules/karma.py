@@ -2,7 +2,9 @@ import asyncio
 
 from pyrogram import filters
 
-from FallenRobot import pbot, OWNER_ID
+from FallenRobot import OWNER_ID, pbot
+from FallenRobot.utils.admins import can_change_info
+from FallenRobot.utils.errors import capture_err
 from FallenRobot.utils.mongo import (
     alpha_to_int,
     get_karma,
@@ -13,9 +15,6 @@ from FallenRobot.utils.mongo import (
     karma_on,
     update_karma,
 )
-from FallenRobot.utils.admins import can_change_info
-from FallenRobot.utils.errors import capture_err
-
 
 regex_upvote = r"^((?i)\+|\+\+|\+1|\+69|thx|thanx|thanks|🖤|❣️|💝|💖|💕|❤|💘|cool|good|👍|baby|thankyou|love|pro)$"
 regex_downvote = r"^(\-|\-\-|\-1|👎|💔|noob|weak|fuck off|nub|gey|kid|shit|mf)$"
@@ -43,9 +42,7 @@ async def upvote(_, message):
     if not message.from_user:
         return
     if message.reply_to_message.from_user.id == OWNER_ID:
-        await message.reply_text(
-            "ʜᴏᴡ sᴏ ᴘʀᴏ ?"
-        )
+        await message.reply_text("ʜᴏᴡ sᴏ ᴘʀᴏ ?")
         return
     if message.reply_to_message.from_user.id == message.from_user.id:
         return
@@ -84,9 +81,7 @@ async def downvote(_, message):
     if not message.from_user:
         return
     if message.reply_to_message.from_user.id == OWNER_ID:
-        await message.reply_text(
-            "ɪ ᴋɴᴏᴡ ʜɪᴍ, sᴏ ɪ'ᴍ ɴᴏᴛ ɢᴏɴɴᴀ ᴅᴏ ᴛʜᴀᴛ ʙᴀʙʏ."
-        )
+        await message.reply_text("ɪ ᴋɴᴏᴡ ʜɪᴍ, sᴏ ɪ'ᴍ ɴᴏᴛ ɢᴏɴɴᴀ ᴅᴏ ᴛʜᴀᴛ ʙᴀʙʏ.")
         return
     if message.reply_to_message.from_user.id == message.from_user.id:
         return

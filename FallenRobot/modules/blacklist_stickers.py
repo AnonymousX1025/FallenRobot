@@ -1,7 +1,6 @@
 import html
-from typing import Optional
 
-from telegram import Chat, ChatPermissions, Message, ParseMode, Update, User
+from telegram import ChatPermissions, ParseMode, Update
 from telegram.error import BadRequest
 from telegram.ext import CallbackContext, CommandHandler, Filters, MessageHandler
 from telegram.ext.dispatcher import run_async

@@ -1,12 +1,12 @@
-from pyrogram import filters
-from pyrogram.types import Message, InlineKeyboardButton, InlineKeyboardMarkup
-
-from pyrogram import __version__ as z
-from telegram import __version__ as o
-from telethon import __version__ as s
 from platform import python_version as y
 
-from FallenRobot import pbot, OWNER_ID, BOT_NAME, BOT_USERNAME, START_IMG
+from pyrogram import __version__ as z
+from pyrogram import filters
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
+from telegram import __version__ as o
+from telethon import __version__ as s
+
+from FallenRobot import BOT_NAME, BOT_USERNAME, OWNER_ID, START_IMG, pbot
 
 
 @pbot.on_message(filters.command(["repo", "source"]))
@@ -26,9 +26,7 @@ async def repo(_, message: Message):
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton(
-                        "ᴅᴇᴠᴇʟᴏᴘᴇʀ", user_id=OWNER_ID
-                    ),
+                    InlineKeyboardButton("ᴅᴇᴠᴇʟᴏᴘᴇʀ", user_id=OWNER_ID),
                     InlineKeyboardButton(
                         "sᴏᴜʀᴄᴇ",
                         url="https://github.com/AnonymousX1025/FallenRobot",

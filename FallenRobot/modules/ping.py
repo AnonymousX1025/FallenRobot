@@ -1,5 +1,4 @@
 import time
-from typing import List
 
 from telegram import ParseMode, Update
 from telegram.ext import CallbackContext, run_async
