@@ -17,7 +17,7 @@ jobs:
           pip install autoflake isort black
       - name: Remove unused imports and variables
         run: |
-          autoflake --in-place --recursive --remove-all-unused-imports --disable=config.py --remove-unused-variables --ignore-init-module-imports .
+          autoflake --in-place --recursive --remove-all-unused-imports --ignore-init-module-imports .
       - name: lint with isort
         run: |
           isort .
