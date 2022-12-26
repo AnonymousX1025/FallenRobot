@@ -1,10 +1,8 @@
-# pylint: skip-file
-
 class Config(object):
     LOGGER = True
 
   # Get this value from my.telegram.org/apps
-    API_ID = 
+    API_ID = # pylint: skip-file
     API_HASH = ""
 
     CASH_API_KEY = ""  # Get this value for currency converter from https://www.alphavantage.co/support/#api-key
