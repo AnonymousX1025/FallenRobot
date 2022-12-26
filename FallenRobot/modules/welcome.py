@@ -513,7 +513,7 @@ def left_member(update: Update, context: CallbackContext):
         return
 
     if should_goodbye:
-        reply = update.message.message_id
+        update.message.message_id
         cleanserv = sql.clean_service(chat.id)
         # Clean service welcome
         if cleanserv:
@@ -521,7 +521,6 @@ def left_member(update: Update, context: CallbackContext):
                 dispatcher.bot.delete_message(chat.id, update.message.message_id)
             except BadRequest:
                 pass
-            reply = False
 
         left_mem = update.effective_message.left_chat_member
         if left_mem:
