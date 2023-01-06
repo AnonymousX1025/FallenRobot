@@ -36,7 +36,7 @@ pymongo
 pyrate-limiter
 pykeyboard
 pynewtonmath
-pyrogram==2.0.93
+pyrogram
 python-telegram-bot==12.8
 regex
 requests
@@ -47,7 +47,7 @@ spongemock
 sqlalchemy==1.4.46
 telegram
 telegraph
-telethon==1.26.1
+telethon
 TgCrypto
 ujson
 wget
