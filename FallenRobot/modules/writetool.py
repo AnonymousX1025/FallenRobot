@@ -1,10 +1,9 @@
 import requests
-
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
 from telegram.ext import CallbackContext
 from telegram.ext.dispatcher import run_async
 
-from FallenRobot import dispatcher, BOT_NAME, BOT_USERNAME
+from FallenRobot import BOT_NAME, BOT_USERNAME, dispatcher
 from FallenRobot.modules.disable import DisableAbleCommandHandler
 
 
