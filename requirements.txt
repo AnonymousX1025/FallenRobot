@@ -32,7 +32,6 @@ psutil
 psycopg2-binary
 PyDictionary
 pytz
-pymongo
 pyrate-limiter
 pykeyboard
 pynewtonmath
