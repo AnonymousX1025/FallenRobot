@@ -18,6 +18,7 @@ logging.basicConfig(
 )
 
 logging.getLogger("telethon").setLevel(logging.ERROR)
+logging.getLogger("pyrogram").setlevel(logging.ERROR)
 LOGGER = logging.getLogger(__name__)
 
 # if version < 3.6, stop bot.
