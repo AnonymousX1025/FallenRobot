@@ -4,7 +4,7 @@ updates:
   directory: "/"
   schedule:
     interval: daily
-    time: "08:00"
+    time: "00:00"
     timezone: "Asia/Kolkata"
   labels:
     - "dependencies"
@@ -12,3 +12,5 @@ updates:
   ignore:
     - dependency-name: "python-telegram-bot"
     # Ignoring all ptb updates
+    - dependency-name: "sqlalchemy"
+    # Ignoring all sqlalchemy updates
