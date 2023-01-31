@@ -1,6 +1,6 @@
 import html
-import time
 import random
+import time
 
 from telegram import MessageEntity, Update
 from telegram.error import BadRequest
