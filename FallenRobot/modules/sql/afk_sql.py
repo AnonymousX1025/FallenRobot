@@ -1,9 +1,9 @@
+import threading
 import time
 
-import threading
+from sqlalchemy import BigInteger, Boolean, Column, DateTime, UnicodeText
 
 from FallenRobot.modules.sql import BASE, SESSION
-from sqlalchemy import Boolean, Column, Integer, UnicodeText, DateTime, BigInteger
 
 
 class AFK(BASE):
@@ -88,7 +88,9 @@ def __load_afk_users():
     try:
         all_afk = SESSION.query(AFK).all()
         AFK_USERS = {
-            user.user_id: {"reason": user.reason, "time": user.time} for user in all_afk if user.is_afk
+            user.user_id: {"reason": user.reason, "time": user.time}
+            for user in all_afk
+            if user.is_afk
         }
     finally:
         SESSION.close()
