@@ -1,6 +1,5 @@
 import html
 import random
-import time
 
 from telegram import MessageEntity, Update
 from telegram.error import BadRequest
@@ -13,7 +12,6 @@ from FallenRobot.modules.disable import (
 )
 from FallenRobot.modules.sql import afk_sql as sql
 from FallenRobot.modules.users import get_user_id
-from FallenRobot.utils.formatters import get_readable_time
 
 AFK_GROUP = 7
 AFK_REPLY_GROUP = 8
@@ -33,9 +31,9 @@ def afk(update: Update, context: CallbackContext):
     notice = ""
     if len(args) >= 2:
         reason = args[1]
-        if len(reason) > 150:
-            reason = reason[:150]
-            notice = "\nYour afk reason was shortened to 150 characters."
+        if len(reason) > 100:
+            reason = reason[:100]
+            notice = "\nYour afk reason was shortened to 100 characters."
     else:
         reason = ""
 
@@ -55,10 +53,6 @@ def no_longer_afk(update: Update, context: CallbackContext):
     if not user:  # ignore channels
         return
 
-    if sql.is_afk:
-        afk_user = sql.check_afk_status(user.id)
-        awtime = get_readable_time(time.time() - afk_user.time)
-
     res = sql.rm_afk(user.id)
     if res:
         if message.new_chat_members:  # dont say msg
@@ -66,15 +60,17 @@ def no_longer_afk(update: Update, context: CallbackContext):
         firstname = update.effective_user.first_name
         try:
             options = [
-                "{} is here and was away for {}!",
-                "{} is back and was away for {}!",
-                "{} is now in the chat and was away for {}!",
-                "{} is awake and was away for {}!",
-                "{} is back online and was away for {}!",
-                "{} is finally here and was away for {}!",
+                "{} is here!",
+                "{} is back!",
+                "{} is now in the chat!",
+                "{} is awake!",
+                "{} is back online!",
+                "{} is finally here!",
+                "Welcome back! {}",
+                "Where is {}?\nIn the chat!",
             ]
             chosen_option = random.choice(options)
-            update.effective_message.reply_text(chosen_option.format(firstname, awtime))
+            update.effective_message.reply_text(chosen_option.format(firstname))
         except:
             return
 
@@ -134,15 +130,12 @@ def check_afk(update, context, user_id, fst_name, userc_id):
         user = sql.check_afk_status(user_id)
         if int(userc_id) == int(user_id):
             return
-
-        awtime = get_readable_time(time.time() - user.time)
-
         if not user.reason:
-            res = "{} is afk since {}.".format(fst_name, awtime)
+            res = "{} is afk".format(fst_name)
             update.effective_message.reply_text(res)
         else:
-            res = "{} is afk since {}.\nReason: <code>{}</code>".format(
-                html.escape(fst_name), awtime, html.escape(user.reason)
+            res = "{} is afk.\nReason: <code>{}</code>".format(
+                html.escape(fst_name), html.escape(user.reason)
             )
             update.effective_message.reply_text(res, parse_mode="html")
 
