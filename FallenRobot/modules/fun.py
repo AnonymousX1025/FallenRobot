@@ -89,7 +89,6 @@ def slap(update: Update, context: CallbackContext):
         return
 
     if user_id:
-
         slapped_user = bot.get_chat(user_id)
         user1 = curr_user
         user2 = html.escape(slapped_user.first_name)

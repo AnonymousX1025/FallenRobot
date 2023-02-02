@@ -63,7 +63,6 @@ def hpmanager(user):
     total_hp = (get_user_num_chats(user.id) + 10) * 10
 
     if not is_user_gbanned(user.id):
-
         # Assign new var `new_hp` since we need `total_hp` in
         # end to calculate percentage.
         new_hp = total_hp
@@ -130,9 +129,7 @@ def get_id(update: Update, context: CallbackContext):
     user_id = extract_user(msg, args)
 
     if user_id:
-
         if msg.reply_to_message and msg.reply_to_message.forward_from:
-
             user1 = message.reply_to_message.from_user
             user2 = message.reply_to_message.forward_from
 
@@ -144,7 +141,6 @@ def get_id(update: Update, context: CallbackContext):
             )
 
         else:
-
             user = bot.get_chat(user_id)
             msg.reply_text(
                 f"{html.escape(user.first_name)}'s ɪᴅ ɪs <code>{user.id}</code>.",
@@ -152,7 +148,6 @@ def get_id(update: Update, context: CallbackContext):
             )
 
     else:
-
         if chat.type == "private":
             msg.reply_text(
                 f"ʏᴏᴜʀ ᴜsᴇʀ ɪᴅ ɪs <code>{chat.id}</code>.", parse_mode=ParseMode.HTML

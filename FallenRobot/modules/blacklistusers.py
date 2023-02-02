@@ -89,7 +89,6 @@ def unbl_user(update: Update, context: CallbackContext) -> str:
             raise
 
     if sql.is_user_blacklisted(user_id):
-
         sql.unblacklist_user(user_id)
         message.reply_text("*notices user*")
         log_message = (
