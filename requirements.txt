@@ -30,7 +30,7 @@ psycopg2-binary==2.9.5
 pydictionary==2.0.1
 pykeyboard==0.1.5
 pynewtonmath==1.0.1
-pyrate-limiter==2.9.0
+pyrate-limiter==2.10.0
 pyrogram==2.0.99
 python-telegram-bot==12.8
 regex==2022.10.31
