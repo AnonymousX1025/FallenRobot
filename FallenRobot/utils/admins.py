@@ -3,7 +3,7 @@ from typing import Callable
 from pyrogram.enums import ChatMemberStatus
 from pyrogram.types import Message
 
-from FallenRobot import DEV_USERS, DRAGONS, pbot
+from FallenRobot import DEV_USERS, pbot
 
 
 def can_restrict(func: Callable) -> Callable:
