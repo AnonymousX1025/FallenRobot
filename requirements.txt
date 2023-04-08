@@ -2,7 +2,7 @@ aiofiles==23.1.0
 aiohttp==3.8.4
 apscheduler==3.10.1
 asyncio==3.4.3
-beautifulsoup4==4.12.1
+beautifulsoup4==4.12.2
 bing_image_downloader==1.1.2
 bleach==6.0.0
 bs4==0.0.1
@@ -40,6 +40,6 @@ search_engine_parser==0.6.8
 speedtest-cli==2.1.3
 sqlalchemy==1.4.46
 telegraph==2.2.0
-telethon==1.28.1
+telethon==1.28.2
 tgcrypto==1.2.5
 wikipedia==1.4.0
