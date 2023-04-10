@@ -22,7 +22,7 @@ async def carbon_func(_, message):
     carbon = await make_carbon(txt)
     await m.edit_text("ᴜᴩʟᴏᴀᴅɪɴɢ ɢᴇɴᴇʀᴀᴛᴇᴅ ᴄᴀʀʙᴏɴ...")
     await pbot.send_photo(
-        carbon, caption=f"» ʀᴇᴏ̨ᴜᴇsᴛᴇᴅ ʙʏ : {message.from_user.mention}"
+        message.chat.id, photo=carbon, caption=f"» ʀᴇᴏ̨ᴜᴇsᴛᴇᴅ ʙʏ : {message.from_user.mention}"
     )
     await m.delete()
     carbon.close()
