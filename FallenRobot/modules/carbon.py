@@ -1,5 +1,4 @@
 from pyrogram import filters
-from pyrogram.types import Message
 
 from FallenRobot import pbot
 from FallenRobot.utils.errors import capture_err
@@ -22,7 +21,9 @@ async def carbon_func(_, message):
     m = await message.reply_text("ɢᴇɴᴇʀᴀᴛɪɴɢ ᴄᴀʀʙᴏɴ...")
     carbon = await make_carbon(txt)
     await m.edit_text("ᴜᴩʟᴏᴀᴅɪɴɢ ɢᴇɴᴇʀᴀᴛᴇᴅ ᴄᴀʀʙᴏɴ...")
-    await pbot.send_photo(carbon, caption=f"» ʀᴇᴏ̨ᴜᴇsᴛᴇᴅ ʙʏ : {message.from_user.mention}")
+    await pbot.send_photo(
+        carbon, caption=f"» ʀᴇᴏ̨ᴜᴇsᴛᴇᴅ ʙʏ : {message.from_user.mention}"
+    )
     await m.delete()
     carbon.close()
 
