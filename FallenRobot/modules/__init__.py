@@ -39,5 +39,4 @@ def __list_all_modules():
 
 
 ALL_MODULES = __list_all_modules()
-LOGGER.info("Modules to load: %s", str(ALL_MODULES))
 __all__ = ALL_MODULES + ["ALL_MODULES"]
