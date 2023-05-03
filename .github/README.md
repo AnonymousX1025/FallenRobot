@@ -5,10 +5,10 @@
 </h2>
 
 <p align="center">
-  <img src="https://github.com/AnonymousX1025/FallenRobot/blob/master/FallenRobot/resources/fglitch.gif">
+ 
 </p>
 
-_**ᴀᴠᴀɪʟᴀʙʟᴇ ᴏɴ ᴛᴇʟᴇɢʀᴀᴍ ᴀs [˹ʟᴇᴠɪ ℵ ʀσвσт˼](https://t.me/Ievi_Robot)**_
+
 ━━━━━━━━━━━━━━━━━━━━
 
 <p align="center">
