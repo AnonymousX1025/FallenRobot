@@ -114,7 +114,7 @@ Press `Ctrl+b` and then `d`
 
 <p align="center">
 
-  <img src="https://github.com/AnonymousX1025/FallenRobot/blob/master/FallenRobot/resources/fglitch.gif">
+  <img src="https://te.legra.ph/file/4e2bc734e411e2060cb12.png">
 
 </p>
 
