@@ -6,7 +6,7 @@
 
 
 <p align="center">
- <img src="https://te.legra.ph/file/1bf76aba6b543543178a0.mp4"
+ <img src="https://github.com/Rian3755/LeviRobot/blob/master/LeviRobot/resources/te.legra.ph/file/1bf76aba6b543543178a0.mp4"
 </p>
 
 
