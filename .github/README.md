@@ -24,7 +24,7 @@ _**ᴀᴠᴀɪʟᴀʙʟᴇ ᴏɴ ᴛᴇʟᴇɢʀᴀᴍ ᴀs [˹ʟᴇᴠɪ ℵ ʀ
 
 <p align="center">
 
-  <img src="https://rian3755-images.githubusercontent.com/128496455/235989634-34b4cd58-bb37-4233-b976-659171b9d6d1.mp4">
+  <img src="https://user-images.githubusercontent.com/128496455/235989634-34b4cd58-bb37-4233-b976-659171b9d6d1.mp4">
 
 </p>
 
