@@ -1,17 +1,36 @@
 ━━━━━━━━━━━━━━━━━━━━
 
 <h2 align="center">
-    ──「 ˹ʟᴇᴠɪ ℵ ʀσвσт˼ 」──
+
+    ──「 ˹ʟᴇᴠɪ ℵ ʀσʙσт˼ 」──
+
 </h2>
 
-
 <p align="center">
- <img src="https://github.com/Rian3755/LeviRobot/blob/master/LeviRobot/resources/te.legra.ph/file/1bf76aba6b543543178a0.mp4"
+
+  <img src="https://rian3755-images.githubusercontent.com/128496455/235989634-34b4cd58-bb37-4233-b976-659171b9d6d1.mp4">
+
 </p>
 
+_**ᴀᴠᴀɪʟᴀʙʟᴇ ᴏɴ ᴛᴇʟᴇɢʀᴀᴍ ᴀs [˹ʟᴇᴠɪ ℵ ʀσʙσт˼](https://t.me/Ievi_Robot)**_
 
 ━━━━━━━━━━━━━━━━━━━━
 
+<h2 align="center">
+
+    ──「 ˹ʟᴇᴠɪ ℵ ʀσʙσт˼ 」──
+
+</h2>
+
+<p align="center">
+
+  <img src="https://github.com/AnonymousX1025/FallenRobot/blob/master/FallenRobot/resources/fglitch.gif">
+
+</p>
+
+_**ᴀᴠᴀɪʟᴀʙʟᴇ ᴏɴ ᴛᴇʟᴇɢʀᴀᴍ ᴀs [ғᴀʟʟᴇɴ ✘ ʀᴏʙᴏᴛ](https://t.me/FallenXRobot)**_
+
+━━━━━━━━━━━━━━━━━━━━
 <p align="center">
 <a href="https://github.com/AnonymousX1025/FallenRobot/stargazers"><img src="https://img.shields.io/github/stars/AnonymousX1025/FallenRobot?color=black&logo=github&logoColor=black&style=for-the-badge" alt="Stars" /></a>
 <a href="https://github.com/AnonymousX1025/FallenRobot/network/members"> <img src="https://img.shields.io/github/forks/AnonymousX1025/FallenRobot?color=black&logo=github&logoColor=black&style=for-the-badge" /></a>
