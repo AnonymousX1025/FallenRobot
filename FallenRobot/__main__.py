@@ -93,7 +93,7 @@ buttons = [
     [
         InlineKeyboardButton(text="˹ᴄᴏᴍᴍᴀɴᴅs˼", callback_data="help_back"),
     ],
-    [
+[
        
         " ˹sᴜᴍᴘᴘᴏʀᴛ˼ ", url=f"https://t.me/off_road143"),
     ],
