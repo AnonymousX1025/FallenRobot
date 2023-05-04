@@ -71,7 +71,7 @@ def get_readable_time(seconds: int) -> str:
     return ping_time
 
 
-START_PIC = "https://graph.org/file/d596a410761b8782f53f7.jpg"
+START_PIC ="https://graph.org/file/d596a410761b8782f53f7.jpg"
 
 PM_START_TEXT = """
 *ʜᴇʏ* {}, 🍃
@@ -93,17 +93,17 @@ buttons = [
     [
         InlineKeyboardButton(text="˹ᴄᴏᴍᴍᴀɴᴅs˼", callback_data="help_back"),
     ],
-[
-       
-        " ˹sᴜᴍᴘᴘᴏʀᴛ˼ ", url=f"https://t.me/off_road143"),
+    [
+      InlineKeyboardButton(text=" ʜɪᴅᴅᴇɴ ʙᴏᴛz ", url=f"https://t.me/hidden_botz"),
+      InlineKeyboardButton(text=" ˹sᴜᴍᴘᴘᴏʀᴛ˼ ", url=f"https://t.me/off_road143"),
     ],
     [
       InlineKeyboardButton(text=" ˹ᴄʀᴇᴀᴛᴇʀ˼ ", url=f"tg://user?id={OWNER_ID}"),
         
     ],
-    ]
-        " ʜɪᴅᴅᴇɴ ʙᴏᴛz ", url=f"https://t.me/hidden_botz"),
+]
         
+   
 HELP_STRINGS = f"""
 *» {BOT_NAME} ᴇxᴄʟᴜsɪᴠᴇ ꜰᴇᴀᴛᴜʀᴇs*
 
