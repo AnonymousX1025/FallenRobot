@@ -1,7 +1,7 @@
 {
-      "name": "Fallen Robot",
+      "name": "levi Robot",
       "description": "Telegram Group Management Bot.",
-      "logo": "https://te.legra.ph/file/72e135da30a1a349f2844.jpg",
+      "logo": "Uploaded to https://te.legra.ph/file/a94ee13eb2f46eb2708a2.jpg)",
       "keywords": [
          "telegram",
          "modular",
@@ -9,7 +9,7 @@
          "manager",
          "Fallen"
       ],   
-   "repository": "https://github.com/AnonymousX1025/FallenRobot",
+   "repository": "https://github.com/RIAN3755/HIDDEN-BOTz",
    "stack": "heroku-22",
    "addons": [
       {
@@ -61,7 +61,7 @@
       "OWNER_ID": {
          "description": "Your user ID as an integer.",
          "required": true,
-         "value": "1356469075"
+         "value": "6278011848"
       },
       "START_IMG": {
          "description": "Telegraph link of the image which will be shown at start command.",
@@ -69,9 +69,9 @@
          "value": ""
       },
       "SUPPORT_CHAT": {
-         "description": "Your Telegram support group chat username where your users will go and bother you with shit But be like: MyGroupChatUsernameBlah. If this ever points to Fallen Support than consider you made an enemy.",
+         "description": "apne group ka username daal bina " @ " ke like: off_road143.",
          "required": true,
-         "value": "DevilsHeavenMF"
+         "value": "off_road143"
       },
       "TIME_API_KEY": {
          "description": "Required for timezone information. Get yours from https://timezonedb.com/api",
