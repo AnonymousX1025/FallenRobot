@@ -91,18 +91,19 @@ buttons = [
         ),
     ],
     [
-        InlineKeyboardButton(text="ᴄᴏᴍᴍᴀɴᴅs", callback_data="help_back"),
+        InlineKeyboardButton(text="˹ᴄᴏᴍᴍᴀɴᴅs˼", callback_data="help_back"),
     ],
     [
        
-        InlineKeyboardButton(text=" sᴜᴍᴘᴘᴏʀᴛ ", url=f"https://t.me/off_road143"),
+        " ˹sᴜᴍᴘᴘᴏʀᴛ˼ ", url=f"https://t.me/off_road143"),
     ],
     [
-      InlineKeyboardButton(text=" ˹ᴅᴀᴅᴅʏ˼ ", url=f"tg://user?id={OWNER_ID}"),
+      InlineKeyboardButton(text=" ˹ᴄʀᴇᴀᴛᴇʀ˼ ", url=f"tg://user?id={OWNER_ID}"),
         
     ],
-]
-
+    ]
+        " ʜɪᴅᴅᴇɴ ʙᴏᴛz ", url=f"https://t.me/hidden_botz"),
+        
 HELP_STRINGS = f"""
 *» {BOT_NAME} ᴇxᴄʟᴜsɪᴠᴇ ꜰᴇᴀᴛᴜʀᴇs*
 
