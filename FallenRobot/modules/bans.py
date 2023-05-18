@@ -2,7 +2,7 @@ import html
 
 from telegram import ParseMode, Update
 from telegram.error import BadRequest
-from telegram.ext import CallbackContext, CommandHandler, Filters, run_async
+from telegram.ext import CallbackContext, CommandHandler, Filters
 from telegram.utils.helpers import mention_html
 
 from FallenRobot import (
@@ -410,7 +410,9 @@ TEMPBAN_HANDLER = CommandHandler(["tban"], temp_ban, run_async=True)
 KICK_HANDLER = CommandHandler("kick", kick, run_async=True)
 UNBAN_HANDLER = CommandHandler("unban", unban, run_async=True)
 ROAR_HANDLER = CommandHandler("roar", selfunban, run_async=True)
-KICKME_HANDLER = DisableAbleCommandHandler("kickme", kickme, filters=Filters.group, run_async=True)
+KICKME_HANDLER = DisableAbleCommandHandler(
+    "kickme", kickme, filters=Filters.group, run_async=True
+)
 
 dispatcher.add_handler(BAN_HANDLER)
 dispatcher.add_handler(TEMPBAN_HANDLER)
