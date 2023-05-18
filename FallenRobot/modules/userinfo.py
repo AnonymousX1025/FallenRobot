@@ -27,8 +27,8 @@ from FallenRobot import (
     TIGERS,
     WOLVES,
     dispatcher,
+    telethn,
 )
-from FallenRobot import telethn
 from FallenRobot.__main__ import STATS, TOKEN, USER_INFO
 from FallenRobot.modules.disable import DisableAbleCommandHandler
 from FallenRobot.modules.helper_funcs.chat_status import sudo_plus
