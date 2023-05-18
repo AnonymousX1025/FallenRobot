@@ -739,19 +739,19 @@ def main():
         except BadRequest as e:
             LOGGER.warning(e.message)
 
-    start_handler = CommandHandler("start", start)
+    start_handler = CommandHandler("start", start, run_async=True)
 
-    help_handler = CommandHandler("help", get_help)
-    help_callback_handler = CallbackQueryHandler(help_button, pattern=r"help_.*")
+    help_handler = CommandHandler("help", get_help, run_async=True)
+    help_callback_handler = CallbackQueryHandler(help_button, pattern=r"help_.*", run_async=True)
 
-    settings_handler = CommandHandler("settings", get_settings)
-    settings_callback_handler = CallbackQueryHandler(settings_button, pattern=r"stngs_")
+    settings_handler = CommandHandler("settings", get_settings, run_async=True)
+    settings_callback_handler = CallbackQueryHandler(settings_button, pattern=r"stngs_", run_async=True)
 
     about_callback_handler = CallbackQueryHandler(
-        Fallen_about_callback, pattern=r"fallen_"
+        Fallen_about_callback, pattern=r"fallen_", run_async=True
     )
     source_callback_handler = CallbackQueryHandler(
-        Source_about_callback, pattern=r"source_"
+        Source_about_callback, pattern=r"source_", run_async=True
     )
 
     migrate_handler = MessageHandler(Filters.status_update.migrate, migrate_chats)
@@ -768,7 +768,7 @@ def main():
     dispatcher.add_error_handler(error_callback)
 
     LOGGER.info("Using long polling.")
-    updater.start_polling(timeout=15, read_latency=4, clean=True)
+    updater.start_polling(timeout=15, read_latency=4, drop_pending_updates=True)
 
     if len(argv) not in (1, 3, 4):
         telethn.disconnect()
