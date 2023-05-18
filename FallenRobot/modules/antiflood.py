@@ -423,7 +423,9 @@ __mod_name__ = "Aɴᴛɪ-Fʟᴏᴏᴅ"
 FLOOD_BAN_HANDLER = MessageHandler(
     Filters.all & ~Filters.status_update & Filters.chat_type.groups, check_flood
 )
-SET_FLOOD_HANDLER = CommandHandler("setflood", set_flood, filters=Filters.chat_type.groups)
+SET_FLOOD_HANDLER = CommandHandler(
+    "setflood", set_flood, filters=Filters.chat_type.groups
+)
 SET_FLOOD_MODE_HANDLER = CommandHandler(
     "setfloodmode", set_flood_mode, pass_args=True
 )  # , filters=Filters.chat_type.groups)
