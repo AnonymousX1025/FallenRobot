@@ -4,7 +4,7 @@ import time
 
 from telegram import ChatPermissions, ParseMode, Update
 from telegram.error import BadRequest
-from telegram.ext import CallbackContext, run_async
+from telegram.ext import CallbackContext
 
 import FallenRobot.modules.fun_strings as fun_strings
 from FallenRobot import dispatcher
@@ -12,31 +12,11 @@ from FallenRobot.modules.disable import DisableAbleCommandHandler
 from FallenRobot.modules.helper_funcs.chat_status import is_user_admin
 from FallenRobot.modules.helper_funcs.extraction import extract_user
 
-GIF_ID = "CgACAgQAAx0CSVUvGgAC7KpfWxMrgGyQs-GUUJgt-TSO8cOIDgACaAgAAlZD0VHT3Zynpr5nGxsE"
 
-
-@run_async
 def runs(update: Update, context: CallbackContext):
     update.effective_message.reply_text(random.choice(fun_strings.RUN_STRINGS))
 
 
-@run_async
-def sanitize(update: Update, context: CallbackContext):
-    message = update.effective_message
-    name = (
-        message.reply_to_message.from_user.first_name
-        if message.reply_to_message
-        else message.from_user.first_name
-    )
-    reply_animation = (
-        message.reply_to_message.reply_animation
-        if message.reply_to_message
-        else message.reply_animation
-    )
-    reply_animation(GIF_ID, caption=f"*Sanitizes {name}*")
-
-
-@run_async
 def sanitize(update: Update, context: CallbackContext):
     message = update.effective_message
     name = (
@@ -52,7 +32,6 @@ def sanitize(update: Update, context: CallbackContext):
     reply_animation(random.choice(fun_strings.GIFS), caption=f"*Sanitizes {name}*")
 
 
-@run_async
 def slap(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
     message = update.effective_message
@@ -110,7 +89,6 @@ def slap(update: Update, context: CallbackContext):
     reply_text(reply, parse_mode=ParseMode.HTML)
 
 
-@run_async
 def pat(update: Update, context: CallbackContext):
     bot = context.bot
     args = context.args
@@ -151,12 +129,10 @@ def pat(update: Update, context: CallbackContext):
         reply_to.reply_text(reply, parse_mode=ParseMode.HTML)
 
 
-@run_async
 def roll(update: Update, context: CallbackContext):
     update.message.reply_text(random.choice(range(1, 7)))
 
 
-@run_async
 def shout(update: Update, context: CallbackContext):
     args = context.args
     text = " ".join(args)
@@ -171,12 +147,10 @@ def shout(update: Update, context: CallbackContext):
     return update.effective_message.reply_text(msg, parse_mode="MARKDOWN")
 
 
-@run_async
 def toss(update: Update, context: CallbackContext):
     update.message.reply_text(random.choice(fun_strings.TOSS))
 
 
-@run_async
 def shrug(update: Update, context: CallbackContext):
     msg = update.effective_message
     reply_text = (
@@ -185,7 +159,6 @@ def shrug(update: Update, context: CallbackContext):
     reply_text(r"¯\_(ツ)_/¯")
 
 
-@run_async
 def bluetext(update: Update, context: CallbackContext):
     msg = update.effective_message
     reply_text = (
@@ -196,7 +169,6 @@ def bluetext(update: Update, context: CallbackContext):
     )
 
 
-@run_async
 def rlg(update: Update, context: CallbackContext):
     eyes = random.choice(fun_strings.EYES)
     mouth = random.choice(fun_strings.MOUTHS)
@@ -209,7 +181,6 @@ def rlg(update: Update, context: CallbackContext):
     update.message.reply_text(repl)
 
 
-@run_async
 def decide(update: Update, context: CallbackContext):
     reply_text = (
         update.effective_message.reply_to_message.reply_text
@@ -219,7 +190,6 @@ def decide(update: Update, context: CallbackContext):
     reply_text(random.choice(fun_strings.DECIDE))
 
 
-@run_async
 def eightball(update: Update, context: CallbackContext):
     reply_text = (
         update.effective_message.reply_to_message.reply_text
@@ -229,7 +199,6 @@ def eightball(update: Update, context: CallbackContext):
     reply_text(random.choice(fun_strings.EIGHTBALL))
 
 
-@run_async
 def table(update: Update, context: CallbackContext):
     reply_text = (
         update.effective_message.reply_to_message.reply_text
@@ -297,7 +266,6 @@ weebyfont = [
 ]
 
 
-@run_async
 def weebify(update: Update, context: CallbackContext):
     args = context.args
     message = update.effective_message
@@ -341,20 +309,20 @@ __help__ = """
  ❍ /8ball*:* predicts using 8ball method 
 """
 
-SANITIZE_HANDLER = DisableAbleCommandHandler("sanitize", sanitize)
-RUNS_HANDLER = DisableAbleCommandHandler("runs", runs)
-SLAP_HANDLER = DisableAbleCommandHandler("slap", slap)
-PAT_HANDLER = DisableAbleCommandHandler("pat", pat)
-ROLL_HANDLER = DisableAbleCommandHandler("roll", roll)
-TOSS_HANDLER = DisableAbleCommandHandler("toss", toss)
-SHRUG_HANDLER = DisableAbleCommandHandler("shrug", shrug)
-BLUETEXT_HANDLER = DisableAbleCommandHandler("bluetext", bluetext)
-RLG_HANDLER = DisableAbleCommandHandler("rlg", rlg)
-DECIDE_HANDLER = DisableAbleCommandHandler("decide", decide)
-EIGHTBALL_HANDLER = DisableAbleCommandHandler("8ball", eightball)
-TABLE_HANDLER = DisableAbleCommandHandler("table", table)
-SHOUT_HANDLER = DisableAbleCommandHandler("shout", shout)
-WEEBIFY_HANDLER = DisableAbleCommandHandler("weebify", weebify)
+SANITIZE_HANDLER = DisableAbleCommandHandler("sanitize", sanitize, run_async=True)
+RUNS_HANDLER = DisableAbleCommandHandler("runs", runs, run_async=True)
+SLAP_HANDLER = DisableAbleCommandHandler("slap", slap, run_async=True)
+PAT_HANDLER = DisableAbleCommandHandler("pat", pat, run_async=True)
+ROLL_HANDLER = DisableAbleCommandHandler("roll", roll, run_async=True)
+TOSS_HANDLER = DisableAbleCommandHandler("toss", toss, run_async=True)
+SHRUG_HANDLER = DisableAbleCommandHandler("shrug", shrug, run_async=True)
+BLUETEXT_HANDLER = DisableAbleCommandHandler("bluetext", bluetext, run_async=True)
+RLG_HANDLER = DisableAbleCommandHandler("rlg", rlg, run_async=True)
+DECIDE_HANDLER = DisableAbleCommandHandler("decide", decide, run_async=True)
+EIGHTBALL_HANDLER = DisableAbleCommandHandler("8ball", eightball, run_async=True)
+TABLE_HANDLER = DisableAbleCommandHandler("table", table, run_async=True)
+SHOUT_HANDLER = DisableAbleCommandHandler("shout", shout, run_async=True)
+WEEBIFY_HANDLER = DisableAbleCommandHandler("weebify", weebify, run_async=True)
 
 dispatcher.add_handler(WEEBIFY_HANDLER)
 dispatcher.add_handler(SHOUT_HANDLER)
