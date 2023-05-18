@@ -4,7 +4,6 @@ import sys
 import time
 
 import telegram.ext as tg
-from aiohttp import ClientSession
 from pyrogram import Client, errors
 from telethon import TelegramClient
 
@@ -150,7 +149,6 @@ telethn = TelegramClient("Fallen", API_ID, API_HASH)
 
 pbot = Client("FallenRobot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 dispatcher = updater.dispatcher
-aiohttpsession = ClientSession()
 
 print("[INFO]: Getting Bot Info...")
 BOT_ID = dispatcher.bot.id

@@ -3,11 +3,11 @@ import os
 import re
 
 import aiofiles
+from aiohttp import ClientSession
 from pykeyboard import InlineKeyboard
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton
 
-from FallenRobot import aiohttpsession as session
 from FallenRobot import pbot as app
 from FallenRobot.utils.errors import capture_err
 from FallenRobot.utils.pastebin import paste
@@ -18,7 +18,7 @@ pattern = re.compile(r"^text/|json$|yaml$|xml$|toml$|x-sh$|x-shellscript$")
 async def isPreviewUp(preview: str) -> bool:
     for _ in range(7):
         try:
-            async with session.head(preview, timeout=2) as resp:
+            async with ClientSession().head(preview, timeout=2) as resp:
                 status = resp.status
                 size = resp.content_length
         except asyncio.exceptions.TimeoutError:
