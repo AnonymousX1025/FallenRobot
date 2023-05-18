@@ -32,7 +32,7 @@ pykeyboard==0.1.5
 pynewtonmath==1.0.1
 pyrate-limiter==2.10.0
 pyrogram==2.0.106
-python-telegram-bot==12.8
+python-telegram-bot==13.0
 regex==2023.5.5
 requests==2.30.0
 secureme==0.0.4
