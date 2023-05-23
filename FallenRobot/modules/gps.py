@@ -1,7 +1,6 @@
 from geopy.geocoders import Nominatim
 from telethon import *
 from telethon.tl import *
-
 from FallenRobot import *
 from FallenRobot import telethn as tbot
 from FallenRobot.events import register
@@ -27,7 +26,7 @@ async def _(event):
             ),
         )
         await event.reply(
-            "Open with: [🌏Google Maps]({})".format(gm),
+            "ᴏᴘᴇɴ ᴡɪᴛʜ: [🌏ɢᴏᴏɢʟᴇ ᴍᴀᴘs]({})".format(gm),
             link_preview=False,
         )
     except Exception as e:
@@ -36,9 +35,9 @@ async def _(event):
 
 
 __help__ = """
-Sends you the gps location of the given query...
+sᴇɴᴅs ʏᴏᴜ ᴛʜᴇ ɢᴘs ʟᴏᴄᴀᴛɪᴏɴ ᴏғ ᴛʜᴇ ɢɪᴠᴇɴ ǫᴜᴇʀʏ...
 
- ❍ /gps <location>*:* Get gps location.
+ ❍ /gps <ʟᴏᴄᴀᴛɪᴏɴ>*:* ɢᴇᴛ ɢᴘs ʟᴏᴄᴀᴛɪᴏɴ.
 """
 
 __mod_name__ = "Gᴘs"

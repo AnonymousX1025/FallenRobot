@@ -48,7 +48,7 @@ async def github(_, message):
 __mod_name__ = "Gɪᴛʜᴜʙ"
 
 __help__ = """
-I will give information about github profile 
+ɪ ᴡɪʟʟ ɢɪᴠᴇ ɪɴғᴏʀᴍᴀᴛɪᴏɴ ᴀʙᴏᴜᴛ ɢɪᴛʜᴜʙ ᴘʀᴏғɪʟᴇ 
 
- ❍ /github <username>*:* Get information about a GitHub user.
+ ❍ /github <username>*:* ɢᴇᴛ ɪɴғᴏʀᴍᴀᴛɪᴏɴ ᴀʙᴏᴜᴛ ᴀ ɢɪᴛʜᴜʙ ᴜsᴇʀ.
 """

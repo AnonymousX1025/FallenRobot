@@ -54,9 +54,12 @@ CONVERTER_HANDLER = CommandHandler("cash", convert, run_async=True)
 dispatcher.add_handler(CONVERTER_HANDLER)
 
 __help__ = """
-Converts money from one exchange to another
-Usage: /cash amount from to
-Example: /cash 20 USD INR"""
+ᴄᴏɴᴠᴇʀᴛs ᴍᴏɴᴇʏ ғʀᴏᴍ ᴏɴᴇ ᴇxᴄʜᴀɴɢᴇ ᴛᴏ ᴀɴᴏᴛʜᴇʀ
+ᴜsᴀɢᴇ: /cash ᴀᴍᴏᴜɴᴛ ғʀᴏᴍ ᴛᴏ
+
+ᴇxᴀᴍᴘʟᴇ: `/cash 20 USD INR` 
+"""
 
 __command_list__ = ["cash"]
+
 __handlers__ = [CONVERTER_HANDLER]

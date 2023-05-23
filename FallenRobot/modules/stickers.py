@@ -13,7 +13,7 @@ from telegram import (
     TelegramError,
     Update,
 )
-from telegram.ext import CallbackContext, run_async
+from telegram.ext import CallbackContext
 from telegram.utils.helpers import mention_html
 
 from FallenRobot import dispatcher
@@ -22,7 +22,7 @@ from FallenRobot.modules.disable import DisableAbleCommandHandler
 combot_stickers_url = "https://combot.org/telegram/stickers?q="
 
 
-@run_async
+
 def stickerid(update: Update, context: CallbackContext):
     msg = update.effective_message
     if msg.reply_to_message and msg.reply_to_message.sticker:
@@ -43,7 +43,7 @@ def stickerid(update: Update, context: CallbackContext):
         )
 
 
-@run_async
+
 def cb_sticker(update: Update, context: CallbackContext):
     msg = update.effective_message
     split = msg.text.split(" ", 1)
@@ -80,7 +80,7 @@ def getsticker(update: Update, context: CallbackContext):
         )
 
 
-@run_async
+
 def kang(update: Update, context: CallbackContext):
     msg = update.effective_message
     user = update.effective_user
@@ -425,12 +425,12 @@ def makepack_internal(
             )
         elif e.message in ("Peer_id_invalid", "bot was blocked by the user"):
             msg.reply_text(
-                "Contact me in PM first.",
+                "ᴄᴏɴᴛᴀᴄᴛ ᴍᴇ ɪɴ ᴘᴍ ғɪʀsᴛ.",
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
                             InlineKeyboardButton(
-                                text="Start", url=f"t.me/{context.bot.username}"
+                                text="sᴛᴀʀᴛ", url=f"t.me/{context.bot.username}"
                             )
                         ]
                     ]
@@ -462,10 +462,11 @@ __help__ = """
 """
 
 __mod_name__ = "Sᴛɪᴄᴋᴇʀ"
-STICKERID_HANDLER = DisableAbleCommandHandler("stickerid", stickerid)
-GETSTICKER_HANDLER = DisableAbleCommandHandler("getsticker", getsticker)
-KANG_HANDLER = DisableAbleCommandHandler("kang", kang, admin_ok=True)
-STICKERS_HANDLER = DisableAbleCommandHandler("stickers", cb_sticker)
+
+STICKERID_HANDLER = DisableAbleCommandHandler("stickerid", stickerid, run_async=True)
+GETSTICKER_HANDLER = DisableAbleCommandHandler("getsticker", getsticker, run_async=True)
+KANG_HANDLER = DisableAbleCommandHandler("kang", kang, admin_ok=True, run_async=True)
+STICKERS_HANDLER = DisableAbleCommandHandler("stickers", cb_sticker, run_async=True)
 
 dispatcher.add_handler(STICKERS_HANDLER)
 dispatcher.add_handler(STICKERID_HANDLER)

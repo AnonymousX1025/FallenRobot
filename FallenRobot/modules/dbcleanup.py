@@ -5,8 +5,7 @@ from telegram.error import BadRequest, Unauthorized
 from telegram.ext import (
     CallbackContext,
     CallbackQueryHandler,
-    CommandHandler,
-    run_async,
+    CommandHandler
 )
 
 import FallenRobot.modules.sql.global_bans_sql as gban_sql
@@ -87,7 +86,7 @@ def get_invalid_gban(update: Update, context: CallbackContext, remove: bool = Fa
         return ungbanned_users
 
 
-@run_async
+
 @dev_plus
 def dbcleanup(update: Update, context: CallbackContext):
     msg = update.effective_message
@@ -108,7 +107,7 @@ def dbcleanup(update: Update, context: CallbackContext):
     )
 
 
-@run_async
+
 def callback_button(update: Update, context: CallbackContext):
     bot = context.bot
     query = update.callback_query
@@ -140,8 +139,8 @@ def callback_button(update: Update, context: CallbackContext):
             query.answer("You are not allowed to use this.")
 
 
-DB_CLEANUP_HANDLER = CommandHandler("dbcleanup", dbcleanup)
-BUTTON_HANDLER = CallbackQueryHandler(callback_button, pattern="db_.*")
+DB_CLEANUP_HANDLER = CommandHandler("dbcleanup", dbcleanup, run_async=True)
+BUTTON_HANDLER = CallbackQueryHandler(callback_button, pattern="db_.*", run_async=True)
 
 dispatcher.add_handler(DB_CLEANUP_HANDLER)
 dispatcher.add_handler(BUTTON_HANDLER)

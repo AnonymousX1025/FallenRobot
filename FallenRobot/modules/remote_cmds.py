@@ -1,6 +1,6 @@
 from telegram import ChatPermissions, Update
 from telegram.error import BadRequest
-from telegram.ext import CallbackContext, CommandHandler, run_async
+from telegram.ext import CallbackContext, CommandHandler
 
 from FallenRobot import dispatcher
 from FallenRobot.modules.helper_funcs.chat_status import (
@@ -83,7 +83,7 @@ RUNMUTE_ERRORS = {
 }
 
 
-@run_async
+
 @bot_admin
 def rban(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
@@ -146,7 +146,7 @@ def rban(update: Update, context: CallbackContext):
         return
 
     try:
-        chat.kick_member(user_id)
+        chat.ban_member(user_id)
         message.reply_text("Banned from chat!")
     except BadRequest as excp:
         if excp.message == "Reply message not found":
@@ -166,7 +166,7 @@ def rban(update: Update, context: CallbackContext):
             message.reply_text("Well damn, I can't ban that user.")
 
 
-@run_async
+
 @bot_admin
 def runban(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
@@ -251,7 +251,7 @@ def runban(update: Update, context: CallbackContext):
             message.reply_text("Well damn, I can't unban that user.")
 
 
-@run_async
+
 @bot_admin
 def rkick(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
@@ -334,7 +334,7 @@ def rkick(update: Update, context: CallbackContext):
             message.reply_text("Well damn, I can't punch that user.")
 
 
-@run_async
+
 @bot_admin
 def rmute(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
@@ -419,7 +419,7 @@ def rmute(update: Update, context: CallbackContext):
             message.reply_text("Well damn, I can't mute that user.")
 
 
-@run_async
+
 @bot_admin
 def runmute(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
@@ -517,11 +517,11 @@ def runmute(update: Update, context: CallbackContext):
             message.reply_text("Well damn, I can't unmute that user.")
 
 
-RBAN_HANDLER = CommandHandler("rban", rban, filters=CustomFilters.sudo_filter)
-RUNBAN_HANDLER = CommandHandler("runban", runban, filters=CustomFilters.sudo_filter)
-RKICK_HANDLER = CommandHandler("rpunch", rkick, filters=CustomFilters.sudo_filter)
-RMUTE_HANDLER = CommandHandler("rmute", rmute, filters=CustomFilters.sudo_filter)
-RUNMUTE_HANDLER = CommandHandler("runmute", runmute, filters=CustomFilters.sudo_filter)
+RBAN_HANDLER = CommandHandler("rban", rban, filters=CustomFilters.sudo_filter, run_async=True)
+RUNBAN_HANDLER = CommandHandler("runban", runban, filters=CustomFilters.sudo_filter, run_async=True)
+RKICK_HANDLER = CommandHandler("rpunch", rkick, filters=CustomFilters.sudo_filter, run_async=True)
+RMUTE_HANDLER = CommandHandler("rmute", rmute, filters=CustomFilters.sudo_filter, run_async=True)
+RUNMUTE_HANDLER = CommandHandler("runmute", runmute, filters=CustomFilters.sudo_filter, run_async=True)
 
 dispatcher.add_handler(RBAN_HANDLER)
 dispatcher.add_handler(RUNBAN_HANDLER)

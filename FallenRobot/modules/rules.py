@@ -154,9 +154,9 @@ __help__ = """
 
 __mod_name__ = "Rᴜʟᴇs"
 
-GET_RULES_HANDLER = CommandHandler("rules", get_rules)
-SET_RULES_HANDLER = CommandHandler("setrules", set_rules)
-RESET_RULES_HANDLER = CommandHandler("clearrules", clear_rules)
+GET_RULES_HANDLER = CommandHandler("rules", get_rules, run_async=True)
+SET_RULES_HANDLER = CommandHandler("setrules", set_rules, run_async=True)
+RESET_RULES_HANDLER = CommandHandler("clearrules", clear_rules, run_async=True)
 
 dispatcher.add_handler(GET_RULES_HANDLER)
 dispatcher.add_handler(SET_RULES_HANDLER)

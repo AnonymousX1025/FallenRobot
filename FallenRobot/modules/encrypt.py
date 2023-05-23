@@ -2,7 +2,6 @@ import secureme
 
 from FallenRobot.events import register
 
-
 @register(pattern="^/encrypt ?(.*)")
 async def hmm(event):
     if event.reply_to_msg_id:
@@ -25,3 +24,12 @@ async def hmm(event):
     Text = ok
     k = secureme.decrypt(Text)
     await event.reply(k)
+    
+__mod_name__ = "Tᴏᴏʟs"
+
+__help__ = """
+
+*ᴄᴏɴᴠᴇʀᴛs*
+ ❍ /encrypt*:* ᴇɴᴄʀʏᴘᴛs ᴛʜᴇ ɢɪᴠᴇɴ ᴛᴇxᴛ
+ ❍ /decrypt*:* ᴅᴇᴄʀʏᴘᴛs ᴘʀᴇᴠɪᴏᴜsʟʏ ᴇᴄʀʏᴘᴛᴇᴅ ᴛᴇxᴛ
+"""

@@ -3,7 +3,7 @@ from typing import Optional
 
 from telegram import Bot, Chat, ChatPermissions, ParseMode, Update
 from telegram.error import BadRequest
-from telegram.ext import CallbackContext, CommandHandler, run_async
+from telegram.ext import CallbackContext, CommandHandler
 from telegram.utils.helpers import mention_html
 
 from FallenRobot import LOGGER, TIGERS, dispatcher
@@ -12,11 +12,11 @@ from FallenRobot.modules.helper_funcs.chat_status import (
     can_restrict,
     connection_status,
     is_user_admin,
-    user_admin,
+    user_admin
 )
 from FallenRobot.modules.helper_funcs.extraction import (
     extract_user,
-    extract_user_and_text,
+    extract_user_and_text
 )
 from FallenRobot.modules.helper_funcs.string_handling import extract_time
 from FallenRobot.modules.log_channel import loggable
@@ -47,7 +47,7 @@ def check_user(user_id: int, bot: Bot, chat: Chat) -> Optional[str]:
     return None
 
 
-@run_async
+
 @connection_status
 @bot_admin
 @user_admin
@@ -95,7 +95,7 @@ def mute(update: Update, context: CallbackContext) -> str:
     return ""
 
 
-@run_async
+
 @connection_status
 @bot_admin
 @user_admin
@@ -158,7 +158,7 @@ def unmute(update: Update, context: CallbackContext) -> str:
     return ""
 
 
-@run_async
+
 @connection_status
 @bot_admin
 @can_restrict
@@ -241,15 +241,16 @@ def temp_mute(update: Update, context: CallbackContext) -> str:
 
 
 __help__ = """
-*Admins only:*
+*ᴀᴅᴍɪɴs ᴏɴʟʏ:*
+
  ❍ /mute <userhandle>*:* silences a user. Can also be used as a reply, muting the replied to user.
  ❍ /tmute <userhandle> x(m/h/d)*:* mutes a user for x time. (via handle, or reply). `m` = `minutes`, `h` = `hours`, `d` = `days`.
  ❍ /unmute <userhandle>*:* unmutes a user. Can also be used as a reply, muting the replied to user.
 """
 
-MUTE_HANDLER = CommandHandler("mute", mute)
-UNMUTE_HANDLER = CommandHandler("unmute", unmute)
-TEMPMUTE_HANDLER = CommandHandler(["tmute", "tempmute"], temp_mute)
+MUTE_HANDLER = CommandHandler("mute", mute, run_async=True)
+UNMUTE_HANDLER = CommandHandler("unmute", unmute, run_async=True)
+TEMPMUTE_HANDLER = CommandHandler(["tmute", "tempmute"], temp_mute, run_async=True)
 
 dispatcher.add_handler(MUTE_HANDLER)
 dispatcher.add_handler(UNMUTE_HANDLER)

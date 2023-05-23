@@ -7,7 +7,7 @@ import traceback
 from contextlib import redirect_stdout
 
 from telegram import ParseMode, Update
-from telegram.ext import CallbackContext, CommandHandler, run_async
+from telegram.ext import CallbackContext, CommandHandler
 
 from FallenRobot import LOGGER, dispatcher
 from FallenRobot.modules.helper_funcs.chat_status import dev_plus
@@ -50,14 +50,12 @@ def send(msg, bot, update):
 
 
 @dev_plus
-@run_async
 def evaluate(update: Update, context: CallbackContext):
     bot = context.bot
     send(do(eval, bot, update), bot, update)
 
 
 @dev_plus
-@run_async
 def execute(update: Update, context: CallbackContext):
     bot = context.bot
     send(do(exec, bot, update), bot, update)
@@ -116,7 +114,6 @@ def do(func, bot, update):
 
 
 @dev_plus
-@run_async
 def clear(update: Update, context: CallbackContext):
     bot = context.bot
     log_input(update)
@@ -126,12 +123,12 @@ def clear(update: Update, context: CallbackContext):
     send("Cleared locals.", bot, update)
 
 
-EVAL_HANDLER = CommandHandler(("e", "ev", "eva", "eval"), evaluate)
-EXEC_HANDLER = CommandHandler(("x", "ex", "exe", "exec", "py"), execute)
-CLEAR_HANDLER = CommandHandler("clearlocals", clear)
+EVAL_HANDLER = CommandHandler(("e", "ev", "eva", "eval"), evaluate, run_async=True)
+EXEC_HANDLER = CommandHandler(("x", "ex", "exe", "exec", "py"), execute, run_async=True)
+CLEAR_HANDLER = CommandHandler("clearlocals", clear, run_async=True)
 
 dispatcher.add_handler(EVAL_HANDLER)
 dispatcher.add_handler(EXEC_HANDLER)
 dispatcher.add_handler(CLEAR_HANDLER)
 
-__mod_name__ = "Eval Module"
+__mod_name__ = "Eᴠᴀʟ ᴍᴏᴅᴜʟᴇ"

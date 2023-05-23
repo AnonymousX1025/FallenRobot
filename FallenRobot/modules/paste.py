@@ -35,7 +35,7 @@ async def isPreviewUp(preview: str) -> bool:
 async def paste_func(_, message):
     if not message.reply_to_message:
         return await message.reply_text("Reply To A Message With /paste")
-    m = await message.reply_text("Pasting...")
+    m = await message.reply_text("ᴘᴀsᴛɪɴɢ......")
     if message.reply_to_message.text:
         content = str(message.reply_to_message.text)
     elif message.reply_to_message.document:
@@ -51,7 +51,7 @@ async def paste_func(_, message):
     link = await paste(content)
     preview = link + "/preview.png"
     button = InlineKeyboard(row_width=1)
-    button.add(InlineKeyboardButton(text="Paste Link", url=link))
+    button.add(InlineKeyboardButton(text="ᴘᴀsᴛᴇ ʟɪɴᴋ ✨", url=link))
 
     if await isPreviewUp(preview):
         try:
@@ -64,7 +64,7 @@ async def paste_func(_, message):
 
 __mod_name__ = "Pᴀsᴛᴇ​"
 __help__ = """
- Pastes the given file and shows you the result
+ ᴘᴀsᴛᴇs ᴛʜᴇ ɢɪᴠᴇɴ ғɪʟᴇ ᴀɴᴅ sʜᴏᴡs ʏᴏᴜ ᴛʜᴇ ʀᴇsᴜʟᴛ
 
- ❍ /paste *:* Reply to a text file
+ ❍ /paste *:* ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴛᴇxᴛ ғɪʟᴇ
  """

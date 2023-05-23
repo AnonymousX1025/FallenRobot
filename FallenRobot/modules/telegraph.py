@@ -8,6 +8,7 @@ from FallenRobot import telethn as tbot
 from FallenRobot.events import register
 
 Anonymous = "Fallen"
+
 TMP_DOWNLOAD_DIRECTORY = "./"
 telegraph = Telegraph()
 r = telegraph.create_account(short_name=Anonymous)
@@ -87,7 +88,8 @@ def resize_image(image):
 
 
 __help__ = """
-I can upload files to Telegraph
+ɪ ᴄᴀɴ ᴜᴘʟᴏᴀᴅ ғɪʟᴇs ᴛᴏ ᴛᴇʟᴇɢʀᴀᴘʜ
+
  ❍ /tgm :Get Telegraph Link Of Replied Media
  ❍ /tgt :Get Telegraph Link of Replied Text
  ❍ /tgt [custom name]: Get telegraph link of replied text with custom name.

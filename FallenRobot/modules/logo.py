@@ -322,7 +322,7 @@ async def lego(event):
 __mod_name__ = "Lᴏɢᴏ​"
 
 __help__ = """
-I can create some beautiful and attractive logo for your profile pics.
+ɪ ᴄᴀɴ ᴄʀᴇᴀᴛᴇ sᴏᴍᴇ ʙᴇᴀᴜᴛɪғᴜʟ ᴀɴᴅ ᴀᴛᴛʀᴀᴄᴛɪᴠᴇ ʟᴏɢᴏ ғᴏʀ ʏᴏᴜʀ ᴘʀᴏғɪʟᴇ ᴘɪᴄs.
 
-❍ /logo (Text) *:* Create a logo of your given text with random view.
+❍ /logo <ᴛᴇxᴛ>*:* Create a logo of your given text with random view.
 """

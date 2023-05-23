@@ -1,12 +1,11 @@
 import requests
 from telegram import ParseMode, Update
-from telegram.ext import CallbackContext, run_async
+from telegram.ext import CallbackContext
 
 from FallenRobot import dispatcher
 from FallenRobot.modules.disable import DisableAbleCommandHandler
 
 
-@run_async
 def ud(update: Update, context: CallbackContext):
     message = update.effective_message
     text = message.text[len("/ud ") :]
@@ -16,17 +15,18 @@ def ud(update: Update, context: CallbackContext):
     try:
         reply_text = f'*{text}*\n\n{results["list"][0]["definition"]}\n\n_{results["list"][0]["example"]}_'
     except:
-        reply_text = "No results found."
+        reply_text = "ɴᴏ ʀᴇsᴜʟᴛs ғᴏᴜɴᴅ ."
     message.reply_text(reply_text, parse_mode=ParseMode.MARKDOWN)
 
 
-UD_HANDLER = DisableAbleCommandHandler(["ud"], ud)
+UD_HANDLER = DisableAbleCommandHandler(["ud"], ud, run_async=True)
 
 dispatcher.add_handler(UD_HANDLER)
 
 __help__ = """
-» /ud (text) *:* Searchs the given text on Urban Dictionary and sends you the information.
+» /ud <ᴛᴇxᴛ> *:* sᴇᴀʀᴄʜs ᴛʜᴇ ɢɪᴠᴇɴ ᴛᴇxᴛ ᴏɴ ᴜʀʙᴀɴ ᴅɪᴄᴛɪᴏɴᴀʀʏ ᴀɴᴅ sᴇɴᴅs ʏᴏᴜ ᴛʜᴇ ɪɴғᴏʀᴍᴀᴛɪᴏɴ.
 """
 __mod_name__ = "Uʀʙᴀɴ D"
+
 __command_list__ = ["ud"]
 __handlers__ = [UD_HANDLER]

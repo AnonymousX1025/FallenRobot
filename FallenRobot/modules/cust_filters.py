@@ -10,8 +10,7 @@ from telegram.ext import (
     CommandHandler,
     DispatcherHandlerStop,
     Filters,
-    MessageHandler,
-    run_async,
+    MessageHandler
 )
 from telegram.utils.helpers import escape_markdown, mention_html
 
@@ -48,7 +47,7 @@ ENUM_FUNC_MAP = {
 }
 
 
-@run_async
+
 @typing_action
 def list_handlers(update, context):
     chat = update.effective_chat
@@ -267,7 +266,7 @@ def stop_filter(update, context):
     )
 
 
-@run_async
+
 def reply_filter(update, context):
     chat = update.effective_chat  # type: Optional[Chat]
     message = update.effective_message  # type: Optional[Message]
@@ -494,7 +493,7 @@ def reply_filter(update, context):
                 break
 
 
-@run_async
+
 def rmall_filters(update, context):
     chat = update.effective_chat
     user = update.effective_user
@@ -508,10 +507,10 @@ def rmall_filters(update, context):
             [
                 [
                     InlineKeyboardButton(
-                        text="Stop all filters", callback_data="filters_rmall"
+                        text="sᴛᴏᴘ ᴀʟʟ ғɪʟᴛᴇʀs", callback_data="filters_rmall"
                     )
                 ],
-                [InlineKeyboardButton(text="Cancel", callback_data="filters_cancel")],
+                [InlineKeyboardButton(text="ᴄᴀɴᴄᴇʟ", callback_data="filters_cancel")],
             ]
         )
         update.effective_message.reply_text(
@@ -521,7 +520,7 @@ def rmall_filters(update, context):
         )
 
 
-@run_async
+
 def rmall_callback(update, context):
     query = update.callback_query
     chat = update.effective_chat
@@ -607,6 +606,7 @@ def __chat_settings__(chat_id, user_id):
 
 
 __help__ = """
+
  ❍ /filters*:* List all active filters saved in the chat.
 
 *Admin only:*
@@ -634,16 +634,14 @@ Check ❍ /markdownhelp to know more!
 
 __mod_name__ = "Fɪʟᴛᴇʀs"
 
-FILTER_HANDLER = CommandHandler("filter", filters)
-STOP_HANDLER = CommandHandler("stop", stop_filter)
+FILTER_HANDLER = CommandHandler("filter", filters, run_async=True)
+STOP_HANDLER = CommandHandler("stop", stop_filter, run_async=True)
 RMALLFILTER_HANDLER = CommandHandler(
-    "removeallfilters", rmall_filters, filters=Filters.chat_type.groups
-)
-RMALLFILTER_CALLBACK = CallbackQueryHandler(rmall_callback, pattern=r"filters_.*")
-LIST_HANDLER = DisableAbleCommandHandler("filters", list_handlers, admin_ok=True)
+    "removeallfilters", rmall_filters, filters=Filters.chat_type.groups, run_async=True)
+RMALLFILTER_CALLBACK = CallbackQueryHandler(rmall_callback, pattern=r"filters_.*", run_async=True)
+LIST_HANDLER = DisableAbleCommandHandler("filters", list_handlers, admin_ok=True, run_async=True)
 CUST_FILTER_HANDLER = MessageHandler(
-    CustomFilters.has_text & ~Filters.update.edited_message, reply_filter
-)
+    CustomFilters.has_text & ~Filters.update.edited_message, reply_filter, run_async=True)
 
 dispatcher.add_handler(FILTER_HANDLER)
 dispatcher.add_handler(STOP_HANDLER)
