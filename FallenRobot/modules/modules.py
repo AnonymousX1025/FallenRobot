@@ -19,7 +19,6 @@ from FallenRobot.__main__ import (
 from FallenRobot.modules.helper_funcs.chat_status import dev_plus, sudo_plus
 
 
-
 @dev_plus
 def load(update: Update, context: CallbackContext):
     message = update.effective_message
@@ -87,7 +86,6 @@ def load(update: Update, context: CallbackContext):
     load_messasge.edit_text(
         "Successfully loaded module : <b>{}</b>".format(text), parse_mode=ParseMode.HTML
     )
-
 
 
 @dev_plus
@@ -158,7 +156,6 @@ def unload(update: Update, context: CallbackContext):
     unload_messasge.edit_text(
         f"Successfully unloaded module : <b>{text}</b>", parse_mode=ParseMode.HTML
     )
-
 
 
 @sudo_plus

@@ -12,11 +12,11 @@ from FallenRobot.modules.helper_funcs.chat_status import (
     can_restrict,
     connection_status,
     is_user_admin,
-    user_admin
+    user_admin,
 )
 from FallenRobot.modules.helper_funcs.extraction import (
     extract_user,
-    extract_user_and_text
+    extract_user_and_text,
 )
 from FallenRobot.modules.helper_funcs.string_handling import extract_time
 from FallenRobot.modules.log_channel import loggable
@@ -45,7 +45,6 @@ def check_user(user_id: int, bot: Bot, chat: Chat) -> Optional[str]:
         return reply
 
     return None
-
 
 
 @connection_status
@@ -93,7 +92,6 @@ def mute(update: Update, context: CallbackContext) -> str:
         message.reply_text("This user is already muted!")
 
     return ""
-
 
 
 @connection_status
@@ -156,7 +154,6 @@ def unmute(update: Update, context: CallbackContext) -> str:
         )
 
     return ""
-
 
 
 @connection_status

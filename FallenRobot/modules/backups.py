@@ -25,7 +25,6 @@ from FallenRobot.modules.helper_funcs.chat_status import user_admin
 from FallenRobot.modules.sql import disable_sql as disabledsql
 
 
-
 @user_admin
 @typing_action
 def import_data(update, context):
@@ -116,7 +115,6 @@ def import_data(update, context):
         else:
             text = "Backup fully restored"
         msg.reply_text(text, parse_mode="markdown")
-
 
 
 @user_admin
@@ -380,7 +378,9 @@ __help__ = """
 """
 
 IMPORT_HANDLER = CommandHandler("import", import_data, run_async=True)
-EXPORT_HANDLER = CommandHandler("export", export_data, pass_chat_data=True, run_async=True)
+EXPORT_HANDLER = CommandHandler(
+    "export", export_data, pass_chat_data=True, run_async=True
+)
 
 dispatcher.add_handler(IMPORT_HANDLER)
 dispatcher.add_handler(EXPORT_HANDLER)

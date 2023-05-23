@@ -9,7 +9,7 @@ from FallenRobot.modules.sql.night_mode_sql import (
     add_nightmode,
     get_all_chat_id,
     is_nightmode_indb,
-    rmnightmode
+    rmnightmode,
 )
 
 

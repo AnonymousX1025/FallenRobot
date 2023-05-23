@@ -2,11 +2,7 @@ from time import sleep
 
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
 from telegram.error import BadRequest, Unauthorized
-from telegram.ext import (
-    CallbackContext,
-    CallbackQueryHandler,
-    CommandHandler
-)
+from telegram.ext import CallbackContext, CallbackQueryHandler, CommandHandler
 
 import FallenRobot.modules.sql.global_bans_sql as gban_sql
 import FallenRobot.modules.sql.users_sql as user_sql
@@ -86,7 +82,6 @@ def get_invalid_gban(update: Update, context: CallbackContext, remove: bool = Fa
         return ungbanned_users
 
 
-
 @dev_plus
 def dbcleanup(update: Update, context: CallbackContext):
     msg = update.effective_message
@@ -105,7 +100,6 @@ def dbcleanup(update: Update, context: CallbackContext):
     update.effective_message.reply_text(
         reply, reply_markup=InlineKeyboardMarkup(buttons)
     )
-
 
 
 def callback_button(update: Update, context: CallbackContext):

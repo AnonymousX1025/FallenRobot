@@ -7,7 +7,6 @@ from FallenRobot import dispatcher
 from FallenRobot.modules.disable import DisableAbleCommandHandler
 
 
-
 def wiki(update: Update, context: CallbackContext):
     msg = (
         update.effective_message.reply_to_message

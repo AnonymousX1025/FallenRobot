@@ -6,6 +6,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
 from FallenRobot import pbot
 
+
 @pbot.on_message(filters.command(["wall", "wallpaper"]))
 async def wall(_, message: Message):
     try:

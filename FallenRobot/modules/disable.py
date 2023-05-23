@@ -20,7 +20,6 @@ FILENAME = __name__.rsplit(".", 1)[-1]
 
 # If module is due to be loaded, then setup all the magical handlers
 if is_module_loaded(FILENAME):
-
     from FallenRobot.modules.helper_funcs.chat_status import (
         connection_status,
         is_user_admin,
@@ -128,7 +127,6 @@ if is_module_loaded(FILENAME):
                 else:
                     return True
 
-    
     @connection_status
     @user_admin
     def disable(update: Update, context: CallbackContext):
@@ -151,7 +149,6 @@ if is_module_loaded(FILENAME):
         else:
             update.effective_message.reply_text("What should I disable?")
 
-    
     @connection_status
     @user_admin
     def disable_module(update: Update, context: CallbackContext):
@@ -204,7 +201,6 @@ if is_module_loaded(FILENAME):
         else:
             update.effective_message.reply_text("What should I disable?")
 
-    
     @connection_status
     @user_admin
     def enable(update: Update, context: CallbackContext):
@@ -225,7 +221,6 @@ if is_module_loaded(FILENAME):
         else:
             update.effective_message.reply_text("What should I enable?")
 
-    
     @connection_status
     @user_admin
     def enable_module(update: Update, context: CallbackContext):
@@ -278,7 +273,6 @@ if is_module_loaded(FILENAME):
         else:
             update.effective_message.reply_text("What should I enable?")
 
-    
     @connection_status
     @user_admin
     def list_cmds(update: Update, context: CallbackContext):
@@ -304,7 +298,6 @@ if is_module_loaded(FILENAME):
             result += " - `{}`\n".format(escape_markdown(cmd))
         return "The following commands are currently restricted:\n{}".format(result)
 
-    
     @connection_status
     def commands(update: Update, context: CallbackContext):
         chat = update.effective_chat
@@ -322,9 +315,13 @@ if is_module_loaded(FILENAME):
         return build_curr_disabled(chat_id)
 
     DISABLE_HANDLER = CommandHandler("disable", disable, run_async=True)
-    DISABLE_MODULE_HANDLER = CommandHandler("disablemodule", disable_module, run_async=True)
+    DISABLE_MODULE_HANDLER = CommandHandler(
+        "disablemodule", disable_module, run_async=True
+    )
     ENABLE_HANDLER = CommandHandler("enable", enable, run_async=True)
-    ENABLE_MODULE_HANDLER = CommandHandler("enablemodule", enable_module, run_async=True)
+    ENABLE_MODULE_HANDLER = CommandHandler(
+        "enablemodule", enable_module, run_async=True
+    )
     COMMANDS_HANDLER = CommandHandler(["cmds", "disabled"], commands, run_async=True)
     TOGGLE_HANDLER = CommandHandler("listcmds", list_cmds, run_async=True)
 

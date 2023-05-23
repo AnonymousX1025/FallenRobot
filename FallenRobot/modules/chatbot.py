@@ -28,7 +28,6 @@ from FallenRobot.modules.helper_funcs.chat_status import user_admin, user_admin_
 from FallenRobot.modules.log_channel import gloggable
 
 
-
 @user_admin_no_reply
 @gloggable
 def fallenrm(update: Update, context: CallbackContext) -> str:
@@ -57,7 +56,6 @@ def fallenrm(update: Update, context: CallbackContext) -> str:
     return ""
 
 
-
 @user_admin_no_reply
 @gloggable
 def fallenadd(update: Update, context: CallbackContext) -> str:
@@ -84,7 +82,6 @@ def fallenadd(update: Update, context: CallbackContext) -> str:
             )
 
     return ""
-
 
 
 @user_admin

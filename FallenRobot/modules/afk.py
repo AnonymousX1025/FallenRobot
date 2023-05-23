@@ -17,7 +17,6 @@ AFK_GROUP = 7
 AFK_REPLY_GROUP = 8
 
 
-
 def afk(update: Update, context: CallbackContext):
     args = update.effective_message.text.split(None, 1)
     user = update.effective_user
@@ -43,7 +42,6 @@ def afk(update: Update, context: CallbackContext):
         update.effective_message.reply_text("{} is now away!{}".format(fname, notice))
     except BadRequest:
         pass
-
 
 
 def no_longer_afk(update: Update, context: CallbackContext):
@@ -73,7 +71,6 @@ def no_longer_afk(update: Update, context: CallbackContext):
             update.effective_message.reply_text(chosen_option.format(firstname))
         except:
             return
-
 
 
 def reply_afk(update: Update, context: CallbackContext):
@@ -151,8 +148,12 @@ AFK_HANDLER = DisableAbleCommandHandler("afk", afk, run_async=True)
 AFK_REGEX_HANDLER = DisableAbleMessageHandler(
     Filters.regex(r"^(?i)brb(.*)$"), afk, friendly="afk", run_async=True
 )
-NO_AFK_HANDLER = MessageHandler(Filters.all & Filters.chat_type.groups, no_longer_afk, run_async=True)
-AFK_REPLY_HANDLER = MessageHandler(Filters.all & Filters.chat_type.groups, reply_afk, run_async=True)
+NO_AFK_HANDLER = MessageHandler(
+    Filters.all & Filters.chat_type.groups, no_longer_afk, run_async=True
+)
+AFK_REPLY_HANDLER = MessageHandler(
+    Filters.all & Filters.chat_type.groups, reply_afk, run_async=True
+)
 
 dispatcher.add_handler(AFK_HANDLER, AFK_GROUP)
 dispatcher.add_handler(AFK_REGEX_HANDLER, AFK_GROUP)

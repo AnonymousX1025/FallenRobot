@@ -22,7 +22,6 @@ from FallenRobot.modules.warns import warn
 BLACKLIST_GROUP = 11
 
 
-
 @user_admin
 @typing_action
 def blacklist(update, context):
@@ -66,7 +65,6 @@ def blacklist(update, context):
             )
             return
         send_message(update.effective_message, text, parse_mode=ParseMode.HTML)
-
 
 
 @user_admin
@@ -119,7 +117,6 @@ def add_blacklist(update, context):
             update.effective_message,
             "Tell me which words you would like to add in blacklist.",
         )
-
 
 
 @user_admin
@@ -196,7 +193,6 @@ def unblacklist(update, context):
             update.effective_message,
             "Tell me which words you would like to remove from blacklist!",
         )
-
 
 
 @loggable
@@ -328,7 +324,6 @@ def findall(p, s):
     while i != -1:
         yield i
         i = s.find(p, i + 1)
-
 
 
 @user_not_admin
@@ -470,7 +465,9 @@ BLACKLIST_HANDLER = DisableAbleCommandHandler(
 )
 ADD_BLACKLIST_HANDLER = CommandHandler("addblacklist", add_blacklist, run_async=True)
 UNBLACKLIST_HANDLER = CommandHandler("unblacklist", unblacklist, run_async=True)
-BLACKLISTMODE_HANDLER = CommandHandler("blacklistmode", blacklist_mode, pass_args=True, run_async=True)
+BLACKLISTMODE_HANDLER = CommandHandler(
+    "blacklistmode", blacklist_mode, pass_args=True, run_async=True
+)
 BLACKLIST_DEL_HANDLER = MessageHandler(
     (Filters.text | Filters.command | Filters.sticker | Filters.photo)
     & Filters.chat_type.groups,

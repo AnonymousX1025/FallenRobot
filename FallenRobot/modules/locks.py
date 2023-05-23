@@ -131,7 +131,6 @@ def unrestr_members(
             pass
 
 
-
 def locktypes(update, context):
     update.effective_message.reply_text(
         "\n • ".join(
@@ -139,7 +138,6 @@ def locktypes(update, context):
             + sorted(list(LOCK_TYPES) + list(LOCK_CHAT_RESTRICTION))
         )
     )
-
 
 
 @user_admin
@@ -249,7 +247,6 @@ def lock(update, context) -> str:
     return ""
 
 
-
 @user_admin
 @loggable
 @typing_action
@@ -353,7 +350,6 @@ def unlock(update, context) -> str:
             send_message(update.effective_message, "What are you trying to unlock...?")
 
     return ""
-
 
 
 @user_not_admin
@@ -495,7 +491,6 @@ def build_lock_message(chat_id):
     return res
 
 
-
 @user_admin
 @typing_action
 def list_locks(update, context):
@@ -589,11 +584,14 @@ __mod_name__ = "Lᴏᴄᴋs"
 
 LOCKTYPES_HANDLER = DisableAbleCommandHandler("locktypes", locktypes, run_async=True)
 LOCK_HANDLER = CommandHandler(
-    "lock", lock, pass_args=True, run_async=True) # , filters=Filters.chat_type.groups)
+    "lock", lock, pass_args=True, run_async=True
+)  # , filters=Filters.chat_type.groups)
 UNLOCK_HANDLER = CommandHandler(
-    "unlock", unlock, pass_args=True, run_async=True) # , filters=Filters.chat_type.groups)
+    "unlock", unlock, pass_args=True, run_async=True
+)  # , filters=Filters.chat_type.groups)
 LOCKED_HANDLER = CommandHandler(
-    "locks", list_locks, run_async=True)  # , filters=Filters.chat_type.groups)
+    "locks", list_locks, run_async=True
+)  # , filters=Filters.chat_type.groups)
 
 dispatcher.add_handler(LOCK_HANDLER)
 dispatcher.add_handler(UNLOCK_HANDLER)
@@ -601,5 +599,8 @@ dispatcher.add_handler(LOCKTYPES_HANDLER)
 dispatcher.add_handler(LOCKED_HANDLER)
 
 dispatcher.add_handler(
-    MessageHandler(Filters.all & Filters.chat_type.groups, del_lockables, run_async=True), PERM_GROUP
+    MessageHandler(
+        Filters.all & Filters.chat_type.groups, del_lockables, run_async=True
+    ),
+    PERM_GROUP,
 )

@@ -1,7 +1,8 @@
 import html
+
 from telegram import ParseMode, Update
 from telegram.error import BadRequest
-from telegram.ext import CallbackContext, CommandHandler, run_async
+from telegram.ext import CallbackContext, CommandHandler
 from telegram.utils.helpers import mention_html
 
 import FallenRobot.modules.sql.blacklistusers_sql as sql
@@ -15,7 +16,6 @@ from FallenRobot.modules.log_channel import gloggable
 
 BLACKLISTWHITELIST = [OWNER_ID] + DEV_USERS + DRAGONS + WOLVES + DEMONS
 BLABLEUSERS = [OWNER_ID] + DEV_USERS
-
 
 
 @dev_plus
@@ -60,7 +60,6 @@ def bl_user(update: Update, context: CallbackContext) -> str:
     return log_message
 
 
-
 @dev_plus
 @gloggable
 def unbl_user(update: Update, context: CallbackContext) -> str:
@@ -100,7 +99,6 @@ def unbl_user(update: Update, context: CallbackContext) -> str:
     else:
         message.reply_text("I am not ignoring them at all though!")
         return ""
-
 
 
 @dev_plus

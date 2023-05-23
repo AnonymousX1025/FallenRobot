@@ -22,7 +22,6 @@ from FallenRobot.modules.disable import DisableAbleCommandHandler
 combot_stickers_url = "https://combot.org/telegram/stickers?q="
 
 
-
 def stickerid(update: Update, context: CallbackContext):
     msg = update.effective_message
     if msg.reply_to_message and msg.reply_to_message.sticker:
@@ -41,7 +40,6 @@ def stickerid(update: Update, context: CallbackContext):
             + ", Please reply to sticker message to get id sticker",
             parse_mode=ParseMode.HTML,
         )
-
 
 
 def cb_sticker(update: Update, context: CallbackContext):
@@ -78,7 +76,6 @@ def getsticker(update: Update, context: CallbackContext):
         update.effective_message.reply_text(
             "Please reply to a sticker for me to upload its PNG."
         )
-
 
 
 def kang(update: Update, context: CallbackContext):

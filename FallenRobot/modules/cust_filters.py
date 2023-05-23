@@ -10,7 +10,7 @@ from telegram.ext import (
     CommandHandler,
     DispatcherHandlerStop,
     Filters,
-    MessageHandler
+    MessageHandler,
 )
 from telegram.utils.helpers import escape_markdown, mention_html
 
@@ -45,7 +45,6 @@ ENUM_FUNC_MAP = {
     sql.Types.VIDEO.value: dispatcher.bot.send_video,
     # sql.Types.VIDEO_NOTE.value: dispatcher.bot.send_video_note
 }
-
 
 
 @typing_action
@@ -264,7 +263,6 @@ def stop_filter(update, context):
         update.effective_message,
         "That's not a filter - Click: /filters to get currently active filters.",
     )
-
 
 
 def reply_filter(update, context):
@@ -493,7 +491,6 @@ def reply_filter(update, context):
                 break
 
 
-
 def rmall_filters(update, context):
     chat = update.effective_chat
     user = update.effective_user
@@ -518,7 +515,6 @@ def rmall_filters(update, context):
             reply_markup=buttons,
             parse_mode=ParseMode.MARKDOWN,
         )
-
 
 
 def rmall_callback(update, context):
@@ -637,11 +633,19 @@ __mod_name__ = "Fɪʟᴛᴇʀs"
 FILTER_HANDLER = CommandHandler("filter", filters, run_async=True)
 STOP_HANDLER = CommandHandler("stop", stop_filter, run_async=True)
 RMALLFILTER_HANDLER = CommandHandler(
-    "removeallfilters", rmall_filters, filters=Filters.chat_type.groups, run_async=True)
-RMALLFILTER_CALLBACK = CallbackQueryHandler(rmall_callback, pattern=r"filters_.*", run_async=True)
-LIST_HANDLER = DisableAbleCommandHandler("filters", list_handlers, admin_ok=True, run_async=True)
+    "removeallfilters", rmall_filters, filters=Filters.chat_type.groups, run_async=True
+)
+RMALLFILTER_CALLBACK = CallbackQueryHandler(
+    rmall_callback, pattern=r"filters_.*", run_async=True
+)
+LIST_HANDLER = DisableAbleCommandHandler(
+    "filters", list_handlers, admin_ok=True, run_async=True
+)
 CUST_FILTER_HANDLER = MessageHandler(
-    CustomFilters.has_text & ~Filters.update.edited_message, reply_filter, run_async=True)
+    CustomFilters.has_text & ~Filters.update.edited_message,
+    reply_filter,
+    run_async=True,
+)
 
 dispatcher.add_handler(FILTER_HANDLER)
 dispatcher.add_handler(STOP_HANDLER)
