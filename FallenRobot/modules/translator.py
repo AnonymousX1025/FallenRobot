@@ -13,7 +13,7 @@ def totranslate(update: Update, context: CallbackContext) -> None:
     reply_msg = message.reply_to_message
     if not reply_msg:
         message.reply_text(
-            "Reply to messages or write messages from other languages ​​for translating into the intended language\n\n"
+            "Reply to messages or write messages from other languages for translating into the intended language\n\n"
             "Example: `/tr en-hi` to translate from English to Hindi\n"
             "Or use: `/tr en` for automatic detection and translating it into english.\n"
             "Click here to see [List of available Language Codes](https://te.legra.ph/LANGUAGE-CODES-05-23-2).",
@@ -46,14 +46,12 @@ def totranslate(update: Update, context: CallbackContext) -> None:
 
 
 __help__ = """
- ❍ /tr or /tl (ʟᴀɴɢᴜᴀɢᴇ ᴄᴏᴅᴇ) ᴀs ʀᴇᴘʟʏ ᴛᴏ ᴀ ʟᴏɴɢ ᴍᴇssᴀɢᴇ
- 
-*ᴇxᴀᴍᴘʟᴇ:* 
- ❍ /tr en*:* ᴛʀᴀɴsʟᴀᴛᴇs sᴏᴍᴇᴛʜɪɴɢ ᴛᴏ ᴇɴɢʟɪsʜ
- ❍ /tr hi-en*:* ᴛʀᴀɴsʟᴀᴛᴇs ʜɪɴᴅɪ ᴛᴏ ᴇɴɢʟɪsʜ
+ ❍ /tr or /tl (language code) as reply to a long message
+*Example:* 
+ ❍ /tr en*:* translates something to english
+ ❍ /tr hi-en*:* translates hindi to english
 
 [ʟᴀɴɢᴜᴀɢᴇ ᴄᴏᴅᴇs](https://te.legra.ph/LANGUAGE-CODES-05-23-2)
-
 """
 __mod_name__ = "Tʀᴀɴsʟᴀᴛᴏʀ"
 
