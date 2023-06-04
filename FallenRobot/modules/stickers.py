@@ -422,12 +422,12 @@ def makepack_internal(
             )
         elif e.message in ("Peer_id_invalid", "bot was blocked by the user"):
             msg.reply_text(
-                "ᴄᴏɴᴛᴀᴄᴛ ᴍᴇ ɪɴ ᴘᴍ ғɪʀsᴛ.",
+                "Contact me in PM first.",
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
                             InlineKeyboardButton(
-                                text="sᴛᴀʀᴛ", url=f"t.me/{context.bot.username}"
+                                text="Start", url=f"t.me/{context.bot.username}"
                             )
                         ]
                     ]
