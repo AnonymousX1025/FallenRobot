@@ -264,9 +264,9 @@ __help__ = """
  ❍ /report <reason>*:* reply to a message to report it to admins.
  ❍ @admin*:* reply to a message to report it to admins.
  
-*ɴᴏᴛᴇ:* Neither of these will get triggered if used by admins.
+*Note :* Neither of these will get triggered if used by admins.
 
-*ᴀᴅᴍɪɴs ᴏɴʟʏ:*
+*Admins only:*
  ❍ /reports <on/off>*:* change report setting, or view current status.
    • If done in pm, toggles your status.
    • If in group, toggles that groups's status.
@@ -288,7 +288,7 @@ dispatcher.add_handler(SETTING_HANDLER)
 dispatcher.add_handler(REPORT_HANDLER, REPORT_GROUP)
 dispatcher.add_handler(ADMIN_REPORT_HANDLER, REPORT_GROUP)
 
-__mod_name__ = "Rᴇᴘᴏʀᴛs​"
+__mod_name__ = "Rᴇᴘᴏʀᴛs"
 __handlers__ = [
     (REPORT_HANDLER, REPORT_GROUP),
     (ADMIN_REPORT_HANDLER, REPORT_GROUP),
