@@ -61,12 +61,12 @@ def markdown_help_sender(update: Update):
 def markdown_help(update: Update, context: CallbackContext):
     if update.effective_chat.type != "private":
         update.effective_message.reply_text(
-            "ᴄᴏɴᴛᴀᴄᴛ ᴍᴇ ɪɴ ᴘᴍ",
+            "Contact me in pm",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            "ᴍᴀʀᴋᴅᴏᴡɴ ʜᴇʟᴘ",
+                            "Markdown help",
                             url=f"t.me/{context.bot.username}?start=markdownhelp",
                         )
                     ]
@@ -78,13 +78,14 @@ def markdown_help(update: Update, context: CallbackContext):
 
 
 __help__ = """
-*ᴀᴠᴀɪʟᴀʙʟᴇ ᴄᴏᴍᴍᴀɴᴅs:*
+*Available commands:*
+*Markdown:*
  ❍ /markdownhelp*:* quick summary of how markdown works in telegram - can only be called in private chats
-*ʀᴇᴀᴄᴛ:*
+*React:*
  ❍ /react*:* Reacts with a random reaction 
-*ᴜʀʙᴀɴ ᴅɪᴄᴛᴏɴᴀʀʏ:*
+*Urban Dictonary:*
  ❍ /ud <word>*:* Type the word or expression you want to search use
-*ᴡɪᴋɪᴘᴇᴅɪᴀ:*
+*Wikipedia:*
  ❍ /wiki <query>*:* wikipedia your query
 """
 
