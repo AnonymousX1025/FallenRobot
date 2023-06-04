@@ -35,9 +35,9 @@ Successfully Written Text 💘
 
 
 __help__ = """
- ᴡʀɪᴛᴇs ᴛʜᴇ ɢɪᴠᴇɴ ᴛᴇxᴛ ᴏɴ ᴡʜɪᴛᴇ ᴘᴀɢᴇ ᴡɪᴛʜ ᴀ ᴘᴇɴ 🖊
+ Writes the given text on white page with a pen 🖊
 
-❍ /write <text> *:* ᴡʀɪᴛᴇs ᴛʜᴇ ɢɪᴠᴇɴ ᴛᴇxᴛ.
+❍ /write <text> *:*Writes the given text.
 """
 
 WRITE_HANDLER = DisableAbleCommandHandler("write", handwrite, run_async=True)
