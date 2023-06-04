@@ -51,7 +51,7 @@ async def paste_func(_, message):
     link = await paste(content)
     preview = link + "/preview.png"
     button = InlineKeyboard(row_width=1)
-    button.add(InlineKeyboardButton(text="ᴘᴀsᴛᴇ ʟɪɴᴋ ✨", url=link))
+    button.add(InlineKeyboardButton(text="ᴘᴀsᴛᴇ ʟɪɴᴋ", url=link))
 
     if await isPreviewUp(preview):
         try:
@@ -62,9 +62,9 @@ async def paste_func(_, message):
     return await m.edit(link)
 
 
-__mod_name__ = "Pᴀsᴛᴇ​"
+__mod_name__ = "Pᴀsᴛᴇ"
 __help__ = """
- ᴘᴀsᴛᴇs ᴛʜᴇ ɢɪᴠᴇɴ ғɪʟᴇ ᴀɴᴅ sʜᴏᴡs ʏᴏᴜ ᴛʜᴇ ʀᴇsᴜʟᴛ
+Pastes the given file and shows you the result
 
- ❍ /paste *:* ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴛᴇxᴛ ғɪʟᴇ
+ ❍ /paste *:* Reply to a text file
  """
