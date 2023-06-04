@@ -190,18 +190,18 @@ if is_module_loaded(FILENAME):
         return "No log channel is set for this group!"
 
     __help__ = """
-*ᴀᴅᴍɪɴs ᴏɴʟʏ:*
+*Admins only:*
  ❍ /logchannel*:* get log channel info
  ❍ /setlog*:* set the log channel.
  ❍ /unsetlog*:* unset the log channel.
 
-sᴇᴛᴛɪɴɢ ᴛʜᴇ ʟᴏɢ ᴄʜᴀɴɴᴇʟ ɪs ᴅᴏɴᴇ ʙʏ:
-❍ adding the bot to the desired channel (ᴀs ᴀɴ ᴀᴅᴍɪɴ !)
+Setting the log channel is done by:
+❍ adding the bot to the desired channel (as an admin!)
 ❍ sending /setlog in the channel
 ❍ forwarding the /setlog to the group
 """
 
-    __mod_name__ = "Lᴏɢs​"
+    __mod_name__ = "Lᴏɢs"
 
     LOG_HANDLER = CommandHandler("logchannel", logging, run_async=True)
     SET_LOG_HANDLER = CommandHandler("setlog", setlog, run_async=True)
