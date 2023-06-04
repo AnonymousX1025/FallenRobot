@@ -57,6 +57,6 @@ WIKI_HANDLER = DisableAbleCommandHandler("wiki", wiki, run_async=True)
 dispatcher.add_handler(WIKI_HANDLER)
 
 __help__ = """
-» /wiki <ᴛᴇxᴛ> *:* sᴇᴀʀᴄʜs ᴀʙᴏᴜᴛ ᴛʜᴇ ɢɪᴠᴇɴ ᴛᴇxᴛ ᴏɴ ᴡɪᴋɪᴘᴇᴅɪᴀ.
+» /wiki (text) *:* Searchs about the given text on wikipedia.
 """
-__mod_name__ = "Wɪᴋɪ​"
+__mod_name__ = "Wɪᴋɪ"
