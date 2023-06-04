@@ -15,7 +15,7 @@ def ud(update: Update, context: CallbackContext):
     try:
         reply_text = f'*{text}*\n\n{results["list"][0]["definition"]}\n\n_{results["list"][0]["example"]}_'
     except:
-        reply_text = "ɴᴏ ʀᴇsᴜʟᴛs ғᴏᴜɴᴅ ."
+        reply_text = "No results found."
     message.reply_text(reply_text, parse_mode=ParseMode.MARKDOWN)
 
 
@@ -24,7 +24,7 @@ UD_HANDLER = DisableAbleCommandHandler(["ud"], ud, run_async=True)
 dispatcher.add_handler(UD_HANDLER)
 
 __help__ = """
-» /ud <ᴛᴇxᴛ> *:* sᴇᴀʀᴄʜs ᴛʜᴇ ɢɪᴠᴇɴ ᴛᴇxᴛ ᴏɴ ᴜʀʙᴀɴ ᴅɪᴄᴛɪᴏɴᴀʀʏ ᴀɴᴅ sᴇɴᴅs ʏᴏᴜ ᴛʜᴇ ɪɴғᴏʀᴍᴀᴛɪᴏɴ.
+» /ud (text) *:* Searchs the given text on Urban Dictionary and sends you the information.
 """
 __mod_name__ = "Uʀʙᴀɴ D"
 
