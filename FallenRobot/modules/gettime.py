@@ -3,7 +3,7 @@ from typing import List
 
 import requests
 from telegram import ParseMode, Update
-from telegram.ext import CallbackContext, run_async
+from telegram.ext import CallbackContext
 
 from FallenRobot import TIME_API_KEY, dispatcher
 from FallenRobot.modules.disable import DisableAbleCommandHandler
@@ -59,7 +59,6 @@ def generate_time(to_find: str, findtype: List[str]) -> str:
     return result
 
 
-@run_async
 def gettime(update: Update, context: CallbackContext):
     message = update.effective_message
 
@@ -95,12 +94,13 @@ def gettime(update: Update, context: CallbackContext):
 __help__ = """
  ❍ /time <query>*:* Gives information about a timezone.
 *Available queries:* Country Code/Country Name/Timezone Name
- ❍ ⏰ [Timezones list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
+
+ ❍ ⏰ [ᴛɪᴍᴇᴢᴏɴᴇs ʟɪsᴛ](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
 
 💡 Ex:- /time IN *:* It will shows Indian current time and date..
 """
 
-TIME_HANDLER = DisableAbleCommandHandler("time", gettime)
+TIME_HANDLER = DisableAbleCommandHandler("time", gettime, run_async=True)
 
 dispatcher.add_handler(TIME_HANDLER)
 

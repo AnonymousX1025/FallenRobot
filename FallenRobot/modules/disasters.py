@@ -4,7 +4,7 @@ import os
 from typing import Optional
 
 from telegram import ParseMode, TelegramError, Update
-from telegram.ext import CallbackContext, CommandHandler, run_async
+from telegram.ext import CallbackContext, CommandHandler
 from telegram.utils.helpers import mention_html
 
 from FallenRobot import (
@@ -41,7 +41,6 @@ def check_user_id(user_id: int, context: CallbackContext) -> Optional[str]:
     return reply
 
 
-@run_async
 @dev_plus
 @gloggable
 def addsudo(update: Update, context: CallbackContext) -> str:
@@ -100,7 +99,6 @@ def addsudo(update: Update, context: CallbackContext) -> str:
     return log_message
 
 
-@run_async
 @sudo_plus
 @gloggable
 def addsupport(
@@ -159,7 +157,6 @@ def addsupport(
     return log_message
 
 
-@run_async
 @sudo_plus
 @gloggable
 def addwhitelist(update: Update, context: CallbackContext) -> str:
@@ -215,7 +212,6 @@ def addwhitelist(update: Update, context: CallbackContext) -> str:
     return log_message
 
 
-@run_async
 @sudo_plus
 @gloggable
 def addtiger(update: Update, context: CallbackContext) -> str:
@@ -276,7 +272,6 @@ def addtiger(update: Update, context: CallbackContext) -> str:
     return log_message
 
 
-@run_async
 @dev_plus
 @gloggable
 def removesudo(update: Update, context: CallbackContext) -> str:
@@ -319,7 +314,6 @@ def removesudo(update: Update, context: CallbackContext) -> str:
         return ""
 
 
-@run_async
 @sudo_plus
 @gloggable
 def removesupport(update: Update, context: CallbackContext) -> str:
@@ -362,7 +356,6 @@ def removesupport(update: Update, context: CallbackContext) -> str:
         return ""
 
 
-@run_async
 @sudo_plus
 @gloggable
 def removewhitelist(update: Update, context: CallbackContext) -> str:
@@ -404,7 +397,6 @@ def removewhitelist(update: Update, context: CallbackContext) -> str:
         return ""
 
 
-@run_async
 @sudo_plus
 @gloggable
 def removetiger(update: Update, context: CallbackContext) -> str:
@@ -446,7 +438,6 @@ def removetiger(update: Update, context: CallbackContext) -> str:
         return ""
 
 
-@run_async
 @whitelist_plus
 def whitelistlist(update: Update, context: CallbackContext):
     reply = "<b>Known Wolf Disasters 🐺:</b>\n"
@@ -465,7 +456,6 @@ def whitelistlist(update: Update, context: CallbackContext):
     m.edit_text(reply, parse_mode=ParseMode.HTML)
 
 
-@run_async
 @whitelist_plus
 def tigerlist(update: Update, context: CallbackContext):
     reply = "<b>Known Tiger Disasters 🐯:</b>\n"
@@ -483,7 +473,6 @@ def tigerlist(update: Update, context: CallbackContext):
     m.edit_text(reply, parse_mode=ParseMode.HTML)
 
 
-@run_async
 @whitelist_plus
 def supportlist(update: Update, context: CallbackContext):
     bot = context.bot
@@ -501,7 +490,6 @@ def supportlist(update: Update, context: CallbackContext):
     m.edit_text(reply, parse_mode=ParseMode.HTML)
 
 
-@run_async
 @whitelist_plus
 def sudolist(update: Update, context: CallbackContext):
     bot = context.bot
@@ -520,7 +508,6 @@ def sudolist(update: Update, context: CallbackContext):
     m.edit_text(reply, parse_mode=ParseMode.HTML)
 
 
-@run_async
 @whitelist_plus
 def devlist(update: Update, context: CallbackContext):
     bot = context.bot
@@ -542,7 +529,7 @@ def devlist(update: Update, context: CallbackContext):
 __help__ = f"""
 *⚠️ Notice:*
 Commands listed here only work for users with special access are mainly used for troubleshooting, debugging purposes.
-Group admins/group owners do not need these commands. 
+Group admins/group owners do not need these commands.
 
 *List all special users:*
  ❍ /sudolist*:* Lists all Dragon disasters
@@ -555,9 +542,6 @@ Group admins/group owners do not need these commands.
  ❍ /addtiger*:* Adds a user to Tiger
  ❍ /addwolf*:* Adds a user to Wolf
  ❍ `Add dev doesnt exist, devs should know how to add themselves`
-
-*Ping:*
- ❍ /ping*:* gets ping time of bot to telegram server
 
 *Broadcast: (Bot owner only)*
 *Note:* This supports basic markdown
@@ -596,9 +580,6 @@ Group admins/group owners do not need these commands.
 *Windows self hosted only:*
  ❍ /reboot*:* Restarts the bots service
  ❍ /gitpull*:* Pulls the repo and then restarts the bots service
-
-*Chatbot:* 
- ❍ /listaichats*:* Lists the chats the chatmode is enabled in
  
 *Debugging and Shell:* 
  ❍ /debug <on/off>*:* Logs commands to updates.txt
@@ -631,20 +612,27 @@ Group admins/group owners do not need these commands.
 Visit @{SUPPORT_CHAT} for more information.
 """
 
-SUDO_HANDLER = CommandHandler("addsudo", addsudo)
-SUPPORT_HANDLER = CommandHandler(("addsupport", "adddemon"), addsupport)
-TIGER_HANDLER = CommandHandler(("addtiger"), addtiger)
-WHITELIST_HANDLER = CommandHandler(("addwhitelist", "addwolf"), addwhitelist)
-UNSUDO_HANDLER = CommandHandler(("removesudo", "rmsudo"), removesudo)
-UNSUPPORT_HANDLER = CommandHandler(("removesupport", "removedemon"), removesupport)
-UNTIGER_HANDLER = CommandHandler(("removetiger"), removetiger)
-UNWHITELIST_HANDLER = CommandHandler(("removewhitelist", "removewolf"), removewhitelist)
-
-WHITELISTLIST_HANDLER = CommandHandler(["whitelistlist", "wolves"], whitelistlist)
-TIGERLIST_HANDLER = CommandHandler(["tigers"], tigerlist)
-SUPPORTLIST_HANDLER = CommandHandler("supportlist", supportlist)
-SUDOLIST_HANDLER = CommandHandler("sudolist", sudolist)
-DEVLIST_HANDLER = CommandHandler("devlist", devlist)
+SUDO_HANDLER = CommandHandler("addsudo", addsudo, run_async=True)
+SUPPORT_HANDLER = CommandHandler(("addsupport", "adddemon"), addsupport, run_async=True)
+TIGER_HANDLER = CommandHandler(("addtiger"), addtiger, run_async=True)
+WHITELIST_HANDLER = CommandHandler(
+    ("addwhitelist", "addwolf"), addwhitelist, run_async=True
+)
+UNSUDO_HANDLER = CommandHandler(("removesudo", "rmsudo"), removesudo, run_async=True)
+UNSUPPORT_HANDLER = CommandHandler(
+    ("removesupport", "removedemon"), removesupport, run_async=True
+)
+UNTIGER_HANDLER = CommandHandler(("removetiger"), removetiger, run_async=True)
+UNWHITELIST_HANDLER = CommandHandler(
+    ("removewhitelist", "removewolf"), removewhitelist, run_async=True
+)
+WHITELISTLIST_HANDLER = CommandHandler(
+    ["whitelistlist", "wolves"], whitelistlist, run_async=True
+)
+TIGERLIST_HANDLER = CommandHandler(["tigers"], tigerlist, run_async=True)
+SUPPORTLIST_HANDLER = CommandHandler("supportlist", supportlist, run_async=True)
+SUDOLIST_HANDLER = CommandHandler("sudolist", sudolist, run_async=True)
+DEVLIST_HANDLER = CommandHandler("devlist", devlist, run_async=True)
 
 dispatcher.add_handler(SUDO_HANDLER)
 dispatcher.add_handler(SUPPORT_HANDLER)
@@ -654,14 +642,13 @@ dispatcher.add_handler(UNSUDO_HANDLER)
 dispatcher.add_handler(UNSUPPORT_HANDLER)
 dispatcher.add_handler(UNTIGER_HANDLER)
 dispatcher.add_handler(UNWHITELIST_HANDLER)
-
 dispatcher.add_handler(WHITELISTLIST_HANDLER)
 dispatcher.add_handler(TIGERLIST_HANDLER)
 dispatcher.add_handler(SUPPORTLIST_HANDLER)
 dispatcher.add_handler(SUDOLIST_HANDLER)
 dispatcher.add_handler(DEVLIST_HANDLER)
 
-__mod_name__ = "Devs"
+__mod_name__ = "Dᴇᴠs"
 __handlers__ = [
     SUDO_HANDLER,
     SUPPORT_HANDLER,

@@ -1,6 +1,6 @@
 import speedtest
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
-from telegram.ext import CallbackContext, CallbackQueryHandler, run_async
+from telegram.ext import CallbackContext, CallbackQueryHandler
 
 from FallenRobot import DEV_USERS, dispatcher
 from FallenRobot.modules.disable import DisableAbleCommandHandler
@@ -12,7 +12,6 @@ def convert(speed):
 
 
 @dev_plus
-@run_async
 def speedtestxyz(update: Update, context: CallbackContext):
     buttons = [
         [
@@ -25,7 +24,6 @@ def speedtestxyz(update: Update, context: CallbackContext):
     )
 
 
-@run_async
 def speedtestxyz_callback(update: Update, context: CallbackContext):
     query = update.callback_query
 
@@ -52,9 +50,11 @@ def speedtestxyz_callback(update: Update, context: CallbackContext):
         return
 
 
-SPEED_TEST_HANDLER = DisableAbleCommandHandler("speedtest", speedtestxyz)
+SPEED_TEST_HANDLER = DisableAbleCommandHandler(
+    "speedtest", speedtestxyz, run_async=True
+)
 SPEED_TEST_CALLBACKHANDLER = CallbackQueryHandler(
-    speedtestxyz_callback, pattern="speedtest_.*"
+    speedtestxyz_callback, pattern="speedtest_.*", run_async=True
 )
 
 dispatcher.add_handler(SPEED_TEST_HANDLER)
@@ -64,6 +64,7 @@ __help__ = """
 » /speedtest *:* Runs a speedtest and check the server speed.
 """
 
-__mod_name__ = "SᴘᴇᴇᴅTᴇsᴛ​"
+__mod_name__ = "SᴘᴇᴇᴅTᴇsᴛ"
+
 __command_list__ = ["speedtest"]
 __handlers__ = [SPEED_TEST_HANDLER, SPEED_TEST_CALLBACKHANDLER]

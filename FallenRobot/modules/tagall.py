@@ -94,12 +94,12 @@ async def cancel_spam(event):
             spam_chats.remove(event.chat_id)
         except:
             pass
-        return await event.respond("__Stopped Mention.__")
+        return await event.respond("__Stopped mention.__")
 
 
 __mod_name__ = "Tᴀɢ Aʟʟ"
 __help__ = """
-──「 Only for Admins 」──
+*Only for admins*
 
 ❍ /tagall or @all '(reply to message or add another message) To mention all members in your group, without exception.'
 """

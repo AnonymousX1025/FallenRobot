@@ -1,13 +1,12 @@
 import wikipedia
 from telegram import ParseMode, Update
-from telegram.ext import CallbackContext, run_async
+from telegram.ext import CallbackContext
 from wikipedia.exceptions import DisambiguationError, PageError
 
 from FallenRobot import dispatcher
 from FallenRobot.modules.disable import DisableAbleCommandHandler
 
 
-@run_async
 def wiki(update: Update, context: CallbackContext):
     msg = (
         update.effective_message.reply_to_message
@@ -53,10 +52,11 @@ def wiki(update: Update, context: CallbackContext):
             )
 
 
-WIKI_HANDLER = DisableAbleCommandHandler("wiki", wiki)
+WIKI_HANDLER = DisableAbleCommandHandler("wiki", wiki, run_async=True)
+
 dispatcher.add_handler(WIKI_HANDLER)
 
 __help__ = """
 » /wiki (text) *:* Searchs about the given text on wikipedia.
 """
-__mod_name__ = "Wɪᴋɪ​"
+__mod_name__ = "Wɪᴋɪ"

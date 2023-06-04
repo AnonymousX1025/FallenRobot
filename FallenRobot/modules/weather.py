@@ -25,11 +25,9 @@ async def _(event):
         return
 
     sample_url = "https://wttr.in/{}.png"
-    # logger.info(sample_url)
     input_str = event.pattern_match.group(1)
     async with aiohttp.ClientSession() as session:
         response_api_zero = await session.get(sample_url.format(input_str))
-        # logger.info(response_api_zero)
         response_api = await response_api_zero.read()
         with io.BytesIO(response_api) as out_file:
             await event.reply(file=out_file)
@@ -38,7 +36,7 @@ async def _(event):
 __help__ = """
 I can find weather of all cities
 
- ❍ /weather <city>*:* Advanced weather module, usage same as /weather
+❍ /weather <city>*:* Advanced weather module, usage same as /weather
  ❍ /weather moon*:* Get the current status of moon
 """
 

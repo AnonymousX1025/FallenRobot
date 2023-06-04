@@ -1,11 +1,10 @@
 import requests
 from telegram import ParseMode, Update
-from telegram.ext import CallbackContext, CommandHandler, run_async
+from telegram.ext import CallbackContext, CommandHandler
 
 from FallenRobot import CASH_API_KEY, dispatcher
 
 
-@run_async
 def convert(update: Update, context: CallbackContext):
     args = update.effective_message.text.split(" ")
 
@@ -51,9 +50,15 @@ def convert(update: Update, context: CallbackContext):
         )
 
 
-CONVERTER_HANDLER = CommandHandler("cash", convert)
+__help__ = """
+Converts money from one exchange to another
 
+Usage: /cash amount from to
+Example: /cash 20 USD INR
+"""
+
+CONVERTER_HANDLER = CommandHandler("cash", convert, run_async=True)
 dispatcher.add_handler(CONVERTER_HANDLER)
-
 __command_list__ = ["cash"]
+
 __handlers__ = [CONVERTER_HANDLER]

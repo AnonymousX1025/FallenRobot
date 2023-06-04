@@ -6,6 +6,8 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
 from FallenRobot import pbot
 
+##TO-DO
+
 
 @pbot.on_message(filters.command(["wall", "wallpaper"]))
 async def wall(_, message: Message):
@@ -31,5 +33,5 @@ async def wall(_, message: Message):
         await m.delete()
     except Exception as e:
         await m.edit_text(
-            f"`Wallpaper not found for : `{text}`",
+            f"`ᴡᴀʟʟᴘᴀᴘᴇʀ ɴᴏᴛ ғᴏᴜɴᴅ ғᴏʀ : `{text}`",
         )

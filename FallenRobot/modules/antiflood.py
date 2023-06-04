@@ -9,7 +9,6 @@ from telegram.ext import (
     CommandHandler,
     Filters,
     MessageHandler,
-    run_async,
 )
 from telegram.utils.helpers import mention_html
 
@@ -30,7 +29,6 @@ from FallenRobot.modules.sql.approve_sql import is_approved
 FLOOD_GROUP = 3
 
 
-@run_async
 @loggable
 def check_flood(update, context) -> str:
     user = update.effective_user  # type: Optional[User]
@@ -54,11 +52,11 @@ def check_flood(update, context) -> str:
     try:
         getmode, getvalue = sql.get_flood_setting(chat.id)
         if getmode == 1:
-            chat.kick_member(user.id)
+            chat.ban_member(user.id)
             execstrings = "Banned"
             tag = "BANNED"
         elif getmode == 2:
-            chat.kick_member(user.id)
+            chat.ban_member(user.id)
             chat.unban_member(user.id)
             execstrings = "Kicked"
             tag = "KICKED"
@@ -112,7 +110,6 @@ def check_flood(update, context) -> str:
         )
 
 
-@run_async
 @user_admin_no_reply
 @bot_admin
 def flood_button(update: Update, context: CallbackContext):
@@ -142,7 +139,6 @@ def flood_button(update: Update, context: CallbackContext):
             pass
 
 
-@run_async
 @user_admin
 @loggable
 def set_flood(update, context) -> str:
@@ -238,7 +234,6 @@ def set_flood(update, context) -> str:
     return ""
 
 
-@run_async
 def flood(update, context):
     chat = update.effective_chat  # type: Optional[Chat]
     user = update.effective_user  # type: Optional[User]
@@ -281,7 +276,6 @@ def flood(update, context):
             )
 
 
-@run_async
 @user_admin
 def set_flood_mode(update, context):
     chat = update.effective_chat  # type: Optional[Chat]
@@ -421,14 +415,22 @@ will result in restricting that user.
 __mod_name__ = "Aɴᴛɪ-Fʟᴏᴏᴅ"
 
 FLOOD_BAN_HANDLER = MessageHandler(
-    Filters.all & ~Filters.status_update & Filters.group, check_flood
+    Filters.all & ~Filters.status_update & Filters.chat_type.groups,
+    check_flood,
+    run_async=True,
 )
-SET_FLOOD_HANDLER = CommandHandler("setflood", set_flood, filters=Filters.group)
+SET_FLOOD_HANDLER = CommandHandler(
+    "setflood", set_flood, filters=Filters.chat_type.groups, run_async=True
+)
 SET_FLOOD_MODE_HANDLER = CommandHandler(
-    "setfloodmode", set_flood_mode, pass_args=True
-)  # , filters=Filters.group)
-FLOOD_QUERY_HANDLER = CallbackQueryHandler(flood_button, pattern=r"unmute_flooder")
-FLOOD_HANDLER = CommandHandler("flood", flood, filters=Filters.group)
+    "setfloodmode", set_flood_mode, pass_args=True, run_async=True
+)  # , filters=Filters.chat_type.groups)
+FLOOD_QUERY_HANDLER = CallbackQueryHandler(
+    flood_button, pattern=r"unmute_flooder", run_async=True
+)
+FLOOD_HANDLER = CommandHandler(
+    "flood", flood, filters=Filters.chat_type.groups, run_async=True
+)
 
 dispatcher.add_handler(FLOOD_BAN_HANDLER, FLOOD_GROUP)
 dispatcher.add_handler(FLOOD_QUERY_HANDLER)

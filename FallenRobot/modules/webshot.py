@@ -82,4 +82,4 @@ async def take_ss(_, message: Message):
 __help__ = """
 » /webss *:* Sends the screenshot of the given url.
 """
-__mod_name__ = "Wᴇʙsʜᴏᴛ​​"
+__mod_name__ = "Wᴇʙsʜᴏᴛ"

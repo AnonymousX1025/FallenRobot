@@ -1,13 +1,11 @@
 import requests
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
 from telegram.ext import CallbackContext
-from telegram.ext.dispatcher import run_async
 
 from FallenRobot import BOT_NAME, BOT_USERNAME, dispatcher
 from FallenRobot.modules.disable import DisableAbleCommandHandler
 
 
-@run_async
 def handwrite(update: Update, context: CallbackContext):
     message = update.effective_message
     if message.reply_to_message:
@@ -39,13 +37,13 @@ Successfully Written Text 💘
 __help__ = """
  Writes the given text on white page with a pen 🖊
 
-❍ /write <text> *:* Writes the given text.
+❍ /write <text> *:*Writes the given text.
 """
 
-WRITE_HANDLER = DisableAbleCommandHandler("write", handwrite)
-
+WRITE_HANDLER = DisableAbleCommandHandler("write", handwrite, run_async=True)
 dispatcher.add_handler(WRITE_HANDLER)
 
 __mod_name__ = "WʀɪᴛᴇTᴏᴏʟ"
+
 __command_list__ = ["write"]
 __handlers__ = [WRITE_HANDLER]

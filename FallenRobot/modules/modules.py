@@ -2,7 +2,7 @@ import collections
 import importlib
 
 from telegram import ParseMode, Update
-from telegram.ext import CallbackContext, CommandHandler, run_async
+from telegram.ext import CallbackContext, CommandHandler
 
 from FallenRobot import dispatcher, telethn
 from FallenRobot.__main__ import (
@@ -19,7 +19,6 @@ from FallenRobot.__main__ import (
 from FallenRobot.modules.helper_funcs.chat_status import dev_plus, sudo_plus
 
 
-@run_async
 @dev_plus
 def load(update: Update, context: CallbackContext):
     message = update.effective_message
@@ -89,7 +88,6 @@ def load(update: Update, context: CallbackContext):
     )
 
 
-@run_async
 @dev_plus
 def unload(update: Update, context: CallbackContext):
     message = update.effective_message
@@ -160,7 +158,6 @@ def unload(update: Update, context: CallbackContext):
     )
 
 
-@run_async
 @sudo_plus
 def listmodules(update: Update, context: CallbackContext):
     message = update.effective_message
@@ -176,9 +173,9 @@ def listmodules(update: Update, context: CallbackContext):
     message.reply_text(module_list, parse_mode=ParseMode.HTML)
 
 
-LOAD_HANDLER = CommandHandler("load", load)
-UNLOAD_HANDLER = CommandHandler("unload", unload)
-LISTMODULES_HANDLER = CommandHandler("listmodules", listmodules)
+LOAD_HANDLER = CommandHandler("load", load, run_async=True)
+UNLOAD_HANDLER = CommandHandler("unload", unload, run_async=True)
+LISTMODULES_HANDLER = CommandHandler("listmodules", listmodules, run_async=True)
 
 dispatcher.add_handler(LOAD_HANDLER)
 dispatcher.add_handler(UNLOAD_HANDLER)

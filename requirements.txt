@@ -1,6 +1,6 @@
 aiofiles==23.1.0
 aiohttp==3.8.4
-apscheduler==3.10.1
+apscheduler==3.6.3
 asyncio==3.4.3
 beautifulsoup4==4.12.2
 bing_image_downloader==1.1.2
@@ -32,7 +32,7 @@ pykeyboard==0.1.5
 pynewtonmath==1.0.1
 pyrate-limiter==2.10.0
 pyrogram==2.0.106
-python-telegram-bot==12.8
+python-telegram-bot==13.15
 regex==2023.5.5
 requests==2.31.0
 secureme==0.0.4

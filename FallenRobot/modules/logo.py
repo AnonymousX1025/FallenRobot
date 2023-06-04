@@ -247,10 +247,10 @@ async def lego(event):
     quew = event.pattern_match.group(1)
     if event.sender_id != OWNER_ID and not quew:
         await event.reply(
-            "ɢɪᴠᴇ sᴏᴍᴇ ᴛᴇxᴛ ᴛᴏ ᴄʀᴇᴀᴛᴇ ʟᴏɢᴏ ʙᴀʙʏ​ !\nExample : `/logo <ANONYMOUS>`"
+            "ɢɪᴠᴇ sᴏᴍᴇ ᴛᴇxᴛ ᴛᴏ ᴄʀᴇᴀᴛᴇ ʟᴏɢᴏ !\nExample : `/logo <ANONYMOUS>`"
         )
         return
-    pesan = await event.reply("**ᴄʀᴇᴀᴛɪɴɢ ʏᴏᴜʀ ʀᴇǫᴜᴇsᴛᴇᴅ ʟᴏɢᴏ ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ ᴀ sᴇᴄ​...**")
+    pesan = await event.reply("**ᴄʀᴇᴀᴛɪɴɢ ʏᴏᴜʀ ʀᴇǫᴜᴇsᴛᴇᴅ ʟᴏɢᴏ ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ ᴀ sᴇᴄ...**")
     try:
         text = event.pattern_match.group(1)
         randc = random.choice(LOGO_LINKS)
@@ -319,10 +319,10 @@ async def lego(event):
             os.remove(fname)
 
 
-__mod_name__ = "Lᴏɢᴏ​"
+__mod_name__ = "Lᴏɢᴏ"
 
 __help__ = """
 I can create some beautiful and attractive logo for your profile pics.
 
-❍ /logo (Text) *:* Create a logo of your given text with random view.
+❍ /logo <text>*:* Create a logo of your given text with random view.
 """

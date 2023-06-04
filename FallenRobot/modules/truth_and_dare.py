@@ -16,8 +16,8 @@ def dare(update: Update, context: CallbackContext):
     update.effective_message.reply_text(dare)
 
 
-TRUTH_HANDLER = DisableAbleCommandHandler("truth", truth)
-DARE_HANDLER = DisableAbleCommandHandler("dare", dare)
+TRUTH_HANDLER = DisableAbleCommandHandler("truth", truth, run_async=True)
+DARE_HANDLER = DisableAbleCommandHandler("dare", dare, run_async=True)
 
 dispatcher.add_handler(TRUTH_HANDLER)
 dispatcher.add_handler(DARE_HANDLER)

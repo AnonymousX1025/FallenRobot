@@ -14,31 +14,27 @@ async def _(event):
     args = event.pattern_match.group(1)
 
     try:
-        geolocator = Nominatim(user_agent="SkittBot")
-        location = args
-        geoloc = geolocator.geocode(location)
-        longitude = geoloc.longitude
-        latitude = geoloc.latitude
-        gm = "https://www.google.com/maps/search/{},{}".format(latitude, longitude)
+        geolocator = Nominatim(user_agent="FallenRobot")
+        geoloc = geolocator.geocode(args)
+        gm = f"https://www.google.com/maps/search/{geoloc.latitude},{geoloc.longitude}"
         await tbot.send_file(
             event.chat_id,
             file=types.InputMediaGeoPoint(
-                types.InputGeoPoint(float(latitude), float(longitude))
+                types.InputGeoPoint(float(geoloc.latitude), float(geoloc.longitude))
             ),
         )
         await event.reply(
-            "Open with: [🌏Google Maps]({})".format(gm),
+            f"ᴏᴘᴇɴ ᴡɪᴛʜ : [🌏ɢᴏᴏɢʟᴇ ᴍᴀᴘs]({gm})",
             link_preview=False,
         )
-    except Exception as e:
-        print(e)
+    except:
         await event.reply("I can't find that")
 
 
 __help__ = """
 Sends you the gps location of the given query...
 
- ❍ /gps <location>*:* Get gps location.
+ ❍ /gps <location> *:* Get gps location.
 """
 
 __mod_name__ = "Gᴘs"

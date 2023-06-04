@@ -2,7 +2,7 @@ import datetime
 import os
 
 from telegram import Update
-from telegram.ext import CallbackContext, CommandHandler, run_async
+from telegram.ext import CallbackContext, CommandHandler
 from telethon import events
 
 from FallenRobot import dispatcher, telethn
@@ -11,7 +11,6 @@ from FallenRobot.modules.helper_funcs.chat_status import dev_plus
 DEBUG_MODE = False
 
 
-@run_async
 @dev_plus
 def debug(update: Update, context: CallbackContext):
     global DEBUG_MODE
@@ -49,7 +48,6 @@ async def i_do_nothing_yes(event):
                 )
 
 
-@run_async
 @dev_plus
 def logs(update: Update, context: CallbackContext):
     user = update.effective_user
@@ -57,8 +55,8 @@ def logs(update: Update, context: CallbackContext):
         context.bot.send_document(document=f, filename=f.name, chat_id=user.id)
 
 
-LOG_HANDLER = CommandHandler("logs", logs)
-DEBUG_HANDLER = CommandHandler("debug", debug)
+LOG_HANDLER = CommandHandler("logs", logs, run_async=True)
+DEBUG_HANDLER = CommandHandler("debug", debug, run_async=True)
 
 dispatcher.add_handler(LOG_HANDLER)
 dispatcher.add_handler(DEBUG_HANDLER)
