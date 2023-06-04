@@ -3,12 +3,7 @@ from time import sleep
 
 from telegram import TelegramError, Update
 from telegram.error import BadRequest, Unauthorized
-from telegram.ext import (
-    CallbackContext,
-    CommandHandler,
-    Filters,
-    MessageHandler,
-)
+from telegram.ext import CallbackContext, CommandHandler, Filters, MessageHandler
 
 import FallenRobot.modules.sql.users_sql as sql
 from FallenRobot import DEV_USERS, LOGGER, OWNER_ID, dispatcher
@@ -173,7 +168,9 @@ __help__ = ""  # no help string
 BROADCAST_HANDLER = CommandHandler(
     ["broadcastall", "broadcastusers", "broadcastgroups"], broadcast, run_async=True
 )
-USER_HANDLER = MessageHandler(Filters.all & Filters.chat_type.groups, log_user, run_async=True)
+USER_HANDLER = MessageHandler(
+    Filters.all & Filters.chat_type.groups, log_user, run_async=True
+)
 CHAT_CHECKER_HANDLER = MessageHandler(
     Filters.all & Filters.chat_type.groups, chat_checker, run_async=True
 )
