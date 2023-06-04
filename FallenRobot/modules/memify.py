@@ -6,8 +6,6 @@ from PIL import Image, ImageDraw, ImageFont
 from FallenRobot import telethn as bot
 from FallenRobot.events import register
 
-Credit = "AnonymousX1025"
-
 
 @register(pattern="^/mmf ?(.*)")
 async def handler(event):
@@ -29,12 +27,6 @@ async def handler(event):
     file = await bot.download_media(reply_message)
 
     msg = await event.reply("```Memifying this image! ✊🏻 ```")
-
-    if "AnonymousX1025" in Credit:
-        pass
-
-    else:
-        await event.reply("This nigga removed credit line from code")
 
     text = str(event.pattern_match.group(1)).strip()
 
