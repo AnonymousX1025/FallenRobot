@@ -8,6 +8,7 @@ from FallenRobot import pbot
 
 ##TO-DO
 
+
 @pbot.on_message(filters.command(["wall", "wallpaper"]))
 async def wall(_, message: Message):
     try:
