@@ -527,11 +527,11 @@ def devlist(update: Update, context: CallbackContext):
 
 
 __help__ = f"""
-*⚠️ ɴᴏᴛɪᴄᴇ:*
-ᴄᴏᴍᴍᴀɴᴅs ʟɪsᴛᴇᴅ ʜᴇʀᴇ ᴏɴʟʏ ᴡᴏʀᴋ ғᴏʀ ᴜsᴇʀs ᴡɪᴛʜ sᴘᴇᴄɪᴀʟ ᴀᴄᴄᴇss ᴀʀᴇ ᴍᴀɪɴʟʏ ᴜsᴇᴅ ғᴏʀ ᴛʀᴏᴜʙʟᴇsʜᴏᴏᴛɪɴɢ, ᴅᴇʙᴜɢɢɪɴɢ ᴘᴜʀᴘᴏsᴇs.
-ɢʀᴏᴜᴘ ᴀᴅᴍɪɴs/ɢʀᴏᴜᴘ ᴏᴡɴᴇʀs ᴅᴏ ɴᴏᴛ ɴᴇᴇᴅ ᴛʜᴇsᴇ ᴄᴏᴍᴍᴀɴᴅs. 
+*⚠️ Notice:*
+Commands listed here only work for users with special access are mainly used for troubleshooting, debugging purposes.
+Group admins/group owners do not need these commands.
 
-*ʟɪsᴛ ᴀʟʟ sᴘᴇᴄɪᴀʟ users:*
+*List all special users:*
  ❍ /sudolist*:* Lists all Dragon disasters
  ❍ /supportlist*:* Lists all Demon disasters
  ❍ /tigers*:* Lists all Tigers disasters
