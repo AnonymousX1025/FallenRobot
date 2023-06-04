@@ -298,7 +298,8 @@ def connected(bot: Bot, update: Update, chat, user_id, need_admin=True):
 
 
 CONN_HELP = """
- *ᴀᴄᴛɪᴏɴs ᴀʀᴇ ᴀᴠᴀɪʟᴀʙʟᴇ ᴡɪᴛʜ ᴄᴏɴɴᴇᴄᴛᴇᴅ ɢʀᴏᴜᴘs*:
+ *Actions are available with connected groups :*
+
  • View and edit Notes.
  • View and edit Filters.
  • Get invite link of chat.
