@@ -49,6 +49,8 @@ def convert(update: Update, context: CallbackContext):
             parse_mode=ParseMode.MARKDOWN,
         )
 
+        
+__mod_name__ = "Cᴀsʜ"
 
 __help__ = """
 Converts money from one exchange to another
@@ -59,6 +61,7 @@ Example: /cash 20 USD INR
 
 CONVERTER_HANDLER = CommandHandler("cash", convert, run_async=True)
 dispatcher.add_handler(CONVERTER_HANDLER)
+
 __command_list__ = ["cash"]
 
 __handlers__ = [CONVERTER_HANDLER]
