@@ -138,7 +138,7 @@ def chatbot(update: Update, context: CallbackContext):
 
 
 __help__ = f"""
-*{BOT_NAME} has an chatbot which provides you a seemingless chatting experience :**
+*{BOT_NAME} has an chatbot which provides you a seemingless chatting experience :*
 
  »  /chatbot *:* Shows chatbot control panel
 """
