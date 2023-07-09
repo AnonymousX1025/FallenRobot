@@ -71,7 +71,7 @@ async def drawText(image_path, text):
 
     if upper_text:
         for u_text in textwrap.wrap(upper_text, width=15):
-            u_width, u_height = draw.textsize(u_text, font=m_font)
+            u_width, u_height = draw.getbbox(u_text, font=m_font)
 
             draw.text(
                 xy=(((i_width - u_width) / 2) - 2, int((current_h / 640) * i_width)),
@@ -112,7 +112,7 @@ async def drawText(image_path, text):
 
     if lower_text:
         for l_text in textwrap.wrap(lower_text, width=15):
-            u_width, u_height = draw.textsize(l_text, font=m_font)
+            u_width, u_height = draw.getbbox(l_text, font=m_font)
 
             draw.text(
                 xy=(
