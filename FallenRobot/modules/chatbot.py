@@ -108,7 +108,7 @@ def fallen_message(context: CallbackContext, message):
     reply_message = message.reply_to_message
     if message.text.lower() == "fallen":
         return True
-    elif BOT_USERNAME in message.text.upper():
+    elif BOT_USERNAME in message.text:
         return True
     elif reply_message:
         if reply_message.from_user.id == BOT_ID:
