@@ -13,7 +13,7 @@ def handwrite(update: Update, context: CallbackContext):
     else:
         text = update.effective_message.text.split(None, 1)[1]
     m = message.reply_text("Writing the text...")
-    req = requests.get(f"https://api.sdbots.tk/write?text={text}").url
+    req = requests.get(f"https://apis.xditya.me/write?text={text}").url
     message.reply_photo(
         photo=req,
         caption=f"""
@@ -21,16 +21,8 @@ Successfully Written Text 💘
 
 ✨ **Written By :** [{BOT_NAME}](https://t.me/{BOT_USERNAME})
 🥀 **Requested by :** {update.effective_user.first_name}
-❄ **Link :** `{req}`""",
-        parse_mode=ParseMode.MARKDOWN,
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton("• ᴛᴇʟᴇɢʀᴀᴩʜ •", url=req),
-                ],
-            ]
-        ),
-    )
+""",
+        parse_mode=ParseMode.MARKDOWN)
     m.delete()
 
 
