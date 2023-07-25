@@ -41,6 +41,7 @@ LOCK_TYPES = {
     "location": Filters.location,
     "egame": Filters.dice,
     "rtl": "rtl",
+    "mnr": "mnr",
     "button": "button",
     "inline": "inline",
 }
@@ -385,6 +386,31 @@ def del_lockables(update, context):
                                 LOGGER.exception("ERROR in lockables")
                         break
             continue
+        if lockable == "mnr":
+            if sql.is_locked(chat.id, lockable) and can_delete(chat, context.bot.id):
+                if message.caption:
+                    check = al_detect("{}".format(message.caption))
+                    if "MYANMAR" in check:
+                        try:
+                            message.delete()
+                        except BadRequest as excp:
+                            if excp.message == "Message to delete not found":
+                                pass
+                            else:
+                                LOGGER.exception("ERROR in lockables")
+                        break
+                if message.text:
+                    check = al_detect("{}".format(message.text))
+                    if "MYANMAR" in check:
+                        try:
+                            message.delete()
+                        except BadRequest as excp:
+                            if excp.message == "Message to delete not found":
+                                pass
+                            else:
+                                LOGGER.exception("ERROR in lockables")
+                        break
+            continue
         if lockable == "button":
             if sql.is_locked(chat.id, lockable) and can_delete(chat, context.bot.id):
                 if message.reply_markup and message.reply_markup.inline_keyboard:
@@ -466,6 +492,7 @@ def build_lock_message(chat_id):
             locklist.append("game = `{}`".format(locks.game))
             locklist.append("location = `{}`".format(locks.location))
             locklist.append("rtl = `{}`".format(locks.rtl))
+            locklist.append("mnr = `{}`".format(locks.mnr))
             locklist.append("button = `{}`".format(locks.button))
             locklist.append("egame = `{}`".format(locks.egame))
             locklist.append("inline = `{}`".format(locks.inline))
