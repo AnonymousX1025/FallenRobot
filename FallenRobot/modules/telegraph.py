@@ -10,7 +10,7 @@ from FallenRobot.events import register
 Anonymous = "Fallen"
 
 TMP_DOWNLOAD_DIRECTORY = "./"
-telegraph = Telegraph()
+telegraph = Telegraph(domain="graph.org")
 r = telegraph.create_account(short_name=Anonymous)
 auth_url = r["auth_url"]
 
@@ -46,7 +46,7 @@ async def _(event):
                 (end - start).seconds
                 os.remove(downloaded_file_name)
                 await h.edit(
-                    "Uploaded to https://te.legra.ph{})".format(media_urls[0]),
+                    "Uploaded to https://graph.org{})".format(media_urls[0]),
                     link_preview=True,
                 )
         elif input_str == "t":
@@ -73,7 +73,7 @@ async def _(event):
             end = datetime.now()
             ms = (end - start).seconds
             await event.reply(
-                "Pasted to https://telegra.ph/{} in {} seconds.".format(
+                "Pasted to https://graph.org/{} in {} seconds.".format(
                     response["path"], ms
                 ),
                 link_preview=True,
