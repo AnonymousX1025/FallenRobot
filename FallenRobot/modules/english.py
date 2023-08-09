@@ -65,7 +65,7 @@ async def _(event):
 
 @register(pattern="^/antonyms")
 async def _(event):
-    text = message.text[len("/antonyms ") :]
+    text = event.text[len("/antonyms ") :]
     word = f"{text}"
     let = dictionary.antonym(word)
     set = str(let)
