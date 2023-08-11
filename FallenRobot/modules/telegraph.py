@@ -73,7 +73,7 @@ async def _(event):
             end = datetime.now()
             ms = (end - start).seconds
             await event.reply(
-                "Pasted to https://telegra.ph/{} in {} seconds.".format(
+                "Pasted to https://te.legra.ph/{} in {} seconds.".format(
                     response["path"], ms
                 ),
                 link_preview=True,
