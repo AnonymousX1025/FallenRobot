@@ -2,8 +2,6 @@ import json
 
 import requests
 from PyDictionary import PyDictionary
-from telethon import *
-from telethon.tl.types import *
 
 from FallenRobot.events import register
 
