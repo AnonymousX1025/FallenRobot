@@ -43,3 +43,4 @@ telegraph==2.2.0
 telethon==1.29.3
 tgcrypto==1.2.5
 wikipedia==1.4.0
+redis
