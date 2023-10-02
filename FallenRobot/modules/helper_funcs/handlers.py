@@ -1,9 +1,4 @@
-from pyrate_limiter import (
-    BucketFullException,
-    Duration,
-    Limiter,
-    Rate,
-)
+from pyrate_limiter import BucketFullException, Duration, Limiter, Rate
 from telegram import Update
 from telegram.ext import CommandHandler, Filters, MessageHandler, RegexHandler
 
