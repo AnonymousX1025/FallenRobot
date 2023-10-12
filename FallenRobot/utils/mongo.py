@@ -43,10 +43,12 @@ async def is_user(user_id: int) -> bool:
     else:
         return False
 
+
 async def add_user(user_id: int, api: str):
     user = await is_user(user_id)
     if not user:
         return await tokendb.insert_one({"user_id": user_id, "api": api})
+
 
 async def remove_user(user_id: int, api: str):
     user = await is_user(user_id)
