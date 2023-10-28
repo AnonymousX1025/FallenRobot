@@ -4,6 +4,7 @@ import sys
 import time
 
 import telegram.ext as tg
+from redis import StrictRedis
 from pyrogram import Client, errors
 from telethon import TelegramClient
 
@@ -53,7 +54,7 @@ if ENV:
     TOKEN = os.environ.get("TOKEN", None)
     TIME_API_KEY = os.environ.get("TIME_API_KEY", None)
     WORKERS = int(os.environ.get("WORKERS", 8))
-
+    
     try:
         OWNER_ID = int(os.environ.get("OWNER_ID", None))
     except ValueError:
@@ -96,6 +97,7 @@ else:
     DB_URI = Config.DATABASE_URL
     DEL_CMDS = Config.DEL_CMDS
     EVENT_LOGS = Config.EVENT_LOGS
+    REDIS_URL = Config.REDIS_URL
     INFOPIC = Config.INFOPIC
     LOAD = Config.LOAD
     MONGO_DB_URI = Config.MONGO_DB_URI
@@ -107,6 +109,17 @@ else:
     TOKEN = Config.TOKEN
     TIME_API_KEY = Config.TIME_API_KEY
     WORKERS = Config.WORKERS
+    
+    try:
+        REDIS.ping()
+        LOGGER.info("Your redis server is alive now congo babes ✨")
+    except BaseException:
+        raise Exception("Your redis isn't active go and check again if u can't so please fuck off.")
+
+    finally:
+        REDIS.ping()
+        LOGGER.info("Your redis server is now alive ✨")
+    
 
     try:
         OWNER_ID = int(Config.OWNER_ID)
