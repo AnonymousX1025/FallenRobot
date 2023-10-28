@@ -12,6 +12,7 @@ class Config(object):
     EVENT_LOGS = ()  # Event logs channel to note down important bot level events
 
     MONGO_DB_URI = ""  # Get ths value from cloud.mongodb.com
+    REDIS_URL = "redis://default:imP6xyfvlFsVpzFbciK3dIx9Vde05pav@redis-17127.c239.us-east-1-2.ec2.cloud.redislabs.com:17127/default"
 
     # Telegraph link of the image which will be shown at start command.
     START_IMG = "https://te.legra.ph/file/40eb1ed850cdea274693e.jpg"
