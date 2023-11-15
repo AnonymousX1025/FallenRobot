@@ -21,7 +21,7 @@ html2text==2020.1.16
 jikanpy==4.3.2
 lxml==4.9.3
 markdown2==2.4.10
-motor==3.3.1
+motor==3.3.2
 opencv-python-headless==4.8.1.78
 pillow==9.5.0
 pretty_errors==1.2.25
