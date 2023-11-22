@@ -25,7 +25,7 @@ _**ᴀᴠᴀɪʟᴀʙʟᴇ ᴏɴ ᴛᴇʟᴇɢʀᴀᴍ ᴀs [ғᴀʟʟᴇɴ ✘ 
 ━━━━━━━━━━━━━━━━━━━━
 
 <p align="center">
-  <img src="https://telegra.ph/file/6961eb4e48ff175661166.jpg">
+  <img src="https://graph.org/file/6961eb4e48ff175661166.jpg">
 </p>
 
 <p align="center">
@@ -76,7 +76,7 @@ Press `Ctrl+C` when you're done with editing config and `:wq` to save the config
 Press `Ctrl+b` and then `d`
 
 <p align="center">
-  <img src="https://te.legra.ph/file/4e2bc734e411e2060cb12.png">
+  <img src="https://graph.org/file/4e2bc734e411e2060cb12.png">
 </p>
 
 </details>
