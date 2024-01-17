@@ -2,7 +2,7 @@ aiofiles==23.2.1
 aiohttp==3.8.6
 apscheduler==3.6.3
 asyncio==3.4.3
-beautifulsoup4==4.12.2
+beautifulsoup4==4.12.3
 bing_image_downloader==1.1.2
 bleach==6.1.0
 bs4==0.0.1
