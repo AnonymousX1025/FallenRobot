@@ -345,17 +345,21 @@ def reply_filter(update, context):
                                 if message.from_user.last_name
                                 else [escape(message.from_user.first_name)]
                             ),
-                            username="@" + escape(message.from_user.username)
-                            if message.from_user.username
-                            else mention_html(
-                                message.from_user.id, message.from_user.first_name
+                            username=(
+                                "@" + escape(message.from_user.username)
+                                if message.from_user.username
+                                else mention_html(
+                                    message.from_user.id, message.from_user.first_name
+                                )
                             ),
                             mention=mention_html(
                                 message.from_user.id, message.from_user.first_name
                             ),
-                            chatname=escape(message.chat.title)
-                            if message.chat.type != "private"
-                            else escape(message.from_user.first_name),
+                            chatname=(
+                                escape(message.chat.title)
+                                if message.chat.type != "private"
+                                else escape(message.from_user.first_name)
+                            ),
                             id=message.from_user.id,
                         )
                     else:
