@@ -123,10 +123,12 @@ def get(update, context, notename, show_none=True, no_format=False):
                             else [message.from_user.first_name]
                         )
                     ),
-                    username="@" + message.from_user.username
-                    if message.from_user.username
-                    else mention_markdown(
-                        message.from_user.id, message.from_user.first_name
+                    username=(
+                        "@" + message.from_user.username
+                        if message.from_user.username
+                        else mention_markdown(
+                            message.from_user.id, message.from_user.first_name
+                        )
                     ),
                     mention=mention_markdown(
                         message.from_user.id, message.from_user.first_name

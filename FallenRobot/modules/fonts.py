@@ -63,9 +63,7 @@ async def nxt(c, m):
             [
                 InlineKeyboardButton("🇸 🇵 🇪 🇨 🇮 🇦 🇱 ", callback_data="style+special"),
                 InlineKeyboardButton("🅂🅀🅄🄰🅁🄴🅂", callback_data="style+squares"),
-                InlineKeyboardButton(
-                    "🆂︎🆀︎🆄︎🅰︎🆁︎🅴︎🆂︎", callback_data="style+squares_bold"
-                ),
+                InlineKeyboardButton("🆂︎🆀︎🆄︎🅰︎🆁︎🅴︎🆂︎", callback_data="style+squares_bold"),
             ],
             [
                 InlineKeyboardButton("ꪖꪀᦔꪖꪶꪊᥴ𝓲ꪖ", callback_data="style+andalucia"),
@@ -73,12 +71,8 @@ async def nxt(c, m):
                 InlineKeyboardButton("S̾t̾i̾n̾k̾y̾", callback_data="style+stinky"),
             ],
             [
-                InlineKeyboardButton(
-                    "B̥ͦu̥ͦb̥ͦb̥ͦl̥ͦe̥ͦs̥ͦ", callback_data="style+bubbles"
-                ),
-                InlineKeyboardButton(
-                    "U͟n͟d͟e͟r͟l͟i͟n͟e͟", callback_data="style+underline"
-                ),
+                InlineKeyboardButton("B̥ͦu̥ͦb̥ͦb̥ͦl̥ͦe̥ͦs̥ͦ", callback_data="style+bubbles"),
+                InlineKeyboardButton("U͟n͟d͟e͟r͟l͟i͟n͟e͟", callback_data="style+underline"),
                 InlineKeyboardButton("꒒ꍏꀷꌩꌃꀎꁅ", callback_data="style+ladybug"),
             ],
             [
@@ -88,9 +82,7 @@ async def nxt(c, m):
             ],
             [
                 InlineKeyboardButton("s⃠t⃠o⃠p⃠", callback_data="style+stop"),
-                InlineKeyboardButton(
-                    "S̺͆k̺͆y̺͆l̺͆i̺͆n̺͆e̺͆", callback_data="style+skyline"
-                ),
+                InlineKeyboardButton("S̺͆k̺͆y̺͆l̺͆i̺͆n̺͆e̺͆", callback_data="style+skyline"),
                 InlineKeyboardButton("A͎r͎r͎o͎w͎s͎", callback_data="style+arrows"),
             ],
             [
