@@ -260,7 +260,8 @@ async def lego(event):
         fnt = glob.glob("./FallenRobot/resources/fonts/*")
         randf = random.choice(fnt)
         font = ImageFont.truetype(randf, 120)
-        w, h = draw.textsize(text, font=font)
+        lw, th, rw, bh = font.getbbox(text)
+        w, h = rw-lw, bh-th
         h += int(h * 0.21)
         image_width, image_height = img.size
         draw.text(
@@ -293,7 +294,8 @@ async def lego(event):
         fnt = glob.glob("./FallenRobot/resources/fonts/*")
         randf = random.choice(fnt)
         font = ImageFont.truetype(randf, 120)
-        w, h = draw.textsize(text, font=font)
+        lw, th, rw, bh = font.getbbox(text)
+        w, h = rw-lw, bh-th
         h += int(h * 0.21)
         image_width, image_height = img.size
         draw.text(
