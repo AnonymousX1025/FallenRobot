@@ -41,6 +41,7 @@ def stickerid(update: Update, context: CallbackContext):
             + ", The sticker id you are replying is :\n <code>"
             + escape(msg.reply_to_message.sticker.file_id)
             + "</code>",
+            disable_web_page_preview=True,
             parse_mode=ParseMode.HTML,
         )
     else:
@@ -48,6 +49,7 @@ def stickerid(update: Update, context: CallbackContext):
             "Hello "
             + f"{mention_html(msg.from_user.id, msg.from_user.first_name)}"
             + ", Please reply to sticker message to get id sticker",
+            disable_web_page_preview=True,
             parse_mode=ParseMode.HTML,
         )
 
@@ -180,6 +182,7 @@ def kang(update: Update, context: CallbackContext):
                 msg.reply_text(
                     f"Sticker successfully added to [pack](t.me/addstickers/{packname})"
                     + f"\nEmoji is: {sticker_emoji}",
+                    disable_web_page_preview=True,
                     parse_mode=ParseMode.MARKDOWN,
                 )
 
@@ -211,6 +214,7 @@ def kang(update: Update, context: CallbackContext):
                     msg.reply_text(
                         f"Sticker successfully added to [pack](t.me/addstickers/{packname})"
                         + f"\nEmoji is: {sticker_emoji}",
+                        disable_web_page_preview=True,
                         parse_mode=ParseMode.MARKDOWN,
                     )
                 elif e.message == "Invalid sticker emojis":
@@ -223,6 +227,7 @@ def kang(update: Update, context: CallbackContext):
                         % packname
                         + "\n"
                         "Emoji is:" + " " + sticker_emoji,
+                        disable_web_page_preview=True,
                         parse_mode=ParseMode.MARKDOWN,
                     )
                 print(e)
@@ -258,6 +263,7 @@ def kang(update: Update, context: CallbackContext):
                 msg.reply_text(
                     f"Sticker successfully added to [pack](t.me/addstickers/{packname})"
                     + f"\nEmoji is: {sticker_emoji}",
+                    disable_web_page_preview=True,
                     parse_mode=ParseMode.MARKDOWN,
                 )
             except TelegramError as e:
@@ -280,6 +286,7 @@ def kang(update: Update, context: CallbackContext):
                         % packname
                         + "\n"
                         "Emoji is:" + " " + sticker_emoji,
+                        disable_web_page_preview=True,
                         parse_mode=ParseMode.MARKDOWN,
                     )
                 print(e)
@@ -323,6 +330,7 @@ def kang(update: Update, context: CallbackContext):
             msg.reply_text(
                 f"Sticker successfully added to [pack](t.me/addstickers/{packname})"
                 + f"\nEmoji is: {sticker_emoji}",
+                disable_web_page_preview=True,
                 parse_mode=ParseMode.MARKDOWN,
             )
         except OSError as e:
@@ -356,6 +364,7 @@ def kang(update: Update, context: CallbackContext):
                     + "Emoji is:"
                     + " "
                     + sticker_emoji,
+                    disable_web_page_preview=True,
                     parse_mode=ParseMode.MARKDOWN,
                 )
             elif e.message == "Invalid sticker emojis":
@@ -368,6 +377,7 @@ def kang(update: Update, context: CallbackContext):
                     % packname
                     + "\n"
                     "Emoji is:" + " " + sticker_emoji,
+                    disable_web_page_preview=True,
                     parse_mode=ParseMode.MARKDOWN,
                 )
             print(e)
@@ -382,7 +392,7 @@ def kang(update: Update, context: CallbackContext):
                     packs += f"[pack{i}](t.me/addstickers/{packname})\n"
         else:
             packs += f"[pack](t.me/addstickers/{packname})"
-        msg.reply_text(packs, parse_mode=ParseMode.MARKDOWN)
+        msg.reply_text(packs, disable_web_page_preview=True, parse_mode=ParseMode.MARKDOWN)
     try:
         if os.path.isfile("kangsticker.png"):
             os.remove("kangsticker.png")
@@ -431,6 +441,7 @@ def makepack_internal(
         if e.message == "Sticker set name is already occupied":
             msg.reply_text(
                 "Your pack can be found [here](t.me/addstickers/%s)" % packname,
+                disable_web_page_preview=True,
                 parse_mode=ParseMode.MARKDOWN,
             )
         elif e.message in ("Peer_id_invalid", "bot was blocked by the user"):
@@ -450,6 +461,7 @@ def makepack_internal(
             msg.reply_text(
                 "Sticker pack successfully created. Get it [here](t.me/addstickers/%s)"
                 % packname,
+                disable_web_page_preview=True,
                 parse_mode=ParseMode.MARKDOWN,
             )
         return
@@ -458,6 +470,7 @@ def makepack_internal(
         msg.reply_text(
             "Sticker pack successfully created. Get it [here](t.me/addstickers/%s)"
             % packname,
+            disable_web_page_preview=True,
             parse_mode=ParseMode.MARKDOWN,
         )
     else:
