@@ -1,8 +1,8 @@
 import math
 import os
-from io import BytesIO
 import urllib.request as urllib
 from html import escape
+from io import BytesIO
 
 import requests
 from bs4 import BeautifulSoup as bs
@@ -23,6 +23,7 @@ from FallenRobot.modules.disable import DisableAbleCommandHandler
 
 combot_stickers_url = "https://combot.org/telegram/stickers?q="
 
+
 def sticker_count(bot: Bot, pname: str) -> int:
     hmm = bot._request.post(
         f"{bot.base_url}/getStickerSet",
@@ -31,6 +32,7 @@ def sticker_count(bot: Bot, pname: str) -> int:
         },
     )
     return len(hmm["stickers"])
+
 
 def stickerid(update: Update, context: CallbackContext):
     msg = update.effective_message
@@ -392,7 +394,9 @@ def kang(update: Update, context: CallbackContext):
                     packs += f"[pack{i}](t.me/addstickers/{packname})\n"
         else:
             packs += f"[pack](t.me/addstickers/{packname})"
-        msg.reply_text(packs, disable_web_page_preview=True, parse_mode=ParseMode.MARKDOWN)
+        msg.reply_text(
+            packs, disable_web_page_preview=True, parse_mode=ParseMode.MARKDOWN
+        )
     try:
         if os.path.isfile("kangsticker.png"):
             os.remove("kangsticker.png")
