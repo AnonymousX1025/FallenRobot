@@ -8,7 +8,7 @@ bleach==6.1.0
 bs4==0.0.2
 cachetools==4.2.2
 countryinfo==0.1.2
-currencyconverter==0.17.20
+currencyconverter==0.17.21
 dateparser==1.2.0
 emoji==2.11.1
 emoji-country-flag==1.3.2
