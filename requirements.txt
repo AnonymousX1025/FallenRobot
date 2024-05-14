@@ -33,7 +33,7 @@ pynewtonmath==1.0.1
 pyrate-limiter==3.1.0
 pyrogram==2.0.106
 python-telegram-bot==13.15
-regex==2024.4.16
+regex==2024.5.10
 requests==2.31.0
 secureme==0.0.4
 search_engine_parser==0.6.8
