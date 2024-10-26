@@ -23,7 +23,7 @@ lxml==4.9.4
 markdown2==2.5.1
 motor==3.6.0
 opencv-python-headless==4.10.0.84
-pillow==10.2.0
+pillow==11.0.0
 pretty_errors==1.2.25
 psutil==6.1.0
 psycopg2-binary==2.9.10
