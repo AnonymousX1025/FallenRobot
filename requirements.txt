@@ -4,7 +4,7 @@ apscheduler==3.6.3
 asyncio==3.4.3
 beautifulsoup4==4.12.3
 bing_image_downloader==1.1.2
-bleach==6.1.0
+bleach==6.2.0
 bs4==0.0.2
 cachetools==4.2.2
 countryinfo==0.1.2
