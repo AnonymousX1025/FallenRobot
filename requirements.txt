@@ -25,7 +25,7 @@ motor==3.6.0
 opencv-python-headless==4.10.0.84
 pillow==11.0.0
 pretty_errors==1.2.25
-psutil==6.1.0
+psutil==6.1.1
 psycopg2-binary==2.9.10
 pydictionary==2.0.1
 pykeyboard==0.1.5
