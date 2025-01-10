@@ -15,7 +15,7 @@ emoji-country-flag==2.0.1
 feedparser==6.0.11
 future==1.0.0
 geopy==2.4.1
-gpytranslate==1.5.1
+gpytranslate==2.0.0
 hachoir==3.3.0
 html2text==2024.2.26
 jikanpy==4.3.2
