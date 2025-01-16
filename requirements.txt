@@ -9,7 +9,7 @@ cachetools==4.2.2
 countryinfo==0.1.2
 currencyconverter==0.18.2
 dateparser==1.2.0
-emoji==2.14.0
+emoji==2.14.1
 emoji-country-flag==2.0.1
 feedparser==6.0.11
 future==1.0.0
