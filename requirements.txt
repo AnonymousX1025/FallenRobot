@@ -16,7 +16,7 @@ future==1.0.0
 geopy==2.4.1
 gpytranslate==2.0.0
 hachoir==3.3.0
-html2text==2024.2.26
+html2text==2025.4.15
 jikanpy==4.3.2
 lxml==4.9.4
 markdown2==2.5.3
