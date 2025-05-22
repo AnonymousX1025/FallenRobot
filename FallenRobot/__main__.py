@@ -28,13 +28,13 @@ from telethon import __version__ as tlhver
 
 import FallenRobot.modules.sql.users_sql as sql
 from FallenRobot import (
-    BOT_NAME,
-    BOT_USERNAME,
-    LOGGER,
-    OWNER_ID,
+    DarkXmusicBot,
+    DarkXmusicRooBot,
+    4830372686,
+    7864928204,
     START_IMG,
-    SUPPORT_CHAT,
-    TOKEN,
+    4830372686,
+    8098449558:AAHjYuRTSl3UOQ1d0D2C_W8hI5nguoap_B0,
     StartTime,
     dispatcher,
     pbot,
@@ -409,7 +409,7 @@ def Fallen_about_callback(update: Update, context: CallbackContext):
                         ),
                         InlineKeyboardButton(
                             text="ɢɪᴛʜᴜʙ",
-                            url="https://github.com/AnonymousX1025",
+                            url="https://github.com/AnnymousX1025",
                         ),
                     ],
                     [
