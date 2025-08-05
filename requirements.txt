@@ -1,6 +1,6 @@
 aiofiles==24.1.0
 apscheduler==3.6.3
-asyncio==3.4.3
+asyncio==4.0.0
 beautifulsoup4==4.13.4
 bleach==6.2.0
 bs4==0.0.2
