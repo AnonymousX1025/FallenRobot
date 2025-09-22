@@ -6,7 +6,7 @@ bs4==0.0.2
 cachetools==4.2.2
 countryinfo==0.1.2
 emoji==2.15.0
-emoji-country-flag==2.0.1
+emoji-country-flag==2.1.0
 gpytranslate==2.0.0
 hachoir==3.3.0
 lxml==4.9.4
