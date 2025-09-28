@@ -1,6 +1,6 @@
 aiofiles==24.1.0
 apscheduler==3.6.3
-beautifulsoup4==4.13.5
+beautifulsoup4==4.14.0
 bleach==6.2.0
 bs4==0.0.2
 cachetools==4.2.2
