@@ -1,4 +1,4 @@
-aiofiles==24.1.0
+aiofiles==25.1.0
 apscheduler==3.6.3
 beautifulsoup4==4.14.2
 bleach==6.3.0
